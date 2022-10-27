@@ -1,0 +1,16 @@
+{
+  "name": "VueThreeGsap",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@splinetool/loader": "^0.9.117",
+    "gridsome": "^0.7.0",
+    "gsap": "^3.11.2",
+    "smooth-scrollbar": "^8.8.1",
+    "three": "^0.145.0"
+  }
+}
