@@ -1,5 +1,13 @@
 <template>
+  <div>
     <div class="ball"></div>
+    <div class="bgMouseFollow">
+      <div class="lightsWrapper">
+        <g-image class="greenLight" src="@/assets/greenLight.png"></g-image>
+        <g-image class="blueLight" src="@/assets/blueLight.png"></g-image>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

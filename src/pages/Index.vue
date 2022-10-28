@@ -1,17 +1,11 @@
 <template>
   <Layout>
     <Cursorfollow />
-    <div class="bgMouseFollow">
-      <div class="lightsWrapper">
-        <g-image class="greenLight" src="@/assets/greenLight.png"></g-image>
-        <g-image class="blueLight" src="@/assets/blueLight.png"></g-image>
-      </div>
-    </div>
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
           <h1 class="animateHeadline animateFadeInUp">WIR MACHEN DICH SICHTBAR</h1>
-          <baseButton class="animateFadeInUpSecond" :title="'Mehr erfahren'"></baseButton>
+          <baseButton class="animateFadeInUpSecond" :title="'Mehr erfahren'" :linkTo="'about'"></baseButton>
         </div>
         <div class="logos animateFadeInUpThird">
           <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
@@ -23,7 +17,6 @@
       </div>
 
       <div id="two" class="container section-two">
-
         <section class="panel">
           <div>
           </div>
@@ -341,5 +334,11 @@ div.logos img{
   height: 80vw;
   width: 80%;
   z-index: 0;
+}
+
+.headline{
+  position: absolute;
+  top:30px;
+  left: 30px;
 }
 </style>

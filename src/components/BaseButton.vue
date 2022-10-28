@@ -1,10 +1,12 @@
 <template>
   <div class="button-wrap">
-    <div class="icon-wrap">
-      <div class="button-icon">
-        {{ title }}
+    <g-link :to="'/' + linkTo">
+      <div class="icon-wrap">
+        <div class="button-icon">
+          {{ title }}
+        </div>
       </div>
-    </div>
+    </g-link>
   </div>
 </template>
 
@@ -13,6 +15,7 @@ export default {
   name: "BaseButton",
   props: {
     title: String,
+    linkTo: String
   },
 }
 </script>

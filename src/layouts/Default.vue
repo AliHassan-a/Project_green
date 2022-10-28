@@ -1,15 +1,10 @@
 <template>
   <div class="layout">
-    <header class="header">
-      <g-image src="@/assets/logo.png"></g-image>
-      <Menu />
-    </header>
     <slot/>
   </div>
 </template>
 
 <script>
-import Menu from "../components/Menu";
 
 export default {
   name: "default",
@@ -18,9 +13,6 @@ export default {
       data: "123",
     }
   },
-  components: {
-    Menu,
-  }
 }
 </script>
 
@@ -44,19 +36,4 @@ body {
   background: #011713;
 }
 
-.layout {
-  margin: 0 auto;
-}
-
-.header {
-  position: fixed;
-  width: 100%;
-  background: transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-  z-index: 999999;
-}
 </style>
