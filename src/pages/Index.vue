@@ -4,8 +4,9 @@
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-          <h1 class="animateHeadline animateFadeInUp">WIR MACHEN DICH SICHTBAR</h1>
-          <baseButton class="animateFadeInUpSecond" :title="'Mehr erfahren'" :linkTo="'about'"></baseButton>
+          <h2 class="animateFadeInUp">Wir sorgen dafür, dass dein</h2>
+          <h1 class="animateFadeInUp bgColor">Unternehmen entdeckt wird.</h1>
+          <baseButton class="animateFadeInUpSecond" :title="'Sichtbar machen'" :linkTo="'kontakt'"></baseButton>
         </div>
         <div class="logos animateFadeInUpThird">
           <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
@@ -65,17 +66,9 @@ import BaseButton from "../components/BaseButton";
 
 
 export default {
-  metaInfo: {
-    title: 'Hello, world!',
-  },
   components: {
     Cursorfollow,
     BaseButton,
-  },
-  data: function() {
-    return {
-      scene: null,
-    }
   },
   mounted() {
     //// HORIZONTAL ////
@@ -174,23 +167,6 @@ section {
   position: relative;
 }
 
-.scene.one {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 0;
-  animation-name: fadeIn;
-  animation-duration: 2s;
-}
-
-h1, h2, h3, h4, p {
-  color: white;
-  font-size:45px;
-  font-weight: 800;
-  margin-bottom: 0;
-  text-align: center;
-}
-
 .panel{
   display: flex;
   justify-content: center;
@@ -245,47 +221,6 @@ h1, h2, h3, h4, p {
   flex-direction: column;
   width: 50%;
   height: 100vh;
-}
-
-/* animation test */
-.animateFadeInUp, .animateFadeInUpSecond, .animateFadeInUpThird{
-  opacity: 0;
-}
-.activeContent{
-  animation-name: fadeInUp;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards;
-}
-.activeContentSecond{
-  animation-name: fadeInUp;
-  animation-delay: 0.8s;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards;
-}
-.activeContentThird{
-  animation-name: fadeInUp;
-  animation-delay: 1.6s;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 /*// content //*/
 

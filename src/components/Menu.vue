@@ -331,169 +331,9 @@ main {
   transform: translate3d(0,100%,0);
 }
 
-.menu__item-map {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  /*background: url(../img/2.jpg) no-repeat 50% 50%;*/
-  background-size: cover;
-  transition: transform 0.8s cubic-bezier(0.2,1,0.8,1);
-}
-
-.menu__item-inner:hover .menu__item-map {
-  transform: scale3d(1.1,1.1,1);
-}
-
-.menu__item-hoverlink {
-  font-weight: bold;
-  text-transform: capitalize;
-  position: relative;
-  z-index: 1000;
-  display: block;
-}
-
-.menu__item-hoverlink:hover {
-  color: var(--color-link);
-}
-
-.quote {
-  font-size: 2rem;
-  padding: 1rem;
-  text-align: center;
-  max-width: 70%;
-  color: var(--color-quote);
-  font-family: "sabbath-black",serif;
-}
-
-.menu__item-link {
-  text-align: left;
-  align-self: flex-start;
-  justify-self: start;
-  font-size: 1.5rem;
-  width: 100%;
-  line-height: 1;
-  padding: 2rem ;
-  margin: 3rem 0 auto;
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 3rem);
-}
-
-.menu__item-link::after {
-  content: '\27F6';
-  display: block;
-  margin-top: auto;
-  font-size: 0.95rem;
-}
-
-.container {
-  cursor: pointer;
-  display: flex;
-}
-
-svg {
-  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.active svg {
-  transform: rotate(90deg);
-}
-path {
-  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
-  stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
-  stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-path:nth-child(1) {
-  transform-origin: 36% 40%;
-}
-path:nth-child(2) {
-  stroke-dasharray: 29 299;
-}
-path:nth-child(3) {
-  transform-origin: 35% 63%;
-}
-path:nth-child(4) {
-  stroke-dasharray: 29 299;
-}
-path:nth-child(5) {
-  transform-origin: 61% 52%;
-}
-path:nth-child(6) {
-  transform-origin: 62% 52%;
-}
-.active path:nth-child(1) {
-  transform: translateX(9px) translateY(1px) rotate(45deg);
-}
-.active path:nth-child(2) {
-  stroke-dasharray: 225 299;
-  stroke-dashoffset: -72px;
-}
-.active path:nth-child(3) {
-  transform: translateX(9px) translateY(1px) rotate(-45deg);
-}
-.active path:nth-child(4) {
-  stroke-dasharray: 225 299;
-  stroke-dashoffset: -72px;
-}
-.active path:nth-child(5) {
-  transform: translateX(9px) translateY(1px) rotate(-45deg);
-}
-.active path:nth-child(6) {
-  transform: translateX(9px) translateY(1px) rotate(45deg);
-}
-
 @media screen and (min-width: 53em) {
   body {
     padding: 0;
-  }
-  .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    min-height: 100vh;
-    text-align: left;
-  }
-  .frame {
-    position: fixed;
-    z-index: 199;
-    top: 0;
-    left: 0;
-    display: grid;
-    align-content: space-between;
-    width: 100%;
-    max-width: none;
-    height: 100vh;
-    padding: 1.5rem;
-    pointer-events: none;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-		'codropsheader info'
-		'... ...'
-		'github ...';
-  }
-  .codrops-header {
-    grid-area: codropsheader;
-    padding: 0;
-    justify-content: start;
-  }
-  .codrops-links {
-    margin: 0;
-  }
-  .frame a {
-    pointer-events: auto;
-  }
-  .github {
-    grid-area: github;
-    justify-self: start;
-  }
-  .info {
-    margin: 0 6rem 0 0;
-    color: var(--color-info);
   }
   .menu {
     width: 100%;
@@ -535,7 +375,6 @@ path:nth-child(6) {
   }
   .label {
     display: block;
-    color: var(--color-item-alt);
     position: absolute;
     z-index: 1000;
     font-size: 0.85rem;
@@ -584,9 +423,6 @@ path:nth-child(6) {
     transition: color 0.3s;
     color: black;
   }
-  .mainmenu__item:hover {
-    color: var(--color-item-alt);
-  }
   .mainmenu__item:hover::after {
     opacity: 1;
     transform: scale3d(1,1,1);
@@ -597,16 +433,6 @@ path:nth-child(6) {
     letter-spacing: 0.15rem;
     font-size: 0.85rem;
     text-align: left;
-  }
-  .menu__item-hoverlink {
-    font-size: 1.25rem;
-    text-transform: lowercase;
-    border-bottom: 2px solid #fff;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .menu__item-inner:hover .menu__item-hoverlink {
-    opacity: 1;
   }
 }
 </style>

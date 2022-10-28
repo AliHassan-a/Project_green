@@ -1,45 +1,148 @@
+/**** main Font *****/
 @font-face {
-    font-family: Cy Black;
+    font-family: Cy;
     src: url('assets/font/CyBlack.ttf');
-    font-weight: normal;
+    font-weight: 900;
 }
 @font-face {
-    font-family: Cy Bold;
+    font-family: Cy;
+    src: url('assets/font/CyExtraBold.ttf');
+    font-weight: 800;
+}
+@font-face {
+    font-family: Cy;
     src: url('assets/font/CyBold.ttf');
-    font-weight: normal;
+    font-weight: 700;
 }
 @font-face {
-    font-family: Cy Black;
-    src: url('assets/font/CyBlack.ttf');
-    font-weight: normal;
+    font-family: Cy;
+    src: url('assets/font/CySemiBold.ttf');
+    font-weight: 600;
 }
 @font-face {
-    font-family: Cy Black;
-    src: url('assets/font/CyBlack.ttf');
-    font-weight: normal;
+    font-family: Cy;
+    src: url('assets/font/CyRegular.ttf');
+    font-weight: 500;
 }
 @font-face {
-    font-family: Cy Black;
-    src: url('assets/font/CyBlack.ttf');
-    font-weight: normal;
+    font-family: Cy;
+    src: url('assets/font/CySemiLight.ttf');
+    font-weight: 400;
 }
 @font-face {
-    font-family: Cy Black;
-    src: url('assets/font/CyBlack.ttf');
-    font-weight: normal;
+    font-family: Cy;
+    src: url('assets/font/CyLight.ttf');
+    font-weight: 300;
 }
 @font-face {
-    font-family: Cy Black;
-    src: url('assets/font/CyBlack.ttf');
-    font-weight: normal;
+    font-family: Cy;
+    src: url('assets/font/CyExtraLight.ttf');
+    font-weight: 200;
 }
 @font-face {
-    font-family: Cy Black;
-    src: url('assets/font/CyBlack.ttf');
-    font-weight: normal;
+    font-family: Cy;
+    src: url('assets/font/CyThin.ttf');
+    font-weight: 100;
 }
-@font-face {
-    font-family: Cy Black;
-    src: url('assets/font/CyBlack.ttf');
-    font-weight: normal;
+
+/**** main style ******/
+body, html{
+    font-family: Cy;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body {
+    margin:0;
+    padding:0;
+    line-height: 1.5;
+    background: #011713;
+}
+h1,h2,h3,h4,h5,h6,p,span,button{
+    color: white;
+    font-family: Cy;
+    margin: 0;
+}
+
+a{
+    color: white
+}
+h1{
+    font-size: 55px;
+    font-weight: 700;
+}
+h2{
+    font-size: 48px;
+    font-weight: 500;
+}
+
+/*** color ****/
+.bgBg{
+    background: #011713;
+}
+.bgColor{
+    color: #011713;
+}
+
+.blackBg{
+    background: black;
+}
+.blackColor{
+    color: black;
+}
+
+.whiteBg{
+    background: white;
+}
+.whiteColor{
+    color: white;
+}
+
+.greenBg{
+    background: #88F332;
+}
+.greenColor{
+    color: #88F332;
+}
+
+/* animations */
+.animateFadeInUp, .animateFadeInUpSecond, .animateFadeInUpThird{
+    opacity: 0;
+}
+.activeContent{
+    animation-name: fadeInUp;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+.activeContentSecond{
+    animation-name: fadeInUp;
+    animation-delay: 0.8s;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+.activeContentThird{
+    animation-name: fadeInUp;
+    animation-delay: 1.6s;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

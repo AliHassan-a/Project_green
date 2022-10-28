@@ -1,5 +1,5 @@
 <template>
-  <div class="mainWrapper">
+  <div class="mainWrapper bgBg">
     <header class="header">
       <g-link :to="'/'">
         <g-image src="@/assets/logo.png"></g-image>
@@ -24,9 +24,13 @@ export default {
 </script>
 
 <style scoped>
+@import "./main.css";
+
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.3s linear;
+  transition-delay: 0.5s;
 }
 .fade-enter-from,
 .fade-leave-to {

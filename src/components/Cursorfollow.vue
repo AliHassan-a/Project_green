@@ -23,6 +23,7 @@ export default {
   mounted(){
     const ball = document.querySelector(".ball");
     const bgBall = document.querySelector(".bgMouseFollow")
+    const pageBg = document.querySelector(".layout")
 
     const context = this;
     gsap.set(".ball", {xPercent: -50, yPercent: -50});
@@ -58,6 +59,13 @@ export default {
 
     document.querySelector(".icon-wrap").addEventListener("mousemove",function(e) {
       callParallax(e, this);
+    });
+
+    document.querySelector(".icon-wrap").addEventListener("click",function(e) {
+      gsap.to(ball, 0.5, { scale: 300 });
+      gsap.to(ball, 0.4, { opacity: 1 });
+      // PAINT BG GREEN
+      //gsap.to(pageBg, {background: })
     });
 
     function callParallax(e, parent) {
