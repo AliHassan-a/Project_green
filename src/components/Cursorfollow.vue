@@ -3,8 +3,12 @@
     <div class="ball"></div>
     <div class="bgMouseFollow">
       <div class="lightsWrapper">
-        <g-image class="greenLight" src="@/assets/greenLight.png"></g-image>
-        <g-image class="blueLight" src="@/assets/blueLight.png"></g-image>
+        <div class="innerLightsWrapper">
+          <g-image class="greenLight" src="@/assets/greenLight.png"></g-image>
+        </div>
+        <div class="innerLightsWrapper">
+          <g-image class="blueLight" src="@/assets/blueLight.png"></g-image>
+        </div>
       </div>
     </div>
   </div>
@@ -23,7 +27,7 @@ export default {
   mounted(){
     const ball = document.querySelector(".ball");
     const bgBall = document.querySelector(".bgMouseFollow")
-    const pageBg = document.querySelector(".layout")
+    const pageBg = document.querySelector(".mainWrapper")
 
     const context = this;
     gsap.set(".ball", {xPercent: -50, yPercent: -50});
@@ -42,10 +46,10 @@ export default {
 
     document.querySelector(".icon-wrap").addEventListener("mouseenter", function(e) {
       gsap.to(this, 0.3, { scale: 1.2 });
-      gsap.to(ball, 0.3, { scale: 15 });
+      gsap.to(ball, 0.3, { scale: 10 });
       gsap.to(ball, 0.3, { opacity: 0 });
-      gsap.to(".lightsWrapper", {scale: 0, duration: 0.5, ease: "power3"});
-      gsap.to(".lightsWrapper", {x: -bgBall.clientWidth / 2, duration: 0.5, ease: "power3"});
+      gsap.to(".lightsWrapper", {x: -bgBall.clientWidth / 2, duration: 0.5});
+      gsap.to(".lightsWrapper", {scale: 0, duration: 0.5});
     });
 
     document.querySelector(".icon-wrap").addEventListener("mouseleave", function(e) {
@@ -53,20 +57,28 @@ export default {
       gsap.to(ball, 0.3, { scale: 1 });
       gsap.to(ball, 0.3, { opacity: 1 });
       gsap.to(this.querySelector(".button-icon"), 0.3, { x: 0, y: 0 });
-      gsap.to(".lightsWrapper", {scale: 1, duration: 0.5, ease: "power3"});
-      gsap.to(".lightsWrapper", {x: 0, duration: 0.5, ease: "power3"});
+      gsap.to(".lightsWrapper", {x: 0, duration: 0.5});
+      gsap.to(".lightsWrapper", {scale: 1, duration: 0.5});
     });
 
     document.querySelector(".icon-wrap").addEventListener("mousemove",function(e) {
       callParallax(e, this);
     });
 
-    document.querySelector(".icon-wrap").addEventListener("click",function(e) {
-      gsap.to(ball, 0.5, { scale: 300 });
-      gsap.to(ball, 0.4, { opacity: 1 });
-      // PAINT BG GREEN
-      //gsap.to(pageBg, {background: })
-    });
+    if(document.querySelector(".toLight") != null){
+      document.querySelector(".toLight").addEventListener("click",function(e) {
+        gsap.to(ball, 0.5, { scale: 300 });
+        gsap.to(ball, 0.4, { opacity: 1 });
+        gsap.to(pageBg, { duration: 0.1, backgroundColor: '#88F332'});
+      });
+    }
+    if(document.querySelector(".toDark") != null){
+      document.querySelector(".toDark").addEventListener("click",function(e) {
+        gsap.to(ball, 0.5, { scale: 300 });
+        gsap.to(ball, 0.4, { opacity: 1 });
+        gsap.to(pageBg, { duration: 0.1, backgroundColor: '#011713'});
+      });
+    }
 
     function callParallax(e, parent) {
       parallaxIt(e, parent, parent.querySelector(".button-icon"), 10);
@@ -98,6 +110,11 @@ export default {
     pointer-events: none;
     z-index: 100;
   }
+  .innerLightsWrapper{
+    transform: translateX(-50%) translateY(-50%);
+    position: relative;
+    display: flex;
+  }
 
   .bgMouseFollow{
     position: fixed;
@@ -108,8 +125,25 @@ export default {
 
   .bgMouseFollow .greenLight, .bgMouseFollow .blueLight{
     position: absolute;
+    top: -25vw;
+    left: 25%;
     width: 50%;
-    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .lightsWrapper{
+    -webkit-animation: fadeInOut 2s;
+    animation: fadeInOut 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
 </style>

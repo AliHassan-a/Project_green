@@ -1,7 +1,9 @@
 <template>
   <div class="headerKontakt greenBg">
+    <Cursorfollow />
     <h1 class="bgColor animateFadeInUp">Kontakt</h1>
     <h2 class="bgColor animateFadeInUpSecond">asdasdasd</h2>
+    <baseButton class="animateFadeInUpThird" :hidden="true" :title="'ENTDECKEN'" :linkTo="''" :toDark="true" />
   </div>
 </template>
 

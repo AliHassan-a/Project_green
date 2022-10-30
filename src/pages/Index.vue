@@ -5,8 +5,8 @@
       <div id="one" class="mainSection section-one">
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
           <h2 class="animateFadeInUp">Wir sorgen dafür, dass dein</h2>
-          <h1 class="animateFadeInUp bgColor">Unternehmen entdeckt wird.</h1>
-          <baseButton class="animateFadeInUpSecond" :title="'Sichtbar machen'" :linkTo="'kontakt'"></baseButton>
+          <h1 class="animateFadeInUp">Unternehmen entdeckt wird.</h1>
+          <baseButton class="animateFadeInUpSecond" :hidden="true" :title="'ENTDECKEN'" :linkTo="'kontakt'" :toDark="false"></baseButton>
         </div>
         <div class="logos animateFadeInUpThird">
           <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
@@ -117,6 +117,18 @@ export default {
         scrub: true,
       }
     });
+    gsap.fromTo(".blueLight", {
+      scale: 1,
+    }, {
+      scale: 0.3,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".section-three",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
 
     gsap.fromTo(".half-footer", {
       translateX: -window.innerWidth/2,
@@ -140,8 +152,6 @@ export default {
     ScrollTrigger.batch(".animateFadeInUpThird", {
       toggleClass: "activeContentThird"
     });
-
-
 
       ScrollTrigger.defaults({
         immediateRender: false,
