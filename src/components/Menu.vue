@@ -3,9 +3,15 @@
     <div class="menu__item menu__item--1" data-direction="bt">
       <div class="menu__item-inner">
         <div class="mainmenu">
-          <a href="#" class="mainmenu__item">Vision</a>
-          <a href="#" class="mainmenu__item">Mission</a>
-          <a href="#" class="mainmenu__item">Hurensohn</a>
+          <g-link class="mainmenu__item" to="/">
+            <span>Start</span>
+          </g-link>
+          <g-link class="mainmenu__item" to="/#">
+            <span>Mission</span>
+          </g-link>
+          <g-link class="mainmenu__item" to="/kontakt">
+            <span>Kontakt</span>
+          </g-link>
         </div>
         <p class="label label--topleft label--vert-mirror">the important stuff</p>
       </div>
@@ -31,10 +37,9 @@
     </div>
     <div class="menu__item menu__item--4" data-direction="rl">
       <div class="menu__item-inner">
-      </div>
-    </div>
-    <div class="menu__item menu__item--5" data-direction="tb">
-      <div class="menu__item-inner">
+        <div class="sidemenu">
+          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Hier eine Contact Form</span></a>
+        </div>
       </div>
     </div>
     <button class="action action--menu" style="mix-blend-mode: difference; color: white">
@@ -50,6 +55,18 @@
 import { gsap, Quint, Quart, Quad } from "gsap/all";
 export default {
   name: "Menu",
+  watch:{
+    $route (to, from){
+      if(this.menu != null){
+        this.menu.close()
+      }
+    }
+  },
+  data() {
+    return {
+      menu: null,
+    }
+  },
   mounted(){
     class Menu {
       constructor(el) {
@@ -115,10 +132,12 @@ export default {
           else if ( direction === 'lr' ) {
             config.x = '-101%';
             configInner.x = '101%';
+            configInner.y = '0%';
           }
           else if ( direction === 'rl' ) {
             config.x = '101%';
             configInner.x = '-101%';
+            configInner.y = '0%';
           }
           else {
             config.x = '101%';
@@ -157,10 +176,10 @@ export default {
 
         // Show/Hide open and close ctrls.
         gsap.to(this.DOM.closeCtrl, 0.6, {
+          delay: action === 'close' ? 0 : 0.3,
           ease: action === 'open' ? Quint.easeOut : Quart.easeInOut,
           startAt: action === 'open' ? {rotation: 0} : null,
           opacity: action === 'open' ? 1 : 0,
-          rotation: action === 'open' ? 180 : 270
         });
         gsap.to(this.DOM.openCtrl, action === 'open' ? 0.6 : 0.3, {
           delay: action === 'open' ? 0 : 0.3,
@@ -194,7 +213,7 @@ export default {
       }
     }
     // Initialize the Menu.
-    const menu = new Menu(document.querySelector('nav.menu'));
+    this.menu = new Menu(document.querySelector('nav.menu'));
   }
 }
 </script>
@@ -238,10 +257,9 @@ main {
   color: black;
   position: absolute;
   top: 1.5rem;
-  right: 1.75rem;
+  right: 1.5rem;
   z-index: 1000;
   opacity: 0;
-  padding: 0 0.5rem;
 }
 
 .icon--menu {
@@ -328,6 +346,7 @@ main {
 
 .sidemenu__item-inner {
   display: block;
+  color: black;
   transform: translate3d(0,100%,0);
 }
 
@@ -421,6 +440,9 @@ main {
     padding: 0 0.5rem;
     position: relative;
     transition: color 0.3s;
+    color: black;
+  }
+  .mainmenu__item span{
     color: black;
   }
   .mainmenu__item:hover::after {

@@ -1,12 +1,17 @@
 <template>
-  <div>
-    <g-link :to="'/' + linkTo">
+  <div class="buttonWrapper">
+    <g-link v-if="linkTo != null" :to="'/' + linkTo">
       <div class="icon-wrap" :class="toDark ? 'toDark' : 'toLight'">
         <div class="button-icon" :class="hidden ? 'hidden' : ''">
           {{ title }}
         </div>
       </div>
     </g-link>
+    <div v-else class="icon-wrap" :class="toDark ? 'toDark' : 'toLight'">
+      <div class="button-icon" :class="hidden ? 'hidden' : ''">
+        {{ title }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,6 +28,12 @@ export default {
 </script>
 
 <style scoped>
+.buttonWrapper{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 .icon-wrap {
   padding: 20px;
   display: flex;

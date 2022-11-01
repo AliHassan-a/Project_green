@@ -59,7 +59,7 @@ body {
     line-height: 1.5;
     background: #011713;
 }
-h1,h2,h3,h4,h5,h6,p,span,button{
+h1,h2,h3,h4,h5,h6,p,span,button, input, textarea{
     color: white;
     font-family: Cy;
     margin: 0;

@@ -153,11 +153,11 @@ export default {
       toggleClass: "activeContentThird"
     });
 
-      ScrollTrigger.defaults({
-        immediateRender: false,
-        ease: "power1.inOut",
-        scrub: true
-      });
+    ScrollTrigger.defaults({
+      immediateRender: false,
+      ease: "power1.inOut",
+      scrub: true
+    });
   }
 }
 </script>
