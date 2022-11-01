@@ -41,7 +41,7 @@
       MENU
     </button>
     <button class="action action--close">
-      MENU
+      SCHLIEßEN
     </button>
   </nav>
 </template>

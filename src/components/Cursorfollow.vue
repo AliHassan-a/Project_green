@@ -37,7 +37,13 @@ export default {
     let xToBg = gsap.quickTo(".bgMouseFollow", "x", {duration: 3, ease: "power3"}),
         yToBg = gsap.quickTo(".bgMouseFollow", "y", {duration: 3, ease: "power3"});
 
+    let firstMouseMove = false;
+
     window.addEventListener("mousemove", e => {
+      if(!firstMouseMove){
+        document.querySelector(".lightsWrapper").classList.add("lightsWrapperMove");
+        firstMouseMove = true;
+      }
       xTo(e.clientX);
       yTo(e.clientY);
       xToBg(e.clientX);
@@ -131,10 +137,13 @@ export default {
   }
 
   .lightsWrapper{
+    opacity: 0;
+  }
+
+  .lightsWrapperMove{
     -webkit-animation: fadeInOut 2s;
     animation: fadeInOut 2s;
     animation-fill-mode: forwards;
-    opacity: 0;
   }
 
   @keyframes fadeInOut {

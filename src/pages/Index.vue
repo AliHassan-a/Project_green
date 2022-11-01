@@ -5,8 +5,8 @@
       <div id="one" class="mainSection section-one">
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
           <h2 class="animateFadeInUp">Wir sorgen dafür, dass dein</h2>
-          <h1 class="animateFadeInUp">Unternehmen entdeckt wird.</h1>
-          <baseButton class="animateFadeInUpSecond" :hidden="true" :title="'ENTDECKEN'" :linkTo="'kontakt'" :toDark="false"></baseButton>
+          <h1 class="animateFadeInUpSecond">Unternehmen entdeckt wird.</h1>
+          <baseButton class="" :hidden="true" :title="'ENTDECKEN'" :linkTo="'kontakt'" :toDark="false"></baseButton>
         </div>
         <div class="logos animateFadeInUpThird">
           <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
