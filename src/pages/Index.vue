@@ -1,6 +1,5 @@
 <template>
   <Layout>
-    <Cursorfollow />
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
         <div style="display: flex; width: 100%;">
@@ -149,14 +148,12 @@
 
 <script>
 
-import { gsap, ScrollTrigger, Power2} from "gsap/all";
-import Cursorfollow from "../components/Cursorfollow";
+import { gsap, ScrollTrigger, ScrollSmoother, Power2} from "gsap/all";
 import BaseButton from "../components/BaseButton";
 
 
 export default {
   components: {
-    Cursorfollow,
     BaseButton,
   },
   data() {
@@ -165,10 +162,22 @@ export default {
   },
   mounted() {
     //// HORIZONTAL ////
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     // smooth scrolling container
+    // create the smooth scroller FIRST!
+    let smoother = ScrollSmoother.create({
+      smooth: 1,   // seconds it takes to "catch up" to native scroll position
+      effects: false // look for data-speed and data-lag attributes on elements and animate accordingly
+    });
 
     let sections = gsap.utils.toArray(".panel");
+
+    ScrollTrigger.defaults({
+      immediateRender: false,
+      ease: "power1.inOut",
+      scrub: true
+    });
+
     /* SIDESCROLLER */
     let scrollTween = gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
@@ -210,11 +219,7 @@ export default {
       toggleClass: "activeContentLeftThird"
     });
 
-    ScrollTrigger.defaults({
-      immediateRender: false,
-      ease: "power1.inOut",
-      scrub: true
-    });
+
 
     /* SCHWULES LICHT */
     gsap.fromTo(".greenLight", {
@@ -271,7 +276,7 @@ section {
 .panel{
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .box {

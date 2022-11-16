@@ -6,19 +6,27 @@
       </g-link>
       <Menu />
     </header>
-    <transition name="fade" mode="out-in">
-      <router-view />
-    </transition>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <transition name="fade" mode="out-in">
+          <router-view />
+        </transition>
+      </div>
+    </div>
+    <Cursorfollow />
   </div>
 </template>
 
 <script>
 
 import Menu from "@/components/Menu";
+import Cursorfollow from "@/components/Cursorfollow";
+
 export default {
   name: "App",
   components: {
     Menu,
+    Cursorfollow,
   }
 }
 </script>
@@ -29,7 +37,7 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.3s linear;
+  transition: opacity 0.3s linear;
   transition-delay: 0.5s;
 }
 .fade-enter-from,

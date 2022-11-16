@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="ball"></div>
     <div class="bgMouseFollow">
       <div class="lightsWrapper">
@@ -106,7 +106,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+  .wrapper{
+    position:fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+  }
   .ball {
     width: 10px;
     height: 10px;
