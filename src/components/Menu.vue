@@ -1,6 +1,6 @@
 <template>
   <nav class="menu">
-    <div class="menu__item menu__item--1" data-direction="bt">
+    <div class="menu__item menu__item--1" data-direction="bt" style="translate: none; rotate: none; scale: none; transform: translate(0px, 101%);">
       <div class="menu__item-inner">
         <div class="mainmenu">
           <g-link class="mainmenu__item" to="/">
@@ -16,7 +16,7 @@
         <p class="label label--topleft label--vert-mirror">the important stuff</p>
       </div>
     </div>
-    <div class="menu__item menu__item--2" data-direction="lr">
+    <div class="menu__item menu__item--2" data-direction="lr" style="translate: none; rotate: none; scale: none; transform: translate(-101%, 0px);">
       <div class="menu__item-inner">
         <div class="sidemenu">
           <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">FB</span></a>
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="menu__item menu__item--3" data-direction="bt">
+    <div class="menu__item menu__item--3" data-direction="bt" style="translate: none; rotate: none; scale: none; transform: translate(0px, 101%);">
       <div class="menu__item-inner">
         <div class="sidemenu">
           <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Chartexperten</span></a>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="menu__item menu__item--4" data-direction="rl">
+    <div class="menu__item menu__item--4" data-direction="rl" style="translate: none; rotate: none; scale: none; transform: translate(0px, 101%);">
       <div class="menu__item-inner">
         <div class="sidemenu">
           <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Hier eine Contact Form</span></a>
@@ -58,13 +58,16 @@ export default {
   watch:{
     $route (to, from){
       if(this.menu != null){
-        this.menu.close()
+        if(this.isOpen){
+          this.menu.close()
+        }
       }
     }
   },
   data() {
     return {
       menu: null,
+      isOpen: false,
     }
   },
   mounted(){
@@ -90,10 +93,12 @@ export default {
       // Open the menu.
       open() {
         this.toggle('open');
+        this.isOpen = true;
       }
       // Close the menu.
       close() {
         this.toggle('close');
+        this.isOpen = false;
       }
       toggle(action) {
         if ( this.isAnimating ) return;
@@ -186,9 +191,7 @@ export default {
           ease: action === 'open' ? Quint.easeOut : Quad.easeOut,
           opacity: action === 'open' ? 0 : 1
         });
-
         // Main links animation.
-
         gsap.to(this.DOM.mainLinks, action === 'open' ? 0.9 : 0.2, {
           ease: action === 'open' ? Quint.easeOut : Quart.easeInOut,
           startAt: action === 'open' ? {y: '50%', opacity: 0} : null,
@@ -203,17 +206,11 @@ export default {
           y: action === 'open' ? '0%' : '100%',
           stagger: 0.1,
         }, action === 'open' ? 0.05 : -0.05);
-
-        // The "Learn how to participate" menu link.
-        gsap.to(this.DOM.menulink, action === 'open' ? 0.9 : 0.6, {
-          ease: action === 'open' ? Quint.easeOut : Quart.easeInOut,
-          startAt: action === 'open' ? {x: '10%'} : null,
-          x: action === 'open' ? '0%' : '10%'
-        });
       }
     }
     // Initialize the Menu.
     this.menu = new Menu(document.querySelector('nav.menu'));
+    this.menu.close();
   }
 }
 </script>
@@ -264,14 +261,6 @@ main {
   opacity: 0;
 }
 
-.icon--menu {
-  width: 2rem;
-}
-
-.icon--close {
-  width: 1rem;
-}
-
 .menu {
   text-align: center;
   width: 100%;
@@ -299,7 +288,7 @@ main {
 
 .menu__item-inner {
   overflow: hidden;
-  transform: translate3d(100%,0,0);
+  transform: translate3d(101%,0,0);
   height: 100%;
   width: 100%;
   position: relative;

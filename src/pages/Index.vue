@@ -35,7 +35,7 @@
           <g-link to="/projekte/chartexperten/">
             <div class="box" style="background: #1A102E">
               <div class="projectLeft">
-                <img src="@/assets/projects/chartexperten/logo.svg"/><h3>Web App & Branding für Chartexperten</h3>
+                <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/><h3>Web App & Branding für Chartexperten</h3>
               </div>
               <div class="projectRight">
                 <img style="max-width: 400px" src="@/assets/projects/chartexperten/mockup.svg"/>
@@ -47,7 +47,19 @@
           <g-link to="/projekte/chartexperten/">
             <div class="box" style="background: #1A102E">
               <div>
-                <img src="@/assets/projects/chartexperten/logo.svg"/><h3>Web App & Branding für Chartexperten</h3>
+                <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/><h3>Web App & Branding für Chartexperten</h3>
+              </div>
+              <div>
+                <img style="max-width: 400px" src="@/assets/projects/chartexperten/mockup.svg"/>
+              </div>
+            </div>
+          </g-link>
+        </section>
+        <section class="panel">
+          <g-link to="/projekte/chartexperten/">
+            <div class="box" style="background: #1A102E">
+              <div>
+                <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/><h3>Web App & Branding für Chartexperten</h3>
               </div>
               <div>
                 <img style="max-width: 400px" src="@/assets/projects/chartexperten/mockup.svg"/>
@@ -57,19 +69,23 @@
         </section>
       </div>
       <div id="three" class="mainSection section-three">
-        <div style="display: flex; width: 100%; height: 200vh; ">
-          <div style="position: sticky; top:0; height: 100vh; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: center">
+        <div class="pinnedContainerWrapper">
+          <div class="pinnedContainer">
             <h2 class=""> Designer, Programmierer </h2>
             <h2 class=""> Marketing-Experten </h2>
             <h2 class="greenColor" style="text-align: left;"><b>Freunde</b></h2>
             <g-image class="" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
           </div>
           <div style="width: 100%; display: flex; flex-direction:column;">
-            <g-image class="animateFadeInLeft" style="margin-top: 30%;" src="@/assets/praktis1.png"></g-image>
-            <g-image class="animateFadeInUp" style="margin-top: -70px; margin-left: 50%;" src="@/assets/praktis2.png"></g-image>
-            <g-image class="animateFadeInLeft" style="margin-top: 10%;" src="@/assets/developer.png"></g-image>
-            <g-image class="animateFadeInUp" style="margin-top: -70px; margin-left: 50%;" src="@/assets/3guys.png"></g-image>
+            <g-image class="whirlImage" style="margin-top: 30%;" src="@/assets/praktis1.png"></g-image>
+            <g-image class="whirlImage" style="margin-top: -70px; margin-left: 50%;" src="@/assets/praktis2.png"></g-image>
           </div>
+        </div>
+        <div style="width: 100%; display: flex; flex-direction:column;">
+          <g-image class="whirlImage" style="margin-top: 0%;" src="@/assets/praktis1.png"></g-image>
+          <g-image class="whirlImage" style="margin-top: -370px; margin-left: 60%;" src="@/assets/praktis2.png"></g-image>
+          <g-image class="whirlImage" style="margin-top: 0%;" src="@/assets/developer.png"></g-image>
+          <g-image class="whirlImage" style="margin-top: -70px; margin-left: 50%;" src="@/assets/3guys.png"></g-image>
         </div>
       </div>
       <div id="four" class="section-four">
@@ -158,7 +174,12 @@ export default {
   },
   data() {
     return {
+      sideScroller: null,
     }
+  },
+  beforeDestroy: function () {
+    // Kill the GSAP instance
+    this.sideScroller.kill();
   },
   mounted() {
     //// HORIZONTAL ////
@@ -170,8 +191,6 @@ export default {
       effects: false // look for data-speed and data-lag attributes on elements and animate accordingly
     });
 
-    let sections = gsap.utils.toArray(".panel");
-
     ScrollTrigger.defaults({
       immediateRender: false,
       ease: "power1.inOut",
@@ -179,25 +198,42 @@ export default {
     });
 
     /* SIDESCROLLER */
-    let scrollTween = gsap.to(sections, {
+    let sections = gsap.utils.toArray(".panel");
+    this.sideScroller = gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
       ease: "none", // <-- IMPORTANT!
       scrollTrigger: {
         trigger: ".container",
         pin: true,
-        scrub: true,
-        anticipatePin: 1,
+        scrub: 1,
         //snap: directionalSnap(1 / (sections.length - 1)),
         end: "+=2000"
       }
     });
 
-    /* IMAGE REVEAL */
+    gsap.to(".pinnedContainer", {
+      opacity: 0,
+      scale: 1.5,
+      ease: "none", // <-- IMPORTANT!
+      scrollTrigger: {
+        trigger: ".pinnedContainer",
+        pin: true,
+        scrub: 1,
+      }
+    });
 
-    /* ADD IMAGEREVEAL */
-
-    // check how to set animations inside horizontal scroll
-    //ScrollTrigger.defaults({markers: {startColor: "white", endColor: "white"}});
+    let whirlImages = gsap.utils.toArray(".whirlImage");
+    whirlImages.forEach((whirlImage) => {
+      gsap.to(whirlImage, {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: whirlImage,
+          start: "-=100",
+          pin: true,
+          scrub: 1,
+        }
+      })
+    })
 
     /* DEFAULT ANIMATIONS */
     ScrollTrigger.batch(".animateFadeInUp", {
@@ -222,6 +258,7 @@ export default {
 
 
     /* SCHWULES LICHT */
+    /*
     gsap.fromTo(".greenLight", {
       opacity: 1,
     }, {
@@ -246,6 +283,7 @@ export default {
         scrub: true,
       }
     });
+    */
   }
 }
 </script>
@@ -297,6 +335,7 @@ section {
 }
 .projectLeft{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -308,7 +347,22 @@ section {
   flex-wrap: nowrap;
 }
 /*// content //*/
+.pinnedContainerWrapper{
+  display: flex;
+  width: 100%;
+}
 
+.pinnedContainer{
+  position: relative;
+  top:0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  transform-origin: left;
+}
 
 div.logos{
   position: absolute;

@@ -4,10 +4,10 @@
     <div class="bgMouseFollow">
       <div class="lightsWrapper">
         <div class="innerLightsWrapper">
-          <g-image class="greenLight" src="@/assets/greenLight.png"></g-image>
+          <div class="greenLight"></div>
         </div>
         <div class="innerLightsWrapper">
-          <g-image class="blueLight" src="@/assets/blueLight.png"></g-image>
+          <div class="blueLight"></div>
         </div>
       </div>
     </div>
@@ -143,11 +143,24 @@ export default {
     will-change: transform;
   }
 
-  .bgMouseFollow .greenLight, .bgMouseFollow .blueLight{
+  .bgMouseFollow .greenLight{
     position: absolute;
     top: -25vw;
     left: 25%;
-    width: 50%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(#88F332 1%, transparent);
+    border-radius: 1000px;
+    will-change: opacity;
+  }
+  .bgMouseFollow .blueLight{
+    position: absolute;
+    top: -25vw;
+    left: 25%;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 1000px;
+    background: radial-gradient(#2CDBA9, transparent);
     will-change: opacity;
   }
 
