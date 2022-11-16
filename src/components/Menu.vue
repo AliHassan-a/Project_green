@@ -247,6 +247,8 @@ main {
   top: 1.5rem;
   right: 1.5rem;
   z-index: 1000;
+  font-size: 25px;
+
 }
 
 .menu--open .action--menu {
@@ -256,7 +258,7 @@ main {
 .action--close {
   color: black;
   position: absolute;
-  top: 1.5rem;
+  top: 1rem;
   right: 1.5rem;
   z-index: 1000;
   opacity: 0;
@@ -381,9 +383,6 @@ main {
   }
   .menu__item--4 {
     grid-area: item4;
-  }
-  .menu__item--5 {
-    grid-area: item5;
   }
   .menu__item--4,
   .menu__item--5 {

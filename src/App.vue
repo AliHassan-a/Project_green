@@ -2,7 +2,7 @@
   <div class="mainWrapper bgBg">
     <header class="header">
       <g-link :to="'/'">
-        <g-image src="@/assets/logo.png"></g-image>
+        <g-image style="position: absolute; left: 1.5rem; top: 1rem; width: 300px;" src="@/assets/logo.svg"></g-image>
       </g-link>
       <Menu />
     </header>
@@ -40,7 +40,6 @@ export default {
 .mainWrapper{
   width: 100%;
   max-width: 100vw;
-  overflow: hidden;
 }
 .header {
   position: fixed;
@@ -53,5 +52,6 @@ export default {
   margin-bottom: 20px;
   height: 80px;
   z-index: 999999;
+  backdrop-filter: blur(10px);
 }
 </style>

@@ -50,6 +50,7 @@ export default {
       yToBg(e.clientY);
     });
 
+    /*  DYNNAMIC FOR X IMAGES  *>
     document.querySelector(".icon-wrap").addEventListener("mouseenter", function(e) {
       gsap.to(this, 0.3, { scale: 1.2 });
       gsap.to(ball, 0.3, { scale: 10 });
@@ -71,6 +72,7 @@ export default {
       callParallax(e, this);
     });
 
+    */
     if(document.querySelector(".toLight") != null){
       document.querySelector(".toLight").addEventListener("click",function(e) {
         gsap.to(ball, 0.5, { scale: 300 });
@@ -115,11 +117,14 @@ export default {
     border-radius: 50%;
     pointer-events: none;
     z-index: 100;
+    will-change: transform;
   }
   .innerLightsWrapper{
     transform: translateX(-50%) translateY(-50%);
     position: relative;
     display: flex;
+    filter: blur(50px);
+
   }
 
   .bgMouseFollow{
@@ -127,6 +132,7 @@ export default {
     top:0;
     left:0;
     width: 100%;
+    will-change: transform;
   }
 
   .bgMouseFollow .greenLight, .bgMouseFollow .blueLight{
@@ -134,6 +140,26 @@ export default {
     top: -25vw;
     left: 25%;
     width: 50%;
+    will-change: opacity;
+  }
+
+  .bgMouseFollow .greenLight{
+    animation: spin1 6s infinite linear;
+    transform-origin: 45% 45%;
+  }
+
+  .bgMouseFollow .blueLight{
+    animation: spin1 7s infinite linear;
+    transform-origin: 55% 55%;
+  }
+
+  @keyframes spin1 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   .lightsWrapper{
