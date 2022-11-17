@@ -2,13 +2,13 @@
   <div class="buttonWrapper">
     <g-link v-if="linkTo != null" :to="'/' + linkTo">
       <div class="icon-wrap" :class="toDark ? 'toDark' : 'toLight'">
-        <div class="button-icon" :class="hidden ? 'hidden' : ''">
+        <div class="button-icon" :class="theme">
           {{ title }}
         </div>
       </div>
     </g-link>
     <div v-else class="icon-wrap" :class="toDark ? 'toDark' : 'toLight'">
-      <div class="button-icon" :class="hidden ? 'hidden' : ''">
+      <div class="button-icon" :class="theme">
         {{ title }}
       </div>
     </div>
@@ -21,7 +21,7 @@ export default {
   props: {
     title: String,
     linkTo: String,
-    hidden: Boolean,
+    theme: String,
     toDark: Boolean,
   },
 }
@@ -29,13 +29,11 @@ export default {
 
 <style scoped>
 .buttonWrapper{
-  width: 100%;
   display:flex;
   justify-content: center;
   align-items: center;
 }
 .icon-wrap {
-  padding: 20px;
   display: flex;
   position: relative;
   justify-content: center;
@@ -60,22 +58,22 @@ export default {
   background: #88F332;
   border: 2px solid #88F332;
 }
-.button-icon.hidden {
-  font-weight: 500;
-  background: transparent;
+.button-icon.dark {
   color: #011713;
-  border-radius: 100px;
-  text-align: center;
-  line-height: 30px;
-  font-size: 24px;
-  transition: all 0.5s;
-  border: 3px solid #011713;
-  padding: 15px 40px;
-  z-index: 101;
+  border: 2px solid #011713;
 }
-.icon-wrap:hover .button-icon.hidden{
+.icon-wrap:hover .button-icon.dark{
   color: black;
   background: #88F332;
   border: 2px solid #88F332;
+}
+.button-icon.light {
+  color: white;
+  border: 1px solid lightgrey;
+}
+.icon-wrap:hover .button-icon.light{
+  color: black;
+  background: white;
+  border: 1px solid white;
 }
 </style>

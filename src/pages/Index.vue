@@ -2,67 +2,59 @@
   <Layout>
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
-        <div style="display: flex; width: 100%;">
-          <div style="width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;">
+        <div class="contentContainer">
+          <div class="innerContentContainer">
             <h2 class="animateFadeInLeft">Wir sorgen dafür, dass dein</h2>
             <h2 class="animateFadeInLeft" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
             <h2 class="animateFadeInLeftSecond greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
             <g-image style="margin-top: 20px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
-            <!--
-            <baseButton class="" :hidden="true" :title="'ENTDECKEN'" :linkTo="'kontakt'" :toDark="false"></baseButton>
-            -->
+            <baseButton style="margin-left: 20%;" class="animateFadeInLeftThird" :theme="''" :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
           </div>
-          <div style="width: 100%;">
-            <g-image class="animateFadeInUpSecond" style="width: 100%;position: absolute;top: -65%;right: -35%;" src="@/assets/Mesh-Shape-grnstn.png"></g-image>
+          <div class="innerContentContainer">
+            <g-image class="animateFadeInUpSecond" style="max-width: 180%; position: absolute; top: -205%; right: -85%;" src="@/assets/Mesh-Shape-grnstn.png"></g-image>
           </div>
         </div>
-        <div style="position: absolute; bottom: 150px; width: 100%; opacity: 0.6">
-          <hr class="animateFadeInUpThird" style="height: 2px; border: 0; outline: 0px; background: lightgrey; opacity: 0" />
-        </div>
-        <div class="logos animateFadeInUpThird">
-          <p style="font-size: 14px; color: #e7ffd3">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
-          <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/uhrig-logo.png"></g-image>
+        <div class="logosSection animateFadeInUpThird">
+          <div style="width: 100%; opacity: 0.6">
+            <hr class="animateFadeInUpThird" style="height: 2px; border: 0; outline: 0px; background: lightgrey;" />
+          </div>
+          <div class="contentContainer">
+            <p style="font-size: 14px; color: #e7ffd3">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
+            <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
+            <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
+            <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
+            <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
+            <g-image class="logo" src="@/assets/uhrig-logo.png"></g-image>
+          </div>
         </div>
       </div>
       <!-- PROJECTS SLIDER -->
       <div id="two" class="container section-two">
-        <h2 style="position:absolute; top: 80px; left: calc(100vw/12)">Wir entwickeln innovative <br> Apps & Webseiten</h2>
+        <h2 style="position:absolute; top: 60px; left: calc(100vw/12);">Wir entwickeln innovative <br> Apps & Webseiten</h2>
         <section class="panel">
           <g-link to="/projekte/chartexperten/">
             <div class="box" style="background: #1A102E">
               <div class="projectLeft">
-                <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/><h3>Web App & Branding für Chartexperten</h3>
+                <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/>
+                <h2 class="text-left defaultMarginY">Web App & Branding <br>für Chartexperten</h2>
+                <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="'/projekte/chartexperten'" :toDark="false"></baseButton>
               </div>
               <div class="projectRight">
-                <img style="max-width: 400px" src="@/assets/projects/chartexperten/mockup.svg"/>
+                <img style="width: 100%" src="@/assets/projects/chartexperten/chartexperten-mockup.svg"/>
               </div>
             </div>
           </g-link>
         </section>
         <section class="panel">
-          <g-link to="/projekte/chartexperten/">
-            <div class="box" style="background: #1A102E">
-              <div>
-                <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/><h3>Web App & Branding für Chartexperten</h3>
+          <g-link to="/projekte/uhrigstore/">
+            <div class="box" style="background: #1F0E03">
+              <div class="projectLeft projectLeft1">
+                <img src="@/assets/projects/uhrigstore/uhrigstore-logo.svg"/>
+                <h2 class="text-left defaultMarginY">Neuer Webshop für <br>Uhrigstore</h2>
+                <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="'/projekte/chartexperten'" :toDark="false"></baseButton>
               </div>
-              <div>
-                <img style="max-width: 400px" src="@/assets/projects/chartexperten/mockup.svg"/>
-              </div>
-            </div>
-          </g-link>
-        </section>
-        <section class="panel">
-          <g-link to="/projekte/chartexperten/">
-            <div class="box" style="background: #1A102E">
-              <div>
-                <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/><h3>Web App & Branding für Chartexperten</h3>
-              </div>
-              <div>
-                <img style="max-width: 400px" src="@/assets/projects/chartexperten/mockup.svg"/>
+              <div class="projectRight">
+                <img style="width: 100%" src="@/assets/projects/uhrigstore/uhrigstore-mockup.svg"/>
               </div>
             </div>
           </g-link>
@@ -71,8 +63,8 @@
       <div id="three" class="mainSection section-three">
         <div class="pinnedContainerWrapper">
           <div class="pinnedContainer">
-            <h2 class=""> Designer, Programmierer </h2>
-            <h2 class=""> Marketing-Experten </h2>
+            <h2> Designer, Programmierer </h2>
+            <h2> Marketing-Experten </h2>
             <h2 class="greenColor" style="text-align: left;"><b>Freunde</b></h2>
             <g-image class="" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
           </div>
@@ -89,48 +81,48 @@
         </div>
       </div>
       <div id="four" class="section-four">
-        <div class="animateFadeInLeft" style="background: black; width: calc(100% - 100%/6); padding: 10%; margin-left: calc(-100%/10)">
+        <div style="background: black; width: calc(100% - 100%/6); padding: 10%; margin-left: calc(-100%/10)">
           <g-image class="animateFadeInUp" style="margin-top: -350px;" src="@/assets/zitat.png"></g-image>
-          <h2 class="animateFadeInUpSecond"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </h2>
-          <hr class="animateFadeInUpSecond greenBg" style="margin-top: 100px; width: 244px; height: 4px; border: 0; outline: 0px; opacity: 0; display: inline-block;" />
-          <h2 class="animateFadeInUpThird"><b>Rene Grebenstein</b> </h2>
-          <p class="animateFadeInUpThird greenColor" style="font-size: 32px;"> Inhaber </p>
+          <h2 class="animateFadeInUp"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </h2>
+          <hr class="animateFadeInUp greenBg" style="margin-top: 100px; width: 244px; height: 4px; border: 0; outline: 0px; opacity: 0; display: inline-block;" />
+          <h2 class="animateFadeInUp"><b>Rene Grebenstein</b> </h2>
+          <p class="animateFadeInUp greenColor" style="font-size: 32px;"> Inhaber </p>
         </div>
       </div>
-      <div id="five" class="mainSection section-five">
-        <div style="width: calc(100% - 100vw / 6)">
+      <div id="five" class="mainSection section-five sectionMargin">
+        <div class="innerContentContainer">
           <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Unsere Leistungen </h2>
-          <div style="width: 100%; opacity: 0.6">
-            <hr class="animateFadeInLeft" style="height: 2px; border: 0; outline: 0px; background: lightgrey; opacity: 0" />
+          <div class="lineWrapper">
+            <hr class="line animateFadeInUp" />
           </div>
-          <div class="animateFadeInUp" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; margin: 30px 0px;">
-            <g-image style="object-fit: contain; width: 82px;" src="@/assets/design_strategie_icon.png"></g-image>
-            <h2 style="width: 100%; font-size: 34px;">Design & Strategie</h2>
-            <baseButton class="" style="justify-content: flex-end" :hidden="false" :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
+          <div class="leistungWrapper animateFadeInUp">
+            <g-image src="@/assets/design_strategie_icon.png"></g-image>
+            <h3 class="w-full">Design & Strategie</h3>
+            <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
           </div>
-          <div style="width: 100%; opacity: 0.6">
-            <hr class="animateFadeInUp" style="height: 2px; border: 0; outline: 0px; background: lightgrey; opacity: 0" />
+          <div class="lineWrapper">
+            <hr class="line animateFadeInUp" />
           </div>
-          <div class="animateFadeInUp" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; margin: 30px 0px;">
-            <g-image style="object-fit: contain; width: 82px;" src="@/assets/entwicklung_icon.png"></g-image>
-            <h2 style="width: 100%; font-size: 34px;">Entwicklung</h2>
-            <baseButton class="" style="justify-content: flex-end" :hidden="false" :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
+          <div class="leistungWrapper animateFadeInUp">
+            <g-image src="@/assets/entwicklung_icon.png"></g-image>
+            <h2 class="w-full">Entwicklung</h2>
+            <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
           </div>
-          <div style="width: 100%; opacity: 0.6">
-            <hr class="animateFadeInUp" style="height: 2px; border: 0; outline: 0px; background: lightgrey; opacity: 0" />
+          <div class="lineWrapper">
+            <hr class="line animateFadeInUp" />
           </div>
-          <div class="animateFadeInUp" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; margin: 30px 0px;">
-            <g-image style="object-fit: contain; width: 82px;" src="@/assets/marketing_icon.png"></g-image>
-            <h2 style="width: 100%; font-size: 34px;">Marketing</h2>
-            <baseButton class="" style="justify-content: flex-end" :hidden="false" :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
+          <div class="leistungWrapper animateFadeInUp">
+            <g-image src="@/assets/marketing_icon.png"></g-image>
+            <h2 class="w-full">Marketing</h2>
+            <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
           </div>
-          <div style="width: 100%; opacity: 0.6">
-            <hr class="animateFadeInUp" style="height: 2px; border: 0; outline: 0px; background: lightgrey; opacity: 0" />
+          <div class="lineWrapper">
+            <hr class="line animateFadeInUp" />
           </div>
         </div>
       </div>
       <div id="six" class="mainSection section-six">
-        <div style="width: calc(100% - 100vw / 6)">
+        <div>
           <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
           <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
             <div class="animateFadeInUp" style="background: black; padding: 58px 46px;">
@@ -154,9 +146,20 @@
           </div>
         </div>
       </div>
-      <div id="seven" class="mainSection section-seven">
-        <p style="font-size: 34px">Du hast ein spannendes Projekt?</p>
-        <h2 style="font-size: 126px; color: #E7FFD3; font-weight: 700; font-feature-settings: 'calt' 0, 'calt' 0;">Lass uns sprechen!</h2>
+      <div id="seven" class="mainSection footerWrapper">
+        <p class="footer">Du hast ein spannendes Projekt?</p>
+        <h2 class="footer">Lass uns sprechen!</h2>
+        <div class="footer-overlay greenBg"></div>
+        <div class="footerBottom animateFadeInUp" style="z-index: 1;">
+          <div style="width: 100%; opacity: 0.6">
+            <hr style="height: 2px; border: 0; outline: 0px; background: black;" />
+          </div>
+          <div class="contentContainer">
+            <p style="color:#011713">LOREM IPSUM</p>
+            <p style="color:#011713">LOREM IPSUM</p>
+            <p style="color:#011713">LOREM IPSUM</p>
+          </div>
+        </div>
       </div>
     </div>
   </Layout>
@@ -183,23 +186,27 @@ export default {
     this.sideScroller.kill();
   },
   mounted() {
-    console.log(misc);
     //// HORIZONTAL ////
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     // smooth scrolling container
     // create the smooth scroller FIRST!
     let smoother = ScrollSmoother.create({
       smooth: 1,   // seconds it takes to "catch up" to native scroll position
-      effects: false // look for data-speed and data-lag attributes on elements and animate accordingly
+      effects: true // look for data-speed and data-lag attributes on elements and animate accordingly
     });
 
     ScrollTrigger.defaults({
       immediateRender: false,
       ease: "power1.inOut",
-      scrub: true
+      scrub: false
     });
 
     /* SIDESCROLLER */
+    ScrollTrigger.batch(".animateHeadSidescroller", {
+      start: "top bottom-=500px",
+      toggleClass: "activeContentUp"
+    });
+
     let sections = gsap.utils.toArray(".panel");
     this.sideScroller = gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
@@ -207,12 +214,12 @@ export default {
       scrollTrigger: {
         trigger: ".container",
         pin: true,
-        scrub: 1,
-        //snap: directionalSnap(1 / (sections.length - 1)),
+        scrub: 0.1,
         end: "+=2000"
       }
     });
 
+    /* STICKY SECTION /w images */
     gsap.to(".pinnedContainer", {
       opacity: 0,
       scale: 1.5,
@@ -224,12 +231,10 @@ export default {
       }
     });
 
-
     let whirlImages = gsap.utils.toArray(".whirlImage");
     whirlImages.forEach((whirlImage) => {
       gsap.to(whirlImage, {
         opacity: 0,
-        scale: misc.clamp(-0.6, Math.random() * 100, 1.4),
         scrollTrigger: {
           trigger: whirlImage,
           start: "-=100",
@@ -238,6 +243,28 @@ export default {
         }
       })
     })
+
+    /* footer */
+    gsap.to(".footer-overlay", {
+      scale: 2.5,
+      ease: "none", // <-- IMPORTANT!
+      scrollTrigger: {
+        trigger: ".footer-overlay",
+        start: "top center",
+        end: "top end",
+        scrub: 1,
+      }
+    });
+    gsap.to(".footer", {
+      color: "#011713",
+      ease: "none", // <-- IMPORTANT!
+      scrollTrigger: {
+        trigger: ".footer-overlay",
+        start: "top center",
+        end: "top end",
+        scrub: 1,
+      }
+    });
 
     /* DEFAULT ANIMATIONS */
     ScrollTrigger.batch(".animateFadeInUp", {
@@ -258,36 +285,6 @@ export default {
     ScrollTrigger.batch(".animateFadeInLeftThird", {
       toggleClass: "activeContentLeftThird"
     });
-
-
-
-    /* SCHWULES LICHT */
-    /*
-    gsap.fromTo(".greenLight", {
-      opacity: 1,
-    }, {
-      opacity: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".section-two",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      }
-    });
-    gsap.fromTo(".blueLight", {
-      opacity: 0,
-    }, {
-      opacity: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".section-two",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      }
-    });
-    */
   }
 }
 </script>
@@ -318,25 +315,45 @@ section {
   margin: auto;
   margin-bottom: 5vh;
   text-align: center;
-  line-height: 80px;
   border-radius: 8px;
   color: white;
   font-weight: 700;
   will-change: transform;
   transform-origin: bottom;
 }
+
+/*logos section*/
+.logosSection{
+  position: absolute;
+  width: 100%;
+  bottom: 50px;
+}
+.logosSection .contentContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* sticky */
 .projectLeft{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  width: 50%;
+  padding: 5%;
+}
+
+.projectRight{
+  width: 50%;
+  padding: 5%;
 }
 
 .container {
   width: 500%;
-  height: 80%;
   display: flex;
   flex-wrap: nowrap;
+  margin: 10% 0%;
 }
 /*// content //*/
 .pinnedContainerWrapper{
@@ -356,15 +373,6 @@ section {
   transform-origin: left;
 }
 
-div.logos{
-  position: absolute;
-  bottom: 50px;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  align-self: self-end;
-  width: 100%;
-}
 div.logos img{
   object-fit: contain;
 }
@@ -373,9 +381,62 @@ div.logos img{
   will-change: transform;
 }
 
-.headline{
+.leistungWrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0px;
+}
+.leistungWrapper img{
+  object-fit: contain;
+  width: 82px;
+}
+.leistungWrapper base-button{
+  justify-content: flex-end;
+}
+
+.lineWrapper{
+  width: 100%;
+  opacity: 0.6;
+}
+.line{
+  height: 2px;
+  border: 0;
+  outline: 0px;
+  background: lightgrey;
+}
+
+div.footerWrapper{
+  margin-top: 120px;
+}
+.footer-overlay{
   position: absolute;
-  top:30px;
-  left: 30px;
+  top:0;
+  left:unset;
+  width: 100vh;
+  height: 100vh;
+  border-radius: 1000px;
+}
+h2.footer{
+  font-size: 126px;
+  color: #E7FFD3;
+  font-weight: 700;
+  font-feature-settings: 'calt' 0, 'calt' 0;
+}
+p.footer, h2.footer{
+  z-index: 1;
+}
+.footerBottom{
+  position: absolute;
+  width: 100%;
+  bottom: 50px;
+  z-index: 1;
+}
+.footerBottom .contentContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

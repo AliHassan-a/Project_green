@@ -1,14 +1,14 @@
 <template>
-  <div class="wrapper">
-    <div class="ball"></div>
-    <div class="bgMouseFollow">
-      <div class="lightsWrapper">
-        <div class="innerLightsWrapper">
-          <div class="greenLight"></div>
-        </div>
-        <div class="innerLightsWrapper">
-          <div class="blueLight"></div>
-        </div>
+  <div class="cursorFollowWrapper">
+    <div class="wrapper">
+      <div class="ball">
+        <svg id="followMouse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+          <circle r="400" fill="none" cx="500" cy="500"/>
+        </svg>
+      </div>
+    </div>
+    <div class="wrapperBg">
+      <div class="bgMouseFollow cursor__flashgreen">
       </div>
     </div>
   </div>
@@ -24,175 +24,111 @@ export default {
       active: false,
     }
   },
+  watch: {
+    '$route' (to, from) {
+      window.setTimeout(() => {
+        this.resetButtons();
+      },1000)
+    }
+  },
+  methods: {
+    resetButtons() {
+      if(document.querySelector(".toLight") != null){
+        document.querySelectorAll(".toLight").forEach((element) => {
+          element.addEventListener("click",function(e) {
+            gsap.to(followMouse, 0.5, { scale: 400 });
+            gsap.to(followMouse, 0.5, { scale: 1, delay: 1 });
+          });
+        })
+      }
+    },
+  },
   mounted(){
     const ball = document.querySelector(".ball");
+    const followMouse = document.querySelector("#followMouse");
     const bgBall = document.querySelector(".bgMouseFollow")
     const pageBg = document.querySelector(".mainWrapper")
 
     const context = this;
-    gsap.set(".ball", {xPercent: -50, yPercent: -50});
 
     let xTo = gsap.quickTo(".ball", "x", {duration: 0.6, ease: "power3"}),
         yTo = gsap.quickTo(".ball", "y", {duration: 0.6, ease: "power3"});
     let xToBg = gsap.quickTo(".bgMouseFollow", "x", {duration: 3, ease: "power3"}),
         yToBg = gsap.quickTo(".bgMouseFollow", "y", {duration: 3, ease: "power3"});
 
-    let firstMouseMove = false;
-
     window.addEventListener("mousemove", e => {
-      if(!firstMouseMove){
-        document.querySelector(".lightsWrapper").classList.add("lightsWrapperMove");
-        firstMouseMove = true;
-      }
       xTo(e.clientX);
       yTo(e.clientY);
       xToBg(e.clientX);
       yToBg(e.clientY);
     });
 
-    /*  DYNNAMIC FOR X IMAGES  *>
-    document.querySelector(".icon-wrap").addEventListener("mouseenter", function(e) {
-      gsap.to(this, 0.3, { scale: 1.2 });
-      gsap.to(ball, 0.3, { scale: 10 });
-      gsap.to(ball, 0.3, { opacity: 0 });
-      gsap.to(".lightsWrapper", {x: -bgBall.clientWidth / 2, duration: 0.5});
-      gsap.to(".lightsWrapper", {scale: 0, duration: 0.5});
-    });
+    xTo(window.innerWidth);
+    yTo(0);
+    xToBg(window.innerWidth);
+    yToBg(0);
 
-    document.querySelector(".icon-wrap").addEventListener("mouseleave", function(e) {
-      gsap.to(this, 0.3, { scale: 1 });
-      gsap.to(ball, 0.3, { scale: 1 });
-      gsap.to(ball, 0.3, { opacity: 1 });
-      gsap.to(this.querySelector(".button-icon"), 0.3, { x: 0, y: 0 });
-      gsap.to(".lightsWrapper", {x: 0, duration: 0.5});
-      gsap.to(".lightsWrapper", {scale: 1, duration: 0.5});
-    });
-
-    document.querySelector(".icon-wrap").addEventListener("mousemove",function(e) {
-      callParallax(e, this);
-    });
-
-    */
-    if(document.querySelector(".toLight") != null){
-      document.querySelector(".toLight").addEventListener("click",function(e) {
-        gsap.to(ball, 0.5, { scale: 300 });
-        gsap.to(ball, 0.4, { opacity: 1 });
-        gsap.to(pageBg, { duration: 0.1, backgroundColor: '#88F332'});
-      });
-    }
-    if(document.querySelector(".toDark") != null){
-      document.querySelector(".toDark").addEventListener("click",function(e) {
-        gsap.to(ball, 0.5, { scale: 300 });
-        gsap.to(ball, 0.4, { opacity: 1 });
-        gsap.to(pageBg, { duration: 0.1, backgroundColor: '#011713'});
-      });
-    }
-
-    function callParallax(e, parent) {
-      parallaxIt(e, parent, parent.querySelector(".button-icon"), 10);
-    }
-
-    function parallaxIt(e, parent, target, movement) {
-      var boundingRect = parent.getBoundingClientRect();
-      var relX = e.pageX - boundingRect.left;
-      var relY = e.pageY - boundingRect.top;
-      gsap.to(target, 0.3, {
-        x: (relX - boundingRect.width / 2) / boundingRect.width * movement,
-        y: (relY - boundingRect.height / 2) / boundingRect.height * movement,
-        ease: Power2.easeOut
-      });
-    }
+    this.resetButtons();
   },
 }
 </script>
 
 <style scoped>
+  .cursorFollowWrapper{
+    position: absolute;
+    left: 0;
+    top:0;
+  }
   .wrapper{
-    position:fixed;
-    width: 100%;
-    height: 100vh;
+    position:absolute;
+    width: 0px;
+    height: 0px;
     left: 0;
     top: 0;
+    z-index: 1;
   }
   .ball {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     position: fixed;
     top: 0;
     left: 0;
-    background: #88F332;
     border-radius: 50%;
     pointer-events: none;
     z-index: 100;
     will-change: transform;
   }
-  .innerLightsWrapper{
-    transform: translateX(-50%) translateY(-50%);
-    position: relative;
-    display: flex;
-    filter: blur(50px);
+  svg{
+    margin-top: -100%;
+    margin-left: -100%;
+  }
+  circle{
+    fill: #88F332;
+  }
+  .wrapperBg{
+    position:fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 0;
   }
   .bgMouseFollow{
     position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
+    top:-150px;
+    left:-150px;
+    width: 300px;
+    height: 300px;
+    border-radius: 1000px;
     will-change: transform;
+    background-blend-mode: multiply;
+    transition: background-color 0.8s ease-out;
   }
-
-  .bgMouseFollow .greenLight{
-    position: absolute;
-    top: -25vw;
-    left: 25%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(#88F332 1%, transparent);
-    border-radius: 1000px;
-    will-change: opacity;
+  .cursor__flashgreen{
+    background: radial-gradient(#88F332, transparent 70%);
   }
-  .bgMouseFollow .blueLight{
-    position: absolute;
-    top: -25vw;
-    left: 25%;
-    width: 50vw;
-    height: 50vw;
-    border-radius: 1000px;
-    background: radial-gradient(#2CDBA9, transparent);
-    will-change: opacity;
-  }
-
-  .bgMouseFollow .greenLight{
-    animation: spin1 6s infinite linear;
-    transform-origin: 45% 45%;
-  }
-
-  .bgMouseFollow .blueLight{
-    animation: spin1 7s infinite linear;
-    transform-origin: 55% 55%;
-  }
-  @keyframes spin1 {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  .lightsWrapper{
-    opacity: 0;
-  }
-  .lightsWrapperMove{
-    -webkit-animation: fadeInOut 2s;
-    animation: fadeInOut 2s;
-    animation-fill-mode: forwards;
-  }
-  @keyframes fadeInOut {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  .cursor__flashblue{
+    background: radial-gradient(#2CDBA9, transparent 70%);
   }
 
 </style>

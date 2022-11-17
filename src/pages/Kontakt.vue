@@ -30,21 +30,21 @@ export default {
       ease: "power1.inOut",
       scrub: true
     });
-
     ScrollTrigger.batch(".animateFadeInUp", {
-      toggleClass: "activeContent"
+      toggleClass: "activeContentUp"
     });
     ScrollTrigger.batch(".animateFadeInUpSecond", {
-      toggleClass: "activeContentSecond"
+      toggleClass: "activeContentUpSecond"
     });
     ScrollTrigger.batch(".animateFadeInUpThird", {
-      toggleClass: "activeContentThird"
+      toggleClass: "activeContentUpThird"
     });
   }
 }
 </script>
 
 <style scoped>
+
 .headerKontakt{
   width: 100%;
   height: 100vh;

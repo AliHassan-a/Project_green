@@ -71,6 +71,7 @@ export default {
     }
   },
   mounted(){
+    const context = this;
     class Menu {
       constructor(el) {
         this.DOM = {el: el};
@@ -93,12 +94,12 @@ export default {
       // Open the menu.
       open() {
         this.toggle('open');
-        this.isOpen = true;
+        context.isOpen = true;
       }
       // Close the menu.
       close() {
         this.toggle('close');
-        this.isOpen = false;
+        context.isOpen = false;
       }
       toggle(action) {
         if ( this.isAnimating ) return;
@@ -299,18 +300,23 @@ main {
 
 .menu__item--1 .menu__item-inner {
   background: white;
+  opacity: 0.9;
 }
 .menu__item--2 .menu__item-inner {
   background: #88F332;
+  opacity: 0.9;
 }
 .menu__item--3 .menu__item-inner {
   background: #88F332;
+  opacity: 0.9;
 }
 .menu__item--4 .menu__item-inner {
   background: #88F332;
+  opacity: 0.9;
 }
 .menu__item--5 .menu__item-inner {
   background: #88F332;
+  opacity: 0.9;
 }
 
 .menu__item--4,

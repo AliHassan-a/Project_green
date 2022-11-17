@@ -49,7 +49,6 @@
 body, html{
     font-family: Cy;
 }
-
 html{
     scroll-behavior: smooth;
 }
@@ -63,6 +62,13 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+div{
+    position: relative;
+}
+img{
+    max-width: 100%;
+}
+
 h1,h2,h3,h4,h5,h6,p,span,button, input, textarea{
     color: white;
     font-family: Cy;
@@ -70,7 +76,8 @@ h1,h2,h3,h4,h5,h6,p,span,button, input, textarea{
 }
 
 a{
-    color: white
+    color: white;
+    text-decoration: none;
 }
 h1{
     font-size: clamp(2em ,calc(100vw / 35.5555), 3em);
@@ -122,6 +129,29 @@ p{
     color: #88F332;
 }
 
+/* help */
+.w-full{
+    width: 100%;
+}
+
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.sectionMargin{
+    margin: 60px auto !important;
+}
+.defaultMarginY{
+    margin: 30px 0px;
+}
+.defaultMarginX{
+    margin: 0px 30px;
+}
 
 /* CONTENT */
 .mainSection {
@@ -134,6 +164,17 @@ p{
     min-height: 100vh;
     max-width: calc(100vw - (100vw / 6));
     margin: auto;
+}
+.contentContainer{
+    width: 100%;
+    display: flex;
+}
+.innerContentContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 
