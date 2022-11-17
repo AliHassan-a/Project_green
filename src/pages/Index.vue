@@ -134,19 +134,19 @@
           <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
           <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
             <div class="animateFadeInUp" style="background: black; padding: 58px 46px;">
-              <p style="margin-bottom: 50px; font-size: 26px">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
+              <p style="margin-bottom: 50px;">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
               <hr class="greenBg" style="width: 100px; height: 2px; border: 0; outline: 0px; display: inline-block;" />
               <p style="font-size: 34px"><b>Martin B.</b></p>
               <p style="font-size: 18px" class="greenColor"> KFz-Sachverständigenbüro Berner GmbH </p>
             </div>
             <div class="animateFadeInUp" style="background: black; padding: 58px 46px;">
-              <p style="margin-bottom: 50px; font-size: 26px">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
+              <p style="margin-bottom: 50px;">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
               <hr class="greenBg" style="width: 100px; height: 2px; border: 0; outline: 0px; display: inline-block;" />
               <p style="font-size: 34px"><b>Martin B.</b></p>
               <p style="font-size: 18px" class="greenColor"> KFz-Sachverständigenbüro Berner GmbH </p>
             </div>
             <div class="animateFadeInUp" style="background: black; padding: 58px 46px;">
-              <p style="margin-bottom: 50px; font-size: 26px">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
+              <p style="margin-bottom: 50px;">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
               <hr class="greenBg" style="width: 100px; height: 2px; border: 0; outline: 0px; display: inline-block;" />
               <p style="font-size: 34px"><b>Martin B.</b></p>
               <p style="font-size: 18px" class="greenColor"> KFz-Sachverständigenbüro Berner GmbH </p>
@@ -166,6 +166,7 @@
 
 import { gsap, ScrollTrigger, ScrollSmoother, Power2} from "gsap/all";
 import BaseButton from "../components/BaseButton";
+import misc from '@/misc.js';
 
 
 export default {
@@ -182,6 +183,7 @@ export default {
     this.sideScroller.kill();
   },
   mounted() {
+    console.log(misc);
     //// HORIZONTAL ////
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     // smooth scrolling container
@@ -222,10 +224,12 @@ export default {
       }
     });
 
+
     let whirlImages = gsap.utils.toArray(".whirlImage");
     whirlImages.forEach((whirlImage) => {
       gsap.to(whirlImage, {
         opacity: 0,
+        scale: misc.clamp(-0.6, Math.random() * 100, 1.4),
         scrollTrigger: {
           trigger: whirlImage,
           start: "-=100",
@@ -289,18 +293,6 @@ export default {
 </script>
 
 <style>
-
-.mainSection {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  min-height: 100vh;
-  max-width: calc(100vw - (100vw / 6));
-  margin: auto;
-}
 
 /* slider */
 
@@ -375,6 +367,10 @@ div.logos{
 }
 div.logos img{
   object-fit: contain;
+}
+.whirlImage{
+  transform-origin: top;
+  will-change: transform;
 }
 
 .headline{

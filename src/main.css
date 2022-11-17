@@ -73,11 +73,23 @@ a{
     color: white
 }
 h1{
-    font-size: calc(100vw / 35.5555);
+    font-size: clamp(2em ,calc(100vw / 35.5555), 3em);
     font-weight: 700;
 }
 h2{
-    font-size: calc(100vw / 42);
+    font-size: clamp(2em ,calc(100vw / 35.5555), 3em);
+    font-weight: 400;
+}
+h3{
+    font-size: clamp(1.8em ,calc(100vw / 42), 2.4em);
+    font-weight: 400;
+}
+h4{
+    font-size: clamp(1.8em ,calc(100vw / 42), 2.4em);
+    font-weight: 400;
+}
+p{
+    font-size: clamp(1.4em ,calc(100vw / 50), 1.8em);
     font-weight: 400;
 }
 
@@ -110,13 +122,22 @@ h2{
     color: #88F332;
 }
 
-/* PAGE BG */
-/*
-#page{
-    background-image: url('assets/bg-muster.png');
-}
-*/
 
+/* CONTENT */
+.mainSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    min-height: 100vh;
+    max-width: calc(100vw - (100vw / 6));
+    margin: auto;
+}
+
+
+/* ANIMATIONS */
 /* animation UP */
 .animateFadeInUp, .animateFadeInUpSecond, .animateFadeInUpThird{
     opacity: 0;
@@ -125,18 +146,21 @@ h2{
     animation-name: fadeInUp;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
+    will-change: opacity, transform;
 }
 .activeContentUpSecond{
     animation-name: fadeInUp;
     animation-delay: 0.8s;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
+    will-change: opacity, transform;
 }
 .activeContentUpThird{
     animation-name: fadeInUp;
     animation-delay: 1.6s;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
+    will-change: opacity, transform;
 }
 
 @keyframes fadeInUp {
@@ -158,18 +182,21 @@ h2{
     animation-name: fadeInLeft;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
+    will-change: opacity, transform;
 }
 .activeContentLeftSecond{
     animation-name: fadeInLeft;
     animation-delay: 0.8s;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
+    will-change: opacity, transform;
 }
 .activeContentLeftThird{
     animation-name: fadeInLeft;
     animation-delay: 1.6s;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
+    will-change: opacity, transform;
 }
 
 @keyframes fadeInLeft {

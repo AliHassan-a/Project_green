@@ -107,7 +107,6 @@ export default {
 </script>
 
 <style scoped>
-
   .wrapper{
     position:fixed;
     width: 100%;
@@ -132,9 +131,7 @@ export default {
     position: relative;
     display: flex;
     filter: blur(50px);
-
   }
-
   .bgMouseFollow{
     position: fixed;
     top:0;
@@ -173,7 +170,6 @@ export default {
     animation: spin1 7s infinite linear;
     transform-origin: 55% 55%;
   }
-
   @keyframes spin1 {
     0% {
       transform: rotate(0deg);
@@ -182,17 +178,14 @@ export default {
       transform: rotate(360deg);
     }
   }
-
   .lightsWrapper{
     opacity: 0;
   }
-
   .lightsWrapperMove{
     -webkit-animation: fadeInOut 2s;
     animation: fadeInOut 2s;
     animation-fill-mode: forwards;
   }
-
   @keyframes fadeInOut {
     0% {
       opacity: 0;

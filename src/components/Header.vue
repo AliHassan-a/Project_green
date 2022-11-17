@@ -75,6 +75,7 @@ div.logoBackground{
   z-index: 0;
 }
 .logoImage{
+  opacity: 0;
   z-index: 1;
 }
 

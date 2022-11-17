@@ -1,6 +1,7 @@
 <template>
   <div class="mainWrapper bgBg">
     <Header />
+    <Cursorfollow />
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <transition name="fade" mode="out-in">
@@ -12,14 +13,14 @@
 </template>
 
 <script>
-import Cursorfollow from "@/components/Cursorfollow";
 import Header from "./components/Header";
+import Cursorfollow from "@/components/Cursorfollow";
 
 export default {
   name: "App",
   components: {
-    Cursorfollow,
     Header,
+    Cursorfollow,
   },
 }
 </script>
