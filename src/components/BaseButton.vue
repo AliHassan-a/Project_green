@@ -46,12 +46,11 @@ export default {
   color: #88F332;
   border-radius: 100px;
   text-align: center;
-  line-height: 30px;
-  font-size: 24px;
   transition: all 0.5s;
   border: 2px solid #88F332;
   padding: 15px 40px;
   z-index: 101;
+  white-space: nowrap;
 }
 .icon-wrap:hover .button-icon{
   color: black;

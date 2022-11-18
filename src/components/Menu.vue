@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <button class="action action--menu" style="mix-blend-mode: difference; color: white">
+    <button class="action action--menu">
       MENU
     </button>
     <button class="action action--close">
@@ -242,11 +242,14 @@ main {
 .action--menu {
   pointer-events: auto;
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 20px;
+  right: 20px;
   z-index: 1000;
   font-size: 25px;
-
+  background: #88F332;
+  color: black;
+  border-radius: 100px;
+  padding: 5px;
 }
 
 .menu--open .action--menu {

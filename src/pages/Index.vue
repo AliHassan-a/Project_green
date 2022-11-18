@@ -31,7 +31,7 @@
       <!-- PROJECTS SLIDER -->
       <div id="two" class="container section-two">
         <h2 style="position:absolute; top: 60px; left: calc(100vw/12);">Wir entwickeln innovative <br> Apps & Webseiten</h2>
-        <section class="panel">
+        <section id="chartexpertenProjekt" class="panel">
           <g-link to="/projekte/chartexperten/">
             <div class="box" style="background: #1A102E">
               <div class="projectLeft">
@@ -81,7 +81,7 @@
         </div>
       </div>
       <div id="four" class="section-four">
-        <div style="background: black; width: calc(100% - 100%/6); padding: 10%; margin-left: calc(-100%/10)">
+        <div style="background: black; width: calc(100% - 100%/6); padding: 10%;">
           <g-image class="animateFadeInUp" style="margin-top: -350px;" src="@/assets/zitat.png"></g-image>
           <h2 class="animateFadeInUp"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </h2>
           <hr class="animateFadeInUp greenBg" style="margin-top: 100px; width: 244px; height: 4px; border: 0; outline: 0px; opacity: 0; display: inline-block;" />
@@ -179,6 +179,15 @@ export default {
   data() {
     return {
       sideScroller: null,
+      projects: [
+        {
+          title: "chartexperten",
+          text: "",
+          color: "#1A102E",
+          logo: "",
+          mockup: "",
+        }
+      ]
     }
   },
   beforeDestroy: function () {

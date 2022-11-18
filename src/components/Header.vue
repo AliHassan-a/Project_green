@@ -19,38 +19,45 @@ export default {
   components: {
     Menu,
   },
+  data(){
+    return {
+      initialLoad: true,
+    }
+  },
   mounted() {
-    gsap.fromTo(".logoImage", {
-      opacity: 0,
-      scale: 1.5,
-    }, {
-      opacity: 1,
-      scale: 1,
-      duration: 2,
-      delay: 0,
-      ease: "ease-in",
-    });
-    gsap.fromTo(".logoContainer", {
-      width: '100%',
-      height: '100vh',
-    }, {
-      width: '300px',
-      height: '100%',
-      duration: 0.5,
-      delay: 2,
-      ease: "ease-out",
-    });
-    gsap.fromTo(".logoBackground", {
-      opacity: 1,
-    }, {
-      opacity: 0,
-      duration: 1,
-      delay: 2,
-      ease: "ease-out",
-    });
-    window.setTimeout( function(){
-      document.querySelector(".logoBackground").style.display = "none";
-    },3000)
+    if(this.initialLoad){
+      gsap.fromTo(".logoImage", {
+        opacity: 0,
+        scale: 1.5,
+      }, {
+        opacity: 1,
+        scale: 1,
+        duration: 2,
+        delay: 0,
+        ease: "ease-in",
+      });
+      gsap.fromTo(".logoContainer", {
+        width: '100%',
+        height: '100vh',
+      }, {
+        width: '300px',
+        height: '100%',
+        duration: 0.5,
+        delay: 2,
+        ease: "ease-out",
+      });
+      gsap.fromTo(".logoBackground", {
+        opacity: 1,
+      }, {
+        opacity: 0,
+        duration: 1,
+        delay: 2,
+        ease: "ease-out",
+      });
+      setTimeout( function(){
+        document.querySelector(".logoBackground").style.display = "none";
+      },3000)
+    }
   }
 }
 </script>
@@ -66,6 +73,8 @@ div.logoContainer{
   justify-content: center;
   align-items: center;
   z-index: 1001;
+  max-width: 50%;
+  margin-left: 20px;
 }
 div.logoBackground{
   position: fixed;
@@ -89,7 +98,6 @@ div.logoBackground{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
   height: 80px;
   z-index: 999999;
   backdrop-filter: blur(10px);

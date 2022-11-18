@@ -26,7 +26,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      window.setTimeout(() => {
+      setTimeout(() => {
         this.resetButtons();
       },1000)
     }
