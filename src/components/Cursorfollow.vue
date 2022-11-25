@@ -5,6 +5,9 @@
         <svg id="followMouse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
           <circle r="400" fill="none" cx="500" cy="500"/>
         </svg>
+        <svg id="rightChev" width="100" height="100" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+        </svg>
       </div>
     </div>
     <div class="wrapperBg">
@@ -115,10 +118,10 @@ export default {
   }
   .bgMouseFollow{
     position: fixed;
-    top:-150px;
-    left:-150px;
-    width: 300px;
-    height: 300px;
+    top:-25vh;
+    left:-25vh;
+    width: 50vh;
+    height: 50vh;
     border-radius: 1000px;
     will-change: transform;
     background-blend-mode: multiply;
@@ -131,4 +134,17 @@ export default {
     background: radial-gradient(#2CDBA9, transparent 70%);
   }
 
+  /* content */
+
+  #followMouse{
+    transition: transform 0.3s ease-out;
+  }
+  #rightChev{
+    position: absolute;
+    left: -50px;
+    top: -32px;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease-out;
+  }
 </style>

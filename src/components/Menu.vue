@@ -43,7 +43,7 @@
       </div>
     </div>
     <button class="action action--menu">
-      MENU
+      <span class="material-icons bgColor">menu</span>
     </button>
     <button class="action action--close">
       SCHLIEßEN
@@ -245,11 +245,15 @@ main {
   top: 20px;
   right: 20px;
   z-index: 1000;
-  font-size: 25px;
   background: #88F332;
   color: black;
   border-radius: 100px;
   padding: 5px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu--open .action--menu {

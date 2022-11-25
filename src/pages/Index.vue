@@ -10,7 +10,7 @@
             <g-image style="margin-top: 20px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
             <baseButton style="margin-left: 20%;" class="animateFadeInLeftThird" :theme="''" :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
           </div>
-          <div class="innerContentContainer">
+          <div class="innerContentContainer md-hide">
             <g-image class="animateFadeInUpSecond" style="max-width: 180%; position: absolute; top: -205%; right: -85%;" src="@/assets/Mesh-Shape-grnstn.png"></g-image>
           </div>
         </div>
@@ -124,7 +124,7 @@
       <div id="six" class="mainSection section-six">
         <div>
           <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
-          <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+          <div class="testimonials toRightHover">
             <div class="animateFadeInUp" style="background: black; padding: 58px 46px;">
               <p style="margin-bottom: 50px;">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
               <hr class="greenBg" style="width: 100px; height: 2px; border: 0; outline: 0px; display: inline-block;" />
@@ -147,9 +147,9 @@
         </div>
       </div>
       <div id="seven" class="mainSection footerWrapper">
+        <div class="footer-overlay greenBg"></div>
         <p class="footer">Du hast ein spannendes Projekt?</p>
         <h2 class="footer">Lass uns sprechen!</h2>
-        <div class="footer-overlay greenBg"></div>
         <div class="footerBottom animateFadeInUp" style="z-index: 1;">
           <div style="width: 100%; opacity: 0.6">
             <hr style="height: 2px; border: 0; outline: 0px; background: black;" />
@@ -231,7 +231,6 @@ export default {
     /* STICKY SECTION /w images */
     gsap.to(".pinnedContainer", {
       opacity: 0,
-      scale: 1.5,
       ease: "none", // <-- IMPORTANT!
       scrollTrigger: {
         trigger: ".pinnedContainer",
@@ -294,13 +293,36 @@ export default {
     ScrollTrigger.batch(".animateFadeInLeftThird", {
       toggleClass: "activeContentLeftThird"
     });
+
+    /* hovers */
+    let followMouse = document.getElementById("followMouse");
+    let rightChev = document.getElementById("rightChev");
+    let hoverElementsRight = gsap.utils.toArray(".toRightHover");
+
+    hoverElementsRight.forEach(function(element){
+      element.addEventListener("mouseenter", function(){
+        animateHover(followMouse, 20);
+        animateHover(rightChev, 1, 1, 0.2);
+      })
+      element.addEventListener("mouseleave", function(){
+        animateHover(followMouse, 1, 1, 0.2);
+        animateHover(rightChev, 1, 0);
+      })
+    })
+    function animateHover(element, scale = 1, opacity = 1, delay = 0){
+      gsap.to(element, {
+        scale: scale,
+        opacity: opacity,
+        delay: delay,
+        duration: 0.2,
+        easing: "power1.inOut"
+      })
+    }
   }
 }
 </script>
 
 <style>
-
-/* slider */
 
 section {
   width: 100vw;
@@ -417,6 +439,15 @@ div.logos img{
   background: lightgrey;
 }
 
+.testimonials{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* FOOTER */
+
 div.footerWrapper{
   margin-top: 120px;
 }
@@ -427,6 +458,7 @@ div.footerWrapper{
   width: 100vh;
   height: 100vh;
   border-radius: 1000px;
+  z-index: 0;
 }
 h2.footer{
   font-size: 126px;
@@ -447,5 +479,23 @@ p.footer, h2.footer{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1024px) {
+  .logosSection{
+    position: relative;
+    margin-top: 100px;
+  }
+  .logosSection .contentContainer{
+    flex-direction: column;
+  }
+  .leistungWrapper{
+    flex-direction: column;
+  }
+  div.footerWrapper{
+    padding: 0px;
+  }
 }
 </style>

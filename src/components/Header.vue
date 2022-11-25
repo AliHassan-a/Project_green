@@ -39,9 +39,11 @@ export default {
       gsap.fromTo(".logoContainer", {
         width: '100%',
         height: '100vh',
+        maxWidth: '100%',
       }, {
         width: '300px',
         height: '100%',
+        maxWidth: '50%',
         duration: 0.5,
         delay: 2,
         ease: "ease-out",
@@ -73,7 +75,6 @@ div.logoContainer{
   justify-content: center;
   align-items: center;
   z-index: 1001;
-  max-width: 50%;
   margin-left: 20px;
 }
 div.logoBackground{

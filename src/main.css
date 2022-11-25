@@ -101,7 +101,7 @@ p{
     font-size: clamp(1.4em ,calc(100vw / 50), 1.8em);
     font-weight: 400;
 }
-button, .button-icon{
+.button-icon{
     font-size: clamp(1.4em ,calc(100vw / 50), 1.8em);
     font-weight: 400;
 }
@@ -170,6 +170,7 @@ button, .button-icon{
     min-height: 100vh;
     max-width: calc(100vw - (100vw / 6));
     margin: auto;
+    padding: 100px 0px;
 }
 .contentContainer{
     width: 100%;
@@ -257,9 +258,10 @@ button, .button-icon{
     }
 }
 
-/* Imagereveal */
+/* RESPONSIVE */
 
-.reveal {
-    position: relative;
-    overflow: hidden;
+@media only screen and (max-width: 1024px) {
+    .md-hide{
+        display: none;
+    }
 }
