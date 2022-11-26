@@ -5,7 +5,7 @@
         <svg id="followMouse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
           <circle r="400" fill="none" cx="500" cy="500"/>
         </svg>
-        <svg id="rightChev" width="100" height="100" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <svg id="rightChev" :class="mouseDirection == 'isRight' ? '' : 'rotate180'" width="100" height="100" fill="currentColor" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
         </svg>
       </div>
@@ -25,6 +25,8 @@ export default {
   data() {
     return {
       active: false,
+      needsDirection: false,
+      mouseDirection: null,
     }
   },
   watch: {
@@ -47,12 +49,6 @@ export default {
     },
   },
   mounted(){
-    const ball = document.querySelector(".ball");
-    const followMouse = document.querySelector("#followMouse");
-    const bgBall = document.querySelector(".bgMouseFollow")
-    const pageBg = document.querySelector(".mainWrapper")
-
-    const context = this;
 
     let xTo = gsap.quickTo(".ball", "x", {duration: 0.6, ease: "power3"}),
         yTo = gsap.quickTo(".ball", "y", {duration: 0.6, ease: "power3"});
@@ -64,12 +60,48 @@ export default {
       yTo(e.clientY);
       xToBg(e.clientX);
       yToBg(e.clientY);
+      if(this.needsDirection){
+        this.mouseDirection =  e.clientX > window.innerWidth / 2 ? "isRight" : "isLeft";
+      }
     });
 
     xTo(window.innerWidth);
     yTo(0);
     xToBg(window.innerWidth);
     yToBg(0);
+
+
+    /* hovers */
+    let followMouse = document.getElementById("followMouse");
+    let rightChev = document.getElementById("rightChev");
+    let hoverElementsDirecction = gsap.utils.toArray(".toDirectionHover");
+
+    hoverElementsDirecction.forEach((element) => {
+      element.addEventListener("mouseenter", () => {
+        animateHover(followMouse, 20, 0);
+        animateOpacity(rightChev, 1, 0.2);
+        this.needsDirection = true;
+      })
+      element.addEventListener("mouseleave", () => {
+        animateHover(followMouse, 1, 0.2);
+        animateOpacity(rightChev, 0, 0);
+        this.needsDirection = false;
+      })
+    })
+    function animateHover(element, scale = 1, delay = 0){
+      gsap.to(element, {
+        scale: scale,
+        delay: delay,
+        duration: 0.2,
+      })
+    }
+    function animateOpacity(element, opacity = 1, delay = 0){
+      gsap.to(element, {
+        opacity: opacity,
+        delay: delay,
+        duration: 0.2,
+      })
+    }
 
     this.resetButtons();
   },
@@ -145,6 +177,9 @@ export default {
     top: -32px;
     opacity: 0;
     z-index: 1;
-    transition: opacity 0.3s ease-out;
+    transition: opacity, transform 0.4s ease-out;
+  }
+  .rotate180{
+    transform: rotate(-180deg);
   }
 </style>

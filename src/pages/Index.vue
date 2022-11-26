@@ -29,37 +29,7 @@
         </div>
       </div>
       <!-- PROJECTS SLIDER -->
-      <div id="two" class="container section-two">
-        <h2 style="position:absolute; top: 60px; left: calc(100vw/12);">Wir entwickeln innovative <br> Apps & Webseiten</h2>
-        <section id="chartexpertenProjekt" class="panel">
-          <g-link to="/projekte/chartexperten/">
-            <div class="box" style="background: #1A102E">
-              <div class="projectLeft">
-                <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/>
-                <h2 class="text-left defaultMarginY">Web App & Branding <br>für Chartexperten</h2>
-                <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="'/projekte/chartexperten'" :toDark="false"></baseButton>
-              </div>
-              <div class="projectRight">
-                <img style="width: 100%" src="@/assets/projects/chartexperten/chartexperten-mockup.svg"/>
-              </div>
-            </div>
-          </g-link>
-        </section>
-        <section class="panel">
-          <g-link to="/projekte/uhrigstore/">
-            <div class="box" style="background: #1F0E03">
-              <div class="projectLeft projectLeft1">
-                <img src="@/assets/projects/uhrigstore/uhrigstore-logo.svg"/>
-                <h2 class="text-left defaultMarginY">Neuer Webshop für <br>Uhrigstore</h2>
-                <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="'/projekte/chartexperten'" :toDark="false"></baseButton>
-              </div>
-              <div class="projectRight">
-                <img style="width: 100%" src="@/assets/projects/uhrigstore/uhrigstore-mockup.svg"/>
-              </div>
-            </div>
-          </g-link>
-        </section>
-      </div>
+      <ProjectSlider/>
       <div id="three" class="mainSection section-three">
         <div class="pinnedContainerWrapper">
           <div class="pinnedContainer">
@@ -122,63 +92,34 @@
         </div>
       </div>
       <div id="six" class="mainSection section-six">
-        <div>
-          <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
-          <div class="testimonials toRightHover">
-            <div class="animateFadeInUp" style="background: black; padding: 58px 46px;">
-              <p style="margin-bottom: 50px;">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
-              <hr class="greenBg" style="width: 100px; height: 2px; border: 0; outline: 0px; display: inline-block;" />
-              <p style="font-size: 34px"><b>Martin B.</b></p>
-              <p style="font-size: 18px" class="greenColor"> KFz-Sachverständigenbüro Berner GmbH </p>
-            </div>
-            <div class="animateFadeInUp" style="background: black; padding: 58px 46px;">
-              <p style="margin-bottom: 50px;">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
-              <hr class="greenBg" style="width: 100px; height: 2px; border: 0; outline: 0px; display: inline-block;" />
-              <p style="font-size: 34px"><b>Martin B.</b></p>
-              <p style="font-size: 18px" class="greenColor"> KFz-Sachverständigenbüro Berner GmbH </p>
-            </div>
-            <div class="animateFadeInUp" style="background: black; padding: 58px 46px;">
-              <p style="margin-bottom: 50px;">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
-              <hr class="greenBg" style="width: 100px; height: 2px; border: 0; outline: 0px; display: inline-block;" />
-              <p style="font-size: 34px"><b>Martin B.</b></p>
-              <p style="font-size: 18px" class="greenColor"> KFz-Sachverständigenbüro Berner GmbH </p>
-            </div>
-          </div>
-        </div>
+        <testimonials />
       </div>
-      <div id="seven" class="mainSection footerWrapper">
-        <div class="footer-overlay greenBg"></div>
-        <p class="footer">Du hast ein spannendes Projekt?</p>
-        <h2 class="footer">Lass uns sprechen!</h2>
-        <div class="footerBottom animateFadeInUp" style="z-index: 1;">
-          <div style="width: 100%; opacity: 0.6">
-            <hr style="height: 2px; border: 0; outline: 0px; background: black;" />
-          </div>
-          <div class="contentContainer">
-            <p style="color:#011713">LOREM IPSUM</p>
-            <p style="color:#011713">LOREM IPSUM</p>
-            <p style="color:#011713">LOREM IPSUM</p>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </div>
   </Layout>
 </template>
 
 <script>
 
-import { gsap, ScrollTrigger, ScrollSmoother, Power2} from "gsap/all";
+import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
 import BaseButton from "../components/BaseButton";
-import misc from '@/misc.js';
+import ProjectSlider from "../components/ProjectSlider";
+import Testimonials from "../components/testimonials";
+import Footer from "../components/Footer";
 
 
 export default {
   components: {
+    Testimonials,
+    ProjectSlider,
     BaseButton,
+    Footer,
   },
   data() {
     return {
+      gsapPage: null,
       sideScroller: null,
+      mouseDirection: null,
       projects: [
         {
           title: "chartexperten",
@@ -197,23 +138,15 @@ export default {
   mounted() {
     //// HORIZONTAL ////
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-    // smooth scrolling container
-    // create the smooth scroller FIRST!
     let smoother = ScrollSmoother.create({
-      smooth: 1,   // seconds it takes to "catch up" to native scroll position
-      effects: true // look for data-speed and data-lag attributes on elements and animate accordingly
+      smooth: 1,
+      effects: true
     });
 
     ScrollTrigger.defaults({
       immediateRender: false,
       ease: "power1.inOut",
       scrub: false
-    });
-
-    /* SIDESCROLLER */
-    ScrollTrigger.batch(".animateHeadSidescroller", {
-      start: "top bottom-=500px",
-      toggleClass: "activeContentUp"
     });
 
     let sections = gsap.utils.toArray(".panel");
@@ -224,7 +157,7 @@ export default {
         trigger: ".container",
         pin: true,
         scrub: 0.1,
-        end: "+=2000"
+        end: "+=3000"
       }
     });
 
@@ -293,31 +226,6 @@ export default {
     ScrollTrigger.batch(".animateFadeInLeftThird", {
       toggleClass: "activeContentLeftThird"
     });
-
-    /* hovers */
-    let followMouse = document.getElementById("followMouse");
-    let rightChev = document.getElementById("rightChev");
-    let hoverElementsRight = gsap.utils.toArray(".toRightHover");
-
-    hoverElementsRight.forEach(function(element){
-      element.addEventListener("mouseenter", function(){
-        animateHover(followMouse, 20);
-        animateHover(rightChev, 1, 1, 0.2);
-      })
-      element.addEventListener("mouseleave", function(){
-        animateHover(followMouse, 1, 1, 0.2);
-        animateHover(rightChev, 1, 0);
-      })
-    })
-    function animateHover(element, scale = 1, opacity = 1, delay = 0){
-      gsap.to(element, {
-        scale: scale,
-        opacity: opacity,
-        delay: delay,
-        duration: 0.2,
-        easing: "power1.inOut"
-      })
-    }
   }
 }
 </script>
@@ -437,13 +345,6 @@ div.logos img{
   border: 0;
   outline: 0px;
   background: lightgrey;
-}
-
-.testimonials{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
 }
 
 /* FOOTER */
