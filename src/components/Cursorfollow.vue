@@ -33,8 +33,9 @@ export default {
     '$route' (to, from) {
       setTimeout(() => {
         this.resetButtons();
+        this.resetHovers();
       },1000)
-    }
+    },
   },
   methods: {
     resetButtons() {
@@ -47,6 +48,39 @@ export default {
         })
       }
     },
+    resetHovers() {
+      let followMouse = document.getElementById("followMouse");
+      let rightChev = document.getElementById("rightChev");
+      let hoverElementsDirecction = gsap.utils.toArray(".toDirectionHover");
+
+      console.log(hoverElementsDirecction);
+      hoverElementsDirecction.forEach((element) => {
+        element.addEventListener("mouseenter", () => {
+          animateHover(followMouse, 20, 0);
+          animateOpacity(rightChev, 1, 0.2);
+          this.needsDirection = true;
+        })
+        element.addEventListener("mouseleave", () => {
+          animateHover(followMouse, 1, 0.2);
+          animateOpacity(rightChev, 0, 0);
+          this.needsDirection = false;
+        })
+      })
+      function animateHover(element, scale = 1, delay = 0){
+        gsap.to(element, {
+          scale: scale,
+          delay: delay,
+          duration: 0.2,
+        })
+      }
+      function animateOpacity(element, opacity = 1, delay = 0){
+        gsap.to(element, {
+          opacity: opacity,
+          delay: delay,
+          duration: 0.2,
+        })
+      }
+    }
   },
   mounted(){
 
@@ -70,39 +104,7 @@ export default {
     xToBg(window.innerWidth);
     yToBg(0);
 
-
-    /* hovers */
-    let followMouse = document.getElementById("followMouse");
-    let rightChev = document.getElementById("rightChev");
-    let hoverElementsDirecction = gsap.utils.toArray(".toDirectionHover");
-
-    hoverElementsDirecction.forEach((element) => {
-      element.addEventListener("mouseenter", () => {
-        animateHover(followMouse, 20, 0);
-        animateOpacity(rightChev, 1, 0.2);
-        this.needsDirection = true;
-      })
-      element.addEventListener("mouseleave", () => {
-        animateHover(followMouse, 1, 0.2);
-        animateOpacity(rightChev, 0, 0);
-        this.needsDirection = false;
-      })
-    })
-    function animateHover(element, scale = 1, delay = 0){
-      gsap.to(element, {
-        scale: scale,
-        delay: delay,
-        duration: 0.2,
-      })
-    }
-    function animateOpacity(element, opacity = 1, delay = 0){
-      gsap.to(element, {
-        opacity: opacity,
-        delay: delay,
-        duration: 0.2,
-      })
-    }
-
+    this.resetHovers();
     this.resetButtons();
   },
 }

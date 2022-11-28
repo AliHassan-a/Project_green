@@ -59,6 +59,7 @@ export default {
       setTimeout( function(){
         document.querySelector(".logoBackground").style.display = "none";
       },3000)
+      this.initialLoad = false;
     }
   }
 }

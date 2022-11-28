@@ -17,13 +17,42 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger, ScrollSmoother, Power2} from "gsap/all";
-
 export default {
   name: "Footer",
 }
 </script>
 
 <style scoped>
-
+div.footerWrapper{
+  margin-top: 120px;
+}
+.footer-overlay{
+  position: absolute;
+  top:0;
+  left:unset;
+  width: 100vh;
+  height: 100vh;
+  border-radius: 1000px;
+  z-index: 0;
+}
+h2.footer{
+  font-size: 126px;
+  color: #E7FFD3;
+  font-weight: 700;
+  font-feature-settings: 'calt' 0, 'calt' 0;
+}
+p.footer, h2.footer{
+  z-index: 1;
+}
+.footerBottom{
+  position: absolute;
+  width: 100%;
+  bottom: 50px;
+  z-index: 1;
+}
+.footerBottom .contentContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 </style>

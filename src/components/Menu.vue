@@ -46,7 +46,7 @@
       <span class="material-icons bgColor">menu</span>
     </button>
     <button class="action action--close">
-      SCHLIEßEN
+      <span class="material-icons bgColor">close</span>
     </button>
   </nav>
 </template>

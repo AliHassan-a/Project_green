@@ -14,9 +14,9 @@
             <g-image class="animateFadeInUpSecond" style="max-width: 180%; position: absolute; top: -205%; right: -85%;" src="@/assets/Mesh-Shape-grnstn.png"></g-image>
           </div>
         </div>
-        <div class="logosSection animateFadeInUpThird">
+        <div class="logosSection animateFadeInUp">
           <div style="width: 100%; opacity: 0.6">
-            <hr class="animateFadeInUpThird" style="height: 2px; border: 0; outline: 0px; background: lightgrey;" />
+            <hr class="animateFadeInUp" style="height: 2px; border: 0; outline: 0px; background: lightgrey;" />
           </div>
           <div class="contentContainer">
             <p style="font-size: 14px; color: #e7ffd3">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
@@ -120,20 +120,11 @@ export default {
       gsapPage: null,
       sideScroller: null,
       mouseDirection: null,
-      projects: [
-        {
-          title: "chartexperten",
-          text: "",
-          color: "#1A102E",
-          logo: "",
-          mockup: "",
-        }
-      ]
     }
   },
-  beforeDestroy: function () {
-    // Kill the GSAP instance
+  beforeDestroy(){
     this.sideScroller.kill();
+    this.stickySection.kill();
   },
   mounted() {
     //// HORIZONTAL ////
@@ -149,41 +140,84 @@ export default {
       scrub: false
     });
 
-    let sections = gsap.utils.toArray(".panel");
-    this.sideScroller = gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
-      ease: "none", // <-- IMPORTANT!
-      scrollTrigger: {
-        trigger: ".container",
-        pin: true,
-        scrub: 0.1,
-        end: "+=3000"
+    ScrollTrigger.matchMedia({
+      "(min-width: 1024px)": () => {
+        let sections = gsap.utils.toArray(".panel");
+        this.sideScroller = gsap.to(sections, {
+          xPercent: -100 * (sections.length - 1),
+          ease: "none", // <-- IMPORTANT!
+          scrollTrigger: {
+            trigger: ".container",
+            pin: true,
+            scrub: 0.1,
+            end: "+=3000"
+          }
+        });
+        gsap.fromTo(".container", {
+          opacity: 0,
+          translateY: 40,
+        },{
+          opacity: 1,
+          translateY: 0,
+          ease: "none", // <-- IMPORTANT!
+          scrollTrigger: {
+            trigger: ".container",
+            scrub: true,
+            start: "start 50%",
+            end: "start 30%"
+          }
+        });
+        gsap.to(".horizontalHeader h2", {
+          opacity: 0,
+          ease: "none", // <-- IMPORTANT!
+          scrollTrigger: {
+            trigger: ".box-3",
+            containerAnimation: this.sideScroller,
+            scrub: 1,
+            start: "start 30%",
+            end: "start 10%"
+          }
+        });
+        gsap.to(".horizontalHeader", {
+          opacity: 1,
+          ease: "none", // <-- IMPORTANT!
+          scrollTrigger: {
+            trigger: ".box-1",
+            scrub: true,
+            start: "start 100%",
+            end: "start 90%"
+          }
+        });
+        /* STICKY SECTION /w images */
+        this.stickySection = gsap.to(".pinnedContainer", {
+          opacity: 0,
+          ease: "none", // <-- IMPORTANT!
+          scrollTrigger: {
+            trigger: ".pinnedContainer",
+            pin: true,
+            scrub: 1,
+          }
+        });
+
+        let whirlImages = gsap.utils.toArray(".whirlImage");
+        whirlImages.forEach((whirlImage) => {
+          gsap.to(whirlImage, {
+            opacity: 0,
+            scrollTrigger: {
+              trigger: whirlImage,
+              start: "-=100",
+              pin: true,
+              scrub: 1,
+            }
+          })
+        })
+      },
+      "(max-width: 1024px)": () => {
+      },
+      "all": () => {
+
       }
     });
-
-    /* STICKY SECTION /w images */
-    gsap.to(".pinnedContainer", {
-      opacity: 0,
-      ease: "none", // <-- IMPORTANT!
-      scrollTrigger: {
-        trigger: ".pinnedContainer",
-        pin: true,
-        scrub: 1,
-      }
-    });
-
-    let whirlImages = gsap.utils.toArray(".whirlImage");
-    whirlImages.forEach((whirlImage) => {
-      gsap.to(whirlImage, {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: whirlImage,
-          start: "-=100",
-          pin: true,
-          scrub: 1,
-        }
-      })
-    })
 
     /* footer */
     gsap.to(".footer-overlay", {
@@ -232,35 +266,6 @@ export default {
 
 <style>
 
-section {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  will-change: transform;
-}
-
-.panel{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(100vw - (100vw / 6));
-  height: 70vh;
-  margin: auto;
-  margin-bottom: 5vh;
-  text-align: center;
-  border-radius: 8px;
-  color: white;
-  font-weight: 700;
-  will-change: transform;
-  transform-origin: bottom;
-}
-
 /*logos section*/
 .logosSection{
   position: absolute;
@@ -271,28 +276,6 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-/* sticky */
-.projectLeft{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 50%;
-  padding: 5%;
-}
-
-.projectRight{
-  width: 50%;
-  padding: 5%;
-}
-
-.container {
-  width: 500%;
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 10% 0%;
 }
 /*// content //*/
 .pinnedContainerWrapper{
@@ -345,41 +328,6 @@ div.logos img{
   border: 0;
   outline: 0px;
   background: lightgrey;
-}
-
-/* FOOTER */
-
-div.footerWrapper{
-  margin-top: 120px;
-}
-.footer-overlay{
-  position: absolute;
-  top:0;
-  left:unset;
-  width: 100vh;
-  height: 100vh;
-  border-radius: 1000px;
-  z-index: 0;
-}
-h2.footer{
-  font-size: 126px;
-  color: #E7FFD3;
-  font-weight: 700;
-  font-feature-settings: 'calt' 0, 'calt' 0;
-}
-p.footer, h2.footer{
-  z-index: 1;
-}
-.footerBottom{
-  position: absolute;
-  width: 100%;
-  bottom: 50px;
-  z-index: 1;
-}
-.footerBottom .contentContainer{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* RESPONSIVE */

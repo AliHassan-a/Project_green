@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import { store } from "../store";
+
 export default {
   name: "testimonials",
   data() {
@@ -54,7 +56,11 @@ export default {
   },
   watch: {
     active(newVal){
-      this.$refs.testimonials.style.left = -newVal * 33.333 + "%";
+      if(store.isMobile){
+        this.$refs.testimonials.style.left = -newVal * 96 + "%";
+      } else {
+        this.$refs.testimonials.style.left = -newVal * 33.333 + "%";
+      }
     }
   },
   mounted(){
@@ -65,7 +71,7 @@ export default {
 
     this.$refs.testimonials.addEventListener("click", () => {
       if(this.mouseDirection == "isRight"){
-        if(this.active < this.count - 3){
+        if(this.active < this.count - (store.isMobile ? 1 : 3)){
           this.active += 1;
         }
       } else {

@@ -5,7 +5,9 @@
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <transition name="fade" mode="out-in">
-          <router-view />
+          <router-view v-slot="{ Component, route }">
+            <component :is="Component" :key="route.path" />
+          </router-view>
         </transition>
       </div>
     </div>
@@ -13,6 +15,7 @@
 </template>
 
 <script>
+import store  from "./store";
 import Header from "./components/Header";
 import Cursorfollow from "@/components/Cursorfollow";
 
@@ -25,7 +28,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 @import "./main.css";
 
 #smooth-content{

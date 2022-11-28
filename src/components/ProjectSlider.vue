@@ -1,44 +1,18 @@
 <template>
   <div id="two" class="container section-two">
-    <h2 style="position:absolute; top: 60px; left: calc(100vw/12);">Wir entwickeln innovative <br> Apps & Webseiten</h2>
-    <section id="chartexpertenProjekt" class="panel">
-      <g-link to="/projekte/chartexperten/">
-        <div class="box" style="background: #1A102E">
+    <div class="horizontalHeader">
+      <h2>Wir entwickeln innovative <br> Apps & Webseiten</h2>
+    </div>
+    <section class="panel" v-for="(project, index) in projects">
+      <g-link :to="project.link">
+        <div class="box" :class="'box-' + (index + 1)" :style="{background: project.color}">
           <div class="projectLeft">
-            <img src="@/assets/projects/chartexperten/chartexperten-logo.svg"/>
-            <h2 class="text-left defaultMarginY">Web App & Branding <br>für Chartexperten</h2>
-            <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="'/projekte/chartexperten'" :toDark="false"></baseButton>
+            <img :src="project.logo"/>
+            <h2 class="text-left defaultMarginY" v-html="project.text"></h2>
+            <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="project.link" :toDark="false"></baseButton>
           </div>
           <div class="projectRight">
-            <img style="width: 100%" src="@/assets/projects/chartexperten/chartexperten-mockup.svg"/>
-          </div>
-        </div>
-      </g-link>
-    </section>
-    <section class="panel">
-      <g-link to="/projekte/uhrigstore/">
-        <div class="box" style="background: #1F0E03">
-          <div class="projectLeft projectLeft1">
-            <img src="@/assets/projects/uhrigstore/uhrigstore-logo.svg"/>
-            <h2 class="text-left defaultMarginY">Neuer Webshop für <br>Uhrigstore</h2>
-            <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="'/projekte/chartexperten'" :toDark="false"></baseButton>
-          </div>
-          <div class="projectRight">
-            <img style="width: 100%" src="@/assets/projects/uhrigstore/uhrigstore-mockup.svg"/>
-          </div>
-        </div>
-      </g-link>
-    </section>
-    <section class="panel">
-      <g-link to="/projekte/kematherm/">
-        <div class="box" style="background: #1A4C7D">
-          <div class="projectLeft projectLeft1">
-            <img src="@/assets/projects/kematherm/kematherm-logo.svg"/>
-            <h2 class="text-left defaultMarginY">Performance Marketing <br>für Kematherm</h2>
-            <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="'/projekte/kematherm'" :toDark="false"></baseButton>
-          </div>
-          <div class="projectRight">
-            <img style="width: 100%" src="@/assets/projects/kematherm/kematherm-mockup.svg"/>
+            <img style="width: 100%" :src="project.mockup"/>
           </div>
         </div>
       </g-link>
@@ -49,6 +23,36 @@
 <script>
 import BaseButton from "./BaseButton";
 export default {
+  data(){
+    return {
+      projects: [
+        {
+          title: "chartexperten",
+          color: "#1A102E",
+          text: "Web App & Branding <br>für Chartexperten",
+          link: "/projekte/chartexperten",
+          logo: require("@/assets/projects/chartexperten/chartexperten-logo.svg"),
+          mockup: require("@/assets/projects/chartexperten/chartexperten-mockup.svg"),
+        },
+        {
+          title: "Uhrigstore",
+          color: "#1F0E03",
+          text: "Neuer Webshop für <br>Uhrigstore",
+          link: "/projekte/uhrigstore",
+          logo: require("@/assets/projects/uhrigstore/uhrigstore-logo.svg"),
+          mockup: require("@/assets/projects/uhrigstore/uhrigstore-mockup.svg"),
+        },
+        {
+          title: "Kematherm",
+          color: "#1A4C7D",
+          text: "Performance + für <br>Kematherm",
+          link: "/projekte/kematherm",
+          logo: require("@/assets/projects/kematherm/kematherm-logo.svg"),
+          mockup: require("@/assets/projects/kematherm/kematherm-mockup.svg"),
+        },
+      ]
+    }
+  },
   name: "ProjectSlider",
   components: {
     BaseButton,
@@ -57,5 +61,59 @@ export default {
 </script>
 
 <style scoped>
-
+  section {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    will-change: transform;
+  }
+  .panel{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - (100vw / 6));
+    height: 70vh;
+    margin: auto;
+    margin-bottom: 5vh;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    will-change: transform;
+    transition: opacity 0.3s;
+  }
+  .horizontalHeader{
+    position:absolute;
+    top: 60px;
+    left: calc(100vw/12);
+    opacity: 0;
+  }
+  .projectLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    padding: 5%;
+  }
+  .projectRight{
+    width: 50%;
+    padding: 5%;
+  }
+  .container {
+    width: 500%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 10% 0%;
+  }
+  @media only screen and (max-width: 1024px){
+    .container{
+      flex-direction: column;
+    }
+  }
 </style>
