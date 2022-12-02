@@ -264,7 +264,12 @@ p{
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1024px) {
+    .m-hide{
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 1024px) {
     .md-hide{
-        display: none;
+        display: none !important;
     }
 }

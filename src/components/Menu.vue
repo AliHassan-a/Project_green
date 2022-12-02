@@ -58,9 +58,7 @@ export default {
   watch:{
     $route (to, from){
       if(this.menu != null){
-        if(this.isOpen){
-          this.menu.close()
-        }
+        this.menu.close();
       }
     }
   },
@@ -294,6 +292,10 @@ main {
   overflow: hidden;
 }
 
+.mainmenu__item span{
+  color: black;
+}
+
 .menu__item-inner {
   overflow: hidden;
   transform: translate3d(101%,0,0);
@@ -307,27 +309,21 @@ main {
 
 .menu__item--1 .menu__item-inner {
   background: white;
-  opacity: 0.9;
 }
 .menu__item--2 .menu__item-inner {
   background: #88F332;
-  opacity: 0.9;
 }
 .menu__item--3 .menu__item-inner {
   background: #88F332;
-  opacity: 0.9;
 }
 .menu__item--4 .menu__item-inner {
   background: #88F332;
-  opacity: 0.9;
 }
 .menu__item--5 .menu__item-inner {
   background: #88F332;
-  opacity: 0.9;
 }
 
-.menu__item--4,
-.menu__item--5 {
+.menu__item--3 {
   display: none;
 }
 
@@ -386,8 +382,7 @@ main {
   .menu__item--4 {
     grid-area: item4;
   }
-  .menu__item--4,
-  .menu__item--5 {
+  .menu__item--3 {
     display: block;
   }
   .menu__item-inner {

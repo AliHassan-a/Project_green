@@ -1,7 +1,7 @@
 <template>
   <div class="testimonialsWrapper">
     <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
-    <div ref="testimonials" class="testimonials toDirectionHover">
+    <div ref="testimonials" class="testimonials toDirectionHover animateFadeInUp">
       <div class="singleCard">
         <p style="margin-bottom: 50px;">Zuverlässig und gute Leistung. <br><br> Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden</p>
         <hr class="greenBg line" />
@@ -43,8 +43,6 @@
 </template>
 
 <script>
-import { store } from "../store";
-
 export default {
   name: "testimonials",
   data() {
@@ -52,11 +50,12 @@ export default {
       active: 0,
       count: null,
       mouseDirection: null,
+      isMobile: true,
     }
   },
   watch: {
     active(newVal){
-      if(store.isMobile){
+      if(this.isMobile){
         this.$refs.testimonials.style.left = -newVal * 96 + "%";
       } else {
         this.$refs.testimonials.style.left = -newVal * 33.333 + "%";
@@ -64,6 +63,13 @@ export default {
     }
   },
   mounted(){
+    window.addEventListener("load", () => {
+      this.isMobile = window.innerWidth > 1024 ? false : true;
+    })
+    window.addEventListener("resize", () => {
+      this.isMobile = window.innerWidth > 1024 ? false : true;
+    })
+
     this.count = document.querySelectorAll(".singleCard").length;
     window.addEventListener("mousemove", e => {
       this.mouseDirection =  e.clientX > window.innerWidth / 2 ? "isRight" : "isLeft";
@@ -71,7 +77,7 @@ export default {
 
     this.$refs.testimonials.addEventListener("click", () => {
       if(this.mouseDirection == "isRight"){
-        if(this.active < this.count - (store.isMobile ? 1 : 3)){
+        if(this.active < this.count - (this.isMobile ? 1 : 3)){
           this.active += 1;
         }
       } else {
@@ -80,6 +86,48 @@ export default {
         }
       }
     })
+
+    var xDown = null;
+    var yDown = null;
+
+    this.$refs.testimonials.addEventListener('touchstart', (evt) => {
+      const firstTouch = getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
+    }, false);
+    this.$refs.testimonials.addEventListener('touchmove', (evt) => {
+      if ( ! xDown || ! yDown ) {
+        return;
+      }
+
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
+
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+
+      if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+        if ( xDiff > 0 ) {
+          if(this.active < this.count - (this.isMobile ? 1 : 3)){
+            this.active += 1;
+          }
+        } else {
+          if(this.active > 0){
+            this.active -= 1;
+          }
+        }
+      } else {
+        if ( yDiff > 0 ) {
+        } else {
+        }
+      }
+      xDown = null;
+      yDown = null;
+    }, false);
+
+    function getTouches(evt) {
+      return evt.touches || evt.originalEvent.touches;
+    }
   }
 }
 </script>

@@ -28,7 +28,7 @@ export default {
     if(this.initialLoad){
       gsap.fromTo(".logoImage", {
         opacity: 0,
-        scale: 1.5,
+        scale: 1.2,
       }, {
         opacity: 1,
         scale: 1,
@@ -59,6 +59,7 @@ export default {
       setTimeout( function(){
         document.querySelector(".logoBackground").style.display = "none";
       },3000)
+
       this.initialLoad = false;
     }
   }
@@ -76,7 +77,6 @@ div.logoContainer{
   justify-content: center;
   align-items: center;
   z-index: 1001;
-  margin-left: 20px;
 }
 div.logoBackground{
   position: fixed;

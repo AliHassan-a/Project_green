@@ -8,9 +8,8 @@
             <h2 class="animateFadeInLeft" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
             <h2 class="animateFadeInLeftSecond greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
             <g-image style="margin-top: 20px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
-            <baseButton style="margin-left: 20%;" class="animateFadeInLeftThird" :theme="''" :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
-          </div>
-          <div class="innerContentContainer md-hide">
+           </div>
+          <div class="innerContentContainer m-hide">
             <g-image class="animateFadeInUpSecond" style="max-width: 180%; position: absolute; top: -205%; right: -85%;" src="@/assets/Mesh-Shape-grnstn.png"></g-image>
           </div>
         </div>
@@ -19,7 +18,8 @@
             <hr class="animateFadeInUp" style="height: 2px; border: 0; outline: 0px; background: lightgrey;" />
           </div>
           <div class="contentContainer">
-            <p style="font-size: 14px; color: #e7ffd3">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
+            <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
+            <p class="logosText md-hide">UNTERNEHMEN, DIE GERNE MIT UNS ARBEITEN</p>
             <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
             <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
             <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
@@ -38,7 +38,7 @@
             <h2 class="greenColor" style="text-align: left;"><b>Freunde</b></h2>
             <g-image class="" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
           </div>
-          <div style="width: 100%; display: flex; flex-direction:column;">
+          <div class="m-hide" style="width: 100%; display: flex; flex-direction:column;">
             <g-image class="whirlImage" style="margin-top: 30%;" src="@/assets/praktis1.png"></g-image>
             <g-image class="whirlImage" style="margin-top: -70px; margin-left: 50%;" src="@/assets/praktis2.png"></g-image>
           </div>
@@ -51,8 +51,8 @@
         </div>
       </div>
       <div id="four" class="section-four">
-        <div style="background: black; width: calc(100% - 100%/6); padding: 10%;">
-          <g-image class="animateFadeInUp" style="margin-top: -350px;" src="@/assets/zitat.png"></g-image>
+        <div class="quote">
+          <g-image class="animateFadeInUp" src="@/assets/zitat.png"></g-image>
           <h2 class="animateFadeInUp"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </h2>
           <hr class="animateFadeInUp greenBg" style="margin-top: 100px; width: 244px; height: 4px; border: 0; outline: 0px; opacity: 0; display: inline-block;" />
           <h2 class="animateFadeInUp"><b>Rene Grebenstein</b> </h2>
@@ -67,7 +67,7 @@
           </div>
           <div class="leistungWrapper animateFadeInUp">
             <g-image src="@/assets/design_strategie_icon.png"></g-image>
-            <h3 class="w-full">Design & Strategie</h3>
+            <h3 class="w-full leistungText">Design & Strategie</h3>
             <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
           </div>
           <div class="lineWrapper">
@@ -75,7 +75,7 @@
           </div>
           <div class="leistungWrapper animateFadeInUp">
             <g-image src="@/assets/entwicklung_icon.png"></g-image>
-            <h2 class="w-full">Entwicklung</h2>
+            <h3 class="w-full leistungText">Entwicklung</h3>
             <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
           </div>
           <div class="lineWrapper">
@@ -83,7 +83,7 @@
           </div>
           <div class="leistungWrapper animateFadeInUp">
             <g-image src="@/assets/marketing_icon.png"></g-image>
-            <h2 class="w-full">Marketing</h2>
+            <h3 class="w-full leistungText">Marketing</h3>
             <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
           </div>
           <div class="lineWrapper">
@@ -106,7 +106,7 @@ import BaseButton from "../components/BaseButton";
 import ProjectSlider from "../components/ProjectSlider";
 import Testimonials from "../components/testimonials";
 import Footer from "../components/Footer";
-
+import { store } from "../store";
 
 export default {
   components: {
@@ -150,7 +150,8 @@ export default {
             trigger: ".container",
             pin: true,
             scrub: 0.1,
-            end: "+=3000"
+            end: "+=3000",
+            invalidateOnRefresh: true,
           }
         });
         gsap.fromTo(".container", {
@@ -196,6 +197,7 @@ export default {
             trigger: ".pinnedContainer",
             pin: true,
             scrub: 1,
+            invalidateOnRefresh: true,
           }
         });
 
@@ -211,54 +213,52 @@ export default {
             }
           })
         })
+
+        /* footer */
+        gsap.to(".footer-overlay", {
+          scale: 2.5,
+          ease: "none", // <-- IMPORTANT!
+          scrollTrigger: {
+            trigger: ".footer-overlay",
+            start: "top center",
+            end: "top end",
+            scrub: 1,
+          }
+        });
+        gsap.to(".footer", {
+          color: "#011713",
+          ease: "none", // <-- IMPORTANT!
+          scrollTrigger: {
+            trigger: ".footer-overlay",
+            start: "top center",
+            end: "top end",
+            scrub: 1,
+          }
+        });
       },
       "(max-width: 1024px)": () => {
       },
       "all": () => {
-
+        /* DEFAULT ANIMATIONS */
+        ScrollTrigger.batch(".animateFadeInUp", {
+          toggleClass: "activeContentUp"
+        });
+        ScrollTrigger.batch(".animateFadeInUpSecond", {
+          toggleClass: "activeContentUpSecond"
+        });
+        ScrollTrigger.batch(".animateFadeInUpThird", {
+          toggleClass: "activeContentUpThird"
+        });
+        ScrollTrigger.batch(".animateFadeInLeft", {
+          toggleClass: "activeContentLeft"
+        });
+        ScrollTrigger.batch(".animateFadeInLeftSecond", {
+          toggleClass: "activeContentLeftSecond"
+        });
+        ScrollTrigger.batch(".animateFadeInLeftThird", {
+          toggleClass: "activeContentLeftThird"
+        });
       }
-    });
-
-    /* footer */
-    gsap.to(".footer-overlay", {
-      scale: 2.5,
-      ease: "none", // <-- IMPORTANT!
-      scrollTrigger: {
-        trigger: ".footer-overlay",
-        start: "top center",
-        end: "top end",
-        scrub: 1,
-      }
-    });
-    gsap.to(".footer", {
-      color: "#011713",
-      ease: "none", // <-- IMPORTANT!
-      scrollTrigger: {
-        trigger: ".footer-overlay",
-        start: "top center",
-        end: "top end",
-        scrub: 1,
-      }
-    });
-
-    /* DEFAULT ANIMATIONS */
-    ScrollTrigger.batch(".animateFadeInUp", {
-      toggleClass: "activeContentUp"
-    });
-    ScrollTrigger.batch(".animateFadeInUpSecond", {
-      toggleClass: "activeContentUpSecond"
-    });
-    ScrollTrigger.batch(".animateFadeInUpThird", {
-      toggleClass: "activeContentUpThird"
-    });
-    ScrollTrigger.batch(".animateFadeInLeft", {
-      toggleClass: "activeContentLeft"
-    });
-    ScrollTrigger.batch(".animateFadeInLeftSecond", {
-      toggleClass: "activeContentLeftSecond"
-    });
-    ScrollTrigger.batch(".animateFadeInLeftThird", {
-      toggleClass: "activeContentLeftThird"
     });
   }
 }
@@ -298,10 +298,22 @@ export default {
 div.logos img{
   object-fit: contain;
 }
+.logosText{
+  font-size: 14px;
+  color: #e7ffd3;
+}
+
 .whirlImage{
   transform-origin: top;
   will-change: transform;
 }
+
+.quote{
+  background: black;
+  width: calc(100% - 100%/6);
+  padding: 10%;
+}
+
 
 .leistungWrapper{
   width: 100%;
@@ -340,8 +352,14 @@ div.logos img{
   .logosSection .contentContainer{
     flex-direction: column;
   }
+  .pinnedContainer{
+    margin-top: -50%;
+  }
   .leistungWrapper{
     flex-direction: column;
+  }
+  .leistungText{
+    text-align: center;
   }
   div.footerWrapper{
     padding: 0px;

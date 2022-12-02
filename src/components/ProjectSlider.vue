@@ -115,5 +115,14 @@ export default {
     .container{
       flex-direction: column;
     }
+    .box{
+      height: 90vh;
+    }
+    .horizontalHeader{
+      top: 0px;
+      position: relative;
+      opacity: 1;
+      width: calc(100vw - (100vw / 6));
+    }
   }
 </style>

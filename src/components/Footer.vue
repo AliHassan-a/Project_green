@@ -1,8 +1,8 @@
 <template>
   <div class="mainSection footerWrapper">
     <div class="footer-overlay greenBg"></div>
-    <p class="footer">Du hast ein spannendes Projekt?</p>
-    <h2 class="footer">Lass uns sprechen!</h2>
+    <p class="footer animateFadeInUp">Du hast ein spannendes Projekt?</p>
+    <h2 class="footer animateFadeInUp">Lass uns sprechen!</h2>
     <div class="footerBottom animateFadeInUp" style="z-index: 1;">
       <div style="width: 100%; opacity: 0.6">
         <hr style="height: 2px; border: 0; outline: 0px; background: black;" />
@@ -40,9 +40,7 @@ h2.footer{
   color: #E7FFD3;
   font-weight: 700;
   font-feature-settings: 'calt' 0, 'calt' 0;
-}
-p.footer, h2.footer{
-  z-index: 1;
+  text-align: center;
 }
 .footerBottom{
   position: absolute;
@@ -54,5 +52,19 @@ p.footer, h2.footer{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1024px) {
+  .footer-overlay{
+    border-radius: 0px;
+  }
+  p.footer, h2.footer{
+    color: #011713;
+  }
+  h2.footer{
+    font-size: 70px;
+  }
 }
 </style>

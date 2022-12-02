@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import store  from "./store";
 import Header from "./components/Header";
 import Cursorfollow from "@/components/Cursorfollow";
 
@@ -24,7 +23,7 @@ export default {
   components: {
     Header,
     Cursorfollow,
-  },
+  }
 }
 </script>
 

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { gsap, Power2 } from "gsap/all";
+import { gsap } from "gsap/all";
 
 export default {
   name: "Cursorfollow",
@@ -53,7 +53,6 @@ export default {
       let rightChev = document.getElementById("rightChev");
       let hoverElementsDirecction = gsap.utils.toArray(".toDirectionHover");
 
-      console.log(hoverElementsDirecction);
       hoverElementsDirecction.forEach((element) => {
         element.addEventListener("mouseenter", () => {
           animateHover(followMouse, 20, 0);
