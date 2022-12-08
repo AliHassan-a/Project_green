@@ -105,7 +105,9 @@ p{
     font-size: clamp(1.4em ,calc(100vw / 50), 1.8em);
     font-weight: 400;
 }
-
+.headerFont{
+    font-size: 78px;
+}
 /*** color ****/
 .bgBg{
     background: #011713;
@@ -171,9 +173,8 @@ p{
     align-items: center;
     padding: 10px;
     min-height: 100vh;
-    max-width: calc(100vw - (100vw / 6));
+    max-width: calc(100vw - (100vw / 4));
     margin: auto;
-    padding: 100px 0px;
 }
 .contentContainer{
     width: 100%;

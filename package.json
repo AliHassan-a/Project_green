@@ -11,6 +11,7 @@
     "gridsome": "^0.7.23",
     "gsap": "npm:@gsap/shockingly@^3.11.3",
     "material-icons": "^1.12.2",
+    "simplex-noise": "^4.0.1",
     "smooth-scrollbar": "^8.8.1"
   }
 }

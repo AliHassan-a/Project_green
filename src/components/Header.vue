@@ -2,7 +2,7 @@
   <header class="header">
     <div class="logoContainer">
       <a class="logoImage" href="/">
-        <img style="width: 300px;" src="@/assets/logo.svg">
+        <img style="width: 300px; padding: 38px 42px;" src="@/assets/logo.svg">
       </a>
       <div class="logoBackground bgBg"></div>
     </div>

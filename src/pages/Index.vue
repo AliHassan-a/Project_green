@@ -4,18 +4,15 @@
       <div id="one" class="mainSection section-one">
         <div class="contentContainer">
           <div class="innerContentContainer">
-            <h2 class="animateFadeInLeft">Wir sorgen dafür, dass dein</h2>
-            <h2 class="animateFadeInLeft" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
-            <h2 class="animateFadeInLeftSecond greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
-            <g-image style="margin-top: 20px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
-           </div>
-          <div class="innerContentContainer m-hide">
-            <g-image class="animateFadeInUpSecond" style="max-width: 180%; position: absolute; top: -205%; right: -85%;" src="@/assets/Mesh-Shape-grnstn.png"></g-image>
+            <h2 class="animateFadeInLeft headerFont">Wir sorgen dafür, dass dein</h2>
+            <h2 class="animateFadeInLeft headerFont" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
+            <h2 class="animateFadeInLeftSecond headerFont greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
+            <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
           </div>
         </div>
         <div class="logosSection animateFadeInUp">
           <div style="width: 100%; opacity: 0.6">
-            <hr class="animateFadeInUp" style="height: 2px; border: 0; outline: 0px; background: lightgrey;" />
+            <hr class="animateFadeInUp" style="height: 2px; border: 0; outline: 0px; background: lightgrey; margin-bottom: 30px;" />
           </div>
           <div class="contentContainer">
             <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
@@ -270,7 +267,7 @@ export default {
 .logosSection{
   position: absolute;
   width: 100%;
-  bottom: 50px;
+  bottom: 60px;
 }
 .logosSection .contentContainer{
   display: flex;

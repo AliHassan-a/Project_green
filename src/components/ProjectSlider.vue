@@ -9,7 +9,6 @@
           <div class="projectLeft">
             <img :src="project.logo"/>
             <h2 class="text-left defaultMarginY" v-html="project.text"></h2>
-            <baseButton class="" :theme="'light'" :title="'Zum Projekt'" :linkTo="project.link" :toDark="false"></baseButton>
           </div>
           <div class="projectRight">
             <img style="width: 100%" :src="project.mockup"/>
@@ -21,7 +20,6 @@
 </template>
 
 <script>
-import BaseButton from "./BaseButton";
 export default {
   data(){
     return {
@@ -54,9 +52,6 @@ export default {
     }
   },
   name: "ProjectSlider",
-  components: {
-    BaseButton,
-  }
 }
 </script>
 

@@ -71,21 +71,6 @@ export default {
     })
 
     this.count = document.querySelectorAll(".singleCard").length;
-    window.addEventListener("mousemove", e => {
-      this.mouseDirection =  e.clientX > window.innerWidth / 2 ? "isRight" : "isLeft";
-    });
-
-    this.$refs.testimonials.addEventListener("click", () => {
-      if(this.mouseDirection == "isRight"){
-        if(this.active < this.count - (this.isMobile ? 1 : 3)){
-          this.active += 1;
-        }
-      } else {
-        if(this.active > 0){
-          this.active -= 1;
-        }
-      }
-    })
 
     var xDown = null;
     var yDown = null;
@@ -95,11 +80,11 @@ export default {
       xDown = firstTouch.clientX;
       yDown = firstTouch.clientY;
     }, false);
+
     this.$refs.testimonials.addEventListener('touchmove', (evt) => {
       if ( ! xDown || ! yDown ) {
         return;
       }
-
       var xUp = evt.touches[0].clientX;
       var yUp = evt.touches[0].clientY;
 
@@ -146,6 +131,7 @@ export default {
     gap: 20px;
     width: 200%;
     transition: left 0.8s ease-out;
+    cursor: grab;
   }
   .singleCard{
     width: 33.333%;

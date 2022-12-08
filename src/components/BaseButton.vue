@@ -1,17 +1,12 @@
 <template>
   <div class="buttonWrapper">
-    <g-link v-if="linkTo != null" :to="'/' + linkTo">
-      <div class="icon-wrap" :class="toDark ? 'toDark' : 'toLight'">
-        <div class="button-icon" :class="theme">
-          {{ title }}
-        </div>
-      </div>
+    <g-link :to="'/' + linkTo">
+      <button class="light" v-if="theme == 'light'">
+        <p class="title">{{ title }}</p>
+        <p class="title title--hovered"><b>{{ title }}</b></p>
+        <div class="button-blob" />
+      </button>
     </g-link>
-    <div v-else class="icon-wrap" :class="toDark ? 'toDark' : 'toLight'">
-      <div class="button-icon" :class="theme">
-        {{ title }}
-      </div>
-    </div>
   </div>
 </template>
 
@@ -22,7 +17,6 @@ export default {
     title: String,
     linkTo: String,
     theme: String,
-    toDark: Boolean,
   },
 }
 </script>
@@ -33,46 +27,33 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.icon-wrap {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  float:left;
-  z-index: 10;
-}
-.button-icon {
-  background: transparent;
-  color: #88F332;
+button.light{
+  background: #88F332;
+  border: none;
+  color: black;
   border-radius: 100px;
   text-align: center;
   transition: all 0.5s;
-  border: 2px solid #88F332;
-  padding: 15px 40px;
+  padding: 0px 48px;
   z-index: 101;
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  overflow: hidden;
 }
-.icon-wrap:hover .button-icon{
+button.light p{
   color: black;
-  background: #88F332;
-  border: 2px solid #88F332;
+  transition: all 0.3s ease-out;
+  line-height: 70px;
+  font-size: 25px;
 }
-.button-icon.dark {
-  color: #011713;
-  border: 2px solid #011713;
+button.light:hover p.title{
+  transform: translateY(-70px);
 }
-.icon-wrap:hover .button-icon.dark{
-  color: black;
-  background: #88F332;
-  border: 2px solid #88F332;
+button.light:hover p.title--hovered{
+  transform: translateY(-70px);
 }
-.button-icon.light {
-  color: white;
-  border: 1px solid lightgrey;
-}
-.icon-wrap:hover .button-icon.light{
-  color: black;
-  background: white;
-  border: 1px solid white;
+div.button-blob{
+
 }
 </style>
