@@ -19,13 +19,9 @@ export default {
   components: {
     Menu,
   },
-  data(){
-    return {
-      initialLoad: true,
-    }
-  },
   mounted() {
-    if(this.initialLoad){
+    console.log(this.$store.state.initialLoad);
+    if(this.$store.state.initialLoad){
       gsap.fromTo(".logoImage", {
         opacity: 0,
         scale: 1.2,
@@ -60,7 +56,7 @@ export default {
         document.querySelector(".logoBackground").style.display = "none";
       },3000)
 
-      this.initialLoad = false;
+      this.$store.dispatch("firstLoad");
     }
   }
 }
