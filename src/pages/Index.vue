@@ -7,7 +7,7 @@
             <h2 class="animateFadeInLeft headerFont">Wir sorgen dafür, dass dein</h2>
             <h2 class="animateFadeInLeft headerFont" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
             <h2 class="animateFadeInLeftSecond headerFont greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
-            <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
+            <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird toLinkHover" src="@/assets/Pfeile.svg"></g-image>
           </div>
         </div>
         <div class="logosSection animateFadeInUp">
@@ -32,7 +32,7 @@
           <div class="pinnedContainer">
             <h2> Designer, Programmierer </h2>
             <h2> Marketing-Experten </h2>
-            <h2 class="greenColor" style="text-align: left;"><b>Freunde</b></h2>
+            <h2 class="greenColor toLinkHover" style="text-align: left;"><b>Freunde</b></h2>
             <g-image class="" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
           </div>
           <div class="m-hide" style="width: 100%; display: flex; flex-direction:column;">
@@ -89,7 +89,8 @@
         </div>
       </div>
       <div id="six" class="mainSection section-six">
-        <testimonials />
+        <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
+        <testimonials :content="testimonialsContent" />
       </div>
       <Footer />
     </div>
@@ -101,7 +102,7 @@
 import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
 import BaseButton from "../components/BaseButton";
 import ProjectSlider from "../components/ProjectSlider";
-import Testimonials from "../components/testimonials";
+import Testimonials from "../components/simpleSlider";
 import Footer from "../components/Footer";
 import { store } from "../store";
 
@@ -117,6 +118,53 @@ export default {
       gsapPage: null,
       sideScroller: null,
       mouseDirection: null,
+      testimonialsContent: [
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        },
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        },
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        },
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        },
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        },
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        },
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        },
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        },
+        {
+          text: "Weißt dus? Weißt dus? Weißt du es?",
+          customer: "Celin",
+          position: "Netto Dauerkunde"
+        }
+      ],
     }
   },
   beforeDestroy(){

@@ -108,7 +108,17 @@ p{
 .headerFont{
     font-size: 78px;
 }
+
+$h1Size: 78px;
+$h2Size: 48px;
+
+$smallestFont: 14px;
 /*** color ****/
+$bgColor: #011713;
+$blackColor: black;
+$greenColor: #88F332;
+
+
 .bgBg{
     background: #011713;
 }

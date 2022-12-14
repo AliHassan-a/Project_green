@@ -20,7 +20,6 @@ export default {
     Menu,
   },
   mounted() {
-    console.log(this.$store.state.initialLoad);
     if(this.$store.state.initialLoad){
       gsap.fromTo(".logoImage", {
         opacity: 0,

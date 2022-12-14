@@ -2,7 +2,7 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from '~/layouts/Default.vue'
-import 'material-icons/iconfont/material-icons.css';
+import 'material-icons/iconfont/material-icons.scss';
 import Vuex from 'vuex';
 
 export default function (Vue, { router, head, isClient, appOptions }) {
@@ -13,7 +13,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     state:{
       initialLoad:true,
     },
-    mutations: {
+    actions: {
       firstLoad(state) {
         state.initialLoad = false;
       }

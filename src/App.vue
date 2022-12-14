@@ -30,8 +30,8 @@ export default {
 }
 </script>
 
-<style>
-@import "./main.css";
+<style lang="scss">
+@import "main.scss";
 
 #smooth-content{
   will-change: transform;
