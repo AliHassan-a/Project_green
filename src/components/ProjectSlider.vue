@@ -9,6 +9,7 @@
           <div class="projectLeft">
             <img :src="project.logo"/>
             <h2 class="text-left defaultMarginY" v-html="project.text"></h2>
+            <baseButton :theme="'light'" :title="'zum Projekt'" class="toiLinkHover" gs-hover="asdasdasdasdasd" />
           </div>
           <div class="projectRight">
             <img style="width: 100%" :src="project.mockup"/>
@@ -20,7 +21,11 @@
 </template>
 
 <script>
+import baseButton from "./BaseButton";
 export default {
+  components: {
+    baseButton
+  },
   data(){
     return {
       projects: [

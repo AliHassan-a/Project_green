@@ -7,7 +7,8 @@
             <h2 class="animateFadeInLeft headerFont">Wir sorgen dafür, dass dein</h2>
             <h2 class="animateFadeInLeft headerFont" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
             <h2 class="animateFadeInLeftSecond headerFont greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
-            <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird toLinkHover" src="@/assets/Pfeile.svg"></g-image>
+            <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird toLinkHover" gs-hover="custom hovertext here!" src="@/assets/Pfeile.svg"></g-image>
+            <baseButton :theme="'light'" title="testButton" class="toiLinkHover" gs-hover="asdasdasdasdasd" />
           </div>
         </div>
         <div class="logosSection animateFadeInUp">
@@ -32,7 +33,7 @@
           <div class="pinnedContainer">
             <h2> Designer, Programmierer </h2>
             <h2> Marketing-Experten </h2>
-            <h2 class="greenColor toLinkHover" style="text-align: left;"><b>Freunde</b></h2>
+            <h2 class="greenColor toLinkHover" gs-hover="Wanna be friends? &nbsp;&nbsp; Wanna be friends?" style="text-align: left;"><b>Freunde</b></h2>
             <g-image class="" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
           </div>
           <div class="m-hide" style="width: 100%; display: flex; flex-direction:column;">

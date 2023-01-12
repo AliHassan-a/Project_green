@@ -1,10 +1,20 @@
 <template>
   <div class="buttonWrapper">
     <g-link :to="'/' + linkTo">
-      <button class="light" v-if="theme == 'light'">
+      <button class="light" v-if="theme == 'light' || theme == ''">
+        <div class="button-blob" />
         <p class="title">{{ title }}</p>
         <p class="title title--hovered"><b>{{ title }}</b></p>
+      </button>
+      <button class="dark" v-else-if="theme == 'dark'">
         <div class="button-blob" />
+        <p class="title">{{ title }}</p>
+        <p class="title title--hovered"><b>{{ title }}</b></p>
+      </button>
+      <button class="link" v-else-if="theme == 'link'">
+        <div class="button-blob" />
+        <p class="title">{{ title }}</p>
+        <p class="title title--hovered"><b>{{ title }}</b></p>
       </button>
     </g-link>
   </div>
@@ -22,6 +32,7 @@ export default {
 </script>
 
 <style scoped>
+/* LIGHT */
 .buttonWrapper{
   display:flex;
   justify-content: center;
@@ -40,6 +51,7 @@ button.light{
   flex-direction: column;
   height: 70px;
   overflow: hidden;
+  position: relative;
 }
 button.light p{
   color: black;
@@ -53,7 +65,21 @@ button.light:hover p.title{
 button.light:hover p.title--hovered{
   transform: translateY(-70px);
 }
-div.button-blob{
-
+button.light:hover div.button-blob{
+ transform: scale(15);
+  opacity: 1;
 }
+div.button-blob{
+  opacity: 0;
+  background: white;
+  position: absolute;
+  bottom: 0px;
+  width: 20px;
+  height: 20px;
+  left: calc(50% - 10px);
+  border-radius: 100%;
+  transition: transform 1s ease, opacity 0.1s linear;
+}
+
+/* DARK */
 </style>

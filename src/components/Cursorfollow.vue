@@ -15,7 +15,7 @@
         a 37,37 0 1,1 -74,0"/>
           </defs>
           <text font-size="17">
-            <textPath xlink:href="#circle">
+            <textPath xlink:href="#circle" id="hoverContentText">
               You spin me right round, baby...
             </textPath>
           </text>
@@ -66,8 +66,13 @@ export default {
       let hoverElements = gsap.utils.toArray(".toLinkHover");
 
       hoverElements.forEach((element) => {
+        const customText = element.getAttribute("gs-hover");
+        if (element.getAttribute("gs-hover") != null){
+        }
         element.addEventListener("mouseenter", () => {
           mouseEnter();
+          console.log(customText);
+          document.getElementById("hoverContentText").innerHTML = customText;
         })
         element.addEventListener("mouseleave", () => {
           mouseLeave();
@@ -205,7 +210,7 @@ export default {
     left: -52px;
     top: -38px;
     width: 115px;
-    animation: rotation 6s infinite ease;
+    animation: rotation 6s infinite linear;
     opacity: 0;
   }
   svg textpath {
