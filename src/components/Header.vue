@@ -4,7 +4,6 @@
       <a class="logoImage" href="/">
         <img style="width: 300px; padding: 38px 42px;" src="@/assets/logo.svg">
       </a>
-      <div class="logoBackground bgBg"></div>
     </div>
     <Menu class="menuContainer" />
   </header>
@@ -19,71 +18,23 @@ export default {
   components: {
     Menu,
   },
-  mounted() {
-    if(this.$store.state.initialLoad){
-      gsap.fromTo(".logoImage", {
-        opacity: 0,
-        scale: 1.2,
-      }, {
-        opacity: 1,
-        scale: 1,
-        duration: 2,
-        delay: 0,
-        ease: "ease-in",
-      });
-      gsap.fromTo(".logoContainer", {
-        width: '100%',
-        height: '100vh',
-        maxWidth: '100%',
-      }, {
-        width: '300px',
-        height: '100%',
-        maxWidth: '50%',
-        duration: 0.5,
-        delay: 2,
-        ease: "ease-out",
-      });
-      gsap.fromTo(".logoBackground", {
-        opacity: 1,
-      }, {
-        opacity: 0,
-        duration: 1,
-        delay: 2,
-        ease: "ease-out",
-      });
-      setTimeout( function(){
-        document.querySelector(".logoBackground").style.display = "none";
-      },3000)
-
-      this.$store.dispatch("firstLoad");
-    }
-  }
 }
 </script>
 
 <style scoped>
 div.logoContainer{
-  position: fixed;
+  position: absolute;
   top:0;
   left:0;
-  width: 100%;
-  height: 100vh;
+  width: 300px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1001;
 }
-div.logoBackground{
-  position: fixed;
-  top:0;
-  left:0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  z-index: 0;
-}
 .logoImage{
-  opacity: 0;
+  opacity: 1;
   z-index: 1;
 }
 

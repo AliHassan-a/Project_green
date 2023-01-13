@@ -224,6 +224,13 @@ $greenColor: #88F332;
     animation-fill-mode: forwards;
     will-change: opacity, transform;
 }
+.activeContentUpFourth{
+    animation-name: fadeInUp;
+    animation-delay: 2.0s;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    will-change: opacity, transform;
+}
 
 @keyframes fadeInUp {
     0% {
@@ -256,6 +263,13 @@ $greenColor: #88F332;
 .activeContentLeftThird{
     animation-name: fadeInLeft;
     animation-delay: 1.6s;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    will-change: opacity, transform;
+}
+.activeContentLeftFourth{
+    animation-name: fadeInLeft;
+    animation-delay: 2.0s;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
     will-change: opacity, transform;

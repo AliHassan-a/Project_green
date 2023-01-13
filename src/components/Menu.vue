@@ -209,7 +209,6 @@ export default {
     }
     // Initialize the Menu.
     this.menu = new Menu(document.querySelector('nav.menu'));
-    this.menu.close();
   }
 }
 </script>

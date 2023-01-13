@@ -4,11 +4,13 @@
       <div id="one" class="mainSection section-one">
         <div class="contentContainer">
           <div class="innerContentContainer">
-            <h2 class="animateFadeInLeft headerFont">Wir sorgen dafür, dass dein</h2>
-            <h2 class="animateFadeInLeft headerFont" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
-            <h2 class="animateFadeInLeftSecond headerFont greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
-            <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird toLinkHover" gs-hover="custom hovertext here!" src="@/assets/Pfeile.svg"></g-image>
-            <baseButton :theme="'light'" :link-to="'blog/hanspeter'" title="testButton" class="toiLinkHover" gs-hover="asdasdasdasdasd" />
+            <h2 class="animateFadeInLeftSecond headerFont">Wir sorgen dafür, dass dein</h2>
+            <h2 class="animateFadeInLeftSecond headerFont" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
+            <h2 class="animateFadeInLeftThird headerFont greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
+            <div class="contentContainer">
+              <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
+              <baseButton :theme="'light'" :link-to="'blog/hanspeter'" title="Jetzt lauter werden" class="animateFadeInLeftThird toLinkHover" gs-hover="Jetzt lauter werden!" style="margin-left: 50px; margin-top:20px" />
+            </div>
           </div>
         </div>
         <div class="logosSection animateFadeInUp">

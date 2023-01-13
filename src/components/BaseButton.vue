@@ -64,7 +64,7 @@ button.light:hover p.title--hovered{
   transform: translateY(-70px);
 }
 button.light:hover div.button-blob{
- transform: scale(15);
+ transform: scale(20);
   opacity: 1;
 }
 div.button-blob.light{
@@ -111,7 +111,7 @@ button.dark:hover p.title--hovered{
   transform: translateY(-70px);
 }
 button.dark:hover div.button-blob{
-  transform: scale(15);
+  transform: scale(20);
   opacity: 1;
 }
 div.button-blob.dark{
