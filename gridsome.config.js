@@ -6,5 +6,16 @@
 
 module.exports = {
   siteName: 'Gridsome',
-  plugins: []
+  plugins: [
+      {
+        use: '@gridsome/source-wordpress',
+        options: {
+          baseUrl: 'https://admin.greenstein.design', // required
+          apiBase: 'wp-json',
+          typeName: 'WordPress',
+          perPage: 100,
+          concurrent: 10
+        }
+      }
+    ]
 }

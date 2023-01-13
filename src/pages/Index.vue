@@ -8,7 +8,7 @@
             <h2 class="animateFadeInLeft headerFont" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
             <h2 class="animateFadeInLeftSecond headerFont greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
             <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird toLinkHover" gs-hover="custom hovertext here!" src="@/assets/Pfeile.svg"></g-image>
-            <baseButton :theme="'light'" title="testButton" class="toiLinkHover" gs-hover="asdasdasdasdasd" />
+            <baseButton :theme="'light'" :link-to="'blog/hanspeter'" title="testButton" class="toiLinkHover" gs-hover="asdasdasdasdasd" />
           </div>
         </div>
         <div class="logosSection animateFadeInUp">
@@ -93,6 +93,10 @@
         <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
         <testimonials :content="testimonialsContent" />
       </div>
+      <div id="seven" class="mainSection section-seven">
+        <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Greenstein Blog </h2>
+        <BlogSlider/>
+      </div>
       <Footer />
     </div>
   </Layout>
@@ -103,14 +107,15 @@
 import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
 import BaseButton from "../components/BaseButton";
 import ProjectSlider from "../components/ProjectSlider";
+import BlogSlider from "../components/BlogSlider";
 import Testimonials from "../components/simpleSlider";
 import Footer from "../components/Footer";
-import { store } from "../store";
 
 export default {
   components: {
     Testimonials,
     ProjectSlider,
+    BlogSlider,
     BaseButton,
     Footer,
   },
@@ -412,3 +417,4 @@ div.logos img{
   }
 }
 </style>
+
