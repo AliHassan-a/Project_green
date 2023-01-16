@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import { gsap, ScrollTrigger} from "gsap/all";
 import Cursorfollow from "../components/Cursorfollow";
 import BaseButton from "../components/BaseButton";
@@ -24,9 +25,9 @@ export default {
   data: function () {
     return {
       form: {
-        nameTest: '',
-        email: '',
-        message: '',
+        nameTest: 'asd',
+        email: 'asd@asd.de',
+        message: 'asdasd',
       },
       errors: [],
       url: 'https://admin.greenstein.design/wp-json/contact-form-7/v1/contact-forms/23/feedback'
@@ -34,7 +35,6 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log("asd");
       const emailBody = {
         "your-name": this.form.nameTest,
         "your-email": this.form.email,
@@ -45,8 +45,7 @@ export default {
       for (const field in emailBody) {
         form.append(field, emailBody[field]);
       }
-
-      axios.post(this.url, this.form)
+      axios.post(this.url, form)
           .then((response) => {
             console.log(response);
             this.errors = [];
@@ -58,6 +57,7 @@ export default {
   },
 
   mounted() {
+    //this.submitForm();
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.defaults({

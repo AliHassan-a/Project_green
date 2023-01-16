@@ -71,7 +71,6 @@ export default {
         }
         element.addEventListener("mouseenter", () => {
           mouseEnter();
-          console.log(customText);
           document.getElementById("hoverContentText").innerHTML = customText;
         })
         element.addEventListener("mouseleave", () => {
