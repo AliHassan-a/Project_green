@@ -9,7 +9,7 @@
             <h2 class="animateFadeInLeftThird headerFont greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
             <div class="contentContainer">
               <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
-              <baseButton :theme="'light'" :link-to="'blog/hanspeter'" title="Jetzt lauter werden" class="animateFadeInLeftThird toLinkHover" gs-hover="Jetzt lauter werden!" style="margin-left: 50px; margin-top:20px" />
+              <baseButton :theme="'more'" :link-to="'blog/hanspeter'" title="Mehr erfahren" class="animateFadeInLeftThird toLinkHover" gs-hover="Jetzt lauter werden!" style="margin-left: 50px; margin-top:20px" />
             </div>
           </div>
         </div>
@@ -33,10 +33,12 @@
       <div id="three" class="mainSection section-three">
         <div class="pinnedContainerWrapper">
           <div class="pinnedContainer">
-            <h2> Designer, Programmierer </h2>
-            <h2> Marketing-Experten </h2>
-            <h2 class="greenColor toLinkHover" gs-hover="Wanna be friends? &nbsp;&nbsp; Wanna be friends?" style="text-align: left;"><b>Freunde</b></h2>
-            <g-image class="" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
+            <div class="toLinkHover" gs-hover="Was grnstn so!? &nbsp;&nbsp; Wanna be friends?">
+              <h2> Designer, Programmierer </h2>
+              <h2> Marketing-Experten </h2>
+              <h2 class="greenColor" style="text-align: left;"><b>Freunde</b></h2>
+              <g-image class="" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
+            </div>
           </div>
           <div class="m-hide" style="width: 100%; display: flex; flex-direction:column;">
             <g-image class="whirlImage" style="margin-top: 30%;" src="@/assets/praktis1.png"></g-image>
@@ -62,33 +64,25 @@
       <div id="five" class="mainSection section-five sectionMargin">
         <div class="innerContentContainer">
           <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Unsere Leistungen </h2>
-          <div class="lineWrapper">
-            <hr class="line animateFadeInUp" />
-          </div>
-          <div class="leistungWrapper animateFadeInUp">
+          <Seperator theme="light"></Seperator>
+          <div class="leistungWrapper animateFadeInUp toLinkHover" gs-hover="asdasdasdasdasd" >
             <g-image src="@/assets/design_strategie_icon.png"></g-image>
             <h3 class="w-full leistungText">Design & Strategie</h3>
-            <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
+            <baseButton :link-to="'design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
           </div>
-          <div class="lineWrapper">
-            <hr class="line animateFadeInUp" />
-          </div>
+          <Seperator theme="light"></Seperator>
           <div class="leistungWrapper animateFadeInUp">
             <g-image src="@/assets/entwicklung_icon.png"></g-image>
             <h3 class="w-full leistungText">Entwicklung</h3>
-            <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
+            <baseButton :link-to="'entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
           </div>
-          <div class="lineWrapper">
-            <hr class="line animateFadeInUp" />
-          </div>
+          <Seperator theme="light"></Seperator>
           <div class="leistungWrapper animateFadeInUp">
             <g-image src="@/assets/marketing_icon.png"></g-image>
             <h3 class="w-full leistungText">Marketing</h3>
-            <baseButton :title="'Mehr erfahren'" :linkTo="'kontakt'" :toDark="false"></baseButton>
+            <baseButton :link-to="'marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
           </div>
-          <div class="lineWrapper">
-            <hr class="line animateFadeInUp" />
-          </div>
+          <Seperator theme="light"></Seperator>
         </div>
       </div>
       <div id="six" class="mainSection section-six">
@@ -110,11 +104,13 @@ import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
 import BaseButton from "../components/BaseButton";
 import ProjectSlider from "../components/ProjectSlider";
 import BlogSlider from "../components/BlogSlider";
-import Testimonials from "../components/simpleSlider";
+import Testimonials from "../components/SimpleSlider";
 import Footer from "../components/Footer";
+import Seperator from "../components/Seperator";
 
 export default {
   components: {
+    Seperator,
     Testimonials,
     ProjectSlider,
     BlogSlider,
@@ -386,13 +382,6 @@ div.logos img{
 
 .lineWrapper{
   width: 100%;
-  opacity: 0.6;
-}
-.line{
-  height: 2px;
-  border: 0;
-  outline: 0px;
-  background: lightgrey;
 }
 
 /* RESPONSIVE */

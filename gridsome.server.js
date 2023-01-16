@@ -8,8 +8,8 @@
 module.exports = function (api) {
   api.loadSource(async actions => {
   })
-
   api.createPages(async ({graphql, createPage}) => {
+    /* BLOG */
     const {data} = await graphql(`{
     allWordPressPost{
       edges{
@@ -41,6 +41,37 @@ module.exports = function (api) {
           date: node.date,
           acf: node.acf,
           featuredMedia: node.featuredMedia,
+        }
+      })
+    })
+  })
+  api.createPages(async ({graphql, createPage}) => {
+    /* FAQ */
+    const { data } = await graphql(`{
+    allWordPressFaq{
+      edges{
+        node{
+          slug,
+          title,
+          content,
+          date,
+          acf{
+            metaTitle,
+            metaDescription
+          }
+        }
+      }
+    }}`)
+    data.allWordPressFaq.edges.forEach(({node}) => {
+      createPage({
+        path: `/faq/${node.slug}`,
+        component: './src/templates/SingleFaq.vue',
+        context: {
+          slug: node.slug,
+          title: node.title,
+          content: node.content,
+          date: node.date,
+          acf: node.acf,
         }
       })
     })

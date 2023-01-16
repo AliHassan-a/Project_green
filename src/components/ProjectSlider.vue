@@ -8,8 +8,8 @@
         <div class="box" :class="'box-' + (index + 1)" :style="{background: project.color}">
           <div class="projectLeft">
             <img :src="project.logo"/>
-            <h2 class="text-left defaultMarginY" v-html="project.text"></h2>
-            <baseButton :theme="'dark'" :title="'zum Projekt'" class="toiLinkHover" gs-hover="asdasdasdasdasd" />
+            <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginY">{{ project.text }}</BaseTitle>
+            <BaseButton :theme="'dark'" :title="'zum Projekt'" class="toLinkHover" :gs-hover="project.hover" />
           </div>
           <div class="projectRight">
             <img style="width: 100%" :src="project.mockup"/>
@@ -21,10 +21,12 @@
 </template>
 
 <script>
-import baseButton from "./BaseButton";
+import BaseButton from "./BaseButton";
+import BaseTitle from "./BaseTitle";
 export default {
   components: {
-    baseButton
+    BaseTitle,
+    BaseButton
   },
   data(){
     return {
@@ -32,7 +34,8 @@ export default {
         {
           title: "chartexperten",
           color: "#1A102E",
-          text: "Web App & Branding <br>für Chartexperten",
+          text: "Web App & Branding für Chartexperten",
+          hover: "Design & Strategie - Entwicklung",
           link: "/projekte/chartexperten",
           logo: require("@/assets/projects/chartexperten/chartexperten-logo.svg"),
           mockup: require("@/assets/projects/chartexperten/chartexperten-mockup.svg"),
@@ -40,7 +43,8 @@ export default {
         {
           title: "Uhrigstore",
           color: "#1F0E03",
-          text: "Neuer Webshop für <br>Uhrigstore",
+          text: "Neuer Webshop für Uhrigstore",
+          hover: "Design - Entwicklung",
           link: "/projekte/uhrigstore",
           logo: require("@/assets/projects/uhrigstore/uhrigstore-logo.svg"),
           mockup: require("@/assets/projects/uhrigstore/uhrigstore-mockup.svg"),
@@ -48,7 +52,8 @@ export default {
         {
           title: "Kematherm",
           color: "#1A4C7D",
-          text: "Performance + für <br>Kematherm",
+          text: "Performance + für Kematherm",
+          hover: "Design & Strategie - Entwicklung",
           link: "/projekte/kematherm",
           logo: require("@/assets/projects/kematherm/kematherm-logo.svg"),
           mockup: require("@/assets/projects/kematherm/kematherm-mockup.svg"),
@@ -76,7 +81,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100vw - (100vw / 6));
+    width: calc(100vw - (100vw / 4));
     height: 70vh;
     margin: auto;
     margin-bottom: 5vh;
@@ -90,7 +95,7 @@ export default {
   .horizontalHeader{
     position:absolute;
     top: 60px;
-    left: calc(100vw/12);
+    left: calc(100vw/8);
     opacity: 0;
   }
   .projectLeft{

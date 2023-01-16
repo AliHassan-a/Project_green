@@ -1,10 +1,10 @@
 <template>
   <div class="headerKontakt greenBg">
     <Cursorfollow />
-    <h1 class="bgColor animateFadeInUp">Kontakt</h1>
-    <h2 class="bgColor animateFadeInUpSecond">asdasdasd</h2>
-    <ContactForm class="animateFadeInUpThird" />
-    <baseButton class="animateFadeInUpThird" :hidden="true" :title="'Startseite'" :linkTo="''" :toDark="true" />
+    <div>
+      <BaseTitle :align="'center'" :tag="'h1'">Kontakt</BaseTitle>
+      <BaseButton :linkTo="'#'" v-on:click="submitForm()" :theme="'dark'" :title="'Senden'" class="toLinkHover" :gs-hover="'Und los! Und los! Und los! Und los! Und los!'" />
+    </div>
   </div>
 </template>
 
@@ -12,14 +12,49 @@
 import { gsap, ScrollTrigger} from "gsap/all";
 import Cursorfollow from "../components/Cursorfollow";
 import BaseButton from "../components/BaseButton";
-import ContactForm from "../components/ContactForm";
+import BaseTitle from "../components/BaseTitle";
 
 export default {
   name: "Kontakt",
   components: {
-    ContactForm,
     Cursorfollow,
     BaseButton,
+    BaseTitle,
+  },
+  data: function () {
+    return {
+      form: {
+        nameTest: '',
+        email: '',
+        message: '',
+      },
+      errors: [],
+      url: 'https://admin.greenstein.design/wp-json/contact-form-7/v1/contact-forms/23/feedback'
+    }
+  },
+  methods: {
+    submitForm() {
+      console.log("asd");
+      const emailBody = {
+        "your-name": this.form.nameTest,
+        "your-email": this.form.email,
+        "your-message": this.form.message,
+      };
+
+      const form = new FormData();
+      for (const field in emailBody) {
+        form.append(field, emailBody[field]);
+      }
+
+      axios.post(this.url, this.form)
+          .then((response) => {
+            console.log(response);
+            this.errors = [];
+          })
+          .catch((error) => {
+            this.errors = error.response.data.message
+          });
+    }
   },
 
   mounted() {
