@@ -37,10 +37,20 @@ export default {
     slider.addEventListener('mousedown', (e) => {
       isDown = true;
       slider.classList.add('active');
-      startX = e.pageX - slider.offsetLeft;
+      startX = e.changedTouches[0].pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('touchstart', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.changedTouches[0].pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
     });
     slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+    slider.addEventListener('touchend', () => {
       isDown = false;
       slider.classList.remove('active');
     });
@@ -48,10 +58,24 @@ export default {
       isDown = false;
       slider.classList.remove('active');
     });
+    slider.addEventListener('touchcancel', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
     slider.addEventListener('mousemove', (e) => {
       if(!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX); //scroll-fast
+      gsap.to( slider ,{
+        scrollLeft: scrollLeft - walk,
+        duration: 0.5,
+      })
+    });
+    slider.addEventListener('touchmove', (e) => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.changedTouches[0].pageX - slider.offsetLeft;
       const walk = (x - startX); //scroll-fast
       gsap.to( slider ,{
         scrollLeft: scrollLeft - walk,
