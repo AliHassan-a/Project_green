@@ -1,9 +1,51 @@
 <template>
-  <div class="headerKontakt greenBg">
-    <Cursorfollow />
-    <div>
-      <BaseTitle :align="'center'" :tag="'h1'">Kontakt</BaseTitle>
-      <BaseButton :linkTo="'#'" v-on:click="submitForm()" :theme="'dark'" :title="'Senden'" class="toLinkHover" :gs-hover="'Und los! Und los! Und los! Und los! Und los!'" />
+  <div class="mainSection">
+    <div class="contactWrapper">
+      <div class="contactHalf">
+        <BaseTitle style="margin-bottom: 100px;" :align="'left'" :tag="'h2'">Du hast ein spannendes Projekt? Lass uns sprechen!</BaseTitle>
+        <div class="contactDetails">
+          <div class="singleContact">
+            <span>Email</span>
+            <BaseTitle :align="'left'" :tag="'h3'">hallo@greenstein.design</BaseTitle>
+            <hr>
+          </div>
+          <div class="singleContact">
+            <span>Telefon</span>
+            <BaseTitle :align="'left'" :tag="'h3'">05121 - 672 900 3</BaseTitle>
+            <hr>
+          </div>
+          <div class="singleContact">
+            <span>Adresse</span>
+            <BaseTitle :align="'left'" :tag="'h3'">Schützenwiese 25</BaseTitle>
+            <hr>
+            <BaseTitle :align="'left'" :tag="'h3'">31137 Hildesheim</BaseTitle>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div class="contactHalf blackBg rightContactHalf">
+        <p style="margin-bottom: 10px">Ich bin interessiert an:</p>
+        <div class="contactLeistungWrapper">
+          <button v-for="(singleInterest, index, key) in form.interest" :key="key" class="dark" @click="toggleInterest(index)">
+            <div class="button-blob dark" :class="singleInterest.hasInterest ? 'active' : ''" />
+            <p class="title" :class="singleInterest.hasInterest ? 'active' : ''">{{ singleInterest.title }}</p>
+            <p class="title title--hovered" :class="singleInterest.hasInterest ? 'active' : ''"><b>{{ singleInterest.title }}</b></p>
+          </button>
+        </div>
+        <form class="contactForm">
+          <input type="text" placeholder="Dein Name" v-model="form.name">
+          <hr>
+          <input type="email" placeholder="Deine E-mail-Adresse" v-model="form.email">
+          <hr>
+          <input type="tel" placeholder="Deine Telefonnummer" v-model="form.tel">
+          <hr>
+          <input type="text" placeholder="Dein Unternehmen" v-model="form.company">
+          <hr>
+          <textarea placeholder="Erzähl uns von deinem Projekt" v-model="form.message"></textarea>
+          <hr>
+          <BaseButton style="align-self: flex-end; margin-top: 55px" :linkTo="'#'" v-on:click="submitForm()" :theme="'light'" :title="'Senden'" class="toLinkHover" :gs-hover="'Und los! Und los! Und los! Und los! Und los!'" />
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -25,15 +67,26 @@ export default {
   data: function () {
     return {
       form: {
-        nameTest: 'asd',
-        email: 'asd@asd.de',
-        message: 'asdasd',
+        name: '',
+        email: '',
+        tel: '',
+        company: '',
+        message: '',
+        interest: [
+          {title:"Design", hasInterest: false},
+          {title:"Entwicklung", hasInterest: false},
+          {title:"Marketing", hasInterest: false},
+        ],
+        files: '',
       },
       errors: [],
       url: 'https://admin.greenstein.design/wp-json/contact-form-7/v1/contact-forms/23/feedback'
     }
   },
   methods: {
+    toggleInterest(num){
+      this.form.interest[num].hasInterest = !this.form.interest[num].hasInterest;
+    },
     submitForm() {
       const emailBody = {
         "your-name": this.form.nameTest,
@@ -79,13 +132,105 @@ export default {
 </script>
 
 <style scoped>
+  .contactWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    gap: 50px;
+  }
+  .contactHalf{
+    width: 100%;
+  }
+  /* LEFT SIDE */
+  .contactDetails{
+    width: 81%;
+  }
+  .singleContact{
+    margin-top: 20px;
+  }
+  /* RIGHT SIDE */
+  .rightContactHalf{
+    padding: 50px;
+  }
+  .contactLeistungWrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contactForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    margin-top: 100px;
+  }
+  .contactForm hr{
+    width: 100%;
+    background: #707070;
+  }
+  .contactForm input, .contactForm textarea{
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    color:#717171;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 50px 10px 0px 10px;
+  }
+  .contactForm ::placeholder{
+    color: #717171;
+  }
 
-.headerKontakt{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
+
+  /* DARK BUTTONS ENCAPSULATED FROM COMPONENT */
+  button.dark{
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 100px;
+    text-align: center;
+    transition: all 0.5s;
+    padding: 0px 48px;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+  }
+  button.dark p{
+    color: white;
+    transition: all 0.3s ease-out;
+    line-height: 70px;
+    font-size: 18px;
+  }
+  button.dark p.title--hovered{
+    color: black;
+  }
+  button.dark p.title.active{
+    transform: translateY(-70px);
+  }
+  button.dark p.title--hovered.active{
+    transform: translateY(-70px);
+  }
+  button.dark div.button-blob.active{
+    transform: scale(20);
+    opacity: 1;
+  }
+  div.button-blob.dark{
+    opacity: 0;
+    background: white;
+    position: absolute;
+    bottom: 0px;
+    width: 20px;
+    height: 20px;
+    left: calc(50% - 10px);
+    border-radius: 100%;
+    transition: transform 1s ease, opacity 0.1s linear;
+  }
 </style>
