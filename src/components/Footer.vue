@@ -1,9 +1,9 @@
 <template>
   <div class="mainSection footerWrapper">
     <div class="footer-overlay greenBg"></div>
-    <p class="footer animateFadeInUp">Du hast ein spannendes Projekt?</p>
-    <h2 class="footer animateFadeInUp">Lass uns sprechen!</h2>
-    <div class="footer-content">
+    <p class="footer greenColor">Du hast ein spannendes Projekt?</p>
+    <h2 class="footer greenColor">Lass uns sprechen!</h2>
+    <div class="footer-content greenColor">
       <div class="footer-inner-content">
         <p class="footer-small">E-MAIL</p>
         <a href="mailto:hallo@greenstein.design" class="footer-link">hallo@greenstein.design</a>
@@ -22,7 +22,7 @@
         <g-link to="/kontakt" class="footer-link-small">Kontakt</g-link>
       </div>
     </div>
-    <div class="footerBottom animateFadeInUp" style="z-index: 1;">
+    <div class="footerBottom" style="z-index: 1;">
       <div class="contentContainer">
         <div style="display: flex;">
           <p style="color:#011713; margin-right: 20px; font-size: 22px;">Impressum</p>
@@ -46,7 +46,7 @@ export default {
 
 <style scoped lang="scss">
 div.footerWrapper{
-  margin-top: 120px;
+  margin-top: 250px;
 }
 .footer-overlay{
   position: absolute;
@@ -57,9 +57,12 @@ div.footerWrapper{
   border-radius: 1000px;
   z-index: 0;
 }
+p.footer{
+  z-index: 1;
+}
 h2.footer{
   font-size: 126px;
-  color: #E7FFD3;
+  z-index: 1;
   font-weight: 700;
   font-feature-settings: 'calt' 0, 'calt' 0;
   text-align: center;
@@ -98,12 +101,10 @@ h2.footer{
   text-decoration-thickness: 1px;
   margin-bottom: 20px;
 }
-
-
-
 .footerBottom{
   width: 100%;
   z-index: 1;
+  align-self: flex-end;
 }
 .footerBottom .contentContainer{
   display: flex;

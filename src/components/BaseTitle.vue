@@ -17,3 +17,9 @@ export default {
   }
 }
 </script>
+
+<style scroped>
+  .titleWrapper{
+    width: 100%;
+  }
+</style>

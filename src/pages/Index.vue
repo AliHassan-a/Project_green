@@ -93,7 +93,6 @@
         <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Greenstein Blog </h2>
         <BlogSlider/>
       </div>
-      <Footer />
     </div>
   </Layout>
 </template>
@@ -105,7 +104,6 @@ import BaseButton from "../components/BaseButton";
 import ProjectSlider from "../components/ProjectSlider";
 import BlogSlider from "../components/BlogSlider";
 import Testimonials from "../components/SimpleSlider";
-import Footer from "../components/Footer";
 import Seperator from "../components/Seperator";
 
 export default {
@@ -115,7 +113,6 @@ export default {
     ProjectSlider,
     BlogSlider,
     BaseButton,
-    Footer,
   },
   data() {
     return {

@@ -82,27 +82,32 @@ a{
     text-decoration: none;
 }
 h1{
-    font-size: clamp(2em ,calc(100vw / 35.5555), 3em);
+    font-size: clamp(2em, calc(100vw / 35.5555), 3em);
     font-weight: 700;
 }
 h2{
-    font-size: clamp(2em ,calc(100vw / 35.5555), 3em);
+    font-size: clamp(2em, calc(100vw / 35.5555), 3em);
     font-weight: 400;
 }
 h3{
-    font-size: clamp(1.8em ,calc(100vw / 42), 2.4em);
+    font-size: clamp(1.8em, calc(100vw / 42), 2.4em);
     font-weight: 400;
 }
 h4{
-    font-size: clamp(1.8em ,calc(100vw / 42), 2.4em);
+    font-size: clamp(1.8em, calc(100vw / 42), 2.4em);
     font-weight: 400;
 }
 p{
-    font-size: clamp(1.4em ,calc(100vw / 50), 1.8em);
+    font-size: clamp(1.12em, calc(100vw / 100), 1.8em);
     font-weight: 400;
 }
+p.small{
+    font-size: clamp(1em, calc(100vw / 70), 1.5em);
+    font-weight: 400;
+}
+
 .button-icon{
-    font-size: clamp(1.4em ,calc(100vw / 50), 1.8em);
+    font-size: clamp(1.4em, calc(100vw / 50), 1.8em);
     font-weight: 400;
 }
 .headerFont{
@@ -169,6 +174,9 @@ $greenColor: #88F332;
 }
 .defaultMarginX{
     margin: 0px 30px;
+}
+.defaultMarginHead{
+    margin-top: 200px;
 }
 
 /* LAYOUT */

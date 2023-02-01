@@ -1,21 +1,18 @@
 <template>
   <Layout>
-    <div class="mainSection">
-      <BaseTitle :align="'left'" :tag="'h1'" class="defaultMarginX defaultMarginHead">{{ $context.title }}</BaseTitle>
-      <div class="metaData">
-        <p class="small greenColor">{{ getFormattedDate($context.date) }}</p>
-        <div class="socialShare">
-          <g-image src="@/assets/facebook.png"></g-image>
-          <g-image src="@/assets/twitter.png"></g-image>
-          <g-image src="@/assets/mail.png"></g-image>
-        </div>
+    <div id="page" class="site">
+      <div id="one" class="mainSection section-head">
+        <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginX">Aktuelles aus Agentur & Werbewelt</BaseTitle>
       </div>
-    </div>
-    <div class="featuredImageWrapper">
-      <img class="featuredImage parallax-bg" :src="$context.featuredMedia.sourceUrl" :title="$context.featuredMedia.title" :alt="$context.featuredMedia.altText" >
-    </div>
-    <div class="mainSection">
-      <div class="singleContent" v-html="$context.content"></div>
+      <div id="one" class="mainSection section-one">
+        <a class="singleBlog" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
+          <div class="singleCard">
+            <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.sourceUrl" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
+            <p v-html="edge.node.title">
+            <p style="font-size: 18px" class="greenColor" v-html="edge.node.date"></p>
+          </div>
+        </a>
+      </div>
     </div>
   </Layout>
 </template>
@@ -25,7 +22,7 @@ import BaseTitle from "../components/BaseTitle";
 import {gsap, ScrollSmoother, ScrollTrigger} from "gsap/all";
 
 export default {
-  name: "SingleBlog",
+  name: "Blog",
   components: {
     BaseTitle,
   },
@@ -89,70 +86,48 @@ export default {
         ScrollTrigger.batch(".animateFadeInLeftThird", {
           toggleClass: "activeContentLeftThird"
         });
-
-        gsap.to(".parallax-bg", {
-          scrollTrigger: {
-            scrub: true
-          },
-          scale: () => 1.3,
-          opacity: 0,
-          ease: "none"
-        });
       }
     });
-  },
-  methods: {
-    getFormattedDate(date){
-      const newDate = new Date(date);
-      return newDate.toLocaleDateString('de-de');
-    }
-  },
-  metaInfo() {
-    return {
-      title: this.$context.title,
-      meta: [
-        { name: 'title', content: this.$context.acf.metaTitle },
-        { name: 'description', content: this.$context.acf.metaDescription },
-      ]
-    }
   }
 }
 </script>
 
 <style scoped>
-.mainSection{
+.section-head{
+  min-height: unset;
+  margin-top: 200px;
+}
+.section-one{
+  flex-direction: row;
+  gap: 25px;
+  flex-wrap: wrap;
   min-height: unset;
 }
-.metaData{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.singleBlog{
+  width: calc(33% - 16.666px);
+  flex-grow: 1;
 }
-.socialShare{
-  display: flex;
-  margin-bottom: 70px;
-}
-.socialShare img{
-  margin-left: 10px;
-}
-.featuredImageWrapper{
-  margin: 50px 0px;
-  width: 100%;
-  max-height: 600px;
-  overflow: hidden;
-}
-img.featuredImage{
-  width: 100%;
-  max-height: 1000px;
+img.featured{
+  height: 333px;
+  object-fit: cover;
 }
 </style>
 
-<style>
-div.singleContent p{
-  margin-bottom: 20px;
+<static-query>
+query{
+  posts: allWordPressPost{
+      edges{
+        node{
+        slug,
+        title,
+        date,
+        featuredMedia{
+          sourceUrl,
+          title,
+          altText
+        }
+      }
+    }
+  }
 }
-div.singleContent h2, div.singleContent h3{
-  margin-bottom: 20px;
-}
-</style>
+</static-query>

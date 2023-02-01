@@ -5,11 +5,11 @@
     </div>
     <section class="panel" v-for="(project, index) in projects">
       <g-link :to="project.link">
-        <div class="box" :class="'box-' + (index + 1)" :style="{background: project.color}">
+        <div class="box toLinkHover" :class="'box-' + (index + 1)" :style="{background: project.color}" :gs-hover="project.hover">
           <div class="projectLeft">
             <img :src="project.logo"/>
             <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginY">{{ project.text }}</BaseTitle>
-            <BaseButton :theme="'dark'" :title="'zum Projekt'" class="toLinkHover" :gs-hover="project.hover" />
+            <BaseButton :theme="'dark'" :title="'zum Projekt'"/>
           </div>
           <div class="projectRight">
             <img style="width: 100%" :src="project.mockup"/>
