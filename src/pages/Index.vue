@@ -2,34 +2,20 @@
   <Layout>
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
-        <div class="contentContainer">
+        <div class="contentContainer" style="margin: 130px 0px;">
           <div class="innerContentContainer">
-            <h2 class="animateFadeInLeftSecond headerFont">Wir sorgen dafür, dass dein</h2>
-            <h2 class="animateFadeInLeftSecond headerFont" style="margin-left: -5px;">&nbsp;&nbsp;&nbsp;Unternehmen gehört wird</h2>
-            <h2 class="animateFadeInLeftThird headerFont greenColor" style="text-align: left;"><b>Laut & deutlich</b></h2>
+            <BaseTitle :align="'left'" :tag="'h2'" class="animateFadeInLeftSecond">Wir sorgen dafür, dass dein</BaseTitle>
+            <BaseTitle :align="'left'" :tag="'h2'" class="animateFadeInLeftSecond" style="margin-left: -5px;">Unternehmen gehört wird</BaseTitle>
+            <BaseTitle :align="'left'" :tag="'h2'" :addClass="'greenColor'" class="animateFadeInLeftThird"><b>Laut & deutlich</b></BaseTitle>
             <div class="contentContainer">
-              <g-image style="margin-top: 20px; width: 100px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
-              <baseButton :theme="'more'" :link-to="'blog/hanspeter'" title="Mehr erfahren" class="animateFadeInLeftThird toLinkHover" gs-hover="Jetzt lauter werden!" style="margin-left: 50px; margin-top:20px" />
+              <g-image style="margin-top: 20px; width: 50px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
             </div>
           </div>
         </div>
-        <div class="logosSection animateFadeInUp">
-          <div style="width: 100%; opacity: 0.6">
-            <hr class="animateFadeInUp" style="height: 2px; border: 0; outline: 0px; background: lightgrey; margin-bottom: 30px;" />
-          </div>
-          <div class="contentContainer">
-            <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
-            <p class="logosText md-hide">UNTERNEHMEN, DIE GERNE MIT UNS ARBEITEN</p>
-            <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
-            <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
-            <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
-            <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
-            <g-image class="logo" src="@/assets/uhrig-logo.png"></g-image>
-          </div>
-        </div>
+        <CustomerLogoGlider />
       </div>
       <!-- PROJECTS SLIDER -->
-      <ProjectSlider/>
+      <ProjectSlider style="margin-top: 100px"/>
       <div id="three" class="mainSection section-three">
         <div class="pinnedContainerWrapper">
           <div class="pinnedContainer">
@@ -101,18 +87,22 @@
 
 import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
 import BaseButton from "../components/BaseButton";
+import BaseTitle from "../components/BaseTitle";
 import ProjectSlider from "../components/ProjectSlider";
 import BlogSlider from "../components/BlogSlider";
 import Testimonials from "../components/SimpleSlider";
 import Seperator from "../components/Seperator";
+import CustomerLogoGlider from "../components/CustomerLogoGlider";
 
 export default {
   components: {
+    BaseButton,
+    BaseTitle,
     Seperator,
     Testimonials,
     ProjectSlider,
     BlogSlider,
-    BaseButton,
+    CustomerLogoGlider,
   },
   data() {
     return {
@@ -184,6 +174,17 @@ export default {
       immediateRender: false,
       ease: "power1.inOut",
       scrub: false
+    });
+
+    ScrollTrigger.batch(".logo", {
+      onEnter: elements => {
+        gsap.from(elements, {
+          autoAlpha: 0,
+          y: 60,
+          stagger: 0.15,
+          delay: 2.5
+        });
+      }
     });
 
     ScrollTrigger.matchMedia({
@@ -295,6 +296,9 @@ export default {
         ScrollTrigger.batch(".animateFadeInUpThird", {
           toggleClass: "activeContentUpThird"
         });
+        ScrollTrigger.batch(".animateFadeInUpFourth", {
+          toggleClass: "activeContentUpFourth"
+        });
         ScrollTrigger.batch(".animateFadeInLeft", {
           toggleClass: "activeContentLeft"
         });
@@ -304,6 +308,9 @@ export default {
         ScrollTrigger.batch(".animateFadeInLeftThird", {
           toggleClass: "activeContentLeftThird"
         });
+        ScrollTrigger.batch(".animateFadeInLeftFourth", {
+          toggleClass: "activeContentLeftFourth"
+        });
       }
     });
   }
@@ -311,18 +318,6 @@ export default {
 </script>
 
 <style>
-
-/*logos section*/
-.logosSection{
-  position: absolute;
-  width: 100%;
-  bottom: 60px;
-}
-.logosSection .contentContainer{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 /*// content //*/
 .pinnedContainerWrapper{
   display: flex;
@@ -343,10 +338,6 @@ export default {
 
 div.logos img{
   object-fit: contain;
-}
-.logosText{
-  font-size: 14px;
-  color: #e7ffd3;
 }
 
 .whirlImage{
@@ -384,13 +375,6 @@ div.logos img{
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1024px) {
-  .logosSection{
-    position: relative;
-    margin-top: 100px;
-  }
-  .logosSection .contentContainer{
-    flex-direction: column;
-  }
   .pinnedContainer{
     margin-top: -50%;
   }
