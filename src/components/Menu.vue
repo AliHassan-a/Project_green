@@ -6,8 +6,8 @@
           <g-link class="mainmenu__item" to="/">
             <span>Start</span>
           </g-link>
-          <g-link class="mainmenu__item" to="/#">
-            <span>Mission</span>
+          <g-link class="mainmenu__item" to="/blog">
+            <span>Blog</span>
           </g-link>
           <g-link class="mainmenu__item" to="/kontakt">
             <span>Kontakt</span>
