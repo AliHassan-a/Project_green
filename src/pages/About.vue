@@ -1,15 +1,30 @@
 <template>
   <Layout>
-    <h1>About us</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum odit fugit assumenda rem dolores inventore iste reprehenderit maxime! Iusto.</p>
+    <div class="mainSection">
+      <BaseTitle :align="'left'" :tag="'h1'" class="animateFadeInLeftSecond">Wir erwecken Kreativität durch Technologie zum leben</BaseTitle>
+      <Slider />
+    </div>
   </Layout>
 </template>
 
 <script>
+import Slider from "../components/Slider";
+import BaseTitle from "../components/BaseTitle";
 
 export default {
+  components: {
+    Slider,
+    BaseTitle,
+  },
   metaInfo: {
     title: 'About us'
   }
 }
 </script>
+
+<style scoped>
+.mainSection{
+  max-width: 100vw;
+  padding: 0;
+}
+</style>

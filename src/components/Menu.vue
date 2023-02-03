@@ -6,8 +6,8 @@
           <g-link class="mainmenu__item" to="/">
             <span>Start</span>
           </g-link>
-          <g-link class="mainmenu__item" to="/blog">
-            <span>Blog</span>
+          <g-link class="mainmenu__item" to="/about">
+            <span>About</span>
           </g-link>
           <g-link class="mainmenu__item" to="/kontakt">
             <span>Kontakt</span>
@@ -43,7 +43,8 @@
       </div>
     </div>
     <button class="action action--menu">
-      <span class="material-icons bgColor">menu</span>
+      <div class="menuBlob"><div class="smallBlob" /></div>
+      <g-image src="@/assets/Menu.svg"></g-image>
     </button>
     <button class="action action--close">
       <span class="material-icons bgColor">close</span>
@@ -105,6 +106,7 @@ export default {
         this.isAnimating = true;
         // Toggling the open state class.
         this.DOM.el.classList[action === 'open' ? 'add' : 'remove']('menu--open');
+        context.$emit("toggleMenu", action);
         // After all is animated..
         const animationEnd = (pos) => {
           if ( pos === this.itemsTotal-1 ) {
@@ -213,7 +215,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .hidden {
   position: absolute;
@@ -239,18 +241,41 @@ main {
 .action--menu {
   pointer-events: auto;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 25px;
   z-index: 1000;
-  background: #88F332;
   color: black;
   border-radius: 100px;
   padding: 5px;
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+}
+.action--menu:hover .menublob .smallblob{
+  transform: scale(15);
+  opacity: 1;
+}
+.action--menu img{
+  transition: transform 1s linear;
+}
+.menublob{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menublob .smallblob{
+  background: #88F332;
+  width: 5px;
+  height: 5px;
+  border-radius: 100px;
+  transition: transform 0.3s ease-out, opacity 0.2s linear;
+  opacity: 0;
 }
 
 .menu--open .action--menu {
@@ -347,6 +372,16 @@ main {
   display: block;
   color: black;
   transform: translate3d(0,100%,0);
+}
+@media screen and (max-width: 1024px){
+  .action--menu {
+    top: 17px;
+    right: 5vw;
+  }
+  .action--close {
+    top: 17px;
+    right: 5vw;
+  }
 }
 
 @media screen and (min-width: 53em) {

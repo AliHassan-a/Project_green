@@ -48,6 +48,7 @@
 /**** main style ******/
 body, html{
     font-family: Cy;
+    color:white;
 }
 html{
     scroll-behavior: smooth;
@@ -73,7 +74,6 @@ img{
 }
 
 h1,h2,h3,h4,h5,h6,p,span,button, input, textarea{
-    color: white;
     font-family: Cy;
     margin: 0;
 }
@@ -91,11 +91,11 @@ h2{
     font-weight: 400;
 }
 h3{
-    font-size: clamp(1.8em, calc(100vw / 42), 2.4em);
+    font-size: clamp(1.5em, calc(100vw / 50), 2.4em);
     font-weight: 400;
 }
 h4{
-    font-size: clamp(1.8em, calc(100vw / 42), 2.4em);
+    font-size: clamp(1.6em, calc(100vw / 60), 2.4em);
     font-weight: 400;
 }
 p{
@@ -209,6 +209,21 @@ $greenColor: #88F332;
 
 
 /* ANIMATIONS */
+/*Lazy Loading ani  */
+.g-image--loading{
+
+}
+.g-image--loaded{
+    animation-name: blurOut;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    will-change: filter;
+}
+@keyframes blurOut {
+    0% { -webkit-filter: blur(5px);}
+    100% { -webkit-filter: blur(0px);}
+}
+
 /* animation UP */
 .animateFadeInUp, .animateFadeInUpSecond, .animateFadeInUpThird, .animateFadeInUpFourth{
     opacity: 0;
@@ -300,6 +315,16 @@ $greenColor: #88F332;
 @media only screen and (max-width: 1024px) {
     .m-hide{
         display: none !important;
+    }
+    .mainSection {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        min-height: 100vh;
+        max-width: calc(100vw - (100vw / 10));
     }
 }
 @media only screen and (min-width: 1024px) {

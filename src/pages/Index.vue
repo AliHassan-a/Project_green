@@ -4,8 +4,7 @@
       <div id="one" class="mainSection section-one">
         <div class="contentContainer" style="margin: 130px 0px;">
           <div class="innerContentContainer">
-            <BaseTitle :align="'left'" :tag="'h2'" class="animateFadeInLeftSecond">Wir sorgen dafür, dass dein</BaseTitle>
-            <BaseTitle :align="'left'" :tag="'h2'" class="animateFadeInLeftSecond" style="margin-left: -5px;">Unternehmen gehört wird</BaseTitle>
+            <BaseTitle :align="'left'" :tag="'h2'" class="animateFadeInLeftSecond">Wir sorgen dafür,<br class="m-hide"> dass dein Unternehmen gehört wird</BaseTitle>
             <BaseTitle :align="'left'" :tag="'h2'" :addClass="'greenColor'" class="animateFadeInLeftThird"><b>Laut & deutlich</b></BaseTitle>
             <div class="contentContainer">
               <g-image style="margin-top: 20px; width: 50px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
@@ -74,10 +73,6 @@
       <div id="six" class="mainSection section-six">
         <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
         <testimonials :content="testimonialsContent" />
-      </div>
-      <div id="seven" class="mainSection section-seven">
-        <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Greenstein Blog </h2>
-        <BlogSlider/>
       </div>
     </div>
   </Layout>
