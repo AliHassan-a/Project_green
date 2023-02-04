@@ -150,7 +150,7 @@ const initGsap = class {
                         duration: 0.6,
                         autoAlpha: 0,
                         ease: "circ.out",
-                        y: 100,
+                        y: 40,
                         stagger: 0.2,
                     });
                 });
@@ -168,7 +168,7 @@ const initGsap = class {
                         duration: 0.6,
                         autoAlpha: 0,
                         ease: "circ.out",
-                        y: 100,
+                        y: 40,
                         stagger: 0.2,
                     });
                 });
@@ -186,7 +186,7 @@ const initGsap = class {
                         duration: 0.6,
                         autoAlpha: 0,
                         ease: "circ.out",
-                        yPercent: 100,
+                        y: 40,
                         stagger: 0.2,
                     });
                 });

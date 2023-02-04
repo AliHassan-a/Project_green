@@ -1,6 +1,6 @@
 <template>
   <div class="bgWrapper">
-    <canvas id="c" width="256" height="256"></canvas>
+    <canvas :style="'filter: hue-rotate(' + calcHue + ');'" id="c" width="256" height="256"></canvas>
     <div class="backdrop"></div>
   </div>
 </template>
@@ -13,6 +13,14 @@ import { createNoise3D } from 'simplex-noise';
 
 export default {
   name: "BackgroundAnimation",
+  props: {
+    getHue: Number,
+  },
+  computed: {
+    calcHue(){
+      return this.getHue + "deg"
+    }
+  },
   mounted() {
     function animation() {
       var simplex = createNoise3D(),
@@ -22,8 +30,7 @@ export default {
           imgdata = ctx.getImageData(0, 0, canvas.width, canvas.height),
           data = imgdata.data,
           t = 0;
-
-      window.setInterval(function () {
+      window.setInterval( function() {
         for (var x = 0; x < 256; x++) {
           for (var y = 0; y < 256; y++) {
 
@@ -36,9 +43,8 @@ export default {
             data[(x + y * 256) * 4 + 3] = 255;
           }
         }
-        t++;
         ctx.putImageData(imgdata, 0, 0);
-
+        t++
       }, 25);
     }
     animation();

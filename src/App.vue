@@ -1,6 +1,6 @@
 <template>
   <div class="mainWrapper bgBg">
-    <backgroundAnimation />
+    <backgroundAnimation :getHue="0" />
     <Header />
     <Cursorfollow />
     <div id="smooth-wrapper">
@@ -18,14 +18,14 @@
 <script>
 import Header from "./components/Header";
 import Cursorfollow from "@/components/Cursorfollow";
-import backgroundAnimation from "@/components/BackgroundAnimation"
+import backgroundAnimation from "./components/BackgroundAnimation";
 
 export default {
   name: "App",
   components: {
     Header,
     Cursorfollow,
-    backgroundAnimation
+    backgroundAnimation,
   },
 }
 </script>
