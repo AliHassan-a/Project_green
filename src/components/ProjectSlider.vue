@@ -5,12 +5,12 @@
       <g-link :to="project.link">
         <div class="box toLinkHover" :class="'box-' + (index + 1)" :style="{background: project.color}" :gs-hover="project.hover">
           <div class="projectLeft">
-            <img :src="project.logo"/>
-            <BaseTitle :align="'left'" :tag="'h3'" class="defaultMarginY">{{ project.text }}</BaseTitle>
-            <BaseButton :theme="'dark'" :title="'zum Projekt'"/>
+            <g-image :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :src="project.logo"></g-image>
+            <BaseTitle :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :tag="'h3'" class="defaultMarginY projectTitleAlign">{{ project.text }}</BaseTitle>
+            <BaseButton :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :theme="'dark'" :title="'zum Projekt'"/>
           </div>
           <div class="projectRight">
-            <img style="width: 100%" :src="project.mockup"/>
+            <img :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :src="project.mockup">
           </div>
         </div>
       </g-link>
@@ -21,6 +21,7 @@
 <script>
 import BaseButton from "./BaseButton";
 import BaseTitle from "./BaseTitle";
+
 export default {
   components: {
     BaseTitle,
@@ -46,6 +47,15 @@ export default {
           link: "/projekte/uhrigstore",
           logo: require("@/assets/projects/uhrigstore/uhrigstore-logo.svg"),
           mockup: require("@/assets/projects/uhrigstore/uhrigstore-mockup.svg"),
+        },
+        {
+          title: "Kematherm",
+          color: "#1A4C7D",
+          text: "Performance + für Kematherm",
+          hover: "Design & Strategie - Entwicklung",
+          link: "/projekte/kematherm",
+          logo: require("@/assets/projects/kematherm/kematherm-logo.svg"),
+          mockup: require("@/assets/projects/kematherm/kematherm-mockup.svg"),
         },
         {
           title: "Kematherm",
@@ -84,7 +94,7 @@ export default {
     margin: auto;
     margin-bottom: 5vh;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 20px;
     color: white;
     font-weight: 700;
     will-change: transform;
@@ -102,6 +112,10 @@ export default {
     width: 50%;
     padding: 5%;
   }
+  .projectRight img{
+    width: 100%;
+    margin: auto;
+  }
   .container {
     width: 500%;
     display: flex;
@@ -113,12 +127,42 @@ export default {
     left: 12.5vw;
     top: 10%;
   }
+  .projectTitleAlign{
+    text-align: left;
+  }
   @media only screen and (max-width: 1024px){
     .container{
       flex-direction: column;
     }
-    .box{
-      height: 90vh;
+    .projectTitleAlign{
+      text-align: center;
+      width: 80%;
+    }
+    .box {
+      display: flex;
+      flex-direction: column;
+      width: calc(100vw - (100vw / 10));
+      margin: auto;
+      height: unset;
+      margin-bottom: 5vh;
+      text-align: center;
+    }
+    section {
+      height: unset;
+    }
+    .projectLeft{
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 10% 5%;
+    }
+    .projectRight{
+      width: 100%;
+      padding: 10%;
+    }
+    .projectRight img{
+      width: 80%;
+      margin: auto;
     }
   }
 </style>

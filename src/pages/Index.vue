@@ -4,14 +4,13 @@
       <div id="one" class="mainSection section-one">
         <div class="contentContainer" style="margin: 130px 0px;">
           <div class="innerContentContainer">
-            <BaseTitle :align="'left'" :tag="'h2'" class="animateBlockHead">Wir sorgen dafür,<br class="m-hide"> dass dein Unternehmen gehört wird</BaseTitle>
-            <BaseTitle :align="'left'" :tag="'h2'" :addClass="'greenColor'" class="animateBlockHead"><b>Laut & deutlich</b></BaseTitle>
+            <BaseTitle :align="'left'" :tag="'h2'" >Wir sorgen dafür,<br class="m-hide"> dass dein Unternehmen gehört wird.</BaseTitle>
+            <BaseTitle :align="'left'" :tag="'h2'" :addClass="'greenColor'"><b>Laut & deutlich</b></BaseTitle>
             <div class="contentContainer">
-              <g-image style="margin-top: 20px; width: 50px;" class="animateFadeInUp" src="@/assets/Pfeile.svg"></g-image>
+              <g-image style="margin-top: 20px; width: 50px;" src="@/assets/Pfeile.svg"></g-image>
             </div>
           </div>
         </div>
-        <CustomerLogoGlider />
       </div>
       <!-- PROJECTS SLIDER -->
       <ProjectSlider style="margin-top: 100px"/>
@@ -86,8 +85,6 @@
 </template>
 
 <script>
-
-import { gsap, ScrollTrigger, ScrollSmoother, SplitText } from "gsap/all";
 import gsapBase from "../misc/gsapBase";
 import BaseButton from "../components/BaseButton";
 import BaseTitle from "../components/BaseTitle";
@@ -96,6 +93,7 @@ import BlogSlider from "../components/BlogSlider";
 import Testimonials from "../components/SimpleSlider";
 import Seperator from "../components/Seperator";
 import CustomerLogoGlider from "../components/CustomerLogoGlider";
+import initGsap from "../misc/gsapBase";
 
 export default {
   components: {
@@ -126,173 +124,17 @@ export default {
           position: "Netto Dauerkunde"
         },
       ],
+      pageGsap: null,
     }
   },
   beforeDestroy() {
-    this.sideScroller.kill();
-    this.stickySection.kill();
+    this.pageGsap.killGsap();
   },
   mounted() {
-    //gsapBase("asd"); import animations
-
-    //// HORIZONTAL ////
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-    let smoother = ScrollSmoother.create({
-      smooth: 1,
-      effects: true
+    this.pageGsap = new initGsap({
+      sideScroller:true,
+      stickyImages: true,
     });
-
-    ScrollTrigger.defaults({
-      immediateRender: false,
-      ease: "power1.inOut",
-      scrub: false
-    });
-
-    ScrollTrigger.matchMedia({
-      "(min-width: 1024px)": () => {
-        let sections = gsap.utils.toArray(".panel");
-        this.sideScroller = gsap.to(sections, {
-          xPercent: -100 * (sections.length - 1),
-          ease: "none", // <-- IMPORTANT!
-          scrollTrigger: {
-            trigger: ".container",
-            pin: true,
-            scrub: 0.1,
-            end: "+=3000",
-            invalidateOnRefresh: true,
-          }
-        });
-        /* STICKY SECTION /w images */
-        this.stickySection = gsap.to(".pinnedContainer", {
-          opacity: 0,
-          ease: "none", // <-- IMPORTANT!
-          scrollTrigger: {
-            trigger: ".pinnedContainer",
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-          }
-        });
-
-        let whirlImages = gsap.utils.toArray(".whirlImage");
-        whirlImages.forEach((whirlImage) => {
-          gsap.to(whirlImage, {
-            opacity: 0,
-            scrollTrigger: {
-              trigger: whirlImage,
-              pin: true,
-              scrub: 1,
-            }
-          })
-        })
-
-        /* footer */
-        gsap.to(".footer-overlay", {
-          scale: 2.5,
-          ease: "none", // <-- IMPORTANT!
-          scrollTrigger: {
-            trigger: ".footer-overlay",
-            start: "top center",
-            end: "top end",
-            scrub: 1,
-          }
-        });
-        gsap.to(".footer", {
-          color: "#011713",
-          ease: "none", // <-- IMPORTANT!
-          scrollTrigger: {
-            trigger: ".footer-overlay",
-            start: "top center",
-            end: "top end",
-            scrub: 1,
-          }
-        });
-      },
-      "(max-width: 1024px)": () => {
-      },
-      "all": () => {
-        /*HEADLINE REVEAL*/
-        let headBlocks = document.querySelectorAll(".animateBlockHead");
-        headBlocks.forEach(headBlock => {
-
-          headBlock.split = new SplitText(headBlock, {
-            type: "lines"
-          });
-
-          // Set up the anim
-          headBlock.anim = gsap.from(headBlock.split.lines, {
-            scrollTrigger: {
-              trigger: headBlock,
-              toggleActions: "restart pause resume reverse",
-              start: "50% 80%",
-            },
-            duration: 0.6,
-            autoAlpha: 0,
-            ease: "circ.out",
-            yPercent: 100,
-            stagger: 0.2,
-          });
-        });
-        /*TEXT REVEAL*/
-        let textBlocks = document.querySelectorAll(".animateBlockText");
-        textBlocks.forEach(textBlock => {
-
-          textBlock.split = new SplitText(textBlock, {
-            type: "lines"
-          });
-
-          // Set up the anim
-          textBlock.anim = gsap.from(textBlock.split.lines, {
-            scrollTrigger: {
-              trigger: textBlock,
-              toggleActions: "restart pause resume reverse",
-              start: "50% 80%",
-            },
-            duration: 0.6,
-            autoAlpha: 0,
-            ease: "circ.out",
-            yPercent: 100,
-            stagger: 0.2,
-          });
-        });
-        /*ITEM REVEAL*/
-        let itemBlocks = document.querySelectorAll(".animateBlockItem");
-        itemBlocks.forEach(itemBlock => {
-
-          // Set up the anim
-          itemBlock.anim = gsap.from(itemBlock, {
-            scrollTrigger: {
-              trigger: itemBlock,
-              toggleActions: "restart pause resume reverse",
-              start: "50% 80%",
-            },
-            duration: 0.6,
-            autoAlpha: 0,
-            ease: "circ.out",
-            yPercent: 100,
-            stagger: 0.2,
-          });
-        });
-        /*ItemBlocks Sticky*/
-        let itemBlocksSticky = document.querySelectorAll(".animateStickyBlockItem");
-        itemBlocksSticky.forEach(itemBlockSticky => {
-
-          // Set up the anim
-          itemBlockSticky.anim = gsap.from(itemBlockSticky, {
-            scrollTrigger: {
-              trigger: itemBlockSticky,
-              toggleActions: "restart pause resume reverse",
-              start: "50% 100%",
-            },
-            duration: 0.6,
-            autoAlpha: 0,
-            ease: "circ.out",
-            yPercent: 100,
-            stagger: 0.2,
-          });
-        });
-      }
-    })
   }
 }
 </script>
