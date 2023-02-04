@@ -209,107 +209,22 @@ $greenColor: #88F332;
 
 
 /* ANIMATIONS */
-/*Lazy Loading ani  */
+/* Lazy Loading ani, disable in search of performance */
+/*
 .g-image--loading{
-
+    opacity: 0;
 }
 .g-image--loaded{
     animation-name: blurOut;
-    animation-duration: 1.2s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     will-change: filter;
 }
 @keyframes blurOut {
-    0% { -webkit-filter: blur(5px);}
-    100% { -webkit-filter: blur(0px);}
+    0% { opacity: 0;}
+    100% { opacity: 1;}
 }
-
-/* animation UP */
-.animateFadeInUp, .animateFadeInUpSecond, .animateFadeInUpThird, .animateFadeInUpFourth{
-    opacity: 0;
-}
-.activeContentUp{
-    animation-name: fadeInUp;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    will-change: opacity, transform;
-}
-.activeContentUpSecond{
-    animation-name: fadeInUp;
-    animation-delay: 0.8s;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    will-change: opacity, transform;
-}
-.activeContentUpThird{
-    animation-name: fadeInUp;
-    animation-delay: 1.6s;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    will-change: opacity, transform;
-}
-.activeContentUpFourth{
-    animation-name: fadeInUp;
-    animation-delay: 2.0s;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    will-change: opacity, transform;
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* animation LEFT */
-
-.animateFadeInLeft, .animateFadeInLeftSecond, .animateFadeInLeftThird, animateFadeInLeftFourth{
-    opacity: 0;
-}
-.activeContentLeft{
-    animation-name: fadeInLeft;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    will-change: opacity, transform;
-}
-.activeContentLeftSecond{
-    animation-name: fadeInLeft;
-    animation-delay: 0.8s;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    will-change: opacity, transform;
-}
-.activeContentLeftThird{
-    animation-name: fadeInLeft;
-    animation-delay: 1.6s;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    will-change: opacity, transform;
-}
-.activeContentLeftFourth{
-    animation-name: fadeInLeft;
-    animation-delay: 2.0s;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    will-change: opacity, transform;
-}
-
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
+*/
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1024px) {

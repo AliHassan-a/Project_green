@@ -4,10 +4,10 @@
       <div id="one" class="mainSection section-one">
         <div class="contentContainer" style="margin: 130px 0px;">
           <div class="innerContentContainer">
-            <BaseTitle :align="'left'" :tag="'h2'" class="animateFadeInLeftSecond">Wir sorgen dafür,<br class="m-hide"> dass dein Unternehmen gehört wird</BaseTitle>
-            <BaseTitle :align="'left'" :tag="'h2'" :addClass="'greenColor'" class="animateFadeInLeftThird"><b>Laut & deutlich</b></BaseTitle>
+            <BaseTitle :align="'left'" :tag="'h2'" class="animateBlockHead">Wir sorgen dafür,<br class="m-hide"> dass dein Unternehmen gehört wird</BaseTitle>
+            <BaseTitle :align="'left'" :tag="'h2'" :addClass="'greenColor'" class="animateBlockHead"><b>Laut & deutlich</b></BaseTitle>
             <div class="contentContainer">
-              <g-image style="margin-top: 20px; width: 50px;" class="animateFadeInLeftThird" src="@/assets/Pfeile.svg"></g-image>
+              <g-image style="margin-top: 20px; width: 50px;" class="animateFadeInUp" src="@/assets/Pfeile.svg"></g-image>
             </div>
           </div>
         </div>
@@ -19,59 +19,66 @@
         <div class="pinnedContainerWrapper">
           <div class="pinnedContainer">
             <div class="toLinkHover" gs-hover="Was grnstn so!? &nbsp;&nbsp; Wanna be friends?">
-              <h2> Designer, Programmierer </h2>
-              <h2> Marketing-Experten </h2>
-              <h2 class="greenColor" style="text-align: left;"><b>Freunde</b></h2>
-              <g-image class="" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
+              <h2 class="animateBlockHead"> Designer, Programmierer </h2>
+              <h2 class="animateBlockHead"> Marketing-Experten </h2>
+              <h2 class="animateBlockHead greenColor" style="text-align: left;"><b>Freunde</b></h2>
+              <g-image class="animateBlockItem" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
             </div>
           </div>
           <div class="m-hide" style="width: 100%; display: flex; flex-direction:column;">
-            <g-image class="whirlImage" style="margin-top: 30%;" src="@/assets/praktis1.png"></g-image>
-            <g-image class="whirlImage" style="margin-top: -70px; margin-left: 50%;" src="@/assets/praktis2.png"></g-image>
+            <g-image class="whirlImage animateStickyBlockItem" style="margin-top: 30%;" src="@/assets/praktis1.png"></g-image>
+            <g-image class="whirlImage animateStickyBlockItem" style="margin-top: -70px; margin-left: 50%;" src="@/assets/praktis2.png"></g-image>
           </div>
         </div>
         <div style="width: 100%; display: flex; flex-direction:column;">
-          <g-image class="whirlImage" style="margin-top: 0%;" src="@/assets/praktis1.png"></g-image>
-          <g-image class="whirlImage" style="margin-top: -370px; margin-left: 60%;" src="@/assets/praktis2.png"></g-image>
-          <g-image class="whirlImage" style="margin-top: 0%;" src="@/assets/developer.png"></g-image>
-          <g-image class="whirlImage" style="margin-top: -70px; margin-left: 50%;" src="@/assets/3guys.png"></g-image>
+          <g-image class="whirlImage animateStickyBlockItem" style="margin-top: 0%;" src="@/assets/praktis1.png"></g-image>
+          <g-image class="whirlImage animateStickyBlockItem" style="margin-top: -370px; margin-left: 60%;" src="@/assets/praktis2.png"></g-image>
+          <g-image class="whirlImage animateStickyBlockItem" style="margin-top: 0%;" src="@/assets/developer.png"></g-image>
+          <g-image class="whirlImage animateStickyBlockItem" style="margin-top: -70px; margin-left: 50%;" src="@/assets/3guys.png"></g-image>
         </div>
       </div>
       <div id="four" class="section-four">
         <div class="quote">
-          <g-image class="animateFadeInUp" src="@/assets/zitat.png"></g-image>
-          <h2 class="animateFadeInUp"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </h2>
-          <hr class="animateFadeInUp greenBg" style="margin-top: 100px; width: 244px; height: 4px; border: 0; outline: 0px; opacity: 0; display: inline-block;" />
-          <h2 class="animateFadeInUp"><b>Rene Grebenstein</b> </h2>
-          <p class="animateFadeInUp greenColor" style="font-size: 32px;"> Inhaber </p>
+          <g-image src="@/assets/zitat.png"></g-image>
+          <h2 class="animateBlockText"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </h2>
+          <hr class="animateBlockItem greenBg" style="margin-top: 100px; width: 244px; height: 4px; border: 0; outline: 0px; opacity: 0; display: inline-block;" />
+          <h2 class="animateBlockHead"><b>Rene Grebenstein</b> </h2>
+          <p class="animateBlockHead greenColor" style="font-size: 32px;"> Inhaber </p>
         </div>
       </div>
       <div id="five" class="mainSection section-five sectionMargin">
         <div class="innerContentContainer">
-          <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Unsere Leistungen </h2>
-          <Seperator theme="light"></Seperator>
-          <div class="leistungWrapper animateFadeInUp toLinkHover" gs-hover="asdasdasdasdasd" >
-            <g-image src="@/assets/design_strategie_icon.png"></g-image>
-            <h3 class="w-full leistungText">Design & Strategie</h3>
-            <baseButton :link-to="'design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
+          <h2 class="animateBlockHead" style="margin-bottom: 60px;"> Unsere Leistungen </h2>
+          <div class="animateBlockItem w-full">
+            <Seperator theme="light"></Seperator>
+            <div class="leistungWrapper">
+              <g-image src="@/assets/design_strategie_icon.png"></g-image>
+              <h3 class="w-full leistungText">Design & Strategie</h3>
+              <baseButton :link-to="'design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
+            </div>
+            <Seperator theme="light"></Seperator>
           </div>
-          <Seperator theme="light"></Seperator>
-          <div class="leistungWrapper animateFadeInUp">
-            <g-image src="@/assets/entwicklung_icon.png"></g-image>
-            <h3 class="w-full leistungText">Entwicklung</h3>
-            <baseButton :link-to="'entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
+          <div class="animateBlockItem w-full">
+            <div class="leistungWrapper">
+              <g-image src="@/assets/entwicklung_icon.png"></g-image>
+              <h3 class="w-full leistungText">Entwicklung</h3>
+              <baseButton :link-to="'entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
+            </div>
+            <Seperator theme="light"></Seperator>
           </div>
-          <Seperator theme="light"></Seperator>
-          <div class="leistungWrapper animateFadeInUp">
-            <g-image src="@/assets/marketing_icon.png"></g-image>
-            <h3 class="w-full leistungText">Marketing</h3>
-            <baseButton :link-to="'marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
+          <div class="animateBlockItem w-full">
+            <div class="leistungWrapper">
+              <g-image src="@/assets/marketing_icon.png"></g-image>
+              <h3 class="w-full leistungText">Marketing</h3>
+              <baseButton :link-to="'marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
+            </div>
+            <Seperator theme="light"></Seperator>
           </div>
-          <Seperator theme="light"></Seperator>
+
         </div>
       </div>
       <div id="six" class="mainSection section-six">
-        <h2 class="animateFadeInLeft" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
+        <h2 class="animateBlockHead" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
         <testimonials :content="testimonialsContent" />
       </div>
     </div>
@@ -80,7 +87,8 @@
 
 <script>
 
-import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
+import { gsap, ScrollTrigger, ScrollSmoother, SplitText } from "gsap/all";
+import gsapBase from "../misc/gsapBase";
 import BaseButton from "../components/BaseButton";
 import BaseTitle from "../components/BaseTitle";
 import ProjectSlider from "../components/ProjectSlider";
@@ -101,9 +109,6 @@ export default {
   },
   data() {
     return {
-      gsapPage: null,
-      sideScroller: null,
-      mouseDirection: null,
       testimonialsContent: [
         {
           text: "Weißt dus? Weißt dus? Weißt du es?",
@@ -120,44 +125,16 @@ export default {
           customer: "Celin",
           position: "Netto Dauerkunde"
         },
-        {
-          text: "Weißt dus? Weißt dus? Weißt du es?",
-          customer: "Celin",
-          position: "Netto Dauerkunde"
-        },
-        {
-          text: "Weißt dus? Weißt dus? Weißt du es?",
-          customer: "Celin",
-          position: "Netto Dauerkunde"
-        },
-        {
-          text: "Weißt dus? Weißt dus? Weißt du es?",
-          customer: "Celin",
-          position: "Netto Dauerkunde"
-        },
-        {
-          text: "Weißt dus? Weißt dus? Weißt du es?",
-          customer: "Celin",
-          position: "Netto Dauerkunde"
-        },
-        {
-          text: "Weißt dus? Weißt dus? Weißt du es?",
-          customer: "Celin",
-          position: "Netto Dauerkunde"
-        },
-        {
-          text: "Weißt dus? Weißt dus? Weißt du es?",
-          customer: "Celin",
-          position: "Netto Dauerkunde"
-        }
       ],
     }
   },
-  beforeDestroy(){
+  beforeDestroy() {
     this.sideScroller.kill();
     this.stickySection.kill();
   },
   mounted() {
+    //gsapBase("asd"); import animations
+
     //// HORIZONTAL ////
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     let smoother = ScrollSmoother.create({
@@ -169,17 +146,6 @@ export default {
       immediateRender: false,
       ease: "power1.inOut",
       scrub: false
-    });
-
-    ScrollTrigger.batch(".logo", {
-      onEnter: elements => {
-        gsap.from(elements, {
-          autoAlpha: 0,
-          y: 60,
-          stagger: 0.15,
-          delay: 2.5
-        });
-      }
     });
 
     ScrollTrigger.matchMedia({
@@ -194,41 +160,6 @@ export default {
             scrub: 0.1,
             end: "+=3000",
             invalidateOnRefresh: true,
-          }
-        });
-        gsap.fromTo(".container", {
-          opacity: 0,
-          translateY: 40,
-        },{
-          opacity: 1,
-          translateY: 0,
-          ease: "none", // <-- IMPORTANT!
-          scrollTrigger: {
-            trigger: ".container",
-            scrub: true,
-            start: "start 50%",
-            end: "start 30%"
-          }
-        });
-        gsap.to(".horizontalHeader h2", {
-          opacity: 0,
-          ease: "none", // <-- IMPORTANT!
-          scrollTrigger: {
-            trigger: ".box-3",
-            containerAnimation: this.sideScroller,
-            scrub: 1,
-            start: "start 30%",
-            end: "start 10%"
-          }
-        });
-        gsap.to(".horizontalHeader", {
-          opacity: 1,
-          ease: "none", // <-- IMPORTANT!
-          scrollTrigger: {
-            trigger: ".box-1",
-            scrub: true,
-            start: "start 100%",
-            end: "start 90%"
           }
         });
         /* STICKY SECTION /w images */
@@ -249,7 +180,6 @@ export default {
             opacity: 0,
             scrollTrigger: {
               trigger: whirlImage,
-              start: "-=100",
               pin: true,
               scrub: 1,
             }
@@ -281,33 +211,88 @@ export default {
       "(max-width: 1024px)": () => {
       },
       "all": () => {
-        /* DEFAULT ANIMATIONS */
-        ScrollTrigger.batch(".animateFadeInUp", {
-          toggleClass: "activeContentUp"
+        /*HEADLINE REVEAL*/
+        let headBlocks = document.querySelectorAll(".animateBlockHead");
+        headBlocks.forEach(headBlock => {
+
+          headBlock.split = new SplitText(headBlock, {
+            type: "lines"
+          });
+
+          // Set up the anim
+          headBlock.anim = gsap.from(headBlock.split.lines, {
+            scrollTrigger: {
+              trigger: headBlock,
+              toggleActions: "restart pause resume reverse",
+              start: "50% 80%",
+            },
+            duration: 0.6,
+            autoAlpha: 0,
+            ease: "circ.out",
+            yPercent: 100,
+            stagger: 0.2,
+          });
         });
-        ScrollTrigger.batch(".animateFadeInUpSecond", {
-          toggleClass: "activeContentUpSecond"
+        /*TEXT REVEAL*/
+        let textBlocks = document.querySelectorAll(".animateBlockText");
+        textBlocks.forEach(textBlock => {
+
+          textBlock.split = new SplitText(textBlock, {
+            type: "lines"
+          });
+
+          // Set up the anim
+          textBlock.anim = gsap.from(textBlock.split.lines, {
+            scrollTrigger: {
+              trigger: textBlock,
+              toggleActions: "restart pause resume reverse",
+              start: "50% 80%",
+            },
+            duration: 0.6,
+            autoAlpha: 0,
+            ease: "circ.out",
+            yPercent: 100,
+            stagger: 0.2,
+          });
         });
-        ScrollTrigger.batch(".animateFadeInUpThird", {
-          toggleClass: "activeContentUpThird"
+        /*ITEM REVEAL*/
+        let itemBlocks = document.querySelectorAll(".animateBlockItem");
+        itemBlocks.forEach(itemBlock => {
+
+          // Set up the anim
+          itemBlock.anim = gsap.from(itemBlock, {
+            scrollTrigger: {
+              trigger: itemBlock,
+              toggleActions: "restart pause resume reverse",
+              start: "50% 80%",
+            },
+            duration: 0.6,
+            autoAlpha: 0,
+            ease: "circ.out",
+            yPercent: 100,
+            stagger: 0.2,
+          });
         });
-        ScrollTrigger.batch(".animateFadeInUpFourth", {
-          toggleClass: "activeContentUpFourth"
-        });
-        ScrollTrigger.batch(".animateFadeInLeft", {
-          toggleClass: "activeContentLeft"
-        });
-        ScrollTrigger.batch(".animateFadeInLeftSecond", {
-          toggleClass: "activeContentLeftSecond"
-        });
-        ScrollTrigger.batch(".animateFadeInLeftThird", {
-          toggleClass: "activeContentLeftThird"
-        });
-        ScrollTrigger.batch(".animateFadeInLeftFourth", {
-          toggleClass: "activeContentLeftFourth"
+        /*ItemBlocks Sticky*/
+        let itemBlocksSticky = document.querySelectorAll(".animateStickyBlockItem");
+        itemBlocksSticky.forEach(itemBlockSticky => {
+
+          // Set up the anim
+          itemBlockSticky.anim = gsap.from(itemBlockSticky, {
+            scrollTrigger: {
+              trigger: itemBlockSticky,
+              toggleActions: "restart pause resume reverse",
+              start: "50% 100%",
+            },
+            duration: 0.6,
+            autoAlpha: 0,
+            ease: "circ.out",
+            yPercent: 100,
+            stagger: 0.2,
+          });
         });
       }
-    });
+    })
   }
 }
 </script>

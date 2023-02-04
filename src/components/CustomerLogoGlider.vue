@@ -1,7 +1,7 @@
 <template>
-  <div class="logosSection animateFadeInUpFourth">
+  <div class="logosSection animateBlockItem">
     <div style="width: 100%; opacity: 0.6">
-      <hr class="animateFadeIn" style="height: 2px; border: 0; outline: 0px; background: lightgrey; margin-bottom: 30px;" />
+      <hr style="height: 2px; border: 0; outline: 0px; background: lightgrey; margin-bottom: 30px;" />
     </div>
     <div class="contentContainer headlines">
       <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>

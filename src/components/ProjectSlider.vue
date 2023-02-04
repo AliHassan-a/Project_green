@@ -1,14 +1,12 @@
 <template>
   <div id="two" class="container section-two">
-    <div class="horizontalHeader">
-      <h2>Wir entwickeln innovative <br> Apps & Webseiten</h2>
-    </div>
+    <BaseTitle class="horizontalHeader animateBlockHead" :align="'left'" :tag="'h2'" >Wir entwickeln innovative <br> Apps & Webseiten</BaseTitle>
     <section class="panel" v-for="(project, index) in projects">
       <g-link :to="project.link">
         <div class="box toLinkHover" :class="'box-' + (index + 1)" :style="{background: project.color}" :gs-hover="project.hover">
           <div class="projectLeft">
             <img :src="project.logo"/>
-            <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginY">{{ project.text }}</BaseTitle>
+            <BaseTitle :align="'left'" :tag="'h3'" class="defaultMarginY">{{ project.text }}</BaseTitle>
             <BaseButton :theme="'dark'" :title="'zum Projekt'"/>
           </div>
           <div class="projectRight">
@@ -92,12 +90,6 @@ export default {
     will-change: transform;
     transition: opacity 0.3s;
   }
-  .horizontalHeader{
-    position:absolute;
-    top: 60px;
-    left: calc(100vw/8);
-    opacity: 0;
-  }
   .projectLeft{
     display: flex;
     flex-direction: column;
@@ -116,18 +108,17 @@ export default {
     flex-wrap: nowrap;
     margin: 10% 0%;
   }
+  .horizontalHeader{
+    position: absolute;
+    left: 12.5vw;
+    top: 10%;
+  }
   @media only screen and (max-width: 1024px){
     .container{
       flex-direction: column;
     }
     .box{
       height: 90vh;
-    }
-    .horizontalHeader{
-      top: 0px;
-      position: relative;
-      opacity: 1;
-      width: calc(100vw - (100vw / 6));
     }
   }
 </style>
