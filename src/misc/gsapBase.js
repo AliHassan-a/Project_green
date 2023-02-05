@@ -132,7 +132,7 @@ const initGsap = class {
                 if(this.features.stepsSideScroller){
                     let sections = gsap.utils.toArray(".panel");
                     this.sideScroller = gsap.to(sections, {
-                        xPercent: -100 * (sections.length - 1),
+                        xPercent: -100 * (sections.length - 1) - 100,
                         ease: "none", // <-- IMPORTANT!
                         scrollTrigger: {
                             trigger: ".container",
@@ -154,16 +154,34 @@ const initGsap = class {
                             x: window.innerWidth * 0.6,
                         });
                     })
+                    let stepsDescriptions = gsap.utils.toArray(".stepDescriptionAnimation");
+                    stepsDescriptions.forEach((stepsDescription, index)=>{
+                        gsap.from(stepsDescription, {
+                            scrollTrigger: {
+                                trigger: stepsDescription,
+                                containerAnimation: this.sideScroller,
+                                start: "left center",
+                                scrub: true,
+                            },
+                            duration: 0.6,
+                            autoAlpha: 0,
+                            ease: "circ.out",
+                            y: 40,
+                            stagger: 0.4,
+                        });
+                    })
                     let stepsIntro = document.querySelector(".stepsIntroAnimation");
-                    gsap.to(stepsInrto, {
+                    gsap.to(stepsIntro, {
                         scrollTrigger: {
-                            trigger: stepsInrto,
+                            trigger: stepsIntro,
                             containerAnimation: this.sideScroller,
                             start: "center center",
                             scrub: true,
                             pin: true,
                         },
                         x: window.innerWidth * 0.6,
+                        scaleX: 0.9,
+                        opacity: 0,
                     });
                 }
 

@@ -13,17 +13,18 @@
             </div>
             <div v-else class="box" style="background: black" :class="'box-' + (index + 1)">
               <g-image class="stepImage stepContentAnimation" :src="step.image"></g-image>
-              <div class="stepLeft">
-                <BaseTitle  :tag="'h2'"><b class="greenColor" style="font-weight: 800">{{ index+1 }}.</b>&nbsp;<b>{{  step.title }}</b></BaseTitle>
+              <div class="stepLeft stepDescriptionAnimation">
+                <BaseTitle :tag="'h2'"><b class="greenColor" style="font-weight: 800">{{ index+1 }}.</b>&nbsp;<b>{{  step.title }}</b></BaseTitle>
               </div>
-              <div class="stepRight">
+              <div class="stepRight stepDescriptionAnimation">
                 <BaseText>{{ step.text }}</BaseText>
               </div>
             </div>
         </section>
       </div>
-      <div id="three" class="mainSection section-three">
-
+      <div id="three" class="mainSection section-three greenBg">
+        <div class="contentContainer">
+        </div>
       </div>
     </div>
   </Layout>
@@ -156,8 +157,9 @@ section {
 }
 
 .section-one{
+  margin-top:25%;
   align-items: flex-start;
-  height: 50vh;
+  min-height: unset;
 }
 /*// content //*/
 .pinnedContainerWrapper{
