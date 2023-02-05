@@ -9,6 +9,9 @@
           <g-link class="mainmenu__item" to="/about">
             <span>About</span>
           </g-link>
+          <g-link class="mainmenu__item" to="/leistungen">
+            <span>Leistungen</span>
+          </g-link>
           <g-link class="mainmenu__item" to="/kontakt">
             <span>Kontakt</span>
           </g-link>

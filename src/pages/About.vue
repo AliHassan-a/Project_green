@@ -80,6 +80,7 @@ export default {
   mounted() {
     this.pageGsap = new initGsap({
       stickyImages: true,
+      heroAnimation: true,
     }, this);
   }
 }

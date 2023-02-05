@@ -6,7 +6,6 @@
           <HeroTitle
               :main-title="hero.mainTitle"
               :second-title="hero.secondTitle" />
-          <g-image src="@/assets/3guys.png"></g-image>
         </div>
       </div>
       <!-- PROJECTS SLIDER -->
@@ -117,6 +116,7 @@ export default {
     this.pageGsap = new initGsap({
       sideScroller:true,
       stickyImages: true,
+      heroAnimation: true,
     }, this);
   }
 }

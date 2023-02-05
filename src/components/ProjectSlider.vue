@@ -95,10 +95,7 @@ export default {
     margin-bottom: 5vh;
     text-align: center;
     border-radius: 20px;
-    color: white;
-    font-weight: 700;
     will-change: transform;
-    transition: opacity 0.3s;
   }
   .projectLeft{
     display: flex;

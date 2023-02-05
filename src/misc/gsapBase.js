@@ -3,6 +3,7 @@ import {gsap, ScrollSmoother, ScrollTrigger, SplitText} from "gsap/all";
 const initGsap = class {
     constructor(features, vueInstance) {
         this.sideScroller
+        this.stepsSideScroller
         this.stickySection
         this.features = features
         this.isAlive = false
@@ -10,6 +11,7 @@ const initGsap = class {
         if (!this.isAlive) this.init()
         this.killGsap = function(){
             if(this.sideScroller != undefined) this.sideScroller.kill();
+            if(this.stepsSideScroller != undefined) this.sideScroller.kill();
             if(this.stickySection != undefined) this.stickySection.kill();
         }
     }
@@ -127,6 +129,43 @@ const initGsap = class {
                         });
                     })
                 }
+                if(this.features.stepsSideScroller){
+                    let sections = gsap.utils.toArray(".panel");
+                    this.sideScroller = gsap.to(sections, {
+                        xPercent: -100 * (sections.length - 1),
+                        ease: "none", // <-- IMPORTANT!
+                        scrollTrigger: {
+                            trigger: ".container",
+                            pin: true,
+                            scrub: 0.1,
+                            end: "+=" + sections.length * 1000,
+                            invalidateOnRefresh: true,
+                        }
+                    });
+                    let stepsContents = gsap.utils.toArray(".stepContentAnimation");
+                    stepsContents.forEach((stepsContent, index)=>{
+                        gsap.to(stepsContent, {
+                            scrollTrigger: {
+                                trigger: stepsContent,
+                                containerAnimation: this.sideScroller,
+                                start: "center center",
+                                scrub: true,
+                            },
+                            x: window.innerWidth * 0.6,
+                        });
+                    })
+                    let stepsIntro = document.querySelector(".stepsIntroAnimation");
+                    gsap.to(stepsInrto, {
+                        scrollTrigger: {
+                            trigger: stepsInrto,
+                            containerAnimation: this.sideScroller,
+                            start: "center center",
+                            scrub: true,
+                            pin: true,
+                        },
+                        x: window.innerWidth * 0.6,
+                    });
+                }
 
                 /* STICKY SECTION /w images */
                 if(this.features.stickyImages){
@@ -157,6 +196,31 @@ const initGsap = class {
             "(max-width: 1024px)": () => {
             },
             "all": () => {
+                /*HERO ANIMATION*/
+                if(this.features.heroAnimation){
+                    let heroBlock = document.querySelector(".animateBlockHero");
+                    heroBlock.split = new SplitText(heroBlock, {
+                        type: "lines"
+                    });
+                    heroBlock.anim = gsap.from(heroBlock.split.lines, {
+                        delay: 0.3,
+                        duration: 0.6,
+                        autoAlpha: 0,
+                        ease: "circ.out",
+                        y: 40,
+                        stagger: 0.4,
+                    });
+                    let heroArrow = document.querySelector(".animateBlockHeroArrow");
+                    heroArrow.anim = gsap.from(heroArrow, {
+                        delay: 1.4,
+                        duration: 0.6,
+                        autoAlpha: 0,
+                        ease: "circ.out",
+                        y: 40,
+                        stagger: 0.4,
+                    });
+                }
+
                 /*HEADLINE REVEAL*/
                 let headBlocks = document.querySelectorAll(".animateBlockHead");
                 headBlocks.forEach(headBlock => {
