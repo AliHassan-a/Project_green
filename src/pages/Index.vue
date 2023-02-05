@@ -23,32 +23,7 @@
       <div id="five" class="mainSection section-five sectionMargin">
         <div class="innerContentContainer">
           <h2 class="animateBlockHead" style="margin-bottom: 60px;"> Unsere Leistungen </h2>
-          <div class="animateBlockItem w-full">
-            <Seperator theme="light"></Seperator>
-            <div class="leistungWrapper">
-              <g-image src="@/assets/design_strategie_icon.png"></g-image>
-              <h3 class="w-full leistungText">Design & Strategie</h3>
-              <baseButton :link-to="'design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
-            </div>
-            <Seperator theme="light"></Seperator>
-          </div>
-          <div class="animateBlockItem w-full">
-            <div class="leistungWrapper">
-              <g-image src="@/assets/entwicklung_icon.png"></g-image>
-              <h3 class="w-full leistungText">Entwicklung</h3>
-              <baseButton :link-to="'entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
-            </div>
-            <Seperator theme="light"></Seperator>
-          </div>
-          <div class="animateBlockItem w-full">
-            <div class="leistungWrapper">
-              <g-image src="@/assets/marketing_icon.png"></g-image>
-              <h3 class="w-full leistungText">Marketing</h3>
-              <baseButton :link-to="'marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
-            </div>
-            <Seperator theme="light"></Seperator>
-          </div>
-
+          <Service />
         </div>
       </div>
       <div id="six" class="mainSection section-six">
@@ -70,9 +45,11 @@ import CustomerLogoGlider from "../components/CustomerLogoGlider";
 import initGsap from "../misc/gsapBase";
 import HeroTitle from "../components/HeroTitle";
 import StickyImages from "../components/StickyImages";
+import Service from "../components/Service";
 
 export default {
   components: {
+    Service,
     StickyImages,
     HeroTitle,
     BaseButton,
@@ -154,27 +131,6 @@ div.logos img{
   background: black;
   width: calc(100% - 100%/6);
   padding: 10%;
-}
-
-
-.leistungWrapper{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  margin: 30px 0px;
-}
-.leistungWrapper img{
-  object-fit: contain;
-  width: 82px;
-}
-.leistungWrapper base-button{
-  justify-content: flex-end;
-}
-
-.lineWrapper{
-  width: 100%;
 }
 
 /* RESPONSIVE */

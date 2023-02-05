@@ -3,18 +3,18 @@
     <div class="menu__item menu__item--1" data-direction="bt" style="translate: none; rotate: none; scale: none; transform: translate(0px, 101%);">
       <div class="menu__item-inner">
         <div class="mainmenu">
-          <g-link class="mainmenu__item" to="/">
+          <a class="mainmenu__item" href="/">
             <span>Start</span>
-          </g-link>
-          <g-link class="mainmenu__item" to="/about">
+          </a>
+          <a class="mainmenu__item" href="/about">
             <span>About</span>
-          </g-link>
-          <g-link class="mainmenu__item" to="/leistungen">
+          </a>
+          <a class="mainmenu__item" href="/leistungen">
             <span>Leistungen</span>
-          </g-link>
-          <g-link class="mainmenu__item" to="/kontakt">
+            </a>
+          <a class="mainmenu__item" href="/kontakt">
             <span>Kontakt</span>
-          </g-link>
+          </a>
         </div>
         <p class="label label--topleft label--vert-mirror">the important stuff</p>
       </div>
