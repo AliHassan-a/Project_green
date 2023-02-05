@@ -1,25 +1,26 @@
 <template>
   <nav class="menu">
-    <div class="menu__item menu__item--1" data-direction="bt" style="translate: none; rotate: none; scale: none; transform: translate(0px, 101%);">
+    <div class="menuBg bgBg" />
+    <div class="menu__item menu__item--1" data-direction="bt" style="translate: none; rotate: none; scale: none;">
       <div class="menu__item-inner">
         <div class="mainmenu">
-          <a class="mainmenu__item" href="/">
+          <div @click="navigteTo('/')" class="mainmenu__item">
             <span>Start</span>
-          </a>
-          <a class="mainmenu__item" href="/about">
+          </div>
+          <div @click="navigteTo('/about')" class="mainmenu__item">
             <span>About</span>
-          </a>
-          <a class="mainmenu__item" href="/leistungen">
+          </div>
+          <div @click="navigteTo('/leistungen')" class="mainmenu__item">
             <span>Leistungen</span>
-            </a>
-          <a class="mainmenu__item" href="/kontakt">
+            </div>
+          <div @click="navigteTo('/kontakt')" class="mainmenu__item">
             <span>Kontakt</span>
-          </a>
+          </div>
         </div>
         <p class="label label--topleft label--vert-mirror">the important stuff</p>
       </div>
     </div>
-    <div class="menu__item menu__item--2" data-direction="lr" style="translate: none; rotate: none; scale: none; transform: translate(-101%, 0px);">
+    <div class="menu__item menu__item--2" data-direction="lr" style="translate: none; rotate: none; scale: none;">
       <div class="menu__item-inner">
         <div class="sidemenu">
           <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">FB</span></a>
@@ -28,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="menu__item menu__item--3" data-direction="bt" style="translate: none; rotate: none; scale: none; transform: translate(0px, 101%);">
+    <div class="menu__item menu__item--3" data-direction="bt" style="translate: none; rotate: none; scale: none;">
       <div class="menu__item-inner">
         <div class="sidemenu">
           <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Chartexperten</span></a>
@@ -38,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="menu__item menu__item--4" data-direction="rl" style="translate: none; rotate: none; scale: none; transform: translate(0px, 101%);">
+    <div class="menu__item menu__item--4" data-direction="rl" style="translate: none; rotate: none; scale: none;">
       <div class="menu__item-inner">
         <div class="sidemenu">
           <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Hier eine Contact Form</span></a>
@@ -59,11 +60,22 @@
 import { gsap, Quint, Quart, Quad } from "gsap/all";
 export default {
   name: "Menu",
-  watch:{
-    $route (to, from){
-      if(this.menu != null){
-        this.menu.close();
-      }
+  methods: {
+    navigteTo(route){
+      document.querySelector(".menuBg").style.display = "block"
+      this.menu.close();
+      this.$emit("toggleMenu", "open");
+      gsap.to(".action--menu", 0.5, {
+        ease: Quart.easeInOut,
+        opacity: 0,
+      });
+      gsap.to(".logoImage", 0.5, {
+        ease: Quart.easeInOut,
+        opacity: 0,
+      });
+      window.setTimeout( () => {
+        window.location.href = route
+      }, 500);
     }
   },
   data() {
@@ -89,7 +101,7 @@ export default {
         this.itemsTotal = this.DOM.items.length;
 
         // Custom elements that will be animated.
-        this.DOM.mainLinks = this.DOM.el.querySelectorAll('.mainmenu > a.mainmenu__item');
+        this.DOM.mainLinks = this.DOM.el.querySelectorAll('.mainmenu > div.mainmenu__item');
         this.DOM.sidemenuLinks = this.DOM.el.querySelectorAll('.sidemenu span.sidemenu__item-inner');
         this.DOM.menulink = this.DOM.el.querySelector('.menu__item-link');
       }
@@ -219,7 +231,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.menuBg{
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
 .hidden {
   position: absolute;
   overflow: hidden;
@@ -335,7 +354,7 @@ main {
 }
 
 .menu__item--1 .menu__item-inner {
-  background: white;
+  background: #ffffff;
 }
 .menu__item--2 .menu__item-inner {
   background: #88F332;

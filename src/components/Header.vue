@@ -2,7 +2,7 @@
   <header>
     <div ref="logoContainer" class="logoContainer">
       <a class="logoImage" href="/">
-        <g-image src="@/assets/logo.svg"></g-image>
+        <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/logo.svg"></g-image>
       </a>
     </div>
     <Menu @toggleMenu="onToggleMenu"/>

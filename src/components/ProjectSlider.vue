@@ -5,12 +5,12 @@
       <g-link :to="project.link">
         <div class="box toLinkHover" :class="'box-' + (index + 1)" :style="{background: project.color}" :gs-hover="project.hover">
           <div class="projectLeft">
-            <g-image :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :src="project.logo"></g-image>
+            <g-image :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :src="project.logo" :title="project.title" :alt="project.text"></g-image>
             <BaseTitle :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :tag="'h3'" class="defaultMarginY projectTitleAlign">{{ project.text }}</BaseTitle>
             <BaseButton :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :theme="'dark'" :title="'zum Projekt'"/>
           </div>
           <div class="projectRight">
-            <img :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :src="project.mockup">
+            <img :title="project.title" :alt="project.text" :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :src="project.mockup">
           </div>
         </div>
       </g-link>

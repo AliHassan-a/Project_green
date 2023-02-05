@@ -5,7 +5,6 @@
 </head>
 <body ${bodyAttrs}>
     <div class="loadingScreen">
-        <img src="https://admin.greenstein.design/wp-content/uploads/2023/01/logo.svg">
     </div>
     ${app}
     ${scripts}
@@ -13,7 +12,7 @@
 <script>
   setTimeout(function(){
       document.querySelector(".loadingScreen").style.pointerEvents = "none";
-  }, 0)
+  },500)
 </script>
 <style lang="css">
     .loadingScreen{
@@ -31,21 +30,6 @@
         animation-delay: 0.5s;
         animation-fill-mode: forwards;
     }
-    .loadingScreen img{
-        width: 300px;
-        opacity: 0;
-        animation: fade-in 0.5s;
-        animation-delay: 0s;
-        animation-fill-mode: forwards;
-    }
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
     @keyframes fade-out {
         0% {
             opacity: 1;
@@ -54,5 +38,6 @@
             opacity: 0;
         }
     }
+    */
 </style>
 </html>
