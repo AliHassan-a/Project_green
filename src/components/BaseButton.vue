@@ -1,6 +1,6 @@
 <template>
   <div class="buttonWrapper">
-    <g-link :to="'/' + linkTo" v-if="linkTo != '#'">
+    <a :to="'/' + linkTo" v-if="linkTo != '#'">
       <button class="light" v-if="theme == 'light' || theme == ''">
         <div class="button-blob light" />
         <p class="title">{{ title }}</p>
@@ -22,7 +22,7 @@
           </svg>
         </h3>
       </button>
-    </g-link>
+    </a>
     <div v-else>
       <button class="light" v-if="theme == 'light' || theme == ''">
         <div class="button-blob light" />

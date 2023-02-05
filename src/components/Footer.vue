@@ -29,9 +29,9 @@
           <p style="color:#011713; font-size: 22px;">Datenschutz</p>
         </div>
         <div style="dispaly: flex; justify-items: flex-end">
-          <g-image src="@/assets/facebook-f.png" />
-          <g-image style="margin: 0px 20px;" src="@/assets/instagram.png" />
-          <g-image src="@/assets/linkedin.png" />
+          <g-image title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.png" />
+          <g-image title="instagram-logo-greenstein" alt="instagram-logo-greenstein" style="margin: 0px 20px;" src="@/assets/instagram.png" />
+          <g-image title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.png" />
         </div>
       </div>
     </div>
