@@ -84,8 +84,8 @@ export default {
     },
     stopDrag () {
       this.dragging = false
-
-      const cardWidth = 500 + (this.slides.length * (window.innerWidth / 50))
+      let cardEl = document.querySelector(".slider-card");
+      const cardWidth = cardEl.clientWidth + 30;
       const nearestSlide = -Math.round(this.cardsX / cardWidth)
       this.selectedIndex = Math.min(Math.max(0, nearestSlide), this.slides.length -2)
       gsap.to(this, 0.3, {cardsX: -this.selectedIndex * cardWidth})

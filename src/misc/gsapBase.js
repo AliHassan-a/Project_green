@@ -9,8 +9,8 @@ const initGsap = class {
         this.vueInstance = vueInstance;
         if (!this.isAlive) this.init()
         this.killGsap = function(){
-            this.sideScroller.kill();
-            this.stickySection.kill();
+            if(this.sideScroller != undefined) this.sideScroller.kill();
+            if(this.stickySection != undefined) this.stickySection.kill();
         }
     }
     init() {

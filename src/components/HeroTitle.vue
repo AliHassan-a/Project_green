@@ -27,4 +27,11 @@ export default {
   .gsHeroTitle{
     width: 50%
   }
+  @media only screen and (max-width: 1024px) {
+    .gsHeroTitle{
+      margin-top: 150px;
+      margin-bottom: 50px;
+      width: 100%
+    }
+  }
 </style>
