@@ -1,13 +1,13 @@
 <template>
   <div class="mainWrapper bgBg">
-    <backgroundAnimation :getHue="0" />
+    <backgroundAnimation :getHue="bgHue" />
     <Header />
     <Cursorfollow />
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <transition name="fade" mode="out-in">
           <router-view v-slot="{ Component, route }">
-            <component :is="Component" :key="route.path" />
+            <component :is="Component" :key="route.path"/>
           </router-view>
         </transition>
       </div>
@@ -22,6 +22,19 @@ import backgroundAnimation from "./components/BackgroundAnimation";
 
 export default {
   name: "App",
+  data() {
+    return {
+      bgHue: 0,
+    }
+  },
+  methods: {
+    onRepaint(hue){
+      this.bgHue = hue;
+    }
+  },
+  mounted(){
+    this.$root.$on("repaint-bg", this.onRepaint);
+  },
   components: {
     Header,
     Cursorfollow,

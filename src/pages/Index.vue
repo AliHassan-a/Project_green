@@ -2,14 +2,11 @@
   <Layout>
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
-        <div class="contentContainer" style="margin: 130px 0px;">
-          <div class="innerContentContainer">
-            <BaseTitle :align="'left'" :tag="'h2'" >Wir sorgen dafür,<br class="m-hide"> dass dein Unternehmen gehört wird.</BaseTitle>
-            <BaseTitle :align="'left'" :tag="'h2'" :addClass="'greenColor'"><b>Laut & deutlich</b></BaseTitle>
-            <div class="contentContainer">
-              <g-image style="margin-top: 20px; width: 50px;" src="@/assets/Pfeile.svg"></g-image>
-            </div>
-          </div>
+        <div class="contentContainer">
+          <HeroTitle
+              :main-title="hero.mainTitle"
+              :second-title="hero.secondTitle" />
+          <g-image src="@/assets/3guys.png"></g-image>
         </div>
       </div>
       <!-- PROJECTS SLIDER -->
@@ -85,7 +82,6 @@
 </template>
 
 <script>
-import gsapBase from "../misc/gsapBase";
 import BaseButton from "../components/BaseButton";
 import BaseTitle from "../components/BaseTitle";
 import ProjectSlider from "../components/ProjectSlider";
@@ -94,9 +90,11 @@ import Testimonials from "../components/SimpleSlider";
 import Seperator from "../components/Seperator";
 import CustomerLogoGlider from "../components/CustomerLogoGlider";
 import initGsap from "../misc/gsapBase";
+import HeroTitle from "../components/HeroTitle";
 
 export default {
   components: {
+    HeroTitle,
     BaseButton,
     BaseTitle,
     Seperator,
@@ -107,6 +105,10 @@ export default {
   },
   data() {
     return {
+      hero: {
+        mainTitle: "Wir sorgen dafür, dass dein Unternehmen gehört wird.",
+        secondTitle: "Laut & deutlich"
+      },
       testimonialsContent: [
         {
           text: "Weißt dus? Weißt dus? Weißt du es?",
@@ -134,7 +136,7 @@ export default {
     this.pageGsap = new initGsap({
       sideScroller:true,
       stickyImages: true,
-    });
+    }, this);
   }
 }
 </script>

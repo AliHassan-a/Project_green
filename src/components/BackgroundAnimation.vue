@@ -1,6 +1,6 @@
 <template>
   <div class="bgWrapper">
-    <canvas :style="'filter: hue-rotate(' + calcHue + ');'" id="c" width="256" height="256"></canvas>
+    <canvas :style="'filter: hue-rotate(' + getHue + 'deg);'" id="c" width="256" height="256"></canvas>
     <div class="backdrop"></div>
   </div>
 </template>
@@ -15,11 +15,6 @@ export default {
   name: "BackgroundAnimation",
   props: {
     getHue: Number,
-  },
-  computed: {
-    calcHue(){
-      return this.getHue + "deg"
-    }
   },
   mounted() {
     function animation() {
@@ -86,6 +81,7 @@ export default {
       width: 100vw;
       height: 100vh;
       max-width: none;
+      transition: filter 1s ease;
     }
     .backdrop{
       position: absolute;

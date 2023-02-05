@@ -1,11 +1,12 @@
 import {gsap, ScrollSmoother, ScrollTrigger, SplitText} from "gsap/all";
 
 const initGsap = class {
-    constructor(features) {
+    constructor(features, vueInstance) {
         this.sideScroller
         this.stickySection
         this.features = features
         this.isAlive = false
+        this.vueInstance = vueInstance;
         if (!this.isAlive) this.init()
         this.killGsap = function(){
             this.sideScroller.kill();
@@ -61,8 +62,54 @@ const initGsap = class {
                             scrub: 0.1,
                             end: "+=" + sections.length * 1000,
                             invalidateOnRefresh: true,
+                            onEnter: () => this.vueInstance.$root.$emit("repaint-bg", 150),
+                            onLeave: () => this.vueInstance.$root.$emit("repaint-bg", 0),
+                            onLeaveBack: () => this.vueInstance.$root.$emit("repaint-bg", 0),
+                            onEnterBack: () => this.vueInstance.$root.$emit("repaint-bg", 100),
                         }
                     });
+                    sections.forEach((section, index)=>{
+                        gsap.from(section, {
+                            scrollTrigger: {
+                                trigger: section,
+                                containerAnimation: this.sideScroller,
+                                start: "left center",
+                                toggleActions: "play none none reverse",
+                                onEnter: () => {
+                                    switch (index) {
+                                        case 1:
+                                            this.vueInstance.$root.$emit("repaint-bg", 280);
+                                            break;
+                                        case 2:
+                                            this.vueInstance.$root.$emit("repaint-bg", 100);
+                                            break;
+                                        case 3:
+                                            this.vueInstance.$root.$emit("repaint-bg", 100);
+                                            break;
+                                        default:
+                                            this.vueInstance.$root.$emit("repaint-bg", 0);
+                                            break;
+                                    }
+                                },
+                                onLeaveBack: () => {
+                                    switch (index) {
+                                        case 1:
+                                            this.vueInstance.$root.$emit("repaint-bg", 280);
+                                            break;
+                                        case 2:
+                                            this.vueInstance.$root.$emit("repaint-bg", 100);
+                                            break;
+                                        case 3:
+                                            this.vueInstance.$root.$emit("repaint-bg", 100);
+                                            break;
+                                        default:
+                                            this.vueInstance.$root.$emit("repaint-bg", 0);
+                                            break;
+                                    }
+                                }
+                            },
+                        });
+                    })
                     let projectContents = gsap.utils.toArray(".projectContentAnimation");
                     projectContents.forEach((projectContent, index)=>{
                         gsap.from(projectContent, {
@@ -168,7 +215,7 @@ const initGsap = class {
                         duration: 0.6,
                         autoAlpha: 0,
                         ease: "circ.out",
-                        y: 40,
+                        y: 60,
                         stagger: 0.2,
                     });
                 });
