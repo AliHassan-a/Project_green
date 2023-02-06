@@ -11,7 +11,6 @@
 export default {
   name: "BaseTitle",
   props: {
-      title: String,
       tag: String,
       align: String,
       addClass: String,
