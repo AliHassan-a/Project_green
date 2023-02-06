@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="formWrapper">
-        <multiStepForm></multiStepForm>
+        <multiStepForm @submitForm="submitForm"></multiStepForm>
       </div>
     </div>
   </div>
@@ -33,6 +33,7 @@
 import BaseTitle from "../components/BaseTitle";
 import multiStepForm from "../components/multiStepForm";
 import BaseText from "../components/BaseText";
+import axios from "axios";
 
 export default {
   name: "Jetzt-Anfragen",
@@ -40,11 +41,70 @@ export default {
     BaseTitle,
     BaseText,
     multiStepForm,
+  },
+  data() {
+    return {
+      url: 'https://admin.greenstein.design/wp-json/contact-form-7/v1/contact-forms/23/feedback',
+    }
+  },
+  methods: {
+    submitForm(data) {
+      console.log(data);
+
+      function getCheckBoxValues() {
+        let value = "";
+        data[0].checkbox.forEach( box => {
+          if(box.activeBox){
+            value += box.title + ", "
+          }
+        })
+        return value != undefined ? value : "";
+      }
+
+      function getRadioValues() {
+        let value;
+        data[1].radio.forEach( radio => {
+          if(radio.activeBox){
+            value = radio.title
+          }
+        })
+        return value != undefined ? value : "";
+      }
+
+      const emailBody = {
+        "your-name": data[2].contact.name,
+        "your-email": data[2].contact.email,
+        "your-tel": data[2].contact.tel,
+        "your-message": data[2].contact.message,
+        "your-interest": getCheckBoxValues(),
+        "your-timeframe": getRadioValues(),
+      };
+
+      console.log(emailBody);
+      /*
+      const form = new FormData();
+      for (const field in emailBody) {
+        form.append(field, emailBody[field]);
+      }
+
+      axios.post(this.url, form)
+          .then((response) => {
+            console.log(response);
+            this.errors = [];
+          })
+          .catch((error) => {
+            this.errors = error.response.data.message
+          });
+       */
+    }
   }
 }
 </script>
 
 <style scoped>
+.contentContainer{
+  gap: 20px;
+}
 .contactCard{
   border-radius: 20px;
   border: 1px solid rgba(136,243,50,0.2);

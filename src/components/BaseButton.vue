@@ -1,6 +1,6 @@
 <template>
-  <div class="buttonWrapper">
-    <div v-if="linkTo == '#' || linkTo == undefined" >
+  <div class="buttonWrapper" :style="'justify-content:' + align">
+    <div v-if="linkTo == '#' || linkTo == undefined">
       <button class="light" v-if="theme == 'light' || theme == ''">
         <div class="button-blob light" />
         <span class="title">{{ title }}</span>
@@ -23,8 +23,8 @@
         </h3>
       </button>
     </div>
-    <a v-else :href="'/' + linkTo" >
-      <button class="light" v-if="theme == 'light' || theme == ''">
+    <a v-else :href="'/' + linkTo">
+      <button class="light" v-if="theme == 'light' || theme == ''" :style="'justify-content:' + align">
         <div class="button-blob light" />
         <span class="title">{{ title }}</span>
         <span class="title title--hovered"><b>{{ title }}</b></span>
@@ -56,6 +56,7 @@ export default {
     title: String,
     linkTo: String,
     theme: String,
+    align: String,
   }
 }
 </script>
