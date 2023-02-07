@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      url: 'https://admin.greenstein.design/wp-json/contact-form-7/v1/contact-forms/23/feedback',
+      url: 'https://admin.greenstein.design/wp-json/contact-form-7/v1/contact-forms/60/feedback',
     }
   },
   methods: {
@@ -81,7 +81,6 @@ export default {
       };
 
       console.log(emailBody);
-      /*
       const form = new FormData();
       for (const field in emailBody) {
         form.append(field, emailBody[field]);
@@ -89,13 +88,16 @@ export default {
 
       axios.post(this.url, form)
           .then((response) => {
-            console.log(response);
+            if(response.data.status){
+              window.location = "/vielen-dank";
+            } else {
+              window.alert("etwas ist schiefgelaufen!")
+            }
             this.errors = [];
           })
           .catch((error) => {
             this.errors = error.response.data.message
           });
-       */
     }
   }
 }
@@ -127,4 +129,5 @@ div.cardInner{
   justify-content: center;
   align-items: center;
 }
+
 </style>

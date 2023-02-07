@@ -100,7 +100,9 @@ export default {
       }
       axios.post(this.url, form)
           .then((response) => {
-            console.log(response);
+            if(response.data.status){
+              window.location = "/vielen-dank";
+            };
             this.errors = [];
           })
           .catch((error) => {

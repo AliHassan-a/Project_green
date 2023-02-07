@@ -9,67 +9,67 @@
     <div class="stepsContentWrapper">
       <div class="stepsContent">
         <BaseTitle tag="h2" class="stepsHeadline"><b>{{ steps[activeStep].headline }}</b></BaseTitle>
-        <div class="checkBoxWrapper" v-if="'checkbox' in steps[activeStep]">
-          <button v-for="(checkBox, checkboxIndex, checkBoxKey) in steps[activeStep].checkbox"
-                  :key="checkBoxKey"
-                  class="dark" :class="checkBox.activeBox ? 'customGreenBtn' : ''"
-                  @click.prevent="toggleCheckbox(steps[activeStep].checkbox[checkboxIndex])">
-            <div class="button-blob dark"/>
-            <span class="title" :class="checkBox.activeBox ? 'title--hovered' : ''">{{ checkBox.title }}</span>
-            <span class="title title--hovered"><b>{{ checkBox.title }}</b></span>
-          </button>
-        </div>
-        <div class="radioWrapper" v-if="'radio' in steps[activeStep]">
-          <div v-for="(radio, radioIndex, radioKey) in steps[activeStep].radio"
-               :key="radioKey"
-               @click="toggleRadio(radio, steps[activeStep].radio)"
-               :class="radio.activeBox ? 'activeRadio' : ''" class="radioBtn" >
-            <div class="radioCircle" />
-            <p>{{ radio.title }}</p>
+          <div class="checkBoxWrapper" v-if="'checkbox' in steps[activeStep]">
+            <button v-for="(checkBox, checkboxIndex, checkBoxKey) in steps[activeStep].checkbox"
+                    :key="checkBoxKey"
+                    class="dark" :class="checkBox.activeBox ? 'customGreenBtn' : ''"
+                    @click.prevent="toggleCheckbox(steps[activeStep].checkbox[checkboxIndex])">
+              <div class="button-blob dark"/>
+              <span class="title" :class="checkBox.activeBox ? 'title--hovered' : ''">{{ checkBox.title }}</span>
+              <span class="title title--hovered"><b>{{ checkBox.title }}</b></span>
+            </button>
           </div>
-        </div>
-        <div class="contactWrapper" v-if="'contact' in steps[activeStep]">
-          <div class="inputSingle">
-            <label for="contactName">Dein Name</label>
-            <input id="contactName"
-                   type="text"
-                   v-model="steps[activeStep].contact.name"
-                   @focus="toggleLabel('contactName', 'open', 0)"
-                   @blur="toggleLabel('contactName', 'close', 0)">
-            <hr class="defaultLine">
-            <hr class="hoverLine">
+          <div class="radioWrapper" v-if="'radio' in steps[activeStep]">
+            <div v-for="(radio, radioIndex, radioKey) in steps[activeStep].radio"
+                 :key="radioKey"
+                 @click="toggleRadio(radio, steps[activeStep].radio)"
+                 :class="radio.activeBox ? 'activeRadio' : ''" class="radioBtn" >
+              <div class="radioCircle" />
+              <p>{{ radio.title }}</p>
+            </div>
           </div>
-          <div class="inputSingle">
-            <label for="contactEmail">Deine Email</label>
-            <input id="contactEmail"
-                   type="email"
-                   v-model="steps[activeStep].contact.email"
-                   @focus="toggleLabel('contactEmail', 'open', 1)"
-                   @blur="toggleLabel('contactEmail', 'close', 1)">
-            <hr class="defaultLine">
-            <hr class="hoverLine">
+          <div class="contactWrapper" v-if="'contact' in steps[activeStep]">
+            <div class="inputSingle">
+              <label for="contactName">Dein Name*</label>
+              <input id="contactName"
+                     type="text"
+                     v-model="steps[activeStep].contact.name"
+                     @focus="toggleLabel('contactName', 'open', 0)"
+                     @blur="toggleLabel('contactName', 'close', 0)">
+              <hr class="defaultLine">
+              <hr class="hoverLine">
+            </div>
+            <div class="inputSingle">
+              <label for="contactEmail">Deine Email*</label>
+              <input id="contactEmail"
+                     type="email"
+                     v-model="steps[activeStep].contact.email"
+                     @focus="toggleLabel('contactEmail', 'open', 1)"
+                     @blur="toggleLabel('contactEmail', 'close', 1)">
+              <hr class="defaultLine">
+              <hr class="hoverLine">
+            </div>
+            <div class="inputSingle">
+              <label for="contactTel">Deine Telefonnummer*</label>
+              <input id="contactTel"
+                     type="tel"
+                     v-model="steps[activeStep].contact.tel"
+                     @focus="toggleLabel('contactTel', 'open', 2)"
+                     @blur="toggleLabel('contactTel', 'close', 2)">
+              <hr class="defaultLine">
+              <hr class="hoverLine">
+            </div>
+            <div class="inputSingle">
+              <label for="contactMessage">Erzähl uns von deinem Projekt</label>
+              <input id="contactMessage"
+                     type="text"
+                     v-model="steps[activeStep].contact.message"
+                     @focus="toggleLabel('contactMessage', 'open', 3)"
+                     @blur="toggleLabel('contactMessage', 'close', 3)">
+              <hr class="defaultLine">
+              <hr class="hoverLine">
+            </div>
           </div>
-          <div class="inputSingle">
-            <label for="contactTel">Deine Telefonnummer</label>
-            <input id="contactTel"
-                   type="tel"
-                   v-model="steps[activeStep].contact.tel"
-                   @focus="toggleLabel('contactTel', 'open', 2)"
-                   @blur="toggleLabel('contactTel', 'close', 2)">
-            <hr class="defaultLine">
-            <hr class="hoverLine">
-          </div>
-          <div class="inputSingle">
-            <label for="contactMessage">Erzähl uns von deinem Projekt</label>
-            <input id="contactMessage"
-                   type="text"
-                   v-model="steps[activeStep].contact.message"
-                   @focus="toggleLabel('contactMessage', 'open', 3)"
-                   @blur="toggleLabel('contactMessage', 'close', 3)">
-            <hr class="defaultLine">
-            <hr class="hoverLine">
-          </div>
-        </div>
       </div>
       <div @click="onActionButton()" style="margin-top: 30px;">
         <BaseButton linkTo="#" :align="'right'"  :theme="'more'" :title="activeStep < steps.length-1 ? 'Weiter' : 'Senden'"/>
@@ -85,6 +85,18 @@ export default {
   name: "multiStepForm",
   components: {BaseButton, BaseTitle},
   methods: {
+    checkInputs(){
+      var counter = 0;
+      setTimeout(() => {
+        for (const  [key, value] of Object.entries(this.steps[this.steps.length-1].contact)) {
+          const labels = {name: "contactName", email: "contactEmail" , tel: "contactTel", message: "contactMessage"}
+          if(value != ""){
+            this.toggleLabel(labels[key], "open", counter)
+          }
+          counter++
+        }
+      }, 100);
+    },
     setActive(num){
       this.activeStep = num
     },
@@ -108,6 +120,13 @@ export default {
     },
     submitEvent(){
       this.$emit("submitForm", this.steps);
+    }
+  },
+  watch: {
+    activeStep(newVal){
+      if(newVal == 2){
+        this.checkInputs();
+      }
     }
   },
   data(){
@@ -306,5 +325,16 @@ export default {
 input{
   outline: none;
   color: white;
+}
+
+/* vue ani */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
