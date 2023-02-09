@@ -9,16 +9,26 @@
           <g-image class="animateBlockItem" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
         </div>
       </div>
-      <div class="m-hide" style="width: 100%; display: flex; flex-direction:column;">
-        <g-image class="whirlImage animateStickyBlockItem" style="margin-top: 30%;" src="@/assets/praktis1.png"></g-image>
-        <g-image class="whirlImage animateStickyBlockItem" style="margin-top: -70px; margin-left: 50%;" src="@/assets/praktis2.png"></g-image>
+      <div style="width: 100%; display: flex; flex-direction:column; margin-top: 70%;">
+        <div class="reveal">
+          <g-image src="@/assets/praktis1.png"></g-image>
+        </div>
+        <div class="reveal">
+          <g-image src="@/assets/praktis2.png"></g-image>
+        </div>
+        <div class="reveal">
+          <g-image src="@/assets/praktis1.png"></g-image>
+        </div>
+        <div class="reveal">
+          <g-image src="@/assets/praktis2.png"></g-image>
+        </div>
+        <div class="reveal">
+          <g-image src="@/assets/developer.png"></g-image>
+        </div>
+        <div class="reveal">
+          <g-image src="@/assets/3guys.png"></g-image>
+        </div>
       </div>
-    </div>
-    <div style="width: 100%; display: flex; flex-direction:column;">
-      <g-image class="whirlImage animateStickyBlockItem" style="margin-top: 0%;" src="@/assets/praktis1.png"></g-image>
-      <g-image class="whirlImage animateStickyBlockItem" style="margin-top: -370px; margin-left: 60%;" src="@/assets/praktis2.png"></g-image>
-      <g-image class="whirlImage animateStickyBlockItem" style="margin-top: 0%;" src="@/assets/developer.png"></g-image>
-      <g-image class="whirlImage animateStickyBlockItem" style="margin-top: -70px; margin-left: 50%;" src="@/assets/3guys.png"></g-image>
     </div>
   </div>
 </template>
@@ -30,5 +40,33 @@ export default {
 </script>
 
 <style scoped>
-
+.reveal {
+  visibility: hidden;
+  position: relative;
+  width: 80%;
+  height: 80%;
+  overflow: hidden;
+}
+.pinnedContainerWrapper{
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+.pinnedContainer{
+  position: relative;
+  top:0;
+  height: 100vh;
+  padding-top: 30%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform-origin: left;
+}
+@media only screen and (max-width: 1024px) {
+  .pinnedContainer{
+    margin-top: -50%;
+  }
+}
 </style>

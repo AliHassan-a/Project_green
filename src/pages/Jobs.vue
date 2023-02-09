@@ -2,10 +2,10 @@
   <Layout>
     <div id="page" class="site">
       <div id="one" class="mainSection section-head">
-        <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginX">Aktuelles aus Agentur & Werbewelt</BaseTitle>
+        <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginX">Jobs</BaseTitle>
       </div>
       <div id="one" class="mainSection section-one">
-        <a class="singleBlog" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
+        <a class="singleBlog" :href="'/jobs/' + edge.node.slug" v-for="edge in $static.jobs.edges" :key="edge.node.id">
           <div class="singleCard">
             <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.sourceUrl" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
             <p v-html="edge.node.title">
@@ -22,7 +22,7 @@ import BaseTitle from "../components/BaseTitle";
 import initGsap from "../misc/gsapBase";
 
 export default {
-  name: "Blog",
+  name: "Jobs",
   components: {
     BaseTitle,
   },
@@ -55,9 +55,9 @@ img.featured{
 
 <static-query>
 query{
-  posts: allWordPressPost{
-      edges{
-        node{
+  jobs: allWordPressJobs{
+    edges{
+      node{
         slug,
         title,
         date,

@@ -76,4 +76,42 @@ module.exports = function (api) {
       })
     })
   })
+
+  api.createPages(async ({graphql, createPage}) => {
+    /* JOBS */
+    const { data } = await graphql(`{
+    allWordPressJobs{
+      edges{
+        node{
+          slug,
+          title,
+          content,
+          date,
+          acf{
+            metaTitle,
+            metaDescription
+          }
+          featuredMedia{
+            sourceUrl,
+            title,
+            altText
+          }
+        }
+      }
+    }}`)
+    data.allWordPressJobs.edges.forEach(({node}) => {
+      createPage({
+        path: `/jobs/${node.slug}`,
+        component: './src/templates/SingleJob.vue',
+        context: {
+          slug: node.slug,
+          title: node.title,
+          content: node.content,
+          date: node.date,
+          acf: node.acf,
+          featuredMedia: node.featuredMedia,
+        }
+      })
+    })
+  })
 }

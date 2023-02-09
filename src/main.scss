@@ -70,6 +70,7 @@ div{
     position: relative;
 }
 img{
+    transform-origin: left;
     max-width: 100%;
 }
 
@@ -83,8 +84,8 @@ a{
     text-decoration: none;
 }
 h1{
-    font-size: clamp(2em, calc(100vw / 35.5555), 3em);
-    font-weight: 700;
+    font-size: clamp(5em, calc(100vw / 10), 2.5em);
+    font-weight: 400;
 }
 h2{
     font-size: clamp(2em, calc(100vw / 35.5555), 3em);
@@ -115,15 +116,7 @@ p.small{
     font-size: 78px;
 }
 
-$h1Size: 78px;
-$h2Size: 48px;
-
-$smallestFont: 14px;
 /*** color ****/
-$bgColor: #011713;
-$blackColor: black;
-$greenColor: #88F332;
-
 
 .bgBg{
     background: #011713;
@@ -197,7 +190,6 @@ $greenColor: #88F332;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px;
     min-height: 100vh;
     max-width: calc(100vw - (100vw / 4));
     margin: auto;
@@ -214,6 +206,10 @@ $greenColor: #88F332;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+.fullWidthInnerContent{
+    width: 75vw;
+    margin-left: 12.5vw;
 }
 
 /* Buttons */
@@ -375,9 +371,13 @@ button.more:hover #rightChev{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 10px;
-        min-height: 100vh;
+        padding: 100px 0px;
+        min-height: unset;
         max-width: calc(100vw - (100vw / 10));
+    }
+    .fullWidthInnerContent{
+        width: 100vw;
+        margin-left: 0vw;
     }
 }
 @media only screen and (min-width: 1024px) {

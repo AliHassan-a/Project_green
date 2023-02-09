@@ -8,8 +8,11 @@
     </div>
     <div class="stepsContentWrapper">
       <div class="stepsContent">
-        <BaseTitle tag="h2" class="stepsHeadline"><b>{{ steps[activeStep].headline }}</b></BaseTitle>
-          <div class="checkBoxWrapper" v-if="'checkbox' in steps[activeStep]">
+        <transition name="multiStepHead" mode="out-in">
+          <BaseTitle tag="h2" class="stepsHeadline" :key="steps[activeStep].headline"><b>{{ steps[activeStep].headline }}</b></BaseTitle>
+        </transition>
+        <transition name="multiStepFade" mode="out-in">
+          <div class="checkBoxWrapper" v-if="'checkbox' in steps[activeStep]" :key="steps[activeStep].title">
             <button v-for="(checkBox, checkboxIndex, checkBoxKey) in steps[activeStep].checkbox"
                     :key="checkBoxKey"
                     class="dark" :class="checkBox.activeBox ? 'customGreenBtn' : ''"
@@ -19,7 +22,9 @@
               <span class="title title--hovered"><b>{{ checkBox.title }}</b></span>
             </button>
           </div>
-          <div class="radioWrapper" v-if="'radio' in steps[activeStep]">
+        </transition>
+        <transition name="multiStepFade" mode="out-in">
+          <div class="radioWrapper" v-if="'radio' in steps[activeStep]" :key="steps[activeStep].title">
             <div v-for="(radio, radioIndex, radioKey) in steps[activeStep].radio"
                  :key="radioKey"
                  @click="toggleRadio(radio, steps[activeStep].radio)"
@@ -28,7 +33,9 @@
               <p>{{ radio.title }}</p>
             </div>
           </div>
-          <div class="contactWrapper" v-if="'contact' in steps[activeStep]">
+        </transition>
+        <transition name="multiStepFade" mode="out-in">
+          <div class="contactWrapper" v-if="'contact' in steps[activeStep]" :key="steps[activeStep].title">
             <div class="inputSingle">
               <label for="contactName">Dein Name*</label>
               <input id="contactName"
@@ -36,7 +43,7 @@
                      v-model="steps[activeStep].contact.name"
                      @focus="toggleLabel('contactName', 'open', 0)"
                      @blur="toggleLabel('contactName', 'close', 0)">
-              <hr class="defaultLine">
+              <hr class="defaultLine" :style="getStyleLine('name')">
               <hr class="hoverLine">
             </div>
             <div class="inputSingle">
@@ -46,7 +53,7 @@
                      v-model="steps[activeStep].contact.email"
                      @focus="toggleLabel('contactEmail', 'open', 1)"
                      @blur="toggleLabel('contactEmail', 'close', 1)">
-              <hr class="defaultLine">
+              <hr class="defaultLine" :style="getStyleLine('email')">
               <hr class="hoverLine">
             </div>
             <div class="inputSingle">
@@ -56,7 +63,7 @@
                      v-model="steps[activeStep].contact.tel"
                      @focus="toggleLabel('contactTel', 'open', 2)"
                      @blur="toggleLabel('contactTel', 'close', 2)">
-              <hr class="defaultLine">
+              <hr class="defaultLine" :style="getStyleLine('tel')">
               <hr class="hoverLine">
             </div>
             <div class="inputSingle">
@@ -69,10 +76,16 @@
               <hr class="defaultLine">
               <hr class="hoverLine">
             </div>
+            <span class="phone-wrap" style="visibility: hidden !important">
+              <input id="wpcf7" placeholder="phone" class="wpcf7-form-control wpcf7-text" type="text" name="phone" value size="40" tabindex="-1" autocomplete="new-password">
+            </span>
           </div>
+        </transition>
       </div>
       <div @click="onActionButton()" style="margin-top: 30px;">
-        <BaseButton linkTo="#" :align="'right'"  :theme="'more'" :title="activeStep < steps.length-1 ? 'Weiter' : 'Senden'"/>
+        <transition name="multiStepBtn" mode="out-in">
+          <BaseButton linkTo="#" :align="'right'"  :theme="'more'" :title="activeStep < steps.length-1 ? 'Weiter' : 'Senden'"/>
+        </transition>
       </div>
     </div>
   </div>
@@ -85,6 +98,35 @@ export default {
   name: "multiStepForm",
   components: {BaseButton, BaseTitle},
   methods: {
+    getStyleLine(type){
+      switch(type) {
+        case "name":
+          if(this.steps[this.activeStep].validData.name == true){
+            return {borderColor: '#88F332'}
+          } else if (this.steps[this.activeStep].validData.name == false){
+            return {borderColor: 'red'}
+          } else {
+            return ""
+          }
+        case "email":
+          if(this.steps[this.activeStep].validData.email == true){
+            return {borderColor: '#88F332'}
+          } else if (this.steps[this.activeStep].validData.email == false){
+            return {borderColor: 'red'}
+          } else {
+            return ""
+          }
+        case "tel":
+          if(this.steps[this.activeStep].validData.tel == true){
+            return {borderColor: '#88F332'}
+          } else if (this.steps[this.activeStep].validData.tel == false){
+            return {borderColor: 'red'}
+          } else {
+            return ""
+          }
+      }
+
+    },
     checkInputs(){
       var counter = 0;
       setTimeout(() => {
@@ -122,12 +164,41 @@ export default {
       this.$emit("submitForm", this.steps);
     }
   },
+  computed: {
+    getContactName: function() {
+      return this.steps[this.steps.length-1].contact.name
+    },
+    getContactEmail: function() {
+      return this.steps[this.steps.length-1].contact.email
+    },
+    getContactTel: function() {
+      return this.steps[this.steps.length-1].contact.tel
+    }
+  },
   watch: {
     activeStep(newVal){
       if(newVal == 2){
         this.checkInputs();
       }
-    }
+    },
+    getContactName: function(newVal){
+      let onlyLettersRegex = /^[A-Za-z]+$/;
+      if( newVal != "" ){
+        newVal.match(onlyLettersRegex) ? this.steps[this.steps.length-1].validData.name = true : this.steps[this.steps.length-1].validData.name = false;
+      }
+    },
+    getContactEmail: function(newVal){
+      let onlyEmailRegex = /^([-!#-\'*+\/-9=?A-Z^-~]{1,64}(\.[-!#-\'*+\/-9=?A-Z^-~]{1,64})*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)+$/;
+      if( newVal != "" ) {
+        newVal.match(onlyEmailRegex) ? this.steps[this.steps.length - 1].validData.email = true : this.steps[this.steps.length - 1].validData.email = false
+      }
+    },
+    getContactTel: function(newVal){
+      let onlyTelRegex = /^((\+|\+\(\d\d\)|)\d+)$/mg;
+      if( newVal != "" ) {
+        newVal.match(onlyTelRegex) ? this.steps[this.steps.length - 1].validData.tel = true : this.steps[this.steps.length - 1].validData.tel = false
+      }
+    },
   },
   data(){
     return{
@@ -178,6 +249,11 @@ export default {
             tel: "",
             message: "",
           },
+          validData: {
+            name: null,
+            email: null,
+            tel: null,
+          }
         }
       ],
     }
@@ -222,11 +298,15 @@ export default {
 }
 .stepsHeadline{
   margin-bottom: 40px;
+  position: absolute;
+  white-space: nowrap;
 }
 /*  CHECKBOX */
 .checkBoxWrapper{
   display: flex;
   flex-direction:row;
+  position: absolute;
+  top: 30%;
 }
 .customGreenBtn{
   background: #88F332 !important;
@@ -237,6 +317,8 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  position: absolute;
+  top: 33%;
 }
 .radioWrapper .radioBtn{
   display: flex;
@@ -282,6 +364,8 @@ export default {
 /* CONTACT */
 .contactWrapper{
   width: 100%;
+  position: absolute;
+  top: 25%;
 }
 .contactWrapper hr{
   width: 100%;
@@ -328,13 +412,39 @@ input{
 }
 
 /* vue ani */
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
+.multiStepFade-enter-active {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease;
+  transition-delay: 0.3s;
 }
 
-.v-enter-from,
-.v-leave-to {
+.multiStepFade-enter, .multiStepFade-leave-to {
   opacity: 0;
+  transform: translateY(10px);
+}
+
+.multiStepFade-enter-to, .multiStepFade-leave {
+  opacity: 1;
+}
+.multiStepFade-leave-active {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease;
+  transition-delay: 0.3s;
+}
+
+
+
+.multiStepHead-enter-active {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.multiStepHead-enter, .multiStepFade-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.multiStepHead-enter-to, .multiStepFade-leave {
+  opacity: 1;
+}
+.multiStepHead-leave-active {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease;
 }
 </style>

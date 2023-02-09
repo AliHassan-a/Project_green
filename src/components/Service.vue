@@ -1,5 +1,6 @@
 <template>
   <div class="w-full">
+    <h2 class="animateBlockHead fullWidthInnerContent" style="margin-bottom: 60px;"> Unsere Leistungen </h2>
     <div class="animateBlockItem w-full">
       <Seperator theme="light"></Seperator>
       <div class="leistungWrapper">
@@ -7,7 +8,7 @@
         <h3 class="w-full leistungText">Design & Strategie</h3>
         <BaseButton :link-to="'design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>
-      <Seperator theme="light"></Seperator>
+      <Seperator theme="lightGreen"></Seperator>
     </div>
     <div class="animateBlockItem w-full">
       <div class="leistungWrapper">
@@ -15,7 +16,7 @@
         <h3 class="w-full leistungText">Entwicklung</h3>
         <BaseButton :link-to="'entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>
-      <Seperator theme="light"></Seperator>
+      <Seperator theme="lightGreen"></Seperator>
     </div>
     <div class="animateBlockItem w-full">
       <div class="leistungWrapper">
@@ -23,7 +24,7 @@
         <h3 class="w-full leistungText">Marketing</h3>
         <BaseButton :link-to="'marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>
-      <Seperator theme="light"></Seperator>
+      <Seperator theme="lightGreen"></Seperator>
     </div>
   </div>
 </template>
@@ -45,11 +46,13 @@ export default {
 <style scoped>
 .leistungWrapper{
   width: 100%;
+  max-width: 75vw;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  margin: 30px 0px;
+  margin: 30px 12.5vw;
 }
 .leistungWrapper img{
   object-fit: contain;
@@ -59,7 +62,13 @@ export default {
   justify-content: flex-end;
 }
 
-.lineWrapper{
-  width: 100%;
+/* RESPONSIVE */
+@media only screen and (max-width: 1024px) {
+  .leistungWrapper{
+    flex-direction: column;
+  }
+  .leistungText{
+    text-align: center;
+  }
 }
 </style>

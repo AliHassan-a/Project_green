@@ -1,8 +1,8 @@
 <template>
   <div class="gsHeroTitle">
-    <BaseTitle addClass="animateBlockHero" :align="'left'" :tag="'h2'" >{{ mainTitle }}<br><b class="greenColor">{{ secondTitle }}</b></BaseTitle>
-    <div class="contentContainer animateBlockHeroArrow">
-      <g-image style="margin-top: 15px; width: 50px;" src="@/assets/Pfeile.svg"></g-image>
+    <BaseTitle data-speed="1.2" addClass="animateBlockHero" :align="'left'" :tag="'h1'" >{{ mainTitle }}<br>{{ mainTitleSecond }}<br><b class="greenColor">{{ secondTitle }}</b></BaseTitle>
+    <div class="contentContainer animateBlockHeroArrow" data-speed="1.2">
+      <g-image style="margin-top: 0px; width: 96px;" src="@/assets/Pfeile.svg"></g-image>
     </div>
   </div>
 </template>
@@ -14,6 +14,7 @@ export default {
   name: "HeroTitle",
   props: {
     mainTitle: String,
+    mainTitleSecond: String,
     secondTitle: String,
   },
   components: {
@@ -24,7 +25,7 @@ export default {
 
 <style scoped>
   .gsHeroTitle{
-    width: 50%
+    width: 70%
   }
   @media only screen and (max-width: 1024px) {
     .gsHeroTitle{

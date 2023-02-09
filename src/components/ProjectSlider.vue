@@ -1,9 +1,9 @@
 <template>
-  <div id="two" class="container section-two">
+  <div id="two" class="container">
     <BaseTitle class="horizontalHeader animateBlockHead" :align="'left'" :tag="'h2'" >Wir entwickeln innovative <br> Apps & Webseiten</BaseTitle>
-    <section class="panel" v-for="(project, index) in projects">
+    <section class="panel" v-for="(project, index) in projects" :style="index == 0 ? {marginLeft: '9.5vw'} : {}">
       <g-link :to="project.link">
-        <div class="box toLinkHover" :class="'box-' + (index + 1)" :style="{background: project.color}" :gs-hover="project.hover">
+        <div class="box" :class="'box-' + (index + 1)" :style="{background: project.color}">
           <div class="projectLeft">
             <g-image :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :src="project.logo" :title="project.title" :alt="project.text"></g-image>
             <BaseTitle :class="index == 0 ? 'animateBlockItem' : 'projectContentAnimation'" :tag="'h3'" class="defaultMarginY projectTitleAlign">{{ project.text }}</BaseTitle>
@@ -75,10 +75,13 @@ export default {
 
 <style scoped>
   section {
-    width: 100vw;
+    width: calc(75vw + 100px);
     height: 100vh;
     position: relative;
     will-change: transform;
+  }
+  .panel:first-child{
+    margin-left: 9.5vw;
   }
   .panel{
     display: flex;
@@ -89,10 +92,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100vw - (100vw / 4));
+    width: 75vw;
     height: 70vh;
-    margin: auto;
-    margin-bottom: 5vh;
+    margin: 0vh 50px 5vh 50px;
     text-align: center;
     border-radius: 20px;
     will-change: transform;

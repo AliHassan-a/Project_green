@@ -35,7 +35,6 @@ import BaseButton from "../components/BaseButton";
 import BaseTitle from "../components/BaseTitle";
 import ProjectSlider from "../components/ProjectSlider";
 import BlogSlider from "../components/BlogSlider";
-import Testimonials from "../components/SimpleSlider";
 import Seperator from "../components/Seperator";
 import CustomerLogoGlider from "../components/CustomerLogoGlider";
 import initGsap from "../misc/gsapBase";
@@ -51,7 +50,6 @@ export default {
     BaseTitle,
     BaseText,
     Seperator,
-    Testimonials,
     ProjectSlider,
     BlogSlider,
     CustomerLogoGlider,
@@ -124,8 +122,7 @@ section {
   align-items: flex-start;
   width: calc(90vw);
   height: 80vh;
-  margin: auto;
-  margin-bottom: 10vh;
+  margin: 0vh 5vw 10vh 5vw;
   border-radius: 20px;
   will-change: transform;
 }

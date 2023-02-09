@@ -90,7 +90,7 @@ export default {
       width: 200vw;
       height: 200vh;
       z-index: 0;
-      opacity: 0.6;
+      opacity: 0.25;
       background-image: url("../assets/bg-muster.png");
       will-change: transform;
       animation: bg-animation 0.5s infinite;

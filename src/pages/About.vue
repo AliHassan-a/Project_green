@@ -10,7 +10,7 @@
         </div>
       </div>
       <div id="two" class="mainSection section-two">
-        <Slider class="animateBlockItem" />
+        <Slider :slideContent="steps" class="animateBlockItem" />
       </div>
       <div id="three" class="mainSection section-three">
         <g-image class="animateBlockItem" src="@/assets/Teambesprechung-Greenstein.png"></g-image>
@@ -40,7 +40,6 @@ import BaseButton from "../components/BaseButton";
 import BaseTitle from "../components/BaseTitle";
 import ProjectSlider from "../components/ProjectSlider";
 import BlogSlider from "../components/BlogSlider";
-import Testimonials from "../components/SimpleSlider";
 import Seperator from "../components/Seperator";
 import CustomerLogoGlider from "../components/CustomerLogoGlider";
 import initGsap from "../misc/gsapBase";
@@ -60,7 +59,6 @@ export default {
     BaseTitle,
     BaseText,
     Seperator,
-    Testimonials,
     ProjectSlider,
     BlogSlider,
     CustomerLogoGlider,
@@ -71,6 +69,32 @@ export default {
         mainTitle: "Wir sorgen dafür, dass dein Unternehmen gehört wird.",
         secondTitle: "Laut & deutlich"
       },
+      steps: [
+        {
+          title: 'Wir sind selbstbewusst',
+          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+        },
+        {
+          title: 'Wir sind selbstbewusst',
+          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+        },
+        {
+          title: 'Wir sind selbstbewusst',
+          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+        },
+        {
+          title: 'Wir sind selbstbewusst',
+          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+        },
+        {
+          title: 'Wir sind selbstbewusst',
+          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+        },
+        {
+          title: 'Wir sind selbstbewusst',
+          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+        },
+      ],
       pageGsap: null,
     }
   },

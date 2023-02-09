@@ -80,7 +80,6 @@ export default {
         "your-timeframe": getRadioValues(),
       };
 
-      console.log(emailBody);
       const form = new FormData();
       for (const field in emailBody) {
         form.append(field, emailBody[field]);
@@ -88,7 +87,8 @@ export default {
 
       axios.post(this.url, form)
           .then((response) => {
-            if(response.data.status){
+            console.log(response)
+            if(response.status == 200){
               window.location = "/vielen-dank";
             } else {
               window.alert("etwas ist schiefgelaufen!")

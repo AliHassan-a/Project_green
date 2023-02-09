@@ -21,22 +21,12 @@
     </div>
     <div class="mainSection contentWrapper">
       <div class="singleContent" v-html="$context.content"></div>
-      <div class="sidebarBlog pinnedContainer">
-        <a class="singleBlog" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
-          <div class="singleCard">
-            <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.sourceUrl" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
-            <p v-html="edge.node.title">
-            <p style="font-size: 18px" class="greenColor" v-html="edge.node.date"></p>
-          </div>
-        </a>
-      </div>
     </div>
   </Layout>
 </template>
 
 <script>
 import BaseTitle from "../components/BaseTitle";
-import {gsap, ScrollSmoother, ScrollTrigger} from "gsap/all";
 import initGsap from "../misc/gsapBase";
 
 export default {
@@ -132,9 +122,9 @@ div.singleContent h2, div.singleContent h3{
 
 <static-query>
 query{
-  posts: allWordPressPost(limit: 3){
-    edges{
-      node{
+  jobs: allWordPressJobs(limit: 3){
+      edges{
+        node{
         slug,
         title,
         date,

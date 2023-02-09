@@ -1,7 +1,7 @@
 <template>
-  <div class="logosSection animateBlockItem">
-    <div style="width: 100%; opacity: 0.6">
-      <hr style="height: 2px; border: 0; outline: 0px; background: lightgrey; margin-bottom: 30px;" />
+  <div class="logosSection">
+    <div style="width: 100%; opacity: 0.6; margin-bottom: 44px;">
+      <Seperator :theme="'lightGreen'"/>
     </div>
     <div class="contentContainer headlines">
       <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
@@ -14,24 +14,24 @@
         <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
         <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
         <g-image class="logo" src="@/assets/uhrig-logo.png"></g-image>
-        <g-image class="logo md-hide" src="@/assets/chartexperten-logo.png"></g-image>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Seperator from "./Seperator";
 export default {
-  name: "CustomerLogoGlider"
+  name: "CustomerLogoGlider",
+  components: {Seperator}
 }
 </script>
 
 <style scoped>
-/*logos section*/
 .logosSection{
   position: absolute;
   width: 100%;
-  bottom: 50px;
+  bottom: 44px;
 }
 .logosText{
   font-size: 14px;
@@ -50,6 +50,7 @@ export default {
 }
 .contentContainer.headlines{
   position: absolute;
+  top:50%
 }
 /* SLIDER */
 
@@ -63,26 +64,4 @@ export default {
   gap: 12%;
 }
 
-@keyframes moveSlideshow {
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@media only screen and (max-width: 1024px){
-  .logosSection{
-    position: absolute;
-    width: 100%;
-    bottom: 0px
-  }
-  .logo{
-    width: 250px
-  }
-  .slideshow {
-    margin-top: 10px;
-    margin-left: 0px;
-    animation: moveSlideshow 12s linear infinite;
-    gap: 100px
-  }
-}
 </style>

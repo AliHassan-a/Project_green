@@ -11,7 +11,6 @@
 
 <script>
 import Menu from "@/components/Menu";
-import {gsap, Quart} from "gsap/all";
 
 export default {
   name: "Header",
@@ -37,7 +36,6 @@ header {
   align-items: center;
   height: 80px;
   z-index: 999999;
-  backdrop-filter: blur(10px);
 }
 div.logoContainer{
   position: absolute;

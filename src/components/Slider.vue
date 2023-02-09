@@ -5,12 +5,16 @@
            @touchstart="startDrag"
            @mouseup="stopDrag"
            @touchend="stopDrag"
-           v-for="(slide, index, key) in slides"
+           v-for="(slide, index, key) in slideContent"
            :key="key"
            class="slider-card">
-        <BaseTitle :class="'greenColor'" class="greenIndex" :tag="'h3'"><span style="font-weight: 800;">{{index+1}}.</span></BaseTitle>
+        <BaseTitle v-if="hasNumber" :class="'greenColor'" class="greenIndex" :tag="'h3'"><span style="font-weight: 800;">{{index+1}}.</span></BaseTitle>
         <BaseTitle :align="'left'" :tag="'h3'"><b>{{slide.title}}</b></BaseTitle>
         <BaseText>{{slide.description}}</BaseText>
+        <div v-if="hasTestimonial">
+          <BaseTitle :align="'left'" :tag="'h3'"><b>{{slide.testimonialAuthor}}</b></BaseTitle>
+          <BaseText :addClass="'greenColor'">{{slide.testimonialPosition}}</BaseText>
+        </div>
       </div>
     </div>
   </div>
@@ -31,6 +35,8 @@ export default {
   props: {
     slideContent: Array,
     slideWidth: Number,
+    hasNumber: Boolean,
+    hasTestimonial: Boolean,
   },
   data: function(){
     return {
@@ -38,42 +44,16 @@ export default {
         hasInfo: false,
         hasImage: false
       },
-      slides: [
-        {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
-        },
-        {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
-        },
-        {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
-        },
-        {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
-        },
-        {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
-        },
-        {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
-        },
-      ],
-          selectedIndex: 0,
-        dragging: false,
-        initialMouseX: 0,
-        initialCardsX: 0,
-        cardsX: 0
+      selectedIndex: 0,
+      dragging: false,
+      initialMouseX: 0,
+      initialCardsX: 0,
+      cardsX: 0
     }
   },
   computed: {
-    selectedSlide () {
-      return this.slides[this.selectedIndex]
+    selectedSlide(){
+      return this.slideContent[this.selectedIndex]
     }
   },
   methods: {
@@ -87,7 +67,7 @@ export default {
       let cardEl = document.querySelector(".slider-card");
       const cardWidth = cardEl.clientWidth + 30;
       const nearestSlide = -Math.round(this.cardsX / cardWidth)
-      this.selectedIndex = Math.min(Math.max(0, nearestSlide), this.slides.length -2)
+      this.selectedIndex = Math.min(Math.max(0, nearestSlide), this.slideContent.length -2)
       gsap.to(this, 0.3, {cardsX: -this.selectedIndex * cardWidth})
     },
     mouseMoving (e) {

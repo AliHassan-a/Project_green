@@ -1,7 +1,8 @@
 <template>
   <div class="seperatorWrapper">
-    <hr v-if="theme == 'dark'" class="dark" >
-    <hr v-else-if="theme == 'light'" class="light" >
+    <div v-if="theme == 'dark'" class="dark" />
+    <div v-else-if="theme == 'light'" class="light" />
+    <div v-else-if="theme == 'lightGreen'" class="lightGreen" />
   </div>
 </template>
 
@@ -22,12 +23,20 @@ export default {
     margin: 0px 0px 10px 0px;
   }
   .seperatorWrapper .dark{
+    height: 2px;
     background: #ffffff;
-    background-blend-mode: soft-light;
+    opacity: 0.25;
   }
   .seperatorWrapper .light{
-    opacity: 0.6;
+    height: 2px;
+    opacity: 0.25;
     background: #011713;
+    background-blend-mode: soft-light;
+  }
+  .seperatorWrapper .lightGreen{
+    height: 2px;
+    opacity: 0.25;
+    background: #E7FFD3;
     background-blend-mode: soft-light;
   }
 </style>

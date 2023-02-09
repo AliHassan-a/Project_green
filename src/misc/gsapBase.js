@@ -20,8 +20,8 @@ const initGsap = class {
         //// HORIZONTAL ////
         gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
         ScrollSmoother.create({
-            smooth: 1,
-            effects: true
+            smooth: 2,
+            effects: true,
         });
 
         ScrollTrigger.defaults({
@@ -77,6 +77,7 @@ const initGsap = class {
                                 containerAnimation: this.sideScroller,
                                 start: "left center",
                                 toggleActions: "play none none reverse",
+                                invalidateOnRefresh: true,
                                 onEnter: () => {
                                     switch (index) {
                                         case 1:
@@ -112,20 +113,19 @@ const initGsap = class {
                             },
                         });
                     })
-                    let projectContents = gsap.utils.toArray(".projectContentAnimation");
-                    projectContents.forEach((projectContent, index)=>{
-                        gsap.from(projectContent, {
+                    let boxes = document.querySelectorAll(".box")
+                    boxes.forEach((box) => {
+                        gsap.from(box, {
                             scrollTrigger: {
-                                trigger: index+1 == projectContents.length ? projectContents[projectContents.length-2] : projectContent,
-                                containerAnimation: this.sideScroller,
-                                start: "left center",
-                                toggleActions: "play none none reverse"
+                                trigger: box,
+                                toggleActions: "restart resume resume reverse",
+                                start: "50% 100%",
+                                end: "50% 70%%",
+                                scrub: true,
                             },
-                            duration: 1,
-                            autoAlpha: 0,
-                            ease: "circ.out",
                             y: 100,
-                            stagger: 1,
+                            opacity: 0,
+                            ease: "power1.inOut",
                         });
                     })
                 }
@@ -151,7 +151,7 @@ const initGsap = class {
                                 start: "center center",
                                 scrub: true,
                             },
-                            x: window.innerWidth * 0.6,
+                            x: window.innerWidth * 0.65,
                         });
                     })
                     let stepsDescriptions = gsap.utils.toArray(".stepDescriptionAnimation");
@@ -164,10 +164,10 @@ const initGsap = class {
                                 scrub: true,
                             },
                             duration: 0.6,
-                            autoAlpha: 0,
-                            ease: "circ.out",
-                            y: 40,
-                            stagger: 0.4,
+                            opacity: 0,
+                            filter: 'blur(20px)',
+                            ease: "power1.inOut",
+                            stagger: { each: 0.05, from: 'random'},
                         });
                     })
                     let stepsIntro = document.querySelector(".stepsIntroAnimation");
@@ -188,7 +188,6 @@ const initGsap = class {
                 /* STICKY SECTION /w images */
                 if(this.features.stickyImages){
                     this.stickySection = gsap.to(".pinnedContainer", {
-                        opacity: 0,
                         ease: "none", // <-- IMPORTANT!
                         scrollTrigger: {
                             trigger: ".pinnedContainer",
@@ -197,18 +196,27 @@ const initGsap = class {
                             invalidateOnRefresh: true,
                         }
                     });
-
-                    let whirlImages = gsap.utils.toArray(".whirlImage");
-                    whirlImages.forEach((whirlImage) => {
-                        gsap.to(whirlImage, {
-                            opacity: 0,
+                    /* Image Reveal Sticky */
+                    let revealContainers = document.querySelectorAll(".reveal");
+                    revealContainers.forEach((container) => {
+                        let image = container.querySelector("img");
+                        let tl = gsap.timeline({
                             scrollTrigger: {
-                                trigger: whirlImage,
-                                pin: true,
-                                scrub: 1,
+                                trigger: container,
+                                toggleActions: "restart none none reset"
                             }
-                        })
-                    })
+                        });
+
+                        tl.set(container, { autoAlpha: 1 });
+                        tl.from(container, 1.5, {
+                            xPercent: -100,
+                        });
+                        tl.from(image, 1.5, {
+                            xPercent: 100,
+                            scale: 1.3,
+                            delay: -1.5,
+                        });
+                    });
                 }
             },
             "(max-width: 1024px)": () => {
@@ -218,47 +226,53 @@ const initGsap = class {
                 if(this.features.heroAnimation){
                     let heroBlock = document.querySelector(".animateBlockHero");
                     heroBlock.split = new SplitText(heroBlock, {
-                        type: "lines"
+                        type: "words"
                     });
-                    heroBlock.anim = gsap.from(heroBlock.split.lines, {
-                        delay: 0.3,
-                        duration: 0.6,
-                        autoAlpha: 0,
-                        ease: "circ.out",
-                        y: 40,
-                        stagger: 0.4,
+                    heroBlock.anim = gsap.from(heroBlock.split.words, {
+                        delay: 1.0,
+                        duration: 1,
+                        opacity: 0,
+                        filter: 'blur(20px)',
+                        ease: "power1.inOut",
+                        stagger: { each: 0.05, from: 'random'},
                     });
                     let heroArrow = document.querySelector(".animateBlockHeroArrow");
                     heroArrow.anim = gsap.from(heroArrow, {
-                        delay: 1.4,
-                        duration: 0.6,
-                        autoAlpha: 0,
-                        ease: "circ.out",
-                        y: 40,
-                        stagger: 0.4,
+                        delay: 1.2,
+                        duration: 1,
+                        opacity: 0,
+                        filter: 'blur(20px)',
+                        ease: "power1.inOut",
+                        stagger: { each: 0.05, from: 'random'},
                     });
+                    if(document.querySelectorAll(".logosSection") != null){
+                        let logosSection = document.querySelector(".logosSection");
+                        logosSection.anim = gsap.from(logosSection, {
+                            delay: 0.5,
+                            duration: 0.8,
+                            y: 200,
+                            opacity: 0,
+                            ease: "power1.inOut",
+                        });
+                    }
                 }
 
                 /*HEADLINE REVEAL*/
                 let headBlocks = document.querySelectorAll(".animateBlockHead");
                 headBlocks.forEach(headBlock => {
-
                     headBlock.split = new SplitText(headBlock, {
-                        type: "lines"
+                        type: "words"
                     });
-
-                    // Set up the anim
-                    headBlock.anim = gsap.from(headBlock.split.lines, {
+                    headBlock.anim = gsap.from(headBlock.split.words, {
                         scrollTrigger: {
                             trigger: headBlock,
-                            toggleActions: "restart pause resume reverse",
+                            toggleActions: "restart resume resume reverse",
                             start: "50% 80%",
                         },
-                        duration: 0.6,
-                        autoAlpha: 0,
-                        ease: "circ.out",
-                        y: 100,
-                        stagger: 0.2,
+                        opacity: 0,
+                        filter: 'blur(20px)',
+                        ease: "power1.inOut",
+                        stagger: { each: 0.05, from: 'random'},
                     });
                 });
                 /*TEXT REVEAL*/
@@ -273,14 +287,14 @@ const initGsap = class {
                     textBlock.anim = gsap.from(textBlock.split.lines, {
                         scrollTrigger: {
                             trigger: textBlock,
-                            toggleActions: "restart pause resume reverse",
+                            toggleActions: "restart resume resume reverse",
                             start: "50% 80%",
                         },
                         duration: 0.6,
-                        autoAlpha: 0,
-                        ease: "circ.out",
-                        y: 40,
-                        stagger: 0.2,
+                        opacity: 0,
+                        filter: 'blur(20px)',
+                        ease: "power1.inOut",
+                        stagger: { each: 0.1, from: 'start'},
                     });
                 });
                 /*ITEM REVEAL*/
@@ -291,14 +305,14 @@ const initGsap = class {
                     itemBlock.anim = gsap.from(itemBlock, {
                         scrollTrigger: {
                             trigger: itemBlock,
-                            toggleActions: "restart pause resume reverse",
+                            toggleActions: "restart resume resume reverse",
                             start: "50% 80%",
                         },
                         duration: 0.6,
-                        autoAlpha: 0,
-                        ease: "circ.out",
-                        y: 60,
-                        stagger: 0.2,
+                        opacity: 0,
+                        filter: 'blur(20px)',
+                        ease: "power1.inOut",
+                        stagger: { each: 0.05, from: 'random'},
                     });
                 });
                 /*ItemBlocks Sticky*/
@@ -309,14 +323,14 @@ const initGsap = class {
                     itemBlockSticky.anim = gsap.from(itemBlockSticky, {
                         scrollTrigger: {
                             trigger: itemBlockSticky,
-                            toggleActions: "restart pause resume reverse",
+                            toggleActions: "restart resume resume reverse",
                             start: "50% 100%",
                         },
                         duration: 0.6,
-                        autoAlpha: 0,
-                        ease: "circ.out",
-                        y: 40,
-                        stagger: 0.2,
+                        opacity: 0,
+                        filter: 'blur(20px)',
+                        ease: "power1.inOut",
+                        stagger: { each: 0.05, from: 'random'},
                     });
                 });
             }
