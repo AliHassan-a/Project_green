@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full">
+  <div class="w-full leistungBlockWrapper">
     <h2 class="animateBlockHead fullWidthInnerContent" style="margin-bottom: 60px;"> Unsere Leistungen </h2>
     <div class="animateBlockItem w-full">
-      <Seperator theme="light"></Seperator>
+      <Seperator theme="lightGreen"></Seperator>
       <div class="leistungWrapper">
         <g-image src="@/assets/design_strategie_icon.png"></g-image>
         <h3 class="w-full leistungText">Design & Strategie</h3>
@@ -44,15 +44,28 @@ export default {
 </script>
 
 <style scoped>
+.leistungBlockWrapper{
+  margin-top: 200px;
+}
 .leistungWrapper{
   width: 100%;
   max-width: 75vw;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   margin: 30px 12.5vw;
+  transition: 0.4s ease-out;
+}
+.animateBlockItem{
+  padding-top: 1px;
+  transition: background 0.3s linear;
+}
+.animateBlockItem:hover{
+  background: #88F332;
+}
+.animateBlockItem:hover .leistungWrapper{
+  filter: brightness(0);
 }
 .leistungWrapper img{
   object-fit: contain;

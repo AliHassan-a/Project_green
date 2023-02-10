@@ -1,8 +1,8 @@
 <template>
-  <div class="mainSection footerWrapper">
+  <div class="mainSection footerWrapper greenBg">
     <div class="footer-overlay greenBg"></div>
-    <p class="footer greenColor">Du hast ein spannendes Projekt?</p>
-    <h2 class="footer greenColor">Lass uns sprechen!</h2>
+    <p class="footer">Du hast ein spannendes Projekt?</p>
+    <h2 class="footer">Lass uns sprechen!</h2>
     <div class="footer-content greenColor">
       <div class="footer-inner-content">
         <p class="footer-small">E-MAIL</p>
@@ -45,23 +45,41 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.mainSection{
+  margin-top: 20vh;
+  height: 80vh;
+  max-height: 80vh;
+  min-height: 80vh;
+  max-width: 100vw;
+  margin-left: 0;
+  padding: 0px 12.5vw;
+}
 div.footerWrapper{
   margin-top: 250px;
 }
+svg{
+  margin-top: -200px;
+  height: 200px;
+  width: 100vw;
+}
 .footer-overlay{
   position: absolute;
-  top:0;
+  top: -150px;
+  height: 300px;
+  left: 0;
   left:unset;
-  width: 100vh;
-  height: 100vh;
-  border-radius: 1000px;
+  width: 100vw;
+  border-radius: 0px;
   z-index: 0;
+  clip-path: ellipse(70% 0% at 50% 50%);
 }
 p.footer{
   z-index: 1;
+  color: black;
 }
 h2.footer{
   font-size: 126px;
+  color: black;
   z-index: 1;
   font-weight: 700;
   font-feature-settings: 'calt' 0, 'calt' 0;

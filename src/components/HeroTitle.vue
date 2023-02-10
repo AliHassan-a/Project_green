@@ -1,7 +1,7 @@
 <template>
   <div class="gsHeroTitle">
-    <BaseTitle data-speed="1.2" addClass="animateBlockHero" :align="'left'" :tag="'h1'" >{{ mainTitle }}<br>{{ mainTitleSecond }}<br><b class="greenColor">{{ secondTitle }}</b></BaseTitle>
-    <div class="contentContainer animateBlockHeroArrow" data-speed="1.2">
+    <BaseTitle data-speed="1.3" addClass="animateBlockHero" :align="'left'" :tag="'h1'" >{{ mainTitle }}<br>{{ mainTitleSecond }}<br><b class="greenColor">{{ secondTitle }}</b></BaseTitle>
+    <div class="contentContainer animateBlockHeroArrow" data-speed="1.3">
       <g-image style="margin-top: 0px; width: 96px;" src="@/assets/Pfeile.svg"></g-image>
     </div>
   </div>

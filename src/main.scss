@@ -84,11 +84,11 @@ a{
     text-decoration: none;
 }
 h1{
-    font-size: clamp(5em, calc(100vw / 10), 2.5em);
+    font-size: clamp(1.65em, calc(100vw / 30), 5em);
     font-weight: 400;
 }
 h2{
-    font-size: clamp(2em, calc(100vw / 35.5555), 3em);
+    font-size: clamp(1.5em, calc(100vw / 35), 3em);
     font-weight: 400;
 }
 h3{

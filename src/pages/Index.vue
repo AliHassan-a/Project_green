@@ -8,7 +8,7 @@
               :main-title-second="hero.mainTitleSecond"
               :second-title="hero.secondTitle" />
         </div>
-        <CustomerLogoGlider />
+        <CustomerLogoGlider/>
       </div>
       <!-- PROJECTS SLIDER -->
       <ProjectSlider style="margin-top: 100px"/>
@@ -92,6 +92,8 @@ export default {
       sideScroller: true,
       stickyImages: true,
       heroAnimation: true,
+      logosGlider: true,
+      quote: true,
     }, this);
   }
 }

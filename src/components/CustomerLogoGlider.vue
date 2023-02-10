@@ -1,19 +1,21 @@
 <template>
-  <div class="logosSection">
-    <div style="width: 100%; opacity: 0.6; margin-bottom: 44px;">
-      <Seperator :theme="'lightGreen'"/>
-    </div>
-    <div class="contentContainer headlines">
-      <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
-      <p class="logosTextMobile md-hide">UNTERNEHMEN, DIE GERNE MIT UNS ARBEITEN</p>
-    </div>
-    <div class="contentContainer slideshow">
-      <div class="slideshow">
-        <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
-        <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
-        <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
-        <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
-        <g-image class="logo" src="@/assets/uhrig-logo.png"></g-image>
+  <div class="logosSectionWrapper">
+    <div class="logosSection" data-speed="1.15">
+      <div style="width: 100%; opacity: 0.6; margin-bottom: 44px;">
+        <Seperator :theme="'lightGreen'"/>
+      </div>
+      <div class="contentContainer headlines">
+        <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
+        <p class="logosTextMobile md-hide">UNTERNEHMEN, DIE GERNE MIT UNS ARBEITEN</p>
+      </div>
+      <div class="contentContainer slideshow">
+        <div class="slideshow">
+          <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
+          <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
+          <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
+          <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
+          <g-image class="logo" src="@/assets/uhrig-logo.png"></g-image>
+        </div>
       </div>
     </div>
   </div>
@@ -28,10 +30,14 @@ export default {
 </script>
 
 <style scoped>
-.logosSection{
+.logosSectionWrapper{
   position: absolute;
   width: 100%;
-  bottom: 44px;
+  bottom: 120px;
+}
+.logosSection{
+  position: relative;
+  width: 100%;
 }
 .logosText{
   font-size: 14px;

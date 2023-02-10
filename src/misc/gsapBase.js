@@ -32,27 +32,17 @@ const initGsap = class {
 
         ScrollTrigger.matchMedia({
             "(min-width: 1024px)": () => {
-                /* footer */
-                gsap.to(".footer-overlay", {
-                    scale: 2.5,
-                    ease: "none", // <-- IMPORTANT!
+                /* footerani here */
+                gsap.to('.footer-overlay', {
+                    clipPath: "ellipse(70% 50% at 50% 50%)",
+                    ease: 'power2.in',
                     scrollTrigger: {
                         trigger: ".footer-overlay",
-                        start: "top center",
-                        end: "top end",
+                        start: "center bottom+=400",
+                        end: "center center",
                         scrub: 1,
                     }
-                });
-                gsap.to(".footer", {
-                    color: "#011713",
-                    ease: "none", // <-- IMPORTANT!
-                    scrollTrigger: {
-                        trigger: ".footer-overlay",
-                        start: "top center",
-                        end: "top end",
-                        scrub: 1,
-                    }
-                });
+                })
                 if(this.features.sideScroller){
                     let sections = gsap.utils.toArray(".panel");
                     this.sideScroller = gsap.to(sections, {
@@ -184,7 +174,31 @@ const initGsap = class {
                         opacity: 0,
                     });
                 }
+                if(this.features.quote){
+                    let quotes = gsap.utils.toArray(".quote");
+                    let stickDistance = 100;
+                    let lastCardStack = ScrollTrigger.create({
+                        trigger: quotes[quotes.length-1],
+                        start: "center center"
+                    });
 
+                    quotes.forEach((quote, i) => {
+                        gsap.to(quote, {
+                            ease: "none", // <-- IMPORTANT!
+                            scale: () => { return 0.9 + i / 100},
+                            y: i * 20,
+                            scrollTrigger: {
+                                trigger: quote,
+                                start: "center center",
+                                end: () => lastCardStack.start + 1000,
+                                pin: true,
+                                scrub: true,
+                                pinSpacing: false,
+                                invalidateOnRefresh: true,
+                            }
+                        })
+                    });
+                }
                 /* STICKY SECTION /w images */
                 if(this.features.stickyImages){
                     this.stickySection = gsap.to(".pinnedContainer", {
@@ -209,10 +223,10 @@ const initGsap = class {
 
                         tl.set(container, { autoAlpha: 1 });
                         tl.from(container, 1.5, {
-                            xPercent: -100,
+                            x: -image.clientWidth,
                         });
                         tl.from(image, 1.5, {
-                            xPercent: 100,
+                            x: image.clientWidth,
                             scale: 1.3,
                             delay: -1.5,
                         });
@@ -245,16 +259,17 @@ const initGsap = class {
                         ease: "power1.inOut",
                         stagger: { each: 0.05, from: 'random'},
                     });
-                    if(document.querySelectorAll(".logosSection") != null){
-                        let logosSection = document.querySelector(".logosSection");
-                        logosSection.anim = gsap.from(logosSection, {
-                            delay: 0.5,
-                            duration: 0.8,
-                            y: 200,
-                            opacity: 0,
-                            ease: "power1.inOut",
-                        });
-                    }
+                }
+                /*LOGOGLIDER ANIMATION*/
+                if(this.features.logosGlider){
+                    let logosSection = document.querySelector(".logosSectionWrapper");
+                    logosSection.anim = gsap.from(logosSection, {
+                        delay: 0.5,
+                        duration: 0.8,
+                        y: 200,
+                        opacity: 0,
+                        ease: "power1.inOut",
+                    });
                 }
 
                 /*HEADLINE REVEAL*/

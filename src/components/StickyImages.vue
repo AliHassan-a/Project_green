@@ -10,23 +10,25 @@
         </div>
       </div>
       <div style="width: 100%; display: flex; flex-direction:column; margin-top: 70%;">
-        <div class="reveal">
-          <g-image src="@/assets/praktis1.png"></g-image>
+        <div class="revealWrapper">
+          <div class="reveal">
+            <g-image src="@/assets/praktis1.png"></g-image>
+          </div>
         </div>
-        <div class="reveal">
-          <g-image src="@/assets/praktis2.png"></g-image>
+        <div class="revealWrapper">
+          <div class="reveal">
+            <g-image src="@/assets/praktis2.png"></g-image>
+          </div>
         </div>
-        <div class="reveal">
-          <g-image src="@/assets/praktis1.png"></g-image>
+        <div class="revealWrapper">
+          <div class="reveal">
+            <g-image src="@/assets/developer.png"></g-image>
+          </div>
         </div>
-        <div class="reveal">
-          <g-image src="@/assets/praktis2.png"></g-image>
-        </div>
-        <div class="reveal">
-          <g-image src="@/assets/developer.png"></g-image>
-        </div>
-        <div class="reveal">
-          <g-image src="@/assets/3guys.png"></g-image>
+        <div class="revealWrapper">
+          <div class="reveal">
+            <g-image src="@/assets/3guys.png"></g-image>
+          </div>
         </div>
       </div>
     </div>
@@ -40,10 +42,30 @@ export default {
 </script>
 
 <style scoped>
+.revealWrapper:nth-child(1){
+  transform: translateX(-6.25vw);
+}
+.revealWrapper:nth-child(2){
+  transform: translateY(-6.25vw);
+}
+.revealWrapper:nth-child(2) .reveal{
+  display: flex;
+  justify-content: flex-end;
+}
+.revealWrapper:nth-child(3){
+  transform: translateX(-6.25vw);
+}
+.revealWrapper:nth-child(4){
+  transform: translateY(-6.25vw);
+}
+.revealWrapper:nth-child(4) .reveal{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .reveal {
   visibility: hidden;
   position: relative;
-  width: 80%;
   height: 80%;
   overflow: hidden;
 }
@@ -55,8 +77,8 @@ export default {
 .pinnedContainer{
   position: relative;
   top:0;
-  height: 100vh;
-  padding-top: 30%;
+  height: 170vh;
+  padding-top: 30vh;
   width: 100%;
   display: flex;
   flex-direction: column;
