@@ -1,8 +1,11 @@
 <template>
   <header>
     <div ref="logoContainer" class="logoContainer">
-      <a class="logoImage" href="/">
-        <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/logo.svg"></g-image>
+      <a class="logoImage greensteinLogo" href="/">
+        <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/greenstein-logo.svg"></g-image>
+      </a>
+      <a class="logoImage greensteinLogoFont" href="/">
+        <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/greenstein-logo-font.svg"></g-image>
       </a>
     </div>
     <Menu @toggleMenu="onToggleMenu"/>
@@ -44,10 +47,13 @@ div.logoContainer{
   width: 300px;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-items: flex-start;
   align-items: center;
   z-index: 1001;
   transition: filter 1s ease;
+}
+.greensteinLogo{
+  margin-right: 10px;
 }
 .logoImage{
   opacity: 1;

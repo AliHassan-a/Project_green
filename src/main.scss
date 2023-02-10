@@ -44,6 +44,11 @@
     src: url('assets/font/CyThin.ttf');
     font-weight: 100;
 }
+/**** gsap ****/
+#smooth-content {
+    padding-top: 1px;
+    margin-top: -1px;
+}
 
 /**** main style ******/
 body, html{
@@ -56,6 +61,7 @@ html{
     overflow-x: hidden;
 }
 body {
+    cursor: url("./assets/greenstein-cursor.svg"), pointer;
     margin:0;
     padding:0;
     line-height: 1.5;

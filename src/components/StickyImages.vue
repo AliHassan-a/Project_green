@@ -1,7 +1,7 @@
 <template>
   <div class="mainSection">
     <div class="pinnedContainerWrapper">
-      <div class="pinnedContainer">
+      <div class="pinnedContainer" data-speed="0.8">
         <div class="toLinkHover" gs-hover="Was grnstn so!? &nbsp;&nbsp; Wanna be friends?">
           <h2 class="animateBlockHead"> Designer, Programmierer </h2>
           <h2 class="animateBlockHead"> Marketing-Experten </h2>
@@ -10,22 +10,22 @@
         </div>
       </div>
       <div style="width: 100%; display: flex; flex-direction:column; margin-top: 70%;">
-        <div class="revealWrapper">
+        <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
             <g-image src="@/assets/praktis1.png"></g-image>
           </div>
         </div>
-        <div class="revealWrapper">
+        <div class="revealWrapper" data-speed="0.9">
           <div class="reveal">
             <g-image src="@/assets/praktis2.png"></g-image>
           </div>
         </div>
-        <div class="revealWrapper">
+        <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
             <g-image src="@/assets/developer.png"></g-image>
           </div>
         </div>
-        <div class="revealWrapper">
+        <div class="revealWrapper" data-speed="0.9">
           <div class="reveal">
             <g-image src="@/assets/3guys.png"></g-image>
           </div>

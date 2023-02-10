@@ -33,15 +33,14 @@ export default {
 <style scoped>
 .quoteWrapper{
   margin-top: 200px;
-  height: 350vh;
+  height: 420vh;
 }
 .quote:first-child{
-
-  margin-top: 20px !important;
+  margin-top: 20px;
 }
 .quote{
   background: black;
-  margin-top: 100px !important;
+  margin-top: 400px;
   width: 75vw;
   margin-left: 2.5%;
   padding: 0% 10%;

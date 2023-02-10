@@ -39,7 +39,7 @@ const initGsap = class {
                     scrollTrigger: {
                         trigger: ".footer-overlay",
                         start: "center bottom+=400",
-                        end: "center center",
+                        end: "center center-=300",
                         scrub: 1,
                     }
                 })
@@ -176,7 +176,7 @@ const initGsap = class {
                 }
                 if(this.features.quote){
                     let quotes = gsap.utils.toArray(".quote");
-                    let stickDistance = 100;
+                    let stickDistance = 400;
                     let lastCardStack = ScrollTrigger.create({
                         trigger: quotes[quotes.length-1],
                         start: "center center"
@@ -189,8 +189,8 @@ const initGsap = class {
                             y: i * 20,
                             scrollTrigger: {
                                 trigger: quote,
-                                start: "center center",
-                                end: () => lastCardStack.start + 1000,
+                                start: () => {return "center center+=" + i*10 },
+                                end: () => lastCardStack.start + 500,
                                 pin: true,
                                 scrub: true,
                                 pinSpacing: false,
@@ -236,6 +236,21 @@ const initGsap = class {
             "(max-width: 1024px)": () => {
             },
             "all": () => {
+                /*LOGO SCROLL HIDE*/
+                const showAnim = gsap.from('.greensteinLogoFont', {
+                    yPercent: -250,
+                    paused: true,
+                    duration: 0.4,
+                    ease: "power1.inOut",
+                }).progress(1);
+
+                ScrollTrigger.create({
+                    start: "top top",
+                    end: 99999,
+                    onUpdate: (self) => {
+                        self.direction === -1 ? showAnim.play() : showAnim.reverse()
+                    }
+                });
                 /*HERO ANIMATION*/
                 if(this.features.heroAnimation){
                     let heroBlock = document.querySelector(".animateBlockHero");
@@ -321,7 +336,7 @@ const initGsap = class {
                         scrollTrigger: {
                             trigger: itemBlock,
                             toggleActions: "restart resume resume reverse",
-                            start: "50% 80%",
+                            start: "0% 80%",
                         },
                         duration: 0.6,
                         opacity: 0,

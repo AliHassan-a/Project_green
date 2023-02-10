@@ -11,7 +11,7 @@
         <CustomerLogoGlider/>
       </div>
       <!-- PROJECTS SLIDER -->
-      <ProjectSlider style="margin-top: 100px"/>
+      <ProjectSlider/>
       <StickyImages />
       <div id="four" class="section-four">
         <Quote></Quote>
@@ -66,19 +66,31 @@ export default {
       },
       testimonialsContent: [
         {
-          description: "Weißt dus? Weißt dus? Weißt du es?",
-          testimonialAuthor: "Celin",
-          testimonialPosition: "Netto Dauerkunde"
+          description: "Zuverlässig und gute Leistung." +
+              "Die Greenstein Agentur kam Kundenwünsche sofort nach, auch die Zusammenarbeit und Absprache verläuft schnell und reibungslos. Mit der Arbeit sind wir sehr zufrieden",
+          testimonialAuthor: "Martin Berner",
+          testimonialPosition: "KFz-Sachverständigenbüro Berner GmbH"
         },
         {
-          description: "Weißt dus? Weißt dus? Weißt du es?",
-          testimonialAuthor: "Celin",
-          testimonialPosition: "Netto Dauerkunde"
+          description: "Nettes und hilfreiches Team. Sie hatten stets ein offenes Ohr für meine Fragen und Wünsche, auch außerhalb der Geschäftszeiten (teilweise sogar aus dem Urlaub heraus). Meine Homepage ist sehr gelungen.\n" +
+              "Weiter so!",
+          testimonialAuthor: "Lauritz Singelmann",
+          testimonialPosition: "SGL-Immobilien GmbH"
         },
         {
-          description: "Weißt dus? Weißt dus? Weißt du es?",
-          testimonialAuthor: "Celin",
-          testimonialPosition: "Netto Dauerkunde"
+          description: "Vielen Dank für die kompetente Arbeit an meiner Homepage. Ich habe mich sehr gut beraten und betreut gefühlt. Sehr empfehlenswert!",
+          testimonialAuthor: "Dr. Tamara Thomsen\n",
+          testimonialPosition: "Coaching | Beratung | Sportpsychologie"
+        },
+        {
+          description: "Vielen Dank für die kompetente Arbeit an meiner Homepage. Ich habe mich sehr gut beraten und betreut gefühlt. Sehr empfehlenswert!",
+          testimonialAuthor: "Dr. Tamara Thomsen\n",
+          testimonialPosition: "Coaching | Beratung | Sportpsychologie"
+        },
+        {
+          description: "Vielen Dank für die kompetente Arbeit an meiner Homepage. Ich habe mich sehr gut beraten und betreut gefühlt. Sehr empfehlenswert!",
+          testimonialAuthor: "Dr. Tamara Thomsen\n",
+          testimonialPosition: "Coaching | Beratung | Sportpsychologie"
         },
       ],
       pageGsap: null,
@@ -101,8 +113,15 @@ export default {
 
 <style>
 /*// content //*/
+.section-one{
+  margin-top: 300px !important;
+  padding-bottom: 400px;
+  min-height: unset;
+}
 .section-five, .section-six{
   max-width: 100%;
+  min-height: unset;
+  padding: 200px 0px;
 }
 
 </style>

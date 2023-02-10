@@ -13,3 +13,9 @@ export default {
   components: {Footer},
 }
 </script>
+
+<style scoped>
+.layout{
+  margin: 0px;
+}
+</style>
