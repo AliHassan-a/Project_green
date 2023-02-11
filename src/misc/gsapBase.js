@@ -1,4 +1,4 @@
-import {gsap, ScrollSmoother, ScrollTrigger, SplitText} from "gsap/all";
+import {gsap, ScrollSmoother, ScrollTrigger, SplitText, Draggable} from "gsap/all";
 
 const initGsap = class {
     constructor(features, vueInstance) {
@@ -22,6 +22,7 @@ const initGsap = class {
         ScrollSmoother.create({
             smooth: 2,
             effects: true,
+            smoothTouch: 0.3,
         });
 
         ScrollTrigger.defaults({
@@ -32,17 +33,6 @@ const initGsap = class {
 
         ScrollTrigger.matchMedia({
             "(min-width: 1024px)": () => {
-                /* footerani here */
-                gsap.to('.footer-overlay', {
-                    clipPath: "ellipse(70% 50% at 50% 50%)",
-                    ease: 'power2.in',
-                    scrollTrigger: {
-                        trigger: ".footer-overlay",
-                        start: "center bottom+=400",
-                        end: "center center-=300",
-                        scrub: 1,
-                    }
-                })
                 if(this.features.sideScroller){
                     let sections = gsap.utils.toArray(".panel");
                     this.sideScroller = gsap.to(sections, {
@@ -164,76 +154,39 @@ const initGsap = class {
                     gsap.to(stepsIntro, {
                         scrollTrigger: {
                             trigger: stepsIntro,
-                            containerAnimation: this.sideScroller,
-                            start: "center center",
+                            start: "bottom bottom",
+                            end: this.sideScroller.end,
                             scrub: true,
+                            markers: true,
                             pin: true,
                         },
-                        x: window.innerWidth * 0.6,
-                        scaleX: 0.9,
                         opacity: 0,
                     });
                 }
-                if(this.features.quote){
-                    let quotes = gsap.utils.toArray(".quote");
-                    let stickDistance = 400;
-                    let lastCardStack = ScrollTrigger.create({
-                        trigger: quotes[quotes.length-1],
-                        start: "center center"
-                    });
-
-                    quotes.forEach((quote, i) => {
-                        gsap.to(quote, {
-                            ease: "none", // <-- IMPORTANT!
-                            scale: () => { return 0.9 + i / 100},
-                            y: i * 20,
-                            scrollTrigger: {
-                                trigger: quote,
-                                start: () => {return "center center+=" + i*10 },
-                                end: () => lastCardStack.start + 500,
-                                pin: true,
-                                scrub: true,
-                                pinSpacing: false,
-                                invalidateOnRefresh: true,
-                            }
-                        })
-                    });
-                }
-                /* STICKY SECTION /w images */
-                if(this.features.stickyImages){
-                    this.stickySection = gsap.to(".pinnedContainer", {
-                        ease: "none", // <-- IMPORTANT!
-                        scrollTrigger: {
-                            trigger: ".pinnedContainer",
-                            pin: true,
-                            scrub: 1,
-                            invalidateOnRefresh: true,
-                        }
-                    });
-                    /* Image Reveal Sticky */
-                    let revealContainers = document.querySelectorAll(".reveal");
-                    revealContainers.forEach((container) => {
-                        let image = container.querySelector("img");
-                        let tl = gsap.timeline({
-                            scrollTrigger: {
-                                trigger: container,
-                                toggleActions: "restart none none reset"
-                            }
-                        });
-
-                        tl.set(container, { autoAlpha: 1 });
-                        tl.from(container, 1.5, {
-                            x: -image.clientWidth,
-                        });
-                        tl.from(image, 1.5, {
-                            x: image.clientWidth,
-                            scale: 1.3,
-                            delay: -1.5,
-                        });
-                    });
-                }
+                /* FOOTER */
+                gsap.to('.footer-overlay', {
+                    clipPath: "ellipse(70% 50% at 50% 50%)",
+                    ease: 'power2.in',
+                    scrollTrigger: {
+                        trigger: ".footer-overlay",
+                        start: "center bottom+=400",
+                        end: "center center-=300",
+                        scrub: 1,
+                    }
+                })
             },
             "(max-width: 1024px)": () => {
+                /* FOOTER */
+                gsap.to('.footer-overlay', {
+                    clipPath: "ellipse(70% 20% at 50% 50%)",
+                    ease: 'power2.in',
+                    scrollTrigger: {
+                        trigger: ".footer-overlay",
+                        start: "center bottom",
+                        end: "center center",
+                        scrub: 1,
+                    }
+                })
             },
             "all": () => {
                 /*LOGO SCROLL HIDE*/
@@ -363,6 +316,88 @@ const initGsap = class {
                         stagger: { each: 0.05, from: 'random'},
                     });
                 });
+                /* STICKY SECTION /w images */
+                if(this.features.stickyImages){
+                    this.stickySection = gsap.to(".pinnedContainer", {
+                        ease: "none", // <-- IMPORTANT!
+                        scrollTrigger: {
+                            trigger: ".pinnedContainer",
+                            pin: true,
+                            scrub: 1,
+                            invalidateOnRefresh: true,
+                        }
+                    });
+                    /* Image Reveal Sticky */
+                    let revealContainers = document.querySelectorAll(".reveal");
+                    revealContainers.forEach((container) => {
+                        let image = container.querySelector("img");
+                        let tl = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: container,
+                                toggleActions: "restart none none reset"
+                            }
+                        });
+
+                        tl.set(container, { autoAlpha: 1 });
+                        tl.from(container, 1.5, {
+                            x: -image.clientWidth,
+                        });
+                        tl.from(image, 1.5, {
+                            x: image.clientWidth,
+                            scale: 1.3,
+                            delay: -1.5,
+                        });
+                    });
+                }
+                if(this.features.marquee){
+                    const dur = 30;
+
+                    document.querySelectorAll('.js-ticker .wrapper').forEach(ticker => {
+                        // Get the initial size of the ticker
+                        const totalDistance = ticker.clientWidth;
+
+                        // Position the ticker
+                        gsap.set(ticker, {yPercent: -50});
+
+                        // Clone the first item and add it to the end
+                        ticker.append(ticker.querySelector("li").cloneNode(true));
+
+                        // Get all of the items
+                        const items = ticker.querySelectorAll("li");
+
+                        const anim = gsap.to(ticker, {
+                            duration: dur,
+                            x: -totalDistance,
+                            ease: "none",
+                            repeat: -1,
+                        });
+                    });
+                }
+                if(this.features.quote){
+                    let quotes = gsap.utils.toArray(".quote");
+                    let stickDistance = 400;
+                    let lastCardStack = ScrollTrigger.create({
+                        trigger: quotes[quotes.length-1],
+                        start: "center center"
+                    });
+
+                    quotes.forEach((quote, i) => {
+                        gsap.to(quote, {
+                            ease: "none", // <-- IMPORTANT!
+                            scale: () => { return 0.9 + i / 100},
+                            y: i * 20,
+                            scrollTrigger: {
+                                trigger: quote,
+                                start: () => {return "center center+=" + i*10 },
+                                end: () => lastCardStack.start + 500,
+                                pin: true,
+                                scrub: true,
+                                pinSpacing: false,
+                                invalidateOnRefresh: true,
+                            }
+                        })
+                    });
+                }
             }
         })
     }

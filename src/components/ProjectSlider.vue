@@ -137,6 +137,9 @@ export default {
       text-align: center;
       width: 80%;
     }
+    .panel{
+      margin-left: unset !important;
+    }
     .box {
       display: flex;
       flex-direction: column;

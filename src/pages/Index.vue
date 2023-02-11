@@ -106,7 +106,17 @@ export default {
       heroAnimation: true,
       logosGlider: true,
       quote: true,
+      marquee: true,
     }, this);
+  },
+  metaInfo() {
+    return {
+      title: "greenstein.design",
+      meta: [
+        { name: 'title', content: "Designagentur" },
+        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
+      ]
+    }
   }
 }
 </script>
@@ -115,13 +125,19 @@ export default {
 /*// content //*/
 .section-one{
   margin-top: 300px !important;
-  padding-bottom: 400px;
-  min-height: unset;
+  min-height: calc(100vh - 300px);
+  justify-content: space-between;
 }
 .section-five, .section-six{
   max-width: 100%;
   min-height: unset;
   padding: 200px 0px;
+}
+@media only screen and (max-width:1024px){
+  .section-one{
+    margin-top: 100px !important;
+    min-height: calc(100vh - 100px);
+  }
 }
 
 </style>

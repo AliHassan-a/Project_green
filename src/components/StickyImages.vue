@@ -6,7 +6,7 @@
           <h2 class="animateBlockHead"> Designer, Programmierer </h2>
           <h2 class="animateBlockHead"> Marketing-Experten </h2>
           <h2 class="animateBlockHead greenColor" style="text-align: left;"><b>Freunde</b></h2>
-          <g-image class="animateBlockItem" style="margin-top: 20px;" src="@/assets/Pfeile.svg"></g-image>
+          <g-image class="animateBlockItem heroArrow" src="@/assets/Pfeile.svg"></g-image>
         </div>
       </div>
       <div style="width: 100%; display: flex; flex-direction:column; margin-top: 70%;">
@@ -87,8 +87,22 @@ export default {
   transform-origin: left;
 }
 @media only screen and (max-width: 1024px) {
+  .revealWrapper:nth-child(1){
+    z-index: 1;
+  }
+  .revealWrapper:nth-child(2){
+  }
+  .revealWrapper:nth-child(3){
+    z-index: 1;
+  }
+  .revealWrapper:nth-child(4){
+  }
+  .pinnedContainerWrapper{
+    flex-direction: column;
+  }
   .pinnedContainer{
     margin-top: -50%;
+    height: 500px;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="logosSectionWrapper">
-    <div class="logosSection" data-speed="1.15">
+    <div class="logosSection m-hide" data-speed="1.15">
       <div style="width: 100%; opacity: 0.6; margin-bottom: 44px;">
         <Seperator :theme="'lightGreen'"/>
       </div>
@@ -18,6 +18,17 @@
         </div>
       </div>
     </div>
+    <div class="md-hide">
+      <div class="js-ticker">
+        <ul class="wrapper">
+          <li><g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/kematherm-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/helo-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/mdz-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/uhrig-logo.png"></g-image></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,7 +44,7 @@ export default {
 .logosSectionWrapper{
   position: absolute;
   width: 100%;
-  bottom: 120px;
+  bottom: 100px;
 }
 .logosSection{
   position: relative;
@@ -52,7 +63,8 @@ export default {
   text-align: center;
 }
 .logo{
-  width: 300px;
+  height: 40px;
+  object-fit: contain;
 }
 .contentContainer.headlines{
   position: absolute;
@@ -62,12 +74,42 @@ export default {
 
 .slideshow {
   margin-top: 0px;
-  margin-left: 150px;
+  margin-left: 130px;
   transform: translate3d(0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12%;
+  gap: 70px;
 }
 
+.js-ticker {
+  position: relative;
+}
+
+.js-ticker .wrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  white-space: nowrap;
+  padding: 0;
+  will-change: transform;
+}
+
+.js-ticker li {
+  list-style: none;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 50px;
+  color: white;
+  font-weight: 300;
+  font-size: 10vw;
+  display: inline-block;
+  margin-right: 30px;
+}
+@media only screen and (max-width: 1024px){
+  .logo{
+    width: unset;
+    height: 30px;
+  }
+}
 </style>

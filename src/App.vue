@@ -2,7 +2,7 @@
   <div class="mainWrapper bgBg">
     <backgroundAnimation :getHue="bgHue" />
     <Header />
-    <Cursorfollow />
+    <Cursorfollow class="m-hide" />
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <transition name="fade" mode="out-in">

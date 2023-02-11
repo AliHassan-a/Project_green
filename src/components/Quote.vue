@@ -33,7 +33,7 @@ export default {
 <style scoped>
 .quoteWrapper{
   margin-top: 200px;
-  height: 420vh;
+  height: calc(3 * 100vh + 3 * 400px);
 }
 .quote:first-child{
   margin-top: 20px;
@@ -51,5 +51,19 @@ export default {
   justify-content: center;
   align-items: flex-start;
   transform-origin: top;
+}
+.quote img{
+  margin-bottom: 20px;
+  width: 100px;
+}
+@media only screen and (max-width: 1024px) {
+  .quoteWrapper{
+    margin-top: 200px;
+    height: 300vh;
+  }
+  .quote img{
+    margin-bottom: 20px;
+    width: 50px;
+  }
 }
 </style>

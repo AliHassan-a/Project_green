@@ -1,15 +1,15 @@
 <template>
   <Layout>
     <div id="page" class="site">
-      <div id="one" class="mainSection section-one">
-            <HeroTitle
-                :main-title="hero.mainTitle"
-                :second-title="hero.secondTitle" />
+      <div class="heroWrapper stepsIntroAnimation">
+        <HeroTitle
+            :main-title="hero.mainTitle"
+            :main-title-second="hero.mainTitleSecond"
+            :second-title="hero.secondTitle" />
       </div>
-      <div id="two" class="container section-two">
+      <div id="one" class="container section-one">
         <section class="panel" v-for="(step, index) in steps">
             <div class="box introBox" v-if="index == 0">
-              <BaseTitle :addClass="'animateBlockText'" class="stepsIntroAnimation" :tag="'h3'">{{ stepsIntro }}</BaseTitle>
             </div>
             <div v-else class="box" style="background: black" :class="'box-' + (index + 1)">
               <g-image class="stepImage stepContentAnimation" :src="step.image"></g-image>
@@ -60,7 +60,6 @@ export default {
         mainTitle: "Wir sorgen dafür, dass dein Unternehmen gehört wird.",
         secondTitle: "Laut & deutlich"
       },
-      stepsIntro: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus.  Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
       steps: [
         {
           title: "Auswertung",
@@ -111,6 +110,11 @@ section {
   position: relative;
   will-change: transform;
 }
+.section-one{
+  margin-top: 0px !important;
+  min-height: calc(100vh - 300px);
+  justify-content: space-between;
+}
 .panel{
   display: flex;
   justify-content: center;
@@ -122,7 +126,7 @@ section {
   align-items: flex-start;
   width: calc(90vw);
   height: 80vh;
-  margin: 0vh 5vw 10vh 5vw;
+  margin: 10vh 5vw 5vh 5vw;
   border-radius: 20px;
   will-change: transform;
 }
@@ -152,18 +156,21 @@ section {
   flex-wrap: nowrap;
   margin: 10% 0%;
 }
-
-.section-one{
-  margin-top:25%;
-  align-items: flex-start;
-  min-height: unset;
+.heroWrapper{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 /*// content //*/
 .pinnedContainerWrapper{
   display: flex;
   width: 100%;
 }
-
 .pinnedContainer{
   position: relative;
   top:0;
@@ -175,7 +182,6 @@ section {
   justify-content: center;
   transform-origin: left;
 }
-
 
 /* RESPONSIVE */
 

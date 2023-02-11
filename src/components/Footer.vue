@@ -25,12 +25,12 @@
     <div class="footerBottom" style="z-index: 1;">
       <div class="contentContainer">
         <div style="display: flex;">
-          <p style="color:#011713; margin-right: 20px; font-size: 22px;">Impressum</p>
-          <p style="color:#011713; font-size: 22px;">Datenschutz</p>
+          <p class="imprintAndDataprot blackColor">Impressum</p>
+          <p class="imprintAndDataprot blackColor">Datenschutz</p>
         </div>
-        <div style="dispaly: flex; justify-items: flex-end">
+        <div class="socialWrapper">
           <g-image title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.png" />
-          <g-image title="instagram-logo-greenstein" alt="instagram-logo-greenstein" style="margin: 0px 20px;" src="@/assets/instagram.png" />
+          <g-image title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.png" />
           <g-image title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.png" />
         </div>
       </div>
@@ -104,6 +104,7 @@ h2.footer{
 }
 .footer-link{
   font-size: 48px;
+  font-weight: 600;
   margin-bottom: 60px;
   text-decoration: underline;
   text-underline-offset: 20px;
@@ -129,10 +130,24 @@ h2.footer{
   justify-content: space-between;
   align-items: center;
 }
+.imprintAndDataprot{
+  font-size: 24px;
+}
+.socialWrapper img{
+  margin-left: 20px;
+}
 
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1024px) {
+  .mainSection{
+    height: unset;
+    max-height: unset;
+    padding: 0px 5vw;
+  }
+  div.footerWrapper{
+    margin-top: 100px;
+  }
   .footer-overlay{
     border-radius: 0px;
   }
@@ -141,6 +156,40 @@ h2.footer{
   }
   h2.footer{
     font-size: 70px;
+    line-height: 70px;
+    margin-bottom: 50px;
+  }
+  .footer-content{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer-small{
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .footer-link{
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 1px;
+    color: black;
+  }
+  .footer-link-small {
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+    color: black;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 1px;
+  }
+  .imprintAndDataprot{
+    font-size: 15px;
+    margin-right: 20px;
+  }
+  .socialWrapper img{
+    margin-left: 10px;
+    width: 10px;
   }
 }
 </style>
