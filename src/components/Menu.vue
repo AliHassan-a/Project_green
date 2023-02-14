@@ -263,18 +263,14 @@ main {
 .action--menu {
   pointer-events: auto;
   position: absolute;
-  top: 15px;
+  top: 35px;
   right: 25px;
   z-index: 1000;
   color: black;
   border-radius: 100px;
-  padding: 5px;
-  height: 60px;
-  width: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 }
 .action--menu:hover .menublob .smallblob{
   transform: scale(15);
@@ -397,7 +393,7 @@ main {
 }
 @media screen and (max-width: 1024px){
   .action--menu {
-    top: 17px;
+    top: 23px;
     right: 5vw;
   }
   .action--close {

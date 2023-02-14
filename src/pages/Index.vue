@@ -4,6 +4,7 @@
       <div id="one" class="mainSection section-one">
         <div class="contentContainer">
           <HeroTitle
+              :has-ani="true"
               :main-title="hero.mainTitle"
               :main-title-second="hero.mainTitleSecond"
               :second-title="hero.secondTitle" />
@@ -105,7 +106,7 @@ export default {
       stickyImages: true,
       heroAnimation: true,
       logosGlider: true,
-      quote: true,
+      singleQuote: true,
       marquee: true,
     }, this);
   },
@@ -137,6 +138,11 @@ export default {
   .section-one{
     margin-top: 100px !important;
     min-height: calc(100vh - 100px);
+  }
+  .section-five, .section-six{
+    max-width: 100%;
+    min-height: unset;
+    padding: 100px 0px;
   }
 }
 

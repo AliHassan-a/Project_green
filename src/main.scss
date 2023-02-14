@@ -61,7 +61,6 @@ html{
     overflow-x: hidden;
 }
 body {
-    cursor: url("./assets/greenstein-cursor.svg"), pointer;
     margin:0;
     padding:0;
     line-height: 1.5;
@@ -94,8 +93,9 @@ h1{
     font-weight: 400;
 }
 h2{
-    font-size: clamp(1.5em, calc(100vw / 35), 3em);
+    font-size: clamp(1.5em, calc(100vw / 40), 3em);
     font-weight: 400;
+    line-height: 1.3em;
 }
 h3{
     font-size: clamp(1.5em, calc(100vw / 50), 2.4em);
@@ -364,13 +364,11 @@ button.more #rightChev{
 button.more:hover #rightChev{
     margin-left: 30px;
 }
-
-/* ARROW */
 .heroArrow{
-    margin-top: -30px;
-    width: 96px;
+    margin-top: 10px;
+    width: 10%;
+    max-width: 96px;
 }
-
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1024px) {
@@ -390,11 +388,6 @@ button.more:hover #rightChev{
     .fullWidthInnerContent{
         width: 100vw;
         margin-left: 0vw;
-    }
-    /* ARROW */
-    .heroArrow{
-        margin-top: 10px;
-        width: 10%;
     }
 }
 @media only screen and (min-width: 1024px) {

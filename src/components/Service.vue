@@ -44,9 +44,6 @@ export default {
 </script>
 
 <style scoped>
-.leistungBlockWrapper{
-  margin-top: 200px;
-}
 .leistungWrapper{
   width: 100%;
   max-width: 75vw;
