@@ -45,25 +45,16 @@ export default {
           hover: "Design & Strategie - Entwicklung",
           link: "/projekte/chartexperten",
           logo: require("@/assets/projects/chartexperten/chartexperten-logo.svg"),
-          mockup: require("@/assets/projects/chartexperten/chartexperten-mockup.svg"),
+          mockup: require("@/assets/projects/chartexperten/chartexperten-mockup.png"),
         },
         {
-          title: "Uhrigstore",
-          color: "#1F0E03",
-          text: "Neuer Webshop für Uhrigstore",
-          hover: "Design - Entwicklung",
-          link: "/projekte/uhrigstore",
-          logo: require("@/assets/projects/uhrigstore/uhrigstore-logo.svg"),
-          mockup: require("@/assets/projects/uhrigstore/uhrigstore-mockup.svg"),
-        },
-        {
-          title: "Kematherm",
-          color: "#1A4C7D",
-          text: "Performance + für Kematherm",
-          hover: "Design & Strategie - Entwicklung",
-          link: "/projekte/kematherm",
-          logo: require("@/assets/projects/kematherm/kematherm-logo.svg"),
-          mockup: require("@/assets/projects/kematherm/kematherm-mockup.svg"),
+          title: "Eintracht Hildesheim",
+          color: "#406B2B",
+          text: "Branding & Webdesign für Eintracht Hildesheim",
+          hover: "Design & Strategie - Branding - Entwicklung",
+          link: "/projekte/eintracht-hildesheim",
+          logo: require("@/assets/projects/eintracht-hildesheim/eintracht-hildesheim-logo.svg"),
+          mockup: require("@/assets/projects/eintracht-hildesheim/eintracht-hildesheim-mockup.png"),
         },
         {
           title: "Kematherm",
@@ -72,7 +63,16 @@ export default {
           hover: "Design & Strategie - Entwicklung",
           link: "/projekte/kematherm",
           logo: require("@/assets/projects/kematherm/kematherm-logo.svg"),
-          mockup: require("@/assets/projects/kematherm/kematherm-mockup.svg"),
+          mockup: require("@/assets/projects/kematherm/kematherm-mockup.png"),
+        },
+        {
+          title: "Schweizer Immobilienmanufaktur",
+          color: "#000000",
+          text: "Branding & Webdesign für die Schweizer Immobilienmanufaktur",
+          hover: "Design & Strategie - Entwicklung",
+          link: "/projekte/schweizer-immobilienmanufaktur",
+          logo: require("@/assets/projects/schweizer-immobilienmanufaktur/schweizer-immobilienmanufaktur-logo.svg"),
+          mockup: require("@/assets/projects/schweizer-immobilienmanufaktur/schweizer-immobilienmanufaktur-mockup.png"),
         },
       ]
     }
@@ -158,6 +158,7 @@ export default {
       text-align: center;
     }
     section {
+      width: 100vw;
       height: unset;
     }
     .projectLeft{

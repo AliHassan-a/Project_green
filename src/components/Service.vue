@@ -1,6 +1,5 @@
 <template>
   <div class="w-full leistungBlockWrapper">
-    <h2 class="animateBlockHead fullWidthInnerContent" style="margin-bottom: 60px;"> Unsere Leistungen </h2>
     <div class="animateBlockItem w-full">
       <Seperator theme="lightGreen"></Seperator>
       <div class="leistungWrapper">

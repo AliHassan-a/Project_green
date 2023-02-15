@@ -6,32 +6,32 @@
     <div class="footer-content greenColor">
       <div class="footer-inner-content">
         <p class="footer-small">E-MAIL</p>
-        <a href="mailto:hallo@greenstein.design" class="footer-link">hallo@greenstein.design</a>
+        <a href="mailto:hallo@greenstein.design" class="footer-link footer-hover">hallo@greenstein.design</a>
         <p class="footer-small">TELEFON</p>
-        <a href="tel:051216729003" class="footer-link">05121 - 672 900 3</a>
+        <a href="tel:051216729003" class="footer-link footer-hover">05121 - 672 900 3</a>
       </div>
       <div class="footer-inner-content">
         <p class="footer-small">LEISTUNGEN</p>
-        <g-link to="/design-strategie" class="footer-link-small">Design & Strategie</g-link>
-        <g-link to="/entwicklung" class="footer-link-small">Entwicklung</g-link>
-        <g-link to="/marketing" class="footer-link-small">Marketing</g-link>
+        <g-link to="/design-strategie" class="footer-link-small footer-hover">Design & Strategie</g-link>
+        <g-link to="/entwicklung" class="footer-link-small footer-hover">Entwicklung</g-link>
+        <g-link to="/marketing" class="footer-link-small footer-hover">Marketing</g-link>
       </div>
       <div class="footer-inner-content">
         <p class="footer-small">ÜBER UNS</p>
-        <g-link to="/agentur" class="footer-link-small">Unsere Agentur</g-link>
-        <g-link to="/kontakt" class="footer-link-small">Kontakt</g-link>
+        <g-link to="/agentur" class="footer-link-small footer-hover">Unsere Agentur</g-link>
+        <g-link to="/kontakt" class="footer-link-small footer-hover">Kontakt</g-link>
       </div>
     </div>
     <div class="footerBottom" style="z-index: 1;">
       <div class="contentContainer">
         <div style="display: flex;">
-          <p class="imprintAndDataprot blackColor">Impressum</p>
-          <p class="imprintAndDataprot blackColor">Datenschutz</p>
+          <p class="imprintAndDataprot blackColor footer-hover">Impressum</p>
+          <p class="imprintAndDataprot blackColor footer-hover">Datenschutz</p>
         </div>
         <div class="socialWrapper">
-          <g-image title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.png" />
-          <g-image title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.png" />
-          <g-image title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.png" />
+          <g-image class="footer-hover" title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.png" />
+          <g-image class="footer-hover" title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.png" />
+          <g-image class="footer-hover" title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.png" />
         </div>
       </div>
     </div>
@@ -132,9 +132,18 @@ h2.footer{
 }
 .imprintAndDataprot{
   font-size: 24px;
+  margin-right: 20px;
+  cursor: pointer;
 }
 .socialWrapper img{
   margin-left: 20px;
+}
+.footer-hover{
+  transform-origin: center;
+  transition: transform 0.3s ease-out;
+}
+.footer-hover:hover{
+  transform: scale(0.96);
 }
 
 /* RESPONSIVE */
@@ -191,5 +200,14 @@ h2.footer{
     margin-left: 10px;
     width: 10px;
   }
+  .footer-hover{
+    transform-origin: center;
+    transition: unset;
+    transform: unset !Important;
+  }
+  .footer-hover:hover{
+    transform: scale(1);
+  }
+
 }
 </style>

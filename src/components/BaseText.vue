@@ -1,8 +1,8 @@
 <template>
   <div class="textWrapper">
-    <p :class="addClass" v-if="size == 'small'"><slot></slot></p>
-    <p :class="addClass" v-if="size == 'normal' || size == undefined"><slot></slot></p>
-    <p :class="addClass" v-if="size == 'big'"><slot></slot></p>
+    <p :class="addClass" :style="addStyle" v-if="size == 'small'"><slot></slot></p>
+    <p :class="addClass" :style="addStyle" v-if="size == 'normal' || size == undefined"><slot></slot></p>
+    <p :class="addClass" :style="addStyle" v-if="size == 'big'"><slot></slot></p>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
   props: {
     size: String,
     addClass: String,
+    addStyle: String,
   }
 }
 </script>

@@ -82,6 +82,7 @@ img{
 h1,h2,h3,h4,h5,h6,p,span,button, input, textarea{
     font-family: Cy;
     margin: 0;
+    cursor: default;
 }
 
 a{
@@ -216,6 +217,11 @@ p.small{
 .fullWidthInnerContent{
     width: 75vw;
     margin-left: 12.5vw;
+}
+.fullWidthInnerHead{
+    width: 75vw;
+    margin-left: 12.5vw;
+    padding-bottom: 60px;
 }
 
 /* Buttons */
@@ -359,10 +365,10 @@ button.more #rightChev{
     width: 35px;
     height: 35px;
     margin-left: 20px;
-    transition: margin 0.2s ease-out;
+    transition: transform 0.2s ease-out;
 }
 button.more:hover #rightChev{
-    margin-left: 30px;
+    transform: translateX(20px);
 }
 .heroArrow{
     margin-top: 10px;
@@ -383,11 +389,16 @@ button.more:hover #rightChev{
         align-items: center;
         padding: 0px 0px;
         min-height: unset;
-        max-width: calc(100vw - (100vw / 10));
+        max-width: 90vw;
     }
     .fullWidthInnerContent{
         width: 100vw;
         margin-left: 0vw;
+    }
+    .fullWidthInnerHead{
+        width: 90vw;
+        margin-left: 5vw;
+        padding-bottom: 60px;
     }
 }
 @media only screen and (min-width: 1024px) {

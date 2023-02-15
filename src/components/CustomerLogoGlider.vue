@@ -8,24 +8,24 @@
         <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
         <p class="logosTextMobile md-hide">UNTERNEHMEN, DIE GERNE MIT UNS ARBEITEN</p>
       </div>
-      <div class="contentContainer slideshow">
+      <div class="contentContainer">
         <div class="slideshow">
           <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
           <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
           <g-image class="logo" src="@/assets/uhrig-logo.png"></g-image>
+          <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
+          <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
         </div>
       </div>
     </div>
     <div class="md-hide">
       <div class="js-ticker">
         <ul class="wrapper">
-          <li><g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image></li>
-          <li><g-image class="logo" src="@/assets/kematherm-logo.png"></g-image></li>
-          <li><g-image class="logo" src="@/assets/helo-logo.png"></g-image></li>
-          <li><g-image class="logo" src="@/assets/mdz-logo.png"></g-image></li>
-          <li><g-image class="logo" src="@/assets/uhrig-logo.png"></g-image></li>
+          <li><img class="logo" src="@/assets/chartexperten-logo.png"></li>
+          <li><img class="logo" src="@/assets/kematherm-logo.png"></li>
+          <li><img class="logo" src="@/assets/helo-logo.png"></li>
+          <li><img class="logo" src="@/assets/mdz-logo.png"></li>
+          <li><img class="logo" src="@/assets/uhrig-logo.png"></li>
         </ul>
       </div>
     </div>
@@ -64,6 +64,7 @@ export default {
 }
 .logo{
   height: 40px;
+  max-width: 200px;
   object-fit: contain;
 }
 .contentContainer.headlines{
@@ -74,12 +75,13 @@ export default {
 
 .slideshow {
   margin-top: 0px;
-  margin-left: 130px;
+  margin-left: 200px;
   transform: translate3d(0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 70px;
+  gap: 0px;
+  width: calc(100% - 200px);
 }
 
 .js-ticker {

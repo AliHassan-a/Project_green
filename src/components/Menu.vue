@@ -393,8 +393,9 @@ main {
 }
 @media screen and (max-width: 1024px){
   .action--menu {
-    top: 23px;
+    top: 30px;
     right: 5vw;
+    width: 28px;
   }
   .action--close {
     top: 17px;

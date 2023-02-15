@@ -19,12 +19,15 @@
       </div>
       <div id="five" class="mainSection section-five sectionMargin">
         <div class="innerContentContainer">
+          <h2 class="animateBlockHead fullWidthInnerHead"> Unsere Leistungen </h2>
           <Service />
         </div>
       </div>
       <div id="six" class="mainSection section-six">
-        <h2 class="animateBlockHead" style="margin-bottom: 60px;"> Was unsere Kunden sagen </h2>
-        <Slider :slideContent="testimonialsContent" :hasNumber="false" :hasTestimonial="true" class="animateBlockItem" />
+        <div class="innerContentContainer">
+          <h2 class="animateBlockHead fullWidthInnerHead"> Was unsere Kunden sagen </h2>
+          <Slider :slideContent="testimonialsContent" :hasNumber="false" :hasTestimonial="true" class="animateBlockItem" />
+        </div>
       </div>
     </div>
   </Layout>
@@ -84,14 +87,14 @@ export default {
           testimonialPosition: "Coaching | Beratung | Sportpsychologie"
         },
         {
-          description: "Vielen Dank für die kompetente Arbeit an meiner Homepage. Ich habe mich sehr gut beraten und betreut gefühlt. Sehr empfehlenswert!",
-          testimonialAuthor: "Dr. Tamara Thomsen\n",
-          testimonialPosition: "Coaching | Beratung | Sportpsychologie"
+          description: "Die Greenstein Designagentur hat in kurzen Zeit für uns eine professionelle Webseite auf die Beine gestellt. Wir sagen Danke für die hervorragende Arbeit und freuen uns auf die nächsten Projekte.",
+          testimonialAuthor: "Martin Güse",
+          testimonialPosition: "Güse GmbH"
         },
         {
-          description: "Vielen Dank für die kompetente Arbeit an meiner Homepage. Ich habe mich sehr gut beraten und betreut gefühlt. Sehr empfehlenswert!",
-          testimonialAuthor: "Dr. Tamara Thomsen\n",
-          testimonialPosition: "Coaching | Beratung | Sportpsychologie"
+          description: "Wir sind sehr zufrieden mit dem Resultat. Absolut empfehlenswert. Sehr kompetent, kreativ und gleichzeitig ein positiver, wertschätzender Umgang.",
+          testimonialAuthor: "Omar Fahmy",
+          testimonialPosition: "FuNah e.V."
         },
       ],
       pageGsap: null,
