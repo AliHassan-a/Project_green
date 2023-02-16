@@ -10,22 +10,22 @@
       </div>
       <div class="contentContainer">
         <div class="slideshow">
-          <g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/helo-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/uhrig-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/kematherm-logo.png"></g-image>
-          <g-image class="logo" src="@/assets/mdz-logo.png"></g-image>
+          <g-image class="logo" src="@/assets/chartexperten-logo.webp"></g-image>
+          <g-image class="logo" src="@/assets/helo-logo.webp"></g-image>
+          <g-image class="logo" src="@/assets/uhrig-logo.webp"></g-image>
+          <g-image class="logo" src="@/assets/kematherm-logo.webp"></g-image>
+          <g-image class="logo" src="@/assets/mdz-logo.webp"></g-image>
         </div>
       </div>
     </div>
     <div class="md-hide">
       <div class="js-ticker">
         <ul class="wrapper">
-          <li><g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image></li>
-          <li><g-image class="logo" src="@/assets/kematherm-logo.png"></g-image></li>
-          <li><g-image class="logo" src="@/assets/helo-logo.png"></g-image></li>
-          <li><g-image class="logo" src="@/assets/mdz-logo.png"></g-image></li>
-          <li><g-image class="logo" src="@/assets/uhrig-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/chartexperten-logo.webp"></g-image></li>
+          <li><g-image class="logo" src="@/assets/kematherm-logo.webp"></g-image></li>
+          <li><g-image class="logo" src="@/assets/helo-logo.webp"></g-image></li>
+          <li><g-image class="logo" src="@/assets/mdz-logo.webp"></g-image></li>
+          <li><g-image class="logo" src="@/assets/uhrig-logo.webp"></g-image></li>
         </ul>
       </div>
     </div>

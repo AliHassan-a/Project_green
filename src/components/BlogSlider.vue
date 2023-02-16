@@ -3,7 +3,7 @@
     <div class="simpleSlider animateFadeInUp">
       <a :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
         <div class="singleCard">
-          <img :src="edge.node.featuredMedia.sourceUrl" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
+          <g-image :src="edge.node.featuredMedia.sourceUrl" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText"><g-image/>
           <p style="margin-bottom: 50px;" v-html="edge.node.title">
           <hr class="greenBg line" />
           <p style="font-size: 18px" class="greenColor" v-html="edge.node.date"></p>

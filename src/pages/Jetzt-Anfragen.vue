@@ -6,7 +6,7 @@
         <BaseText> Fülle das Formular aus, und erzähle uns mehr über deine<br> Unternehmensziele. Wir werden uns innerhalb eines<br> Arbeitstages bei dir melden. </BaseText>
         <div class="contactCard">
           <div class="cardInner">
-            <img src="@/assets/Rene-Grebenstein.png">
+            <g-image src="@/assets/Rene-Grebenstein.webp"></g-image>
             <div style="margin-left: 20px;">
               <h4><b>Rene Grebenstein</b></h4>
               <p class="greenColor">Inhaber</p>

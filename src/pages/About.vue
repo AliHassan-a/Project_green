@@ -6,14 +6,14 @@
           <HeroTitle
               :main-title="hero.mainTitle"
               :second-title="hero.secondTitle" />
-          <g-image src="@/assets/3guys.png"></g-image>
+          <g-image src="@/assets/3guys.webp"></g-image>
         </div>
       </div>
       <div id="two" class="mainSection section-two">
         <Slider :slideContent="steps" class="animateBlockItem" />
       </div>
       <div id="three" class="mainSection section-three">
-        <g-image class="animateBlockItem" src="@/assets/Teambesprechung-Greenstein.png"></g-image>
+        <g-image class="animateBlockItem" src="@/assets/Teambesprechung-Greenstein.webp"></g-image>
         <div class="contentContainer" style="margin: 80px 0px; gap: 50px; align-items: flex-start">
           <div class="innerContentContainer" style="align-items: flex-start">
             <BaseTitle :addClass="'animateBlockHead'" :align="'left'" :tag="'h3'" ><b>Unsere Mission</b></BaseTitle>

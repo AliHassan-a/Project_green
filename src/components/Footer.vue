@@ -29,9 +29,9 @@
           <p class="imprintAndDataprot blackColor footer-hover">Datenschutz</p>
         </div>
         <div class="socialWrapper">
-          <g-image class="footer-hover" title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.png" />
-          <g-image class="footer-hover" title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.png" />
-          <g-image class="footer-hover" title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.png" />
+          <g-image class="footer-hover" title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.webp" />
+          <g-image class="footer-hover" title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.webp" />
+          <g-image class="footer-hover" title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.webp" />
         </div>
       </div>
     </div>

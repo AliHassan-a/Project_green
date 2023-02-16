@@ -45,7 +45,7 @@ export default {
           hover: "Design & Strategie - Entwicklung",
           link: "/projekte/chartexperten",
           logo: require("@/assets/projects/chartexperten/chartexperten-logo.svg"),
-          mockup: require("@/assets/projects/chartexperten/chartexperten-mockup.png"),
+          mockup: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
         },
         {
           title: "Eintracht Hildesheim",
@@ -54,7 +54,7 @@ export default {
           hover: "Design & Strategie - Branding - Entwicklung",
           link: "/projekte/eintracht-hildesheim",
           logo: require("@/assets/projects/eintracht-hildesheim/eintracht-hildesheim-logo.svg"),
-          mockup: require("@/assets/projects/eintracht-hildesheim/eintracht-hildesheim-mockup.png"),
+          mockup: require("@/assets/projects/eintracht-hildesheim/eintracht-hildesheim-mockup.webp"),
         },
         {
           title: "Kematherm",
@@ -63,7 +63,7 @@ export default {
           hover: "Design & Strategie - Entwicklung",
           link: "/projekte/kematherm",
           logo: require("@/assets/projects/kematherm/kematherm-logo.svg"),
-          mockup: require("@/assets/projects/kematherm/kematherm-mockup.png"),
+          mockup: require("@/assets/projects/kematherm/kematherm-mockup.webp"),
         },
         {
           title: "Schweizer Immobilienmanufaktur",
@@ -72,7 +72,7 @@ export default {
           hover: "Design & Strategie - Entwicklung",
           link: "/projekte/schweizer-immobilienmanufaktur",
           logo: require("@/assets/projects/schweizer-immobilienmanufaktur/schweizer-immobilienmanufaktur-logo.svg"),
-          mockup: require("@/assets/projects/schweizer-immobilienmanufaktur/schweizer-immobilienmanufaktur-mockup.png"),
+          mockup: require("@/assets/projects/schweizer-immobilienmanufaktur/schweizer-immobilienmanufaktur-mockup.webp"),
         },
       ]
     }

@@ -3,7 +3,7 @@
     <div class="animateBlockItem w-full">
       <Seperator theme="lightGreen"></Seperator>
       <div class="leistungWrapper">
-        <g-image src="@/assets/design_strategie_icon.png"></g-image>
+        <g-image src="@/assets/design_strategie_icon.webp"></g-image>
         <h3 class="w-full leistungText">Design & Strategie</h3>
         <BaseButton :link-to="'design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>
@@ -11,7 +11,7 @@
     </div>
     <div class="animateBlockItem w-full">
       <div class="leistungWrapper">
-        <g-image src="@/assets/entwicklung_icon.png"></g-image>
+        <g-image src="@/assets/entwicklung_icon.webp"></g-image>
         <h3 class="w-full leistungText">Entwicklung</h3>
         <BaseButton :link-to="'entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>
@@ -19,7 +19,7 @@
     </div>
     <div class="animateBlockItem w-full">
       <div class="leistungWrapper">
-        <g-image src="@/assets/marketing_icon.png"></g-image>
+        <g-image src="@/assets/marketing_icon.webp"></g-image>
         <h3 class="w-full leistungText">Marketing</h3>
         <BaseButton :link-to="'marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>

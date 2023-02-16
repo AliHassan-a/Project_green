@@ -91,7 +91,7 @@ export default {
       height: 200vh;
       z-index: 0;
       opacity: 0.25;
-      background-image: url("../assets/bg-muster.png");
+      background-image: url("../assets/bg-muster.webp");
       will-change: transform;
       animation: bg-animation 0.5s infinite;
       display: block;

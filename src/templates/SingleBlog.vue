@@ -13,9 +13,9 @@
       <div class="metaData">
         <p class="small greenColor">{{ getFormattedDate($context.date) }}</p>
         <div class="socialShare">
-          <g-image src="@/assets/facebook.png"></g-image>
-          <g-image src="@/assets/twitter.png"></g-image>
-          <g-image src="@/assets/mail.png"></g-image>
+          <g-image src="@/assets/facebook.webp"></g-image>
+          <g-image src="@/assets/twitter.webp"></g-image>
+          <g-image src="@/assets/mail.webp"></g-image>
         </div>
       </div>
     </div>

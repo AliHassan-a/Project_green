@@ -64,27 +64,27 @@ export default {
         {
           title: "Auswertung",
           text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.svg"),
+          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
         },
         {
           title: "Auswertung",
           text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.svg"),
+          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
         },
         {
           title: "Auswertung",
           text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.svg"),
+          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
         },
         {
           title: "Auswertung",
           text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.svg"),
+          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
         },
         {
           title: "Auswertung",
           text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.svg"),
+          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
         },
       ],
       pageGsap: null,

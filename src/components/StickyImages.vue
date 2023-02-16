@@ -12,22 +12,22 @@
       <div style="width: 100%; display: flex; flex-direction:column; margin-top: 70%;">
         <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
-            <g-image src="@/assets/praktis1.png"></g-image>
+            <g-image src="@/assets/praktis1.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="0.9">
           <div class="reveal">
-            <g-image src="@/assets/praktis2.png"></g-image>
+            <g-image src="@/assets/praktis2.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
-            <g-image src="@/assets/developer.png"></g-image>
+            <g-image src="@/assets/developer.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="0.9">
           <div class="reveal">
-            <g-image src="@/assets/3guys.png"></g-image>
+            <g-image src="@/assets/3guys.webp"></g-image>
           </div>
         </div>
       </div>
