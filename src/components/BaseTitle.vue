@@ -14,6 +14,7 @@ export default {
       tag: String,
       align: String,
       addClass: String,
+      addStyle: String,
   }
 }
 </script>

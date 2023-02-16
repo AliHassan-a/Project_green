@@ -1,6 +1,7 @@
 <template>
   <div class="mainWrapper bgBg">
     <backgroundAnimation :getHue="bgHue" />
+    <CookieBanner />
     <Header />
     <Cursorfollow class="m-hide" />
     <div id="smooth-wrapper">
@@ -19,6 +20,7 @@
 import Header from "./components/Header";
 import Cursorfollow from "@/components/Cursorfollow";
 import backgroundAnimation from "./components/BackgroundAnimation";
+import CookieBanner from "./components/CookieBanner";
 
 export default {
   name: "App",
@@ -36,6 +38,7 @@ export default {
     this.$root.$on("repaint-bg", this.onRepaint);
   },
   components: {
+    CookieBanner,
     Header,
     Cursorfollow,
     backgroundAnimation,
