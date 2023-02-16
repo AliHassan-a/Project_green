@@ -1,6 +1,7 @@
 <template>
   <transition name="cookie">
     <div v-if="showBanner" class="cookieWrapper bgBg">
+      <BackgroundAnimation />
       <div class="innerCookieWrapper">
         <div class="cookieImage">
           <g-image class="cookieBitten" src="@/assets/cookie-bitten.webp"></g-image>
@@ -45,6 +46,7 @@ export default {
   mounted(){
     if(this.getCookie("hungryForCookies") == "ja"){
       this.showBanner = false;
+      this.cookiesAllowed();
     } else if( this.getCookie("hungryForCookies") == "nein"){
       this.showBanner = false;
     } else if( this.getCookie("hungryForCookies") == null){
@@ -54,6 +56,9 @@ export default {
   methods: {
     submitCookies(state){
       this.setCookie("hungryForCookies", state, 7)
+      if(state == "ja"){
+        this.cookiesAllowed();
+      }
       this.bittenCookie = true;
       setTimeout(() => {
         this.showBanner = false;
@@ -82,6 +87,22 @@ export default {
       this.showBanner = false;
       document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     },
+    cookiesAllowed() {
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start':
+              new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N5IMT7D');
+
+    }
   },
   components: {
     BaseButton,
@@ -144,6 +165,7 @@ export default {
     transition: opacity 0.7s ease-out;
   }
 
+  .cookie-enter-from,
   .cookie-leave-to {
     opacity: 0;
   }

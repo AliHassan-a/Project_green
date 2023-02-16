@@ -32,7 +32,7 @@ export default {
   methods: {
     onRepaint(hue){
       this.bgHue = hue;
-    }
+    },
   },
   mounted(){
     this.$root.$on("repaint-bg", this.onRepaint);
