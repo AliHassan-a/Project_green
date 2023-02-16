@@ -1,7 +1,7 @@
 <template>
   <div class="mainWrapper bgBg">
-    <backgroundAnimation :getHue="bgHue" />
     <CookieBanner />
+    <backgroundAnimation :getHue="bgHue" />
     <Header />
     <Cursorfollow class="m-hide" />
     <div id="smooth-wrapper">

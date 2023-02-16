@@ -87,7 +87,8 @@ export default {
     BaseButton,
     BaseText,
     BaseTitle,
-    BackgroundAnimation}
+    BackgroundAnimation
+  }
 }
 </script>
 
@@ -143,7 +144,6 @@ export default {
     transition: opacity 0.7s ease-out;
   }
 
-  .cookie-enter-from,
   .cookie-leave-to {
     opacity: 0;
   }

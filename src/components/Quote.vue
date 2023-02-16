@@ -5,7 +5,7 @@
       <h2 class="animateBlockText">
         Greenstein vertritt auch meine Werte - Zukunftsorientiert, gemeinschaftlich, nach vorne Gewand. Diese Werte lebe ich nicht nur für meine Mitarbeitenden, sondern auch für meine Kunden vor. Der Erfolg meiner Kunden und die Weiterentwicklung meiner Mitarbeiter stehen für mich an erster Stelle.
       </h2>
-      <hr class="animateBlockItem greenBg lineQuote" />
+      <hr class="animateBlockItem testimonialBorder">
       <h2 class="animateBlockHead"><b>Rene Grebenstein</b> </h2>
       <p class="animateBlockHead greenColor quotePosition" > Inhaber </p>
     </div>
@@ -51,15 +51,12 @@ export default {
 .quotePosition{
   font-size: 28px;
 }
-.lineQuote{
-  margin-top: 100px;
-  width: 244px;
-  height: 4px;
-  border: 0;
-  outline: 0px;
-  opacity: 0;
-  display: inline-block;
+.testimonialBorder{
+  margin: 80px 0px 20px 0px;
+  width: 100px;
+  border: 2px solid #88F332;
 }
+
 @media only screen and (max-width: 1024px) {
   .quoteWrapper{
     margin-top: 230px;
@@ -78,9 +75,10 @@ export default {
   .quotePosition{
     font-size: 14px;
   }
-  .lineQuote{
-    margin-top: 30px;
-    width: 244px;
+  .testimonialBorder{
+    margin: 30px 0px 10px 0px;
+    width: 100px;
+    border: 2px solid #88F332;
   }
 }
 </style>
