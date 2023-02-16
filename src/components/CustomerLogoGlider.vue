@@ -21,11 +21,11 @@
     <div class="md-hide">
       <div class="js-ticker">
         <ul class="wrapper">
-          <li><img class="logo" src="@/assets/chartexperten-logo.png"></li>
-          <li><img class="logo" src="@/assets/kematherm-logo.png"></li>
-          <li><img class="logo" src="@/assets/helo-logo.png"></li>
-          <li><img class="logo" src="@/assets/mdz-logo.png"></li>
-          <li><img class="logo" src="@/assets/uhrig-logo.png"></li>
+          <li><g-image class="logo" src="@/assets/chartexperten-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/kematherm-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/helo-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/mdz-logo.png"></g-image></li>
+          <li><g-image class="logo" src="@/assets/uhrig-logo.png"></g-image></li>
         </ul>
       </div>
     </div>

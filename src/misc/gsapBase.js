@@ -270,7 +270,6 @@ const initGsap = class {
                         toggleActions: "play none none reverse",
                         invalidateOnRefresh: true,
                         onEnter: () => {
-                            console.log(index);
                             switch (index) {
                                 case 1:
                                     context.vueInstance.$root.$emit("repaint-bg", 333);

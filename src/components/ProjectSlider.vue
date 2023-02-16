@@ -10,7 +10,7 @@
             <BaseButton :class="index == 0 ? 'animateBlockItem' : ''" :theme="'dark'" :title="'zum Projekt'"/>
           </div>
           <div class="projectRight m-hide">
-            <img :title="project.title" :alt="project.text" :class="index == 0 ? 'animateBlockItem' : ''" :src="project.mockup">
+            <g-image :title="project.title" :alt="project.text" :class="index == 0 ? 'animateBlockItem' : ''" :src="project.mockup"></g-image>
           </div>
           <div class="projectLeft md-hide">
             <g-image :src="project.logo" :title="project.title" :alt="project.text"></g-image>
@@ -18,7 +18,7 @@
             <BaseButton :theme="'dark'" :title="'zum Projekt'"/>
           </div>
           <div class="projectRight md-hide">
-            <img :title="project.title" :alt="project.text" :src="project.mockup">
+            <g-image :title="project.title" :alt="project.text" :src="project.mockup"></g-image>
           </div>
         </div>
       </g-link>
