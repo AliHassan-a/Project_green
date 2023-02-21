@@ -166,7 +166,7 @@ img {
 }
 .c-exp-gallery-slide__card {
   width: 380px;
-  height: 350px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -204,4 +204,10 @@ img {
     max-width: 800px;
   }
 }
+@media only screen and (min-width: 1920px){
+  .c-exp-gallery-slide__card {
+    height: 480px;
+  }
+}
+
 </style>

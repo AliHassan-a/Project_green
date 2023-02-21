@@ -6,7 +6,6 @@
           <HeroTitle
               :main-title="hero.mainTitle"
               :second-title="hero.secondTitle" />
-          <g-image src="@/assets/3guys.webp"></g-image>
         </div>
       </div>
       <div id="two" class="mainSection section-two">
@@ -113,43 +112,6 @@ export default {
 <style>
 .section-two, .section-four{
   max-width: 100vw;
-}
-
-/*// content //*/
-.pinnedContainerWrapper{
-  display: flex;
-  width: 100%;
-}
-
-.pinnedContainer{
-  position: relative;
-  top:0;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  transform-origin: left;
-}
-.whirlImage{
-  transform-origin: top;
-  will-change: transform;
-}
-
-
-/* RESPONSIVE */
-
-@media only screen and (max-width: 1024px) {
-  .pinnedContainer{
-    margin-top: -50%;
-  }
-  div.footerWrapper{
-    padding: 0px;
-  }
-  .contentContainer{
-    flex-direction: column;
-  }
 }
 </style>
 

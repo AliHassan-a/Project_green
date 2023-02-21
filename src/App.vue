@@ -52,20 +52,6 @@ export default {
 #smooth-content{
   will-change: transform;
 }
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s linear;
-  transition-delay: 0.5s;
-}
-.fade-enter-from{
-  opacity: 0;
-}
-.fade-leave-to {
-  opacity: 0;
-}
-
-
 .mainWrapper{
   width: 100%;
   max-width: 100vw;
