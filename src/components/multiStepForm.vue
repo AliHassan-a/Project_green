@@ -84,7 +84,7 @@
       </div>
       <div @click="onActionButton()" style="margin-top: 30px;">
         <transition name="multiStepBtn" mode="out-in">
-          <BaseButton linkTo="#" :align="'right'"  :theme="'more'" :title="activeStep < steps.length-1 ? 'Weiter' : 'Senden'"/>
+          <BaseButton linkTo="#" :align="'right'"  :theme="'more'" :title="activeStep < steps.length-1 ? 'Weiter' : 'Senden'" :key="activeStep"/>
         </transition>
       </div>
     </div>
@@ -213,9 +213,22 @@ export default {
               activeBox: false,
             },
             {
-              title: "UI/UX Design",
+              title: "Webdesign",
               activeBox: false,
             },
+            {
+              title: "Grafikdesign",
+              activeBox: false,
+            },
+            {
+              title: "Marketing",
+              activeBox: false,
+            },
+            {
+              title: "Sonstiges",
+              activeBox: false,
+            },
+
           ]
         },
         {
@@ -290,7 +303,7 @@ export default {
   margin: 0px 10px;
 }
 .stepsContent{
-  min-height: 300px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -304,13 +317,20 @@ export default {
 /*  CHECKBOX */
 .checkBoxWrapper{
   display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
   flex-direction:row;
   position: absolute;
   top: 30%;
 }
+button.dark{
+  transition: font-weight 0.3s linear;
+  border: 1px solid rgba(255,255,255,0.25);
+}
 .customGreenBtn{
   background: #88F332 !important;
   border-color: #88F332;
+  font-weight: 700;
 }
 /* RADIO */
 .radioWrapper{

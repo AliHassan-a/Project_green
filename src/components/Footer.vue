@@ -27,6 +27,7 @@
         <div style="display: flex;">
           <p class="imprintAndDataprot blackColor footer-hover">Impressum</p>
           <p class="imprintAndDataprot blackColor footer-hover">Datenschutz</p>
+          <p class="imprintAndDataprot blackColor footer-hover" @click="emitOpenCookies">Cookies</p>
         </div>
         <div class="socialWrapper">
           <g-image class="footer-hover" title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.webp" />
@@ -41,6 +42,11 @@
 <script>
 export default {
   name: "Footer",
+  methods: {
+    emitOpenCookies(){
+      this.$root.$emit("openCookies");
+    }
+  }
 }
 </script>
 

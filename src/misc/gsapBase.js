@@ -320,61 +320,6 @@ const initGsap = class {
                 });
             })
         }
-        function initStepsSideScroller(){
-            let sections = gsap.utils.toArray(".panel");
-            let sideScroller = gsap.to(sections, {
-                xPercent: -100 * (sections.length - 1) - 100,
-                ease: "none", // <-- IMPORTANT!
-                scrollTrigger: {
-                    trigger: ".container",
-                    pin: true,
-                    scrub: 0.1,
-                    end: "+=" + sections.length * 1000,
-                    invalidateOnRefresh: true,
-                }
-            });
-            let stepsContents = gsap.utils.toArray(".stepContentAnimation");
-            stepsContents.forEach((stepsContent, index)=>{
-                gsap.to(stepsContent, {
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: stepsContent,
-                        containerAnimation: sideScroller,
-                        start: "center center",
-                        scrub: true,
-                    },
-                    x: window.innerWidth * 0.65,
-                });
-            })
-            let stepsDescriptions = gsap.utils.toArray(".stepDescriptionAnimation");
-            stepsDescriptions.forEach((stepsDescription, index)=>{
-                gsap.from(stepsDescription, {
-                    scrollTrigger: {
-                        trigger: stepsDescription,
-                        containerAnimation: this.sideScroller,
-                        start: "left center",
-                        scrub: true,
-                    },
-                    duration: 0.6,
-                    opacity: 0,
-                    filter: 'blur(20px)',
-                    ease: "power1.inOut",
-                    stagger: { each: 0.05, from: 'random'},
-                });
-            })
-            let stepsIntro = document.querySelector(".stepsIntroAnimation");
-            gsap.to(stepsIntro, {
-                scrollTrigger: {
-                    trigger: stepsIntro,
-                    start: "bottom bottom",
-                    end: this.sideScroller.end,
-                    scrub: true,
-                    markers: true,
-                    pin: true,
-                },
-                opacity: 0,
-            });
-        }
 
         function initLogoGlider(){
             let logosSection = document.querySelector(".logosSectionWrapper");
@@ -418,6 +363,18 @@ const initGsap = class {
                 });
             });
         }
+        function initStickyBoxes(){
+            gsap.to(".stickyBoxes", {
+                ease: "none", // <-- IMPORTANT!
+                scrollTrigger: {
+                    trigger: ".stickyBoxes",
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                }
+            });
+        }
+
         function initMarquee() {
             const dur = 15;
 
@@ -523,9 +480,6 @@ const initGsap = class {
                 if(this.features.sideScroller){
                     initSideScroller(this)
                 }
-                if(this.features.stepsSideScroller){
-                    initStepsSideScroller()
-                }
                 /* FOOTER */
                 initFooter(false)
             },
@@ -551,6 +505,9 @@ const initGsap = class {
                 /* STICKY SECTION /w images */
                 if(this.features.stickyImages){
                     initStickyImages()
+                }
+                if(this.features.stickyBoxes){
+                    initStickyBoxes()
                 }
                 /*quotes*/
                 if(this.features.quote){

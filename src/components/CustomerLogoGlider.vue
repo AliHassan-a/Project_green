@@ -44,7 +44,7 @@ export default {
 .logosSectionWrapper{
   position: absolute;
   width: 100%;
-  bottom: 100px;
+  bottom: 125px;
 }
 .logosSection{
   position: relative;

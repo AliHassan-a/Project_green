@@ -13,7 +13,7 @@
       </div>
       <!-- PROJECTS SLIDER -->
       <ProjectSlider/>
-      <StickyImages />
+      <StickyImages :imageSet="'index'" />
       <div id="four" class="section-four">
         <Quote></Quote>
       </div>
@@ -26,7 +26,12 @@
       <div id="six" class="mainSection section-six">
         <div class="innerContentContainer">
           <h2 class="animateBlockHead fullWidthInnerHead"> Was unsere Kunden sagen </h2>
-          <Slider :slideContent="testimonialsContent" :hasNumber="false" :hasTestimonial="true" class="animateBlockItem" />
+          <Slider
+              :slideContent="testimonialsContent"
+              :slideType="'testimonials'"
+              :hasNumber="false"
+              :hasTestimonial="true"
+              class="animateBlockItem" />
         </div>
       </div>
     </div>
@@ -100,9 +105,6 @@ export default {
       pageGsap: null,
     }
   },
-  beforeDestroy() {
-    this.pageGsap.killGsap();
-  },
   mounted() {
     this.pageGsap = new initGsap({
       sideScroller: true,
@@ -126,22 +128,12 @@ export default {
 </script>
 
 <style>
-/*// content //*/
-.section-one{
-  margin-top: 300px !important;
-  min-height: calc(100vh - 300px);
-  justify-content: space-between;
-}
 .section-five, .section-six{
   max-width: 100%;
   min-height: unset;
   padding: 200px 0px;
 }
 @media only screen and (max-width:1024px){
-  .section-one{
-    margin-top: 100px !important;
-    min-height: calc(100vh - 100px);
-  }
   .section-five, .section-six{
     max-width: 100%;
     min-height: unset;

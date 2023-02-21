@@ -1,29 +1,39 @@
 <template>
   <Layout>
     <div id="page" class="site">
-      <div class="heroWrapper stepsIntroAnimation">
-        <HeroTitle
-            :main-title="hero.mainTitle"
-            :main-title-second="hero.mainTitleSecond"
-            :second-title="hero.secondTitle" />
-      </div>
-      <div id="one" class="container section-one">
-        <section class="panel" v-for="(step, index) in steps">
-            <div class="box introBox" v-if="index == 0">
-            </div>
-            <div v-else class="box" style="background: black" :class="'box-' + (index + 1)">
-              <g-image class="stepImage stepContentAnimation" :src="step.image"></g-image>
-              <div class="stepLeft stepDescriptionAnimation">
-                <BaseTitle :tag="'h2'"><b class="greenColor" style="font-weight: 800">{{ index+1 }}.</b>&nbsp;<b>{{  step.title }}</b></BaseTitle>
-              </div>
-              <div class="stepRight stepDescriptionAnimation">
-                <BaseText>{{ step.text }}</BaseText>
-              </div>
-            </div>
-        </section>
-      </div>
-      <div id="three" class="mainSection section-three greenBg">
+      <div class="mainSection section-one">
         <div class="contentContainer">
+          <HeroTitle
+              class="heroTitle stickyBoxes"
+              :main-title="hero.mainTitle"
+              :main-title-second="hero.mainTitleSecond"
+              :second-title="hero.secondTitle" />
+          <div class="boxWrapper">
+            <div class="leistungBox">
+              <g-link to="/leistungen/design-strategie">
+                <div class="innerLeistung">
+                  <g-image src="@/assets/design_strategie.svg"></g-image>
+                  <BaseTitle :align="'center'" style="margin-top: 20px;" :tag="'h3'"><b>Design & Strategie</b></BaseTitle>
+                </div>
+              </g-link>
+            </div>
+            <div class="leistungBox">
+              <g-link to="/leistungen/entwicklung">
+                <div class="innerLeistung">
+                  <g-image src="@/assets/entwicklung.svg"></g-image>
+                  <BaseTitle :align="'center'" style="margin-top: 20px;" :tag="'h3'"><b>Entwicklung</b></BaseTitle>
+                </div>
+              </g-link>
+            </div>
+            <div class="leistungBox">
+              <g-link to="/leistungen/marketing">
+                <div class="innerLeistung">
+                  <g-image src="@/assets/marketing.svg"></g-image>
+                  <BaseTitle :align="'center'" style="margin-top: 20px;" :tag="'h3'"><b>Marketing</b></BaseTitle>
+                </div>
+              </g-link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -57,172 +67,59 @@ export default {
   data() {
     return {
       hero: {
-        mainTitle: "Wir sorgen dafür, dass dein Unternehmen gehört wird.",
-        secondTitle: "Laut & deutlich"
+        mainTitle: "Unsere digitalen Dienstleistungen",
+        mainTitleSecond: "helfen Ihrem Unternehmen",
+        secondTitle: "groß & mutig zu werden"
       },
-      steps: [
-        {
-          title: "Auswertung",
-          text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
-        },
-        {
-          title: "Auswertung",
-          text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
-        },
-        {
-          title: "Auswertung",
-          text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
-        },
-        {
-          title: "Auswertung",
-          text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
-        },
-        {
-          title: "Auswertung",
-          text: "Mi bibendum neque egestas congue quisque egestas diam in. Porta non pulvinar neque laoreet. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Turpis egestas integer eget aliquet. Diam volutpat commodo sed egestas egestas. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. ",
-          image: require("@/assets/projects/chartexperten/chartexperten-mockup.webp"),
-        },
-      ],
-      pageGsap: null,
     }
   },
-  beforeDestroy() {
-    this.pageGsap.killGsap();
-  },
   mounted() {
-    this.pageGsap = new initGsap({
-      stepsSideScroller: true,
+    new initGsap({
       heroAnimation: true,
+      stickyBoxes: true,
     }, this);
   }
 }
 </script>
 
 <style>
-
-section {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  will-change: transform;
-}
-.section-one{
-  margin-top: 0px !important;
-  min-height: calc(100vh - 300px);
-  justify-content: space-between;
-}
-.panel{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.box {
-  display: flex;
-  justify-content: space-between;
+.contentContainer{
   align-items: flex-start;
-  width: calc(90vw);
-  height: 80vh;
-  margin: 10vh 5vw 5vh 5vw;
-  border-radius: 20px;
-  will-change: transform;
 }
-.introBox{
-  align-items: center;
-  padding: 10%;
+.leistungBox{
+  border: 1px solid rgba(136,243,50,0.2);
+  background: rgba(0,0,0,0.5);
+  border-radius: 22px;
+  padding: 100px;
+  min-width: 350px;
+  transition: all 0.3s ease-out;
 }
-.stepImage{
-  position: absolute;
-  top:10%;
-  left:0;
-  height: 300px;
-}
-.stepLeft{
-  width: 100%;
-  padding: 7%;
-  margin-top: 35vh;
-}
-.stepRight{
-  width: 100%;
-  padding: 7%;
-  margin-top: 35vh;
-}
-.container {
-  width: 500%;
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 10% 0%;
-}
-.heroWrapper{
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/*// content //*/
-.pinnedContainerWrapper{
-  display: flex;
-  width: 100%;
-}
-.pinnedContainer{
-  position: relative;
-  top:0;
-  height: 100vh;
-  width: 100%;
+.innerLeistung{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  transform-origin: left;
+  align-items: center;
+  transition: all 0.3s ease-out;
 }
-
-/* RESPONSIVE */
-
-@media only screen and (max-width: 1024px) {
-  .pinnedContainer{
-    margin-top: -50%;
-  }
-
-  div.footerWrapper{
-    padding: 0px;
-  }
-
-  .container{
-    flex-direction: column;
-  }
-  .projectTitleAlign{
-    text-align: center;
-    width: 80%;
-  }
-  .box {
-    display: flex;
-    flex-direction: column;
-    width: calc(100vw - (100vw / 10));
-    margin: auto;
-    height: unset;
-    margin-bottom: 5vh;
-    text-align: center;
-  }
-  section {
-    height: unset;
-  }
-  .projectLeft{
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 10% 5%;
-  }
-  .projectRight{
-    width: 100%;
-    padding: 10%;
-  }
+.leistungBox:hover .innerLeistung{
+  filter: brightness(0);
+}
+.leistungBox:hover{
+  background: #88F332;
+}
+.boxWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 60px;
+  margin-top: 0vh;
+  padding-top: 30vh;
+}
+.stickyBoxes{
+  top:0;
+  height: 50vh;
+  padding-top: 30vh;
 }
 </style>
 

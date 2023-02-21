@@ -1,6 +1,6 @@
 <template>
   <div class="mainWrapper bgBg">
-    <CookieBanner />
+    <CookieBanner :openCookies="openCookies" />
     <backgroundAnimation :getHue="bgHue" />
     <Header />
     <Cursorfollow class="m-hide" />
@@ -27,15 +27,23 @@ export default {
   data() {
     return {
       bgHue: 0,
+      openCookies: false,
     }
   },
   methods: {
     onRepaint(hue){
       this.bgHue = hue;
     },
+    onOpenCookies(){
+      this.openCookies = true;
+      setTimeout(() => {
+        this.openCookies = false;
+      },1000)
+    }
   },
   mounted(){
     this.$root.$on("repaint-bg", this.onRepaint);
+    this.$root.$on("openCookies", this.onOpenCookies);
   },
   components: {
     CookieBanner,

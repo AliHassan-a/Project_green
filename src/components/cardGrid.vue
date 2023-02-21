@@ -35,6 +35,7 @@ export default {
     flex-wrap: wrap;
   }
   .gsCardsWrapper .singleCard{
+    margin-bottom: 30px;
     width: calc(33% - 20px);
   }
   @media only screen and (max-width: 1024px) {

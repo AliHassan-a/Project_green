@@ -4,7 +4,7 @@
     <div class="c-exp-gallery__inner js-experience-slider__inner">
       <div class="c-exp-gallery__content js-experience-slider__content toDirectionHover">
         <div class="c-exp-gallery-slide js-experience-slide" v-for="(slide, index, key) in slideContent" :key="key">
-          <div class="c-exp-gallery-slide__card">
+          <div class="c-exp-gallery-slide__card" :class="slideType">
             <div class="c-exp-gallery-slide__proxy"></div>
             <BaseTitle v-if="hasNumber" :class="'greenColor'" class="greenIndex" :tag="'h3'"><span style="font-weight: 800;">{{index+1}}.</span></BaseTitle>
             <BaseTitle :align="'left'" :tag="'h3'"><b>{{slide.title}}</b></BaseTitle>
@@ -36,7 +36,7 @@ export default {
   },
   props: {
     slideContent: Array,
-    slideWidth: Number,
+    slideType: String,
     hasNumber: Boolean,
     hasTestimonial: Boolean,
   },
@@ -164,9 +164,17 @@ img {
   padding: 60px 40px;
   background: black;
 }
-.c-exp-gallery-slide__card {
+.c-exp-gallery-slide__card.testimonials {
   width: 380px;
-  height: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.c-exp-gallery-slide__card.indexed {
+  width: 600px;
+  height: unset;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

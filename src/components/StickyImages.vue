@@ -9,7 +9,7 @@
           <g-image class="animateBlockItem heroArrow" src="@/assets/Pfeile.svg"></g-image>
         </div>
       </div>
-      <div style="width: 100%; display: flex; flex-direction:column; margin-top: 70%;">
+      <div v-if="imageSet == 'index' || imageSet == undefined" style="width: 100%; display: flex; flex-direction:column; margin-top: 70%;">
         <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
             <g-image src="@/assets/praktis1.webp"></g-image>
@@ -31,13 +31,38 @@
           </div>
         </div>
       </div>
+      <div v-if="imageSet == 'about'" style="width: 100%; display: flex; flex-direction:column; margin-top: 70%;">
+        <div class="revealWrapper" data-speed="1.2">
+          <div class="reveal">
+            <g-image src="@/assets/teamwork.webp"></g-image>
+          </div>
+        </div>
+        <div class="revealWrapper" data-speed="0.9">
+          <div class="reveal">
+            <g-image src="@/assets/greenstein-praktikant.webp"></g-image>
+          </div>
+        </div>
+        <div class="revealWrapper" data-speed="1.2">
+          <div class="reveal">
+            <g-image src="@/assets/greenstein-gestaltung.webp"></g-image>
+          </div>
+        </div>
+        <div class="revealWrapper" data-speed="0.9">
+          <div class="reveal">
+            <g-image src="@/assets/greenstein-webapp.webp"></g-image>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "StickyImages"
+  name: "StickyImages",
+  props: {
+    imageSet: String,
+  },
 }
 </script>
 

@@ -2,30 +2,33 @@
   <div id="one" class="mainSection section-one">
     <div class="contentContainer">
       <div class="innerContentContainer">
-        <BaseTitle addClass="animateBlockHero" :align="'left'" :tag="'h2'" ><b>Starte dein Projekt mit uns!</b></BaseTitle>
-        <BaseText> Fülle das Formular aus, und erzähle uns mehr über deine<br> Unternehmensziele. Wir werden uns innerhalb eines<br> Arbeitstages bei dir melden. </BaseText>
-        <div class="contactCard">
-          <div class="cardInner">
-            <g-image src="@/assets/Rene-Grebenstein.webp"></g-image>
-            <div style="margin-left: 20px;">
-              <h4><b>Rene Grebenstein</b></h4>
-              <p class="greenColor">Inhaber</p>
+        <div class="leftInner">
+          <BaseTitle addClass="animateBlockHero" :align="'left'" :tag="'h2'" ><b>Starte dein Projekt mit uns!</b></BaseTitle>
+          <BaseText> Fülle das Formular aus, und erzähle uns mehr über deine<br> Unternehmensziele. Wir werden uns innerhalb eines<br> Arbeitstages bei dir melden. </BaseText>
+          <div class="contactCard">
+            <div class="cardInner">
+              <g-image src="@/assets/Rene-Grebenstein.webp"></g-image>
+              <div style="margin-left: 20px;">
+                <h4><b>Rene Grebenstein</b></h4>
+                <p class="greenColor">Inhaber</p>
+              </div>
             </div>
+            <a class="cardInner" style="margin-bottom: 10px;">
+              <img src="@/assets/mail.svg">
+              <p style="margin-left: 15px">rene.grebenstein@grnstn.net</p>
+            </a>
+            <a class="cardInner">
+              <img src="@/assets/phone-call.svg">
+              <p style="margin-left: 15px"> 05121 – 672 90 03</p>
+            </a>
           </div>
-          <a class="cardInner" style="margin-bottom: 10px;">
-            <img src="@/assets/mail.svg">
-            <p style="margin-left: 15px">rene.grebenstein@grnstn.net</p>
-          </a>
-          <a class="cardInner">
-            <img src="@/assets/phone-call.svg">
-            <p style="margin-left: 15px"> 05121 – 672 90 03</p>
-          </a>
         </div>
       </div>
       <div class="formWrapper">
         <multiStepForm @submitForm="submitForm"></multiStepForm>
       </div>
     </div>
+    <div class="multistepOverlay" />
   </div>
 </template>
 
@@ -104,6 +107,16 @@ export default {
 </script>
 
 <style scoped>
+.mainSection{
+  max-width: 100%;
+}
+.innerContentContainer{
+  display: flex;
+  flex-direction: column;
+}
+.leftInner{
+  margin-left: 12.5vw;
+}
 .contentContainer{
   gap: 20px;
 }
@@ -126,8 +139,17 @@ div.cardInner{
 }
 .formWrapper{
   width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.multistepOverlay{
+  position: fixed;
+  top: 0;
+  right: -15px;
+  width: calc(50% + 15px);
+  height: 100vh;
+  z-index: -1;
+  background: rgba(0,0,0,0.1);
+}
 </style>

@@ -37,6 +37,17 @@ import BaseButton from "./BaseButton";
 import BackgroundAnimation from "./BackgroundAnimation";
 export default {
   name: "CookieBanner",
+  props: {
+    openCookies: Boolean,
+  },
+  watch: {
+    openCookies: function(newVal) {
+      if(newVal){
+        this.bittenCookie = false;
+        this.showBanner = true;
+      }
+    }
+  },
   data(){
     return {
       showBanner: false,

@@ -9,7 +9,10 @@
         </div>
       </div>
       <div id="two" class="mainSection section-two">
-        <Slider :slideContent="steps" class="animateBlockItem" />
+        <div class="innerContentContainer">
+          <h2 class="animateBlockHead fullWidthInnerHead"> Unsere Leitsätze </h2>
+          <Slider :slideContent="steps" :slideType="'indexed'" :hasNumber="true" class="animateBlockItem" />
+        </div>
       </div>
       <div id="three" class="mainSection section-three">
         <g-image class="animateBlockItem" src="@/assets/Teambesprechung-Greenstein.webp"></g-image>
@@ -29,7 +32,7 @@
           <CardGrid :content="$static.employees" />
         </div>
       </div>
-      <StickyImages />
+      <StickyImages :imageSet="'about'" />
     </div>
   </Layout>
 </template>
@@ -74,31 +77,24 @@ export default {
           description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
         },
         {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+          title: 'Gemeinsam zum Ziel',
+          description: 'Wir glauben, dass das Arbeiten im Team der Schlüssel zum Erfolg ist. Zusammen arbeiten wir von der Idee bis zur Umsetzung ein überwältigendes Ergebnis aus, denn die Zufriedenheit des Kunden steht an erster Stelle. Kunden sind Freunde.'
         },
         {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+          title: 'Bleibe neugierig',
+          description: 'Neue Technologien = neue Möglichkeiten = neue Ideen. Wir sind Denker und Macher und schauen neugierig auf alles, was um uns herum passiert. Wir wissen, wie man Innovationen effektiv nutzen kann und sind offen für Veränderung.'
         },
         {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+          title: 'Ehrlichkeit',
+          description: 'Wir arbeiten partnerschaftlich und auf Augenhöhe, denn gemeinsam erzielen wir die besten Ergebnisse. Dabei sind für uns klare Ansagen und ehrliche Meinung wichtig. Konstruktives Feedback hilft uns, dem Kunden und vor allem dem Projekt.'
         },
         {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
-        },
-        {
-          title: 'Wir sind selbstbewusst',
-          description: 'Wir handeln mutig und nehmen große Herausforderungen an. Wir behandeln schwierige Aufgaben mit Respekt. Fehler gehören dazu, deswegen haben wir keine Angst davor, sondern lernen aus Ihnen und wachsen daran, um in der Zukunft noch erfolgreicher zu sein.',
+          title: 'Vertrauen',
+          description: 'Wir tun etwas, was unsere Kunden nicht leisten können - das geht nur mit Vertrauen. Kein „Mal eben schnell und kurz zwischendurch“. Gutes Design und gute Ideen brauchen Zeit.'
         },
       ],
       pageGsap: null,
     }
-  },
-  beforeDestroy() {
-    this.pageGsap.killGsap();
   },
   mounted() {
     this.pageGsap = new initGsap({
@@ -112,6 +108,9 @@ export default {
 <style>
 .section-two, .section-four{
   max-width: 100vw;
+}
+.section-three{
+  margin-bottom: 200px;
 }
 </style>
 
