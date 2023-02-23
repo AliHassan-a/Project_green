@@ -1,4 +1,4 @@
-import {gsap, ScrollSmoother, ScrollTrigger, SplitText, Draggable} from "gsap/all";
+import {gsap, ScrollSmoother, ScrollTrigger, SplitText} from "gsap/all";
 
 const initGsap = class {
     constructor(features, vueInstance) {
@@ -198,7 +198,6 @@ const initGsap = class {
             });
         }
 
-
         function initHero(){
             let heroBlock = document.querySelector(".animateBlockHero");
             heroBlock.split = new SplitText(heroBlock, {
@@ -363,11 +362,11 @@ const initGsap = class {
                 });
             });
         }
-        function initStickyBoxes(){
-            gsap.to(".stickyBoxes", {
+        function initStickySection(){
+            gsap.to(".stickySection", {
                 ease: "none", // <-- IMPORTANT!
                 scrollTrigger: {
-                    trigger: ".stickyBoxes",
+                    trigger: ".stickySection",
                     pin: true,
                     scrub: 1,
                     invalidateOnRefresh: true,
@@ -480,6 +479,10 @@ const initGsap = class {
                 if(this.features.sideScroller){
                     initSideScroller(this)
                 }
+                /*STICKY SECTION*/
+                if(this.features.stickySection){
+                    initStickySection()
+                }
                 /* FOOTER */
                 initFooter(false)
             },
@@ -505,9 +508,6 @@ const initGsap = class {
                 /* STICKY SECTION /w images */
                 if(this.features.stickyImages){
                     initStickyImages()
-                }
-                if(this.features.stickyBoxes){
-                    initStickyBoxes()
                 }
                 /*quotes*/
                 if(this.features.quote){

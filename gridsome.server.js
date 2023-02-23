@@ -114,4 +114,30 @@ module.exports = function (api) {
       })
     })
   })
+  api.createPages(async ({graphql, createPage}) => {
+    const { data } = await graphql(`{
+    allWordPressProjekte{
+      edges{
+        node{
+          slug,
+          title,
+          acf{
+            metaTitle,
+            metaDescription
+          }
+        }
+      }
+    }}`)
+    data.allWordPressProjekte.edges.forEach(({node}) => {
+      createPage({
+        path: `/projekte/${node.slug}`,
+        component: './src/templates/SingleProject.vue',
+        context: {
+          slug: node.slug,
+          title: node.title,
+          acf: node.acf,
+        }
+      })
+    })
+  })
 }

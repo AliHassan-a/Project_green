@@ -20,6 +20,7 @@ export default {
     Seperator,
     BaseTitle,
   }
+  // ADD CATEGORIES FOR FAQ
 }
 </script>
 

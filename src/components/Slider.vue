@@ -3,8 +3,8 @@
     <div class="proxy"></div>
     <div class="c-exp-gallery__inner js-experience-slider__inner">
       <div class="c-exp-gallery__content js-experience-slider__content toDirectionHover">
-        <div class="c-exp-gallery-slide js-experience-slide" v-for="(slide, index, key) in slideContent" :key="key">
-          <div class="c-exp-gallery-slide__card" :class="slideType">
+        <div :class="slideType != 'image' ? 'slideBg' : 'slideBg0'" class="c-exp-gallery-slide js-experience-slide" v-for="(slide, index, key) in slideContent" :key="key">
+          <div v-if="slideType != 'image'" class="c-exp-gallery-slide__card" :class="slideType">
             <div class="c-exp-gallery-slide__proxy"></div>
             <BaseTitle v-if="hasNumber" :class="'greenColor'" class="greenIndex" :tag="'h3'"><span style="font-weight: 800;">{{index+1}}.</span></BaseTitle>
             <BaseTitle :align="'left'" :tag="'h3'"><b>{{slide.title}}</b></BaseTitle>
@@ -15,8 +15,11 @@
               <BaseText :addStyle="'white-space: normal'" :addClass="'greenColor'">{{slide.testimonialPosition}}</BaseText>
             </div>
           </div>
+          <div v-else-if="slideType == 'image'" class="c-exp-gallery-slide__card" :class="slideType">
+            <div class="c-exp-gallery-slide__proxy"></div>
+            <g-image src="@/assets/3guys.webp" />
+          </div>
         </div>
-
       </div>
     </div>
 
@@ -39,19 +42,21 @@ export default {
     slideType: String,
     hasNumber: Boolean,
     hasTestimonial: Boolean,
+    sliderIndexOnPage: Number,
   },
   mounted(){
     gsap.registerPlugin(Draggable, InertiaPlugin);
+    const sliderIndex = this.sliderIndexOnPage != undefined ? this.sliderIndexOnPage : 0;
 
-    const container = document.querySelector(".js-experience-slider");
+    const container = document.querySelectorAll(".js-experience-slider")[sliderIndex];
     const proxy = container.querySelector(".proxy");
-    const slider = document.querySelector(".js-experience-slider__inner");
-    const sliderContent = document.querySelector(".js-experience-slider__content");
+    const slider = document.querySelectorAll(".js-experience-slider__inner")[sliderIndex];
+    const sliderContent = document.querySelectorAll(".js-experience-slider__content")[sliderIndex];
     const slides = [...container.querySelectorAll(".js-experience-slide")];
 
     let sliderWidth = 0;
     let prevSliderWidth = 0;
-// let pressedTop = false;
+ // let pressedTop = false;
     let offset = 0;
 
     const setBounds = () => {
@@ -162,7 +167,6 @@ img {
   position: relative;
   margin: 0 15px;
   padding: 60px 40px;
-  background: black;
 }
 .c-exp-gallery-slide__card.testimonials {
   width: 380px;
@@ -174,6 +178,14 @@ img {
 }
 .c-exp-gallery-slide__card.indexed {
   width: 600px;
+  height: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.c-exp-gallery-slide__card.image {
+  width: 400px;
   height: unset;
   display: flex;
   flex-direction: column;
@@ -198,18 +210,33 @@ img {
   width: 100px;
   border: 2px solid #88F332;
 }
+.slideBg{
+  background: black;
+}
+.slideBg0{
+  padding: 0px;
+  background: transparent;
+}
 @media only screen and (max-width: 1024px){
   .c-exp-gallery__slider {
     position: relative;
-    width: 100vw;
+    width: 90vw;
     margin-left: 0vw;
   }
   .c-exp-gallery-slide {
-    padding: 60px 1%;
+    padding: 30px 0%;
+    margin: 0 5vw;
   }
   .c-exp-gallery-slide__card {
     width: 82vw;
     max-width: 800px;
+  }
+  .c-exp-gallery-slide__card.image {
+    width: 90vw;
+  }
+  .c-exp-gallery-slide__card.indexed {
+    width: calc(90vw - 40px);
+    padding: 20px;
   }
 }
 @media only screen and (min-width: 1920px){

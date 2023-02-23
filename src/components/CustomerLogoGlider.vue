@@ -1,6 +1,6 @@
 <template>
   <div class="logosSectionWrapper">
-    <div class="logosSection m-hide" data-speed="1.15">
+    <div class="logosSection m-hide" :data-speed="hasAni || hasAni == undefined ? 1.15 : false">
       <div style="width: 100%; opacity: 0.6; margin-bottom: 44px;">
         <Seperator :theme="'lightGreen'"/>
       </div>
@@ -36,6 +36,9 @@
 import Seperator from "./Seperator";
 export default {
   name: "CustomerLogoGlider",
+  props: {
+    hasAni: Boolean,
+  },
   components: {Seperator}
 }
 </script>
@@ -109,6 +112,9 @@ export default {
   margin-right: 30px;
 }
 @media only screen and (max-width: 1024px){
+  .logosSectionWrapper{
+    bottom: 25px;
+  }
   .logo{
     width: unset;
     height: 30px;

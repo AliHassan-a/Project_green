@@ -48,9 +48,6 @@ export default {
   props: {
     projects: Array,
   },
-  mounted() {
-    console.log(this.projects);
-  },
 }
 </script>
 

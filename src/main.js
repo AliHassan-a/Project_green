@@ -9,7 +9,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.use(Vuex);
-  head.htmlAttrs = { lang: 'en' }
+  head.htmlAttrs = { lang: 'de' }
   appOptions.store = new Vuex.Store({
     state:{
       initialLoad:true,
