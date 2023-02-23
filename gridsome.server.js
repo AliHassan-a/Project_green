@@ -123,7 +123,22 @@ module.exports = function (api) {
           title,
           acf{
             metaTitle,
-            metaDescription
+            metaDescription,            
+            titel,
+            zeitraum,
+            leistungen,
+            technologien,
+            mockup,
+            step1Image,
+            step1Text,
+            step2Image,
+            step2Text,
+            step3Image,
+            step3Text,
+            step4Bild2,
+            step4Bild3,
+            step4Bild4,
+            step4Bild5,
           }
         }
       }
