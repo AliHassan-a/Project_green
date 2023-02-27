@@ -453,6 +453,23 @@ main {
     fill: none;
     transform: rotate(180deg);
   }
+  .menu__item-text {
+    font-weight: 500;
+    text-align: left;
+    font-size: 2em;
+    color: #E7FFD3;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  .menu__bottom{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+  .menu__socials img{
+    object-fit: contain;
+    height: 20px;
+  }
 }
 @media screen and (min-width: 53em) {
   .frame {

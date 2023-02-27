@@ -67,6 +67,9 @@ export default {
     height: unset;
     margin-top: 100px;
   }
+  .quote h2{
+    font-size: clamp(1.4em, calc(100vw / 60), 2.4em);
+  }
   .quote img{
     margin-bottom: 10px;
     margin-top: 10px;

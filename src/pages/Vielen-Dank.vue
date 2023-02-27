@@ -3,7 +3,8 @@
     <div id="one" class="mainSection section-one">
       <div class="contentContainer">
         <HeroTitle
-            :main-title="'Vielen Dank! Deine Anfrage wurde gestellt.'"
+            :main-title="'Vielen Dank!'"
+            :main-title-second="'Deine Anfrage wurde gestellt.'"
             :second-title="'Jetzt kommen wir auf dich zu!'" />
       </div>
     </div>

@@ -398,6 +398,18 @@ button.more:hover #rightChev{
     transform: translateX(20px);
 }
 
+/* singleBlog */
+
+div.singleContent{
+    width: 100%;
+}
+div.singleContent p{
+    margin-bottom: 20px;
+}
+div.singleContent h1, div.singleContent h2, div.singleContent h3{
+    margin-bottom: 20px;
+}
+
 /* GS ARROW */
 .heroArrow{
     margin-top: 10px;

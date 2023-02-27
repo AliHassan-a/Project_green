@@ -110,6 +110,9 @@ export default {
   .section-two{
     margin-bottom: 50px;
   }
+  .section-three{
+    margin-bottom: 50px;
+  }
   .section-three .contentContainer{
     flex-direction: column;
   }

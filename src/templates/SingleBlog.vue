@@ -120,12 +120,6 @@ img.featuredImage{
 div.sidebarBlog{
   padding-top: 100px;
 }
-div.singleContent p{
-  margin-bottom: 20px;
-}
-div.singleContent h2, div.singleContent h3{
-  margin-bottom: 20px;
-}
 .simpleStickySection{
   height: inherit;
 }

@@ -36,19 +36,22 @@
       <div class="innerSteps">
         <div class="stepsSection"></div>
         <div class="stepsSection">
+          <g-image :src="getImagesArray[0]" class="md-hide" />
           <BaseTitle class="animateBlockHead" :tag="'h3'">Ausgangslage</BaseTitle>
           <BaseText class="animateBlockText">{{ $context.acf.step1Text }}</BaseText>
         </div>
         <div class="stepsSection">
+          <g-image :src="getImagesArray[1]" class="md-hide" />
           <BaseTitle class="animateBlockHead" :tag="'h3'">Herausforderung</BaseTitle>
           <BaseText class="animateBlockText">{{ $context.acf.step2Text }}</BaseText>
         </div>
         <div class="stepsSection">
+          <g-image :src="getImagesArray[2]" class="md-hide" />
           <BaseTitle class="animateBlockHead" :tag="'h3'">Lösung</BaseTitle>
           <BaseText class="animateBlockText">{{ $context.acf.step3Text }}</BaseText>
         </div>
       </div>
-      <div class="imageSteps stickySection">
+      <div class="imageSteps stickySection m-hide">
         <div class="imageStepsCenter">
           <div class="stepsImageWrapper">
             <transition name="fadeStep" mode="out-in">
@@ -138,6 +141,28 @@
 }
 .fadeStep-leave-to {
   opacity: 0;
+}
+
+@media only screen and (max-width: 1024px){
+  .section-two{
+    margin-top: 100px;
+  }
+  .section-two .contentContainer{
+    flex-direction: column;
+  }
+  .section-three {
+    flex-direction: column;
+  }
+  .section-three .imageSteps{
+    height: unset;
+  }
+  .section-three .innerSteps{
+    width: 100%;
+  }
+  .section-three .stepsSection{
+    margin: 100px 0px;
+    height: unset !important;
+  }
 }
 </style>
 

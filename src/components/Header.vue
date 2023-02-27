@@ -1,12 +1,12 @@
 <template>
   <header>
     <div ref="logoContainer" class="logoContainer">
-      <g-link class="logoImage greensteinLogo" :to="'/'">
+      <a class="logoImage greensteinLogo" :href="'/'">
         <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/greenstein-logo.svg"></g-image>
-      </g-link>
-      <g-link class="logoImage greensteinLogoFont" :to="'/'">
+      </a>
+      <a class="logoImage greensteinLogoFont" :href="'/'">
         <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/greenstein-logo-font.svg"></g-image>
-      </g-link>
+      </a>
     </div>
     <div class="frame__button">
       <button class="unbutton button-menu" aria-label="Open menu" style="background: none; color: white; border: none">

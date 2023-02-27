@@ -12,9 +12,9 @@
       </div>
       <div class="footer-inner-content">
         <p class="footer-small">LEISTUNGEN</p>
-        <g-link to="/design-strategie" class="footer-link-small footer-hover">Design & Strategie</g-link>
-        <g-link to="/entwicklung" class="footer-link-small footer-hover">Entwicklung</g-link>
-        <g-link to="/marketing" class="footer-link-small footer-hover">Marketing</g-link>
+        <g-link to="/leistungen/design-strategie" class="footer-link-small footer-hover">Design & Strategie</g-link>
+        <g-link to="/leistungen/entwicklung" class="footer-link-small footer-hover">Entwicklung</g-link>
+        <g-link to="/leistungen/marketing" class="footer-link-small footer-hover">Marketing</g-link>
       </div>
       <div class="footer-inner-content">
         <p class="footer-small">ÜBER UNS</p>
@@ -25,8 +25,8 @@
     <div class="footerBottom" style="z-index: 1;">
       <div class="contentContainer">
         <div style="display: flex;">
-          <p class="imprintAndDataprot blackColor footer-hover">Impressum</p>
-          <p class="imprintAndDataprot blackColor footer-hover">Datenschutz</p>
+          <g-link to="/impressum" class="imprintAndDataprot blackColor footer-hover">Impressum</g-link>
+          <g-link to="/datenschutz" class="imprintAndDataprot blackColor footer-hover">Datenschutz</g-link>
           <p class="imprintAndDataprot blackColor footer-hover" @click="emitOpenCookies">Cookies</p>
         </div>
         <div class="socialWrapper">

@@ -134,10 +134,15 @@ export default {
   padding: 200px 0px;
 }
 @media only screen and (max-width:1024px){
-  .section-five, .section-six{
+  .section-five{
     max-width: 100%;
     min-height: unset;
-    padding: 100px 0px;
+    padding: 100px 0px 50px;
+  }
+  .section-six{
+    max-width: 100%;
+    min-height: unset;
+    padding: 0px 0px 100px;
   }
 }
 
