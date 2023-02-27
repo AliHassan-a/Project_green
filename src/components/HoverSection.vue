@@ -74,6 +74,7 @@ export default {
       transform: rotate(0) translate(0);
       opacity: 1;
       background: unset;
+      backdrop-filter: unset;
     }
   }
 </style>

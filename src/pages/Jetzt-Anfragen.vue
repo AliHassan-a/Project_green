@@ -152,4 +152,20 @@ div.cardInner{
   z-index: -1;
   background: rgba(0,0,0,0.1);
 }
+@media only screen and (max-width: 1024px){
+  .contentContainer{
+    flex-direction: column;
+  }
+  .leftInner{
+    margin: auto;
+    width: 90vw;
+  }
+  .multistepOverlay{
+    display: none;
+  }
+  .contactCard{
+    width: calc(90vw - 40px);
+    padding: 20px;
+  }
+}
 </style>

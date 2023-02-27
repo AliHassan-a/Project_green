@@ -65,6 +65,7 @@
 .section-two, .section-five{
   min-height: 0px;
   min-width: 100vw;
+  margin: 100px 0px;
 }
 .section-three{
   min-height: 70vh;
@@ -74,18 +75,21 @@
 }
 .section-three .contentContainer div:first-child{
   width: 100%;
-  min-width: 600px;
 }
 .section-three .logoGlider{
   position: relative;
   bottom: unset;
   margin-top: 10%;
 }
+.section-four{
+  margin-top: 100px;
+}
 
 @media only screen and (max-width:1024px){
   .section-three .contentContainer{
     gap: 100px;
     flex-direction: column;
+    min-width: unset;
   }
   .section-three .contentContainer div:first-child{
     width: 100%;

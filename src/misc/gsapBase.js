@@ -4,8 +4,8 @@ const initGsap = class {
     constructor(features, vueInstance) {
         this.features = features
         this.isAlive = false
-        this.vueInstance = vueInstance;
-        if (!this.isAlive) this.init()
+        this.vueInstance = vueInstance
+        this.init();
         this.killGsap = function(){
             // kill not needed in production
         }
@@ -56,7 +56,7 @@ const initGsap = class {
                     scrollTrigger: {
                         trigger: headBlock,
                         toggleActions: "restart resume resume reverse",
-                        start: "50% 80%",
+                        start: "50% 90%",
                     },
                     opacity: 0,
                     filter: 'blur(20px)',
@@ -77,7 +77,7 @@ const initGsap = class {
                     scrollTrigger: {
                         trigger: textBlock,
                         toggleActions: "restart resume resume reverse",
-                        start: "50% 80%",
+                        start: "50% 90%",
                     },
                     duration: 0.6,
                     opacity: 0,
@@ -95,7 +95,7 @@ const initGsap = class {
                     scrollTrigger: {
                         trigger: itemBlock,
                         toggleActions: "restart resume resume reverse",
-                        start: "0% 80%",
+                        start: "0% 90%",
                     },
                     duration: 0.6,
                     opacity: 0,
@@ -287,16 +287,16 @@ const initGsap = class {
                         onLeaveBack: () => {
                             switch (index) {
                                 case 1:
-                                    context.vueInstance.$root.$emit("repaint-bg", 333);
+                                    context.vueInstance.$root.$emit("repaint-bg", 0);
                                     break;
                                 case 2:
-                                    context.vueInstance.$root.$emit("repaint-bg", 100);
+                                    context.vueInstance.$root.$emit("repaint-bg", 333);
                                     break;
                                 case 3:
-                                    context.vueInstance.$root.$emit("repaint-bg", 280);
+                                    context.vueInstance.$root.$emit("repaint-bg", 100);
                                     break;
                                 default:
-                                    context.vueInstance.$root.$emit("repaint-bg", 0);
+                                    context.vueInstance.$root.$emit("repaint-bg", 180);
                                     break;
                             }
                         }
@@ -362,7 +362,19 @@ const initGsap = class {
                 });
             });
         }
-        function initStickySection(){
+        function initSimpleStickySection() {
+            gsap.to(".simpleStickySection", {
+                ease: "none", // <-- IMPORTANT!
+                scrollTrigger: {
+                    trigger: ".simpleStickySection",
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                },
+                opacity: 0,
+            });
+        }
+        function initStickySection(context){
             gsap.to(".stickySection", {
                 ease: "none", // <-- IMPORTANT!
                 scrollTrigger: {
@@ -371,6 +383,61 @@ const initGsap = class {
                     scrub: 1,
                     invalidateOnRefresh: true,
                 }
+            });
+            gsap.from(".imageStepsCenter .stepsImageWrapper", {
+                scrollTrigger: {
+                    trigger: ".stepsSection:first-child",
+                    start: "top",
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                },
+                xPercent: -25,
+                scale: 1.1,
+                ease: "power1.inOut",
+            });
+            gsap.to(".imageStepsCenter .stepsImageWrapper", {
+                scrollTrigger: {
+                    trigger: ".stepsSection:nth-child(1)",
+                    start: "center",
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    onEnter: () => context.vueInstance.$root.$emit("changeImage", 1),
+                    onEnterBack: () => context.vueInstance.$root.$emit("changeImage", 1),
+                },
+                ease: "power1.inOut",
+            });
+            gsap.to(".imageStepsCenter .stepsImageWrapper", {
+                scrollTrigger: {
+                    trigger: ".stepsSection:nth-child(2)",
+                    start: "center",
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    onEnter: () => context.vueInstance.$root.$emit("changeImage", 2),
+                    onEnterBack: () => context.vueInstance.$root.$emit("changeImage", 2),
+                },
+                ease: "power1.inOut",
+            });
+            gsap.to(".imageStepsCenter .stepsImageWrapper", {
+                scrollTrigger: {
+                    trigger: ".stepsSection:nth-child(3)",
+                    start: "center",
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    onEnter: () => context.vueInstance.$root.$emit("changeImage", 3),
+                    onEnterBack: () => context.vueInstance.$root.$emit("changeImage", 3),
+                },
+                ease: "power1.inOut",
+            });
+            gsap.to(".imageStepsCenter .stepsImageWrapper", {
+                scrollTrigger: {
+                    trigger: ".stepsSection:nth-child(4)",
+                    start: "center",
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    onEnter: () => context.vueInstance.$root.$emit("changeImage", 3),
+                    onEnterBack: () => context.vueInstance.$root.$emit("changeImage", 3),
+                },
+                ease: "power1.inOut",
             });
         }
 
@@ -481,7 +548,10 @@ const initGsap = class {
                 }
                 /*STICKY SECTION*/
                 if(this.features.stickySection){
-                    initStickySection()
+                    initStickySection(this)
+                }
+                if(this.features.simpleStickySection){
+                    initSimpleStickySection()
                 }
                 /* FOOTER */
                 initFooter(false)

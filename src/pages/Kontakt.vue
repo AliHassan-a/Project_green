@@ -25,11 +25,14 @@
       </div>
       <div class="contactHalf blackBg rightContactHalf">
         <p style="margin-bottom: 10px">Ich bin interessiert an:</p>
-        <div class="contactLeistungWrapper">
-          <button v-for="(singleInterest, index, key) in form.interest" :key="key" class="dark" @click="toggleInterest(index)">
-            <div class="button-blob dark" :class="singleInterest.hasInterest ? 'active' : ''" />
-            <p class="title" :class="singleInterest.hasInterest ? 'active' : ''">{{ singleInterest.title }}</p>
-            <p class="title title--hovered" :class="singleInterest.hasInterest ? 'active' : ''"><b>{{ singleInterest.title }}</b></p>
+        <div class="checkBoxWrapper">
+          <button v-for="(checkBox, checkboxIndex, checkBoxKey) in form.interest"
+                  :key="checkBoxKey"
+                  class="dark" :class="checkBox.hasInterest ? 'customGreenBtn' : ''"
+                  @click="toggleInterest(checkboxIndex)">
+            <div class="button-blob dark"/>
+            <span class="title" :class="checkBox.hasInterest ? 'title--hovered' : ''">{{ checkBox.title }}</span>
+            <span class="title title--hovered"><b>{{ checkBox.title }}</b></span>
           </button>
         </div>
         <form class="contactForm">
@@ -186,5 +189,34 @@ export default {
   }
   .contactForm ::placeholder{
     color: #717171;
+  }
+  /*  CHECKBOX */
+  .checkBoxWrapper{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction:row;
+  }
+  button.dark{
+    transition: font-weight 0.3s linear;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .customGreenBtn{
+    background: #88F332 !important;
+    border-color: #88F332;
+    font-weight: 700;
+  }
+  @media only screen and (max-width: 1024px){
+    button.dark:hover{
+      background: inherit;
+    }
+    .contactWrapper{
+      flex-direction: column;
+      width: 100%;
+    }
+    .rightContactHalf{
+      padding: 20px;
+      width: calc(90vw - 40px);
+    }
   }
 </style>

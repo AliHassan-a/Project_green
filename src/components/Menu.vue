@@ -1,71 +1,61 @@
 <template>
-  <nav class="menu">
-    <div class="menuBg bgBg" />
-    <div class="menu__item menu__item--1" data-direction="bt" style="translate: none; rotate: none; scale: none;">
-      <div class="menu__item-inner">
-        <div class="mainmenu">
-          <div @click="navigteTo('/')" class="mainmenu__item">
-            <span>Start</span>
-          </div>
-          <div @click="navigteTo('/about')" class="mainmenu__item">
-            <span>About</span>
-          </div>
-          <div @click="navigteTo('/leistungen')" class="mainmenu__item">
-            <span>Leistungen</span>
+  <nav class="main">
+    <div class="menuBg bgBg"></div>
+    <div class="menu-wrap blackBg">
+      <nav class="menu">
+        <div class="menu__item" @click="navigteTo('/')">
+          <span class="menu__item-text">Start</span>
+        </div>
+        <div class="menu__item" @click="navigteTo('/agentur')">
+          <span class="menu__item-text">Unsere Agentur</span>
+        </div>
+        <div class="menu__item" @click="navigteTo('/leistungen')">
+          <span class="menu__item-text">Unsere Leistungen</span>
+        </div>
+        <div class="menu__item" @click="navigteTo('/projekte')">
+          <span class="menu__item-text">Projekte</span>
+        </div>
+        <div class="menu__item" @click="navigteTo('/kontakt')">
+          <span class="menu__item-text">Kontakt</span>
+        </div>
+        <div class="menu__item">
+          <Seperator class="menu__seperator" :theme="'lightGreen'"/>
+          <div class="menu__bottom">
+            <div>
+              <span @click="navigteTo('/impressum')">Impressum</span>&nbsp;&nbsp;
+              <span @click="navigteTo('/datenschutz')">Datenschutz</span>
             </div>
-          <div @click="navigteTo('/kontakt')" class="mainmenu__item">
-            <span>Kontakt</span>
+            <div class="menu__socials">
+              <img src="@/assets/facebook-f.webp">
+              <img src="@/assets/instagram.webp">
+              <img src="@/assets/twitter.webp">
+            </div>
           </div>
         </div>
-        <p class="label label--topleft label--vert-mirror">the important stuff</p>
-      </div>
+      </nav>
+      <button class="unbutton button-close">
+        <g-image src="@/assets/Menu.svg"></g-image>
+      </button>
     </div>
-    <div class="menu__item menu__item--2" data-direction="lr" style="translate: none; rotate: none; scale: none;">
-      <div class="menu__item-inner">
-        <div class="sidemenu">
-          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">FB</span></a>
-          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">IG</span></a>
-          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">TT</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="menu__item menu__item--3" data-direction="bt" style="translate: none; rotate: none; scale: none;">
-      <div class="menu__item-inner">
-        <div class="sidemenu">
-          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Chartexperten</span></a>
-          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Kematherm</span></a>
-          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Immobilienmanufaktur</span></a>
-          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">FUN KIDS CAAAARS</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="menu__item menu__item--4" data-direction="rl" style="translate: none; rotate: none; scale: none;">
-      <div class="menu__item-inner">
-        <div class="sidemenu">
-          <a href="#" class="sidemenu__item"><span class="sidemenu__item-inner">Hier eine Contact Form</span></a>
-        </div>
-      </div>
-    </div>
-    <button class="action action--menu">
-      <div class="menuBlob"><div class="smallBlob" /></div>
-      <g-image src="@/assets/Menu.svg"></g-image>
-    </button>
-    <button class="action action--close">
-      <span class="material-icons bgColor">close</span>
-    </button>
+    <svg class="overlay" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path class="overlay__path" vector-effect="non-scaling-stroke" fill="#011713" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
+    </svg>
   </nav>
 </template>
 
 <script>
-import { gsap, Quint, Quart, Quad } from "gsap/all";
+import { gsap, Quart } from "gsap/all";
+import Seperator from "./Seperator";
 export default {
   name: "Menu",
+  components: {Seperator},
   methods: {
     navigteTo(route){
-      document.querySelector(".menuBg").style.display = "block"
-      this.menu.close();
-      this.$emit("toggleMenu", "open");
-      gsap.to(".action--menu", 0.5, {
+      document.querySelector(".menuBg").style.display = "block";
+      setTimeout(() => {
+        this.closeMenu()
+      },1);
+      gsap.to(".frame__button", 0.5, {
         ease: Quart.easeInOut,
         opacity: 0,
       });
@@ -75,435 +65,424 @@ export default {
       });
       window.setTimeout( () => {
         window.location.href = route
-      }, 500);
-    }
+      }, 1100);
+    },
+    closeMenu(){
+      this.isAnimating = true;
+      gsap.timeline({
+        onComplete: () => this.isAnimating = false
+      })
+          .set(this.overlayPath, {
+            attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 0.8,
+            ease: 'power4.in',
+            attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' }
+          }, 0)
+          .to(this.overlayPath, {
+            duration: 0.3,
+            ease: 'power2',
+            attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
+            onComplete: () => {
+              this.menuWrap.classList.remove('menu-wrap--open');
+            }
+          })
+          // now reveal
+          .set(this.overlayPath, {
+            attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 0.3,
+            ease: 'power2.in',
+            attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 0.8,
+            ease: 'power4',
+            attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
+          })
+          // menu items translate animation
+          .to(this.menuItems, {
+            duration: 0.8,
+            ease: 'power2.in',
+            y: 100,
+            opacity: 0,
+            stagger: -0.05
+          }, 0)
+    },
   },
   data() {
     return {
       menu: null,
       isOpen: false,
+      isAnimating: false,
+      overlayPath: null,
+      menuWrap: null,
+      menuItems: null,
+      openMenuCtrl: null,
+      closeMenuCtrl: null,
     }
   },
   mounted(){
-    const context = this;
-    class Menu {
-      constructor(el) {
-        this.DOM = {el: el};
-        // Open and close ctls.
-        this.DOM.openCtrl = this.DOM.el.querySelector('.action--menu');
-        this.DOM.closeCtrl = this.DOM.el.querySelector('.action--close');
-        this.DOM.openCtrl.addEventListener('click', () => this.open());
-        this.DOM.closeCtrl.addEventListener('click', () => this.close());
+    this.overlayPath = document.querySelector('.overlay__path');
+    this.menuWrap = document.querySelector('.menu-wrap');
+    this.menuItems = this.menuWrap.querySelectorAll('.menu__item');
+    this.openMenuCtrl = document.querySelector('button.button-menu');
+    this.closeMenuCtrl = this.menuWrap.querySelector('.button-close');
 
-        // The menu items.
-        this.DOM.items = Array.from(this.DOM.el.querySelectorAll('.menu__item'));
-        // The total number of items.
-        this.itemsTotal = this.DOM.items.length;
-
-        // Custom elements that will be animated.
-        this.DOM.mainLinks = this.DOM.el.querySelectorAll('.mainmenu > div.mainmenu__item');
-        this.DOM.sidemenuLinks = this.DOM.el.querySelectorAll('.sidemenu span.sidemenu__item-inner');
-        this.DOM.menulink = this.DOM.el.querySelector('.menu__item-link');
-      }
-      // Open the menu.
-      open() {
-        this.toggle('open');
-        context.isOpen = true;
-      }
-      // Close the menu.
-      close() {
-        this.toggle('close');
-        context.isOpen = false;
-      }
-      toggle(action) {
-        if ( this.isAnimating ) return;
-        // (dis)allow the main image tilt effect.
-        this.isAnimating = true;
-        // Toggling the open state class.
-        this.DOM.el.classList[action === 'open' ? 'add' : 'remove']('menu--open');
-        context.$emit("toggleMenu", action);
-        // After all is animated..
-        const animationEnd = (pos) => {
-          if ( pos === this.itemsTotal-1 ) {
-            this.isAnimating = false;
-          }
-        };
-        // Going through each menu´s item.
-        this.DOM.items.forEach((el, pos) => {
-          // The inner wrapper.
-          const innerEl = el.querySelector('.menu__item-inner');
-          // config and inner config will have the starting transform values (when opening) and the end ones (when closing) for both the item and its inner element.
-          const config = {};
-          const configInner = {};
-          // Direction defined in the HTML data-direction.
-          // bt (bottom to top) || tb (top to bottom) || lr (left to right) || rl (right to left)
-          const direction = el.dataset.direction;
-          // Using 101% instead of 100% to avoid rendering problems.
-          // In order to create the "reveal" effect, the item slides moves in one direction and its inner element in the opposite direction.
-          if ( direction === 'bt' ) {
-            config.y = '101%';
-            configInner.y = '-101%';
-            configInner.x = '0%';
-          }
-          else if ( direction === 'tb' ) {
-            config.y = '-101%';
-            configInner.y = '101%';
-            configInner.x = '0%';
-          }
-          else if ( direction === 'lr' ) {
-            config.x = '-101%';
-            configInner.x = '101%';
-            configInner.y = '0%';
-          }
-          else if ( direction === 'rl' ) {
-            config.x = '101%';
-            configInner.x = '-101%';
-            configInner.y = '0%';
-          }
-          else {
-            config.x = '101%';
-            config.y = '101%';
-            configInner.x = '-101%';
-            configInner.y = '-101%';
-          }
-
-          if ( action === 'open' ) {
-            // Setting the initial values.
-            gsap.set(el, config);
-            gsap.set(innerEl, configInner);
-
-            // Animate.
-            gsap.to([el,innerEl], .9, {
-              ease: Quint.easeOut,
-              x: '0%',
-              y: '0%',
-              onComplete: () => animationEnd(pos)
-            });
-          }
-          else {
-            gsap.to(el, 0.6, {
-              ease: Quart.easeInOut,
-              x: config.x || 0,
-              y: config.y || 0
-            });
-            gsap.to(innerEl, 0.6, {
-              ease: Quart.easeInOut,
-              x: configInner.x || 0,
-              y: configInner.y || 0,
-              onComplete: () => animationEnd(pos)
-            });
-          }
-        });
-
-        // Show/Hide open and close ctrls.
-        gsap.to(this.DOM.closeCtrl, 0.6, {
-          delay: action === 'close' ? 0 : 0.3,
-          ease: action === 'open' ? Quint.easeOut : Quart.easeInOut,
-          startAt: action === 'open' ? {rotation: 0} : null,
-          opacity: action === 'open' ? 1 : 0,
-        });
-        gsap.to(this.DOM.openCtrl, action === 'open' ? 0.6 : 0.3, {
-          delay: action === 'open' ? 0 : 0.3,
-          ease: action === 'open' ? Quint.easeOut : Quad.easeOut,
-          opacity: action === 'open' ? 0 : 1
-        });
-        // Main links animation.
-        gsap.to(this.DOM.mainLinks, action === 'open' ? 0.9 : 0.2, {
-          ease: action === 'open' ? Quint.easeOut : Quart.easeInOut,
-          startAt: action === 'open' ? {y: '50%', opacity: 0} : null,
-          y: action === 'open' ? '0%' : '50%',
-          opacity: action === 'open' ? 1 : 0,
-          stagger: 0.2,
-        }, action === 'open' ? 0.1 : -0.1);
-
-        gsap.to(this.DOM.sidemenuLinks, action === 'open' ? 0.5 : 0.2, {
-          ease: action === 'open' ? Quint.easeInOut : Quart.easeInOut,
-          startAt: action === 'open' ? {y: '100%'} : null,
-          y: action === 'open' ? '0%' : '100%',
-          stagger: 0.1,
-        }, action === 'open' ? 0.05 : -0.05);
-      }
+    const openMenu = ()  => {
+      if ( this.isAnimating ) return;
+      this.isAnimating = true;
+      gsap.timeline({
+        onComplete: () => this.isAnimating = false
+      })
+          .set(this.overlayPath, {
+            attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 1.1,
+            ease: 'power4.in',
+            attr: { d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z' }
+          }, 0)
+          .to(this.overlayPath, {
+            duration: 0.3,
+            ease: 'power2',
+            attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
+            onComplete: () => {
+              this.menuWrap.classList.add('menu-wrap--open');
+            }
+          })
+          // now reveal
+          .set(this.menuItems, {
+            opacity: 0
+          })
+          .set(this.overlayPath, {
+            attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 0.3,
+            ease: 'power2.in',
+            attr: { d: 'M 0 0 V 50 Q 50 0 100 50 V 0 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 0.8,
+            ease: 'power4',
+            attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
+          })
+          // menu items translate animation
+          .to(this.menuItems, {
+            duration: 0.8,
+            ease: 'power4',
+            startAt: {y: 150},
+            y: 0,
+            opacity: 1,
+            stagger: 0.05
+          }, '>-=1.1');
     }
-    // Initialize the Menu.
-    this.menu = new Menu(document.querySelector('nav.menu'));
+
+// closes the menu
+    const closeMenu = ()  => {
+      if ( this.isAnimating ) return;
+      this.isAnimating = true;
+      gsap.timeline({
+        onComplete: () => this.isAnimating = false
+      })
+          .set(this.overlayPath, {
+            attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 0.8,
+            ease: 'power4.in',
+            attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' }
+          }, 0)
+          .to(this.overlayPath, {
+            duration: 0.3,
+            ease: 'power2',
+            attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
+            onComplete: () => {
+              this.menuWrap.classList.remove('menu-wrap--open');
+            }
+          })
+          // now reveal
+          .set(this.overlayPath, {
+            attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 0.3,
+            ease: 'power2.in',
+            attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' }
+          })
+          .to(this.overlayPath, {
+            duration: 0.8,
+            ease: 'power4',
+            attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
+          })
+          // menu items translate animation
+          .to(this.menuItems, {
+            duration: 0.8,
+            ease: 'power2.in',
+            y: 100,
+            opacity: 0,
+            stagger: -0.05
+          }, 0)
+
+    }
+
+// click on menu button
+    this.openMenuCtrl.addEventListener('click', openMenu);
+// click on close menu button
+    this.closeMenuCtrl.addEventListener('click', closeMenu);
+
   }
 }
 </script>
 
 <style scoped lang="scss">
-.menuBg{
-  position: fixed;
-  display: none;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+  /* Provide a fallback style for browsers
+   that don't support :focus-visible */
+  outline: none;
+  background: lightgrey;
 }
-.hidden {
-  position: absolute;
+
+a:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+   that do support :focus-visible */
+  background: transparent;
+}
+
+a:focus-visible {
+  /* Draw a very noticeable focus style for
+   keyboard-focus on browsers that do support
+   :focus-visible */
+  outline: 2px solid #fff;
+  background: transparent;
+}
+
+.unbutton {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.unbutton:focus {
+  outline: none;
+}
+
+.hover-line {
+  white-space: nowrap;
   overflow: hidden;
-  width: 0;
-  height: 0;
-  pointer-events: none;
+  position: relative;
+  display: inline-block;
+}
+
+.hover-line::before {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  position: absolute;
+  top: 92%;
+  transition: transform 0.3s;
+  transform-origin: 0% 50%;
+}
+
+.hover-line:hover::before {
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
 }
 
 main {
-  position: relative;
-  width: 100%;
-}
-.action {
-  background: none;
-  border: 0;
-  color: #fff;
-  cursor: pointer;
-  padding: 0;
-  font-size: 2em;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100vh;
 }
 
-.action--menu {
-  pointer-events: auto;
-  position: absolute;
-  top: 35px;
-  right: 25px;
-  z-index: 1000;
-  color: black;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.button-menu {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--color-button-menu);
+  fill: var(--color-button-menu);
 }
-.action--menu:hover .menublob .smallblob{
-  transform: scale(15);
+
+.button-menu svg {
+  transition: transform 0.5s ease;
+}
+
+.button-menu:focus-visible,
+.button-menu:hover {
+  fill: var(--color-button-menu-hover);
+  border-color: var(--color-button-menu-hover);
+}
+
+.button-menu:hover svg {
+  transform: scale(1.1);
+}
+
+.button-enter {
+  margin-top: 4vh;
+  cursor: not-allowed;
+  transition: transform 0.5s ease;
+}
+
+.button-enter:hover {
+  transform: translateX(15px) rotate(-40deg);
+}
+
+.menu-wrap {
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100vh;
+  position: relative;
+  pointer-events: none;
+  opacity: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.menu-wrap.menu-wrap--open {
+  pointer-events: auto;
   opacity: 1;
 }
-.action--menu img{
-  transition: transform 1s linear;
-}
-.menublob{
-  position: absolute;
+
+.overlay {
+  grid-area: 1 / 1 / 2 / 2;
+  position: relative;
+  z-index: 1000;
+  pointer-events: none;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.menublob .smallblob{
-  background: #88F332;
-  width: 5px;
-  height: 5px;
-  border-radius: 100px;
-  transition: transform 0.3s ease-out, opacity 0.2s linear;
-  opacity: 0;
-}
-
-.menu--open .action--menu {
-  pointer-events: none;
-}
-
-.action--close {
-  color: black;
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  z-index: 1000;
-  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 .menu {
-  text-align: center;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 200;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: repeat(3,33.33%);
-  pointer-events: none;
-}
-
-.menu--open {
-  pointer-events: auto;
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding: 0vw 12.5vw;
 }
 
 .menu__item {
-  width: 100%;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  font-weight: 300;
+  text-align: left;
   position: relative;
-  overflow: hidden;
+  will-change: opacity, transform;
+  margin: 20px 0px;
+  width: 100%;
 }
 
-.mainmenu__item span{
-  color: black;
+.menu__item-text {
+  font-weight: 500;
+  text-align: left;
+  font-size: 3em;
+  color: #E7FFD3;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
-
-.menu__item-inner {
-  overflow: hidden;
-  transform: translate3d(101%,0,0);
-  height: 100%;
-  width: 100%;
-  position: relative;
+.menu__item-text:hover {
+  opacity: 1;
+}
+.menu__bottom{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.menu__seperator{
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+.menu__socials{
+  filter: brightness(0) invert(1);
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.menu__item--1 .menu__item-inner {
-  background: #ffffff;
-}
-.menu__item--2 .menu__item-inner {
-  background: #88F332;
-}
-.menu__item--3 .menu__item-inner {
-  background: #88F332;
-}
-.menu__item--4 .menu__item-inner {
-  background: #88F332;
-}
-.menu__item--5 .menu__item-inner {
-  background: #88F332;
-}
-
-.menu__item--3 {
-  display: none;
-}
-
-.label {
-  display: none;
-}
-
-.mainmenu__item {
-  opacity: 0;
-}
-
-.mainmenu__item,
-.sidemenu__item {
-  position: relative;
-  overflow: hidden;
-  transition: color 0.1s;
-  margin: 0.25rem 0;
-  display: block;
-}
-
-.sidemenu__item-inner {
-  display: block;
-  color: black;
-  transform: translate3d(0,100%,0);
-}
-@media screen and (max-width: 1024px){
-  .action--menu {
-    top: 30px;
-    right: 5vw;
-    width: 28px;
-  }
-  .action--close {
-    top: 17px;
-    right: 5vw;
+@keyframes runner {
+  to {
+    transform: translateX(-25%);
   }
 }
 
-@media screen and (min-width: 53em) {
-  body {
-    padding: 0;
+.button-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 2rem;
+  stroke: var(--color-button-close);
+  fill: none;
+}
+
+.button-close:focus-visible,
+.button-close:hover {
+  stroke: var(--color-button-close-hover);
+}
+@media only screen and (max-width: 1024px){
+  .menu{
+    padding: 0px 20px;
   }
-  .menu {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    grid-template-columns: 20% 30% 50%;
-    grid-template-rows: 60% 40%;
-    grid-template-areas:
-            "item3 item2 item1"
-            "item4 item4 item1";
-  }
-  .menu__item {
-    height: 100%;
-  }
-  .menu__item--1 {
-    grid-area: item1;
-  }
-  .menu__item--2 {
-    grid-area: item2;
-  }
-  .menu__item--3 {
-    grid-area: item3;
-  }
-  .menu__item--4 {
-    grid-area: item4;
-  }
-  .menu__item--3 {
-    display: block;
-  }
-  .menu__item-inner {
-    align-items: center;
-  }
-  .label {
-    display: block;
+  .button-close {
     position: absolute;
-    z-index: 1000;
-    font-size: 0.85rem;
-    font-weight: bold;
-    margin: 0;
-    white-space: nowrap;
-  }
-  .label--topleft {
-    top: 2rem;
-    left: 2rem;
-  }
-  .label--vert,
-  .label--vert-mirror {
-    -webkit-writing-mode: vertical-rl;
-    writing-mode: vertical-rl;
-  }
-  .label--vert-mirror {
+    top: 0;
+    right: 0px;
+    stroke: var(--color-button-close);
+    fill: none;
     transform: rotate(180deg);
   }
-  .label--bottomright {
-    bottom: 2rem;
-    right: 2rem;
+}
+@media screen and (min-width: 53em) {
+  .frame {
+    grid-template-columns: 390px 1fr 390px;
+    grid-template-areas: 'author heading button'
+							'... ... ...'
+							'title links links';
+    font-size: 1.5rem;
   }
-  .label--vert::before,
-  .label--vert-mirror::before {
-    margin: 0.75rem 0;
+  .frame__title {
+    justify-self: start;
+    align-self: end;
+    margin: 0 3rem 0 0;
   }
-  .mainmenu,
-  .sidemenu {
-    width: 100%;
-    height: 100%;
+  .frame__links {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-self: start;
+    padding: 0;
   }
-  .mainmenu {
-    counter-reset: menuitem;
+  .frame__links a:not(:last-child) {
+    margin-right: 0.5rem;
   }
-  .mainmenu__item {
-    font-size: 5vw;
-    overflow: visible;
-    margin: 0.5rem 0;
-    padding: 0 0.5rem;
-    position: relative;
-    transition: color 0.3s;
-    color: black;
+  .frame__heading-main {
+    font-size: 2.15rem;
   }
-  .mainmenu__item span{
-    color: black;
+  .frame__heading-sub {
+    font-size: 1rem;
   }
-  .mainmenu__item:hover::after {
-    opacity: 1;
-    transform: scale3d(1,1,1);
-  }
-  .sidemenu__item {
-    color: black;
-    text-transform: uppercase;
-    letter-spacing: 0.15rem;
-    font-size: 0.85rem;
-    text-align: left;
+  .menu__item-tiny {
+    font-size: 2rem;
   }
 }
 </style>

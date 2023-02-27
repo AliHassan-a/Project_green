@@ -1,14 +1,14 @@
 <template>
   <div class="w-full leistungBlockWrapper">
-    <div class="animateBlockItem w-full" v-for="(project, index, key) in projects" :key="key">
-      <Seperator theme="lightGreen"></Seperator>
+    <div class="animateBlockItem serviceWrapper" v-for="(project, index, key) in projects" :key="key">
+      <Seperator class="m-hide" theme="lightGreen"></Seperator>
       <div class="leistungWrapper">
         <h3 class="lightGreenColor">{{ project.year }}</h3>
         <h3 class="w-full leistungText">{{ project.title }}</h3>
         <BaseButton v-for="(service, index, key) in project.services" :theme="'dark'" :title="service" :key="key"/>
         <BaseButton :link-to="project.link" :theme="'more'" :title="'Seite ansehen'" />
       </div>
-      <Seperator theme="lightGreen"></Seperator>
+      <Seperator class="m-hide" theme="lightGreen"></Seperator>
     </div>
   </div>
 </template>
@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+.leistungBlockWrapper .serviceWrapper{
+  width: 100vw;
+  margin: auto;
+}
 .leistungWrapper{
   width: 100%;
   max-width: 75vw;
@@ -60,12 +64,22 @@ export default {
 }
 
 /* RESPONSIVE */
+/* RESPONSIVE */
 @media only screen and (max-width: 1024px) {
+  .leistungBlockWrapper .serviceWrapper{
+    width: 90vw;
+  }
   .leistungWrapper{
     flex-direction: column;
+    margin: 40px auto;
   }
   .leistungText{
     text-align: center;
+  }
+  .leistungBlockWrapper .serviceWrapper{
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.25);
+    margin-bottom: 20px;
   }
 }
 </style>

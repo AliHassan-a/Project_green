@@ -1,12 +1,17 @@
 <template>
   <header>
     <div ref="logoContainer" class="logoContainer">
-      <a class="logoImage greensteinLogo" href="/">
+      <g-link class="logoImage greensteinLogo" :to="'/'">
         <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/greenstein-logo.svg"></g-image>
-      </a>
-      <a class="logoImage greensteinLogoFont" href="/">
+      </g-link>
+      <g-link class="logoImage greensteinLogoFont" :to="'/'">
         <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/greenstein-logo-font.svg"></g-image>
-      </a>
+      </g-link>
+    </div>
+    <div class="frame__button">
+      <button class="unbutton button-menu" aria-label="Open menu" style="background: none; color: white; border: none">
+        <g-image src="@/assets/Menu.svg"></g-image>
+      </button>
     </div>
     <Menu @toggleMenu="onToggleMenu"/>
   </header>
@@ -52,6 +57,14 @@ div.logoContainer{
   z-index: 1001;
   transition: filter 1s ease;
 }
+.frame__button{
+  position: absolute;
+  right: 30px;
+}
+.frame--menu-open .button-menu {
+  opacity: 0;
+  pointer-events: none;
+}
 .greensteinLogo{
   margin-right: 10px;
 }
@@ -68,6 +81,9 @@ div.logoContainer{
     top:0;
     left:5vw;
     width: 200px;
+  }
+  .frame__button{
+    right: 15px;
   }
 }
 </style>

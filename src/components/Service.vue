@@ -1,29 +1,29 @@
 <template>
   <div class="w-full leistungBlockWrapper">
-    <div class="animateBlockItem w-full">
-      <Seperator theme="lightGreen"></Seperator>
+    <div class="animateBlockItem serviceWrapper">
+      <Seperator class="m-hide" theme="lightGreen"></Seperator>
       <div class="leistungWrapper">
         <g-image src="@/assets/design_strategie_icon.webp"></g-image>
         <h3 class="w-full leistungText">Design & Strategie</h3>
         <BaseButton :link-to="'design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>
-      <Seperator theme="lightGreen"></Seperator>
+      <Seperator class="m-hide" theme="lightGreen"></Seperator>
     </div>
-    <div class="animateBlockItem w-full">
+    <div class="animateBlockItem serviceWrapper">
       <div class="leistungWrapper">
         <g-image src="@/assets/entwicklung_icon.webp"></g-image>
         <h3 class="w-full leistungText">Entwicklung</h3>
         <BaseButton :link-to="'entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>
-      <Seperator theme="lightGreen"></Seperator>
+      <Seperator class="m-hide" theme="lightGreen"></Seperator>
     </div>
-    <div class="animateBlockItem w-full">
+    <div class="animateBlockItem serviceWrapper">
       <div class="leistungWrapper">
         <g-image src="@/assets/marketing_icon.webp"></g-image>
         <h3 class="w-full leistungText">Marketing</h3>
         <BaseButton :link-to="'marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
       </div>
-      <Seperator theme="lightGreen"></Seperator>
+      <Seperator class="m-hide" theme="lightGreen"></Seperator>
     </div>
   </div>
 </template>
@@ -43,6 +43,10 @@ export default {
 </script>
 
 <style scoped>
+.leistungBlockWrapper .serviceWrapper{
+  width: 90vw;
+  margin: auto;
+}
 .leistungWrapper{
   width: 100%;
   max-width: 75vw;
@@ -71,13 +75,23 @@ export default {
   justify-content: flex-end;
 }
 
+
 /* RESPONSIVE */
 @media only screen and (max-width: 1024px) {
+  .leistungBlockWrapper .serviceWrapper{
+    width: 90vw;
+  }
   .leistungWrapper{
     flex-direction: column;
+    margin: 40px auto;
   }
   .leistungText{
     text-align: center;
+  }
+  .leistungBlockWrapper .serviceWrapper{
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.25);
+    margin-bottom: 20px;
   }
 }
 </style>

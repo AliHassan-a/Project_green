@@ -40,10 +40,7 @@
 <script>
 import BaseButton from "../components/BaseButton";
 import BaseTitle from "../components/BaseTitle";
-import ProjectSlider from "../components/ProjectSlider";
-import BlogSlider from "../components/BlogSlider";
 import Seperator from "../components/Seperator";
-import CustomerLogoGlider from "../components/CustomerLogoGlider";
 import initGsap from "../misc/gsapBase";
 import HeroTitle from "../components/HeroTitle";
 import Slider from "../components/Slider";
@@ -61,9 +58,6 @@ export default {
     BaseTitle,
     BaseText,
     Seperator,
-    ProjectSlider,
-    BlogSlider,
-    CustomerLogoGlider,
   },
   data() {
     return {
@@ -111,6 +105,14 @@ export default {
 }
 .section-three{
   margin-bottom: 200px;
+}
+@media only screen and (max-width: 1024px){
+  .section-two{
+    margin-bottom: 50px;
+  }
+  .section-three .contentContainer{
+    flex-direction: column;
+  }
 }
 </style>
 

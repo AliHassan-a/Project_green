@@ -231,6 +231,14 @@ img {
     width: 82vw;
     max-width: 800px;
   }
+  .testimonial{
+    left: 20px;
+  }
+  .c-exp-gallery-slide__card.testimonials {
+    width: calc(90vw - 40px);
+    height: 300px;
+    padding: 20px;
+  }
   .c-exp-gallery-slide__card.image {
     width: 90vw;
   }

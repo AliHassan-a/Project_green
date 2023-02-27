@@ -120,7 +120,14 @@ export default {
 .section-three{
   max-width: 100%;
   min-height: unset;
-  padding: 200px 0px;
+  padding: 100px 0px;
+}
+@media only screen and (max-width: 1024px){
+  .section-three{
+    max-width: 100%;
+    min-height: unset;
+    padding: 0px 0px;
+  }
 }
 </style>
 

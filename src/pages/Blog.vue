@@ -5,11 +5,11 @@
         <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginX">Aktuelles aus Agentur & Werbewelt</BaseTitle>
       </div>
       <div id="one" class="mainSection section-one">
-        <a class="singleBlog" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
+        <a class="singleBlog animateBlockItem" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
           <div class="singleCard">
             <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.sourceUrl" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
             <p v-html="edge.node.title">
-            <p style="font-size: 18px" class="greenColor" v-html="edge.node.date"></p>
+            <p style="font-size: 18px" class="greenColor" v-html="getFormattedDate(edge.node.date)"></p>
           </div>
         </a>
       </div>
@@ -26,8 +26,23 @@ export default {
   components: {
     BaseTitle,
   },
+  methods: {
+    getFormattedDate(date){
+      const newDate = new Date(date);
+      return newDate.toLocaleDateString('de-de');
+    },
+  },
   mounted() {
-    this.pageGsap = new initGsap({}, this);
+    new initGsap({}, this);
+  },
+  metaInfo() {
+    return {
+      title: "BLog",
+      meta: [
+        { name: 'title', content: "Greenstein Blog" },
+        { name: 'description', content: "Meta Greenstein Blog" },
+      ]
+    }
   }
 }
 </script>
@@ -50,6 +65,18 @@ export default {
 img.featured{
   height: 333px;
   object-fit: cover;
+}
+@media only screen and (max-width: 1024px){
+  .section-one{
+    flex-direction: column;
+    gap: 25px;
+    flex-wrap: wrap;
+    min-height: unset;
+  }
+  .singleBlog{
+     width: 100%;
+     flex-grow: 1;
+  }
 }
 </style>
 
