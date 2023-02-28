@@ -4,8 +4,8 @@
       <div class="contentContainer">
         <HeroTitle
             :main-title="'Vielen Dank!'"
-            :main-title-second="'Deine Anfrage wurde gestellt.'"
-            :second-title="'Jetzt kommen wir auf dich zu!'" />
+            :main-title-second="'Wir haben deine Anfrage erhalten.'"
+            :second-title="'Wir melden uns schnellstmöglich bei Dir.'" />
       </div>
     </div>
   </div>

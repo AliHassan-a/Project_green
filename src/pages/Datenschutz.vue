@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div id="page" class="site">
-      <div id="one" class="mainSection section-one">
+      <div id="one" class="mainSection section-one" style="margin-top: 200px !important;">
         <div class="contentContainer">
           <div class="singleContent" v-html="getDatenschutz"></div>
         </div>
@@ -12,11 +12,15 @@
 
 <script>
 import BaseText from "../components/BaseText";
+import initGsap from "../misc/gsapBase";
 
 export default {
   name: "Impressum",
   components: {
     BaseText,
+  },
+  mounted() {
+    new initGsap({}, this);
   },
   computed: {
     getDatenschutz() {

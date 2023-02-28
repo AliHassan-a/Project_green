@@ -5,7 +5,7 @@
         <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginX">Aktuelles aus Agentur & Werbewelt</BaseTitle>
       </div>
       <div id="one" class="mainSection section-one">
-        <a class="singleBlog animateBlockItem" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
+        <a class="singleBlog animateBlockItemStagger" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
           <div class="singleCard">
             <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.sourceUrl" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
             <p v-html="edge.node.title">
@@ -37,7 +37,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "BLog",
+      title: "Blog",
       meta: [
         { name: 'title', content: "Greenstein Blog" },
         { name: 'description', content: "Meta Greenstein Blog" },
@@ -51,11 +51,13 @@ export default {
 .section-head{
   min-height: unset;
   margin-top: 200px;
+  margin-bottom: 60px;
 }
 .section-one{
   flex-direction: row;
   gap: 25px;
   flex-wrap: wrap;
+  align-items: flex-start;
   min-height: unset;
 }
 .singleBlog{
@@ -64,6 +66,7 @@ export default {
 }
 img.featured{
   height: 333px;
+  width: 100%;
   object-fit: cover;
 }
 @media only screen and (max-width: 1024px){

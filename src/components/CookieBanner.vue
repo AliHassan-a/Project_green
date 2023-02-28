@@ -8,7 +8,7 @@
           <g-image class="cookieBite" :class="bittenCookie ? 'bitten' : ''" src="@/assets/cookie-bite.webp"></g-image>
         </div>
         <BaseTitle :align="'center'" :addClass="'bold'" :tag="'h3'" >
-          Cookie?
+          Cookies?
         </BaseTitle>
         <BaseText addStyle="text-align: center; margin: 20px 0px;">
           Wir verwenden Cookies, um deine Erfahrung<br> auf dieser Website zu verbessern.

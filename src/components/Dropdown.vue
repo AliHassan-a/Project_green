@@ -126,5 +126,9 @@ p {
     top: 0px;
     left:20px;
   }
+  .accordion-title{
+     margin-left: 40px;
+  }
+
 }
 </style>

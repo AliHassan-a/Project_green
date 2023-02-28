@@ -75,8 +75,8 @@ export default {
   border: 1px solid rgba(136,243,50,0.2);
   background: rgba(0,0,0,0.5);
   border-radius: 22px;
-  padding: 100px;
-  min-width: 350px;
+  padding: 60px 70px;
+  min-width: 300px;
   transition: all 0.3s ease-out;
 }
 .innerLeistung{
@@ -106,7 +106,7 @@ export default {
 }
 .stickySection{
   top:0;
-  height: 50vh;
+  height: 100vh;
   padding-top: 30vh;
 }
 @media only screen and (max-width: 1024px){

@@ -21,9 +21,6 @@ export default {
   props: {
     content: Object,
   },
-  mounted(){
-    console.log(this.content);
-  }
 }
 </script>
 

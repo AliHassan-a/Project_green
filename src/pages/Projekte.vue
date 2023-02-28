@@ -95,16 +95,28 @@ export default {
         },
         {
           year: "2022",
-          title: "Kehr Gutachten",
-          services: ["Webdesign", "SEO"],
-          link: "https://kehr-gutachten.de/",
+          title: "Schweizer Immobilienmanufaktur",
+          services: ["Webdesign", "Brandingdesign"],
+          link: "https://schweizer-immobilienmanufaktur.de/",
         },
         {
           year: "2022",
-          title: "Kehr Gutachten",
-          services: ["Webdesign", "SEO"],
-          link: "https://kehr-gutachten.de/",
-        }
+          title: "Jurgeit Immobilien",
+          services: ["Webdesign"],
+          link: "",
+        },
+        {
+          year: "2022",
+          title: "Schweizer Immobilienmanufaktur",
+          services: ["Webdesign", "Brandingdesign"],
+          link: "https://schweizer-immobilienmanufaktur.de/",
+        },
+        {
+          year: "2021",
+          title: "Ikalu",
+          services: ["Webdesign"],
+          link: "https://schweizer-immobilienmanufaktur.de/",
+        },
       ]
     }
   },

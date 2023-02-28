@@ -9,9 +9,18 @@
       </a>
     </div>
     <div class="frame__button">
-      <button class="unbutton button-menu" aria-label="Open menu" style="background: none; color: white; border: none">
-        <g-image src="@/assets/Menu.svg"></g-image>
-      </button>
+      <a href="/jetzt-anfragen" class="m-hide">
+        <button class="dark">
+          <div class="button-blob dark" />
+          <span class="title">Jetzt anfragen</span>
+          <span class="title title--hovered"><b>Jetzt anfragen</b></span>
+        </button>
+      </a>
+      <div class="menuIcon">
+        <button class="unbutton button-menu" aria-label="Open menu" style="background: none; color: white; border: none">
+          <g-image src="@/assets/Menu.svg"></g-image>
+        </button>
+      </div>
     </div>
     <Menu @toggleMenu="onToggleMenu"/>
   </header>
@@ -19,10 +28,12 @@
 
 <script>
 import Menu from "@/components/Menu";
+import BaseButton from "./BaseButton";
 
 export default {
   name: "Header",
   components: {
+    BaseButton,
     Menu,
   },
   methods: {
@@ -57,9 +68,22 @@ div.logoContainer{
   z-index: 1001;
   transition: filter 1s ease;
 }
+button.dark{
+  height: 4em;
+  margin-right: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 1px solid rgba(255,255,255,0.25)
+}
+button.dark span{
+  font-size: 20px;
+  line-height: 2.5em;
+}
 .frame__button{
   position: absolute;
   right: 30px;
+  top: 19px;
+  display: flex;
 }
 .frame--menu-open .button-menu {
   opacity: 0;
@@ -72,8 +96,16 @@ div.logoContainer{
   opacity: 1;
   z-index: 1;
 }
+.menuIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .blackLogo{
   filter: grayscale(1) brightness(0);
+}
+button{
+  cursor: pointer;
 }
 @media only screen and (max-width: 1024px){
   div.logoContainer{

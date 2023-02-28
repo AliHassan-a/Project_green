@@ -44,7 +44,7 @@ export default {
 
 <style scoped>
 .leistungBlockWrapper .serviceWrapper{
-  width: 90vw;
+  width: 100%;
   margin: auto;
 }
 .leistungWrapper{
@@ -54,7 +54,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  margin: 30px 12.5vw;
+  margin: 50px 12.5vw;
   transition: 0.4s ease-out;
 }
 .animateBlockItem{

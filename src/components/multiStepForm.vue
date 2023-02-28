@@ -47,12 +47,22 @@
               <hr class="hoverLine">
             </div>
             <div class="inputSingle">
+              <label for="contactCompany">Dein Unternehmen</label>
+              <input id="contactCompany"
+                     type="text"
+                     v-model="steps[activeStep].contact.message"
+                     @focus="toggleLabel('contactCompany', 'open', 1)"
+                     @blur="toggleLabel('contactCompany', 'close', 1)">
+              <hr class="defaultLine" :style="getStyleLine('company')">
+              <hr class="hoverLine">
+            </div>
+            <div class="inputSingle">
               <label for="contactEmail">Deine Email*</label>
               <input id="contactEmail"
                      type="email"
                      v-model="steps[activeStep].contact.email"
-                     @focus="toggleLabel('contactEmail', 'open', 1)"
-                     @blur="toggleLabel('contactEmail', 'close', 1)">
+                     @focus="toggleLabel('contactEmail', 'open', 2)"
+                     @blur="toggleLabel('contactEmail', 'close', 2)">
               <hr class="defaultLine" :style="getStyleLine('email')">
               <hr class="hoverLine">
             </div>
@@ -61,20 +71,19 @@
               <input id="contactTel"
                      type="tel"
                      v-model="steps[activeStep].contact.tel"
-                     @focus="toggleLabel('contactTel', 'open', 2)"
-                     @blur="toggleLabel('contactTel', 'close', 2)">
+                     @focus="toggleLabel('contactTel', 'open', 3)"
+                     @blur="toggleLabel('contactTel', 'close', 3)">
               <hr class="defaultLine" :style="getStyleLine('tel')">
               <hr class="hoverLine">
             </div>
             <div class="inputSingle">
-              <label for="contactMessage">Erzähl uns von deinem Projekt</label>
-              <input id="contactMessage"
-                     type="text"
-                     v-model="steps[activeStep].contact.message"
-                     @focus="toggleLabel('contactMessage', 'open', 3)"
-                     @blur="toggleLabel('contactMessage', 'close', 3)">
-              <hr class="defaultLine">
-              <hr class="hoverLine">
+              <div class="radioWrapper">
+                <div @click="toggleDatenschutz()"
+                     :class="datenschutz ? 'activeRadio' : ''" class="radioBtn" >
+                  <div class="radioCircle" />
+                  <p style="font-size: 14px;">ich habe die <a href="/datenschutz"><u>Datenschutzerklärung</u></a> gelesen - Ich bin einverstanden!</p>
+                </div>
+              </div>
             </div>
             <span class="phone-wrap" style="visibility: hidden !important">
               <input id="wpcf7" placeholder="phone" class="wpcf7-form-control wpcf7-text" type="text" name="phone" value size="40" tabindex="-1" autocomplete="new-password">
@@ -84,7 +93,7 @@
       </div>
       <div @click="onActionButton()" style="margin-top: 30px;">
         <transition name="multiStepBtn" mode="out-in">
-          <BaseButton linkTo="#" :align="'right'"  :theme="'more'" :title="activeStep < steps.length-1 ? 'Weiter' : 'Senden'" :key="activeStep"/>
+          <BaseButton v-if="!isSend" linkTo="#" :align="'right'"  :theme="'more'" :title="activeStep < steps.length-1 ? 'Weiter' : 'Senden'" :key="activeStep"/>
         </transition>
       </div>
     </div>
@@ -98,12 +107,23 @@ export default {
   name: "multiStepForm",
   components: {BaseButton, BaseTitle},
   methods: {
+    toggleDatenschutz() {
+      this.datenschutz = !this.datenschutz;
+    },
     getStyleLine(type){
       switch(type) {
         case "name":
           if(this.steps[this.activeStep].validData.name == true){
             return {borderColor: '#88F332'}
           } else if (this.steps[this.activeStep].validData.name == false){
+            return {borderColor: 'red'}
+          } else {
+            return ""
+          }
+        case "company":
+          if(this.steps[this.activeStep].validData.company == true){
+            return {borderColor: '#88F332'}
+          } else if (this.steps[this.activeStep].validData.company == false){
             return {borderColor: 'red'}
           } else {
             return ""
@@ -161,7 +181,14 @@ export default {
       this.activeStep < this.steps.length-1 ? this.activeStep++ : this.submitEvent();
     },
     submitEvent(){
-      this.$emit("submitForm", this.steps);
+      if(this.datenschutz &&
+          this.steps[2].validData.name &&
+          this.steps[2].validData.email &&
+          this.steps[2].validData.tel){
+        this.$emit("submitForm", this.steps)
+        this.isSend = true;
+      } else {
+      }
     }
   },
   computed: {
@@ -203,6 +230,8 @@ export default {
   data(){
     return{
       activeStep: 0,
+      datenschutz: false,
+      isSend: false,
       steps: [
         {
           title: "Bedarf",
@@ -266,6 +295,7 @@ export default {
             name: null,
             email: null,
             tel: null,
+            company: null,
           }
         }
       ],
@@ -326,6 +356,9 @@ export default {
 button.dark{
   transition: font-weight 0.3s linear;
   border: 1px solid rgba(255,255,255,0.25);
+}
+div.customGreenBtn div.button-blob.dark{
+  background: #88F332 !important;
 }
 .customGreenBtn{
   background: #88F332 !important;

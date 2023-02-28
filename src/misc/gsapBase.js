@@ -104,6 +104,23 @@ const initGsap = class {
                     stagger: { each: 0.05, from: 'random'},
                 });
             });
+            /*ITEM REVEAL STAGGER*/
+            ScrollTrigger.batch(".animateBlockItemStagger", {
+                onEnter: batch => gsap.to(batch,
+                    {
+                        filter: 'blur(0px)',
+                        opacity: 1,
+                        duration: 0.6,
+                        stagger: 0.3, }
+                ),
+                onLeaveBack: batch => gsap.to(batch,
+                    {
+                        filter: 'blur(0px)',
+                        opacity: 0,
+                        duration: 0.6,
+                        stagger: 0.3, }
+                ),
+            });
             /*ItemBlocks Sticky*/
             let itemBlocksSticky = document.querySelectorAll(".animateStickyBlockItem");
             itemBlocksSticky.forEach(itemBlockSticky => {
@@ -178,6 +195,21 @@ const initGsap = class {
                     ease: "power1.inOut",
                     stagger: { each: 0.05, from: 'random'},
                 });
+            });
+            /*ITEM REVEAL STAGGER*/
+            ScrollTrigger.batch(".animateBlockItemStagger", {
+                onEnter: batch => gsap.to(batch,
+                    {
+                        opacity: 1,
+                        duration: 0.6,
+                        stagger: 0.3, }
+                ),
+                onLeaveBack: batch => gsap.to(batch,
+                    {
+                        opacity: 0,
+                        duration: 0.6,
+                        stagger: 0.3, }
+                ),
             });
             /*ItemBlocks Sticky*/
             let itemBlocksSticky = document.querySelectorAll(".animateStickyBlockItem");
@@ -260,7 +292,7 @@ const initGsap = class {
                     onEnterBack: () => context.vueInstance.$root.$emit("repaint-bg", 280),
                 }
             });
-            sections.forEach((section, index)=>{
+            sections.forEach((section, index) => {
                 gsap.from(section, {
                     scrollTrigger: {
                         trigger: section,
@@ -287,7 +319,7 @@ const initGsap = class {
                         onLeaveBack: () => {
                             switch (index) {
                                 case 1:
-                                    context.vueInstance.$root.$emit("repaint-bg", 0);
+                                    context.vueInstance.$root.$emit("repaint-bg", 150);
                                     break;
                                 case 2:
                                     context.vueInstance.$root.$emit("repaint-bg", 333);
@@ -296,7 +328,7 @@ const initGsap = class {
                                     context.vueInstance.$root.$emit("repaint-bg", 100);
                                     break;
                                 default:
-                                    context.vueInstance.$root.$emit("repaint-bg", 180);
+                                    context.vueInstance.$root.$emit("repaint-bg", 0);
                                     break;
                             }
                         }
@@ -309,8 +341,8 @@ const initGsap = class {
                     scrollTrigger: {
                         trigger: box,
                         toggleActions: "restart resume resume reverse",
-                        start: "50% 100%",
-                        end: "50% 70%%",
+                        start: "10% 100%",
+                        end: "10% 70%",
                         scrub: true,
                     },
                     y: 100,
@@ -527,7 +559,7 @@ const initGsap = class {
                     scrollTrigger: {
                         trigger: ".footer-overlay",
                         start: "center bottom+=400",
-                        end: "center center-=300",
+                        end: "center center-=350",
                         scrub: 1,
                     }
                 })
@@ -557,7 +589,7 @@ const initGsap = class {
                 initFooter(false)
             },
             "(max-width: 1024px)": () => {
-                initEntryAnimationsMobile()
+                //initEntryAnimationsMobile()
                 /*HERO ANIMATION*/
                 if(this.features.heroAnimation){
                     initHeroMobile()

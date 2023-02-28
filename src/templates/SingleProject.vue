@@ -80,6 +80,11 @@
   justify-content: flex-start;
   gap: 30px;
 }
+.section-two .contentContainer img{
+  justify-content: flex-start;
+  gap: 30px;
+  width: 70%;
+}
 .section-two .technologies{
   display: flex;
   gap: 10px;
@@ -150,6 +155,9 @@
   .section-two .contentContainer{
     flex-direction: column;
   }
+  .section-two .contentContainer img{
+    width: 100%;
+  }
   .section-three {
     flex-direction: column;
   }
@@ -177,6 +185,12 @@ export default {
   data(){
     return {
       currentImage: null,
+      pages: {
+        "Chartexperten": 150,
+        "Eintracht-Hildesheim": 333,
+        "Kematherm": 100,
+        "Schweizer-Immobilienmanufaktur": 280,
+      },
     }
   },
   computed: {
@@ -188,16 +202,20 @@ export default {
   },
   mounted() {
     this.currentImage = this.$context.acf.step1Image;
+    console.log(this.$context.title)
+    this.paintBg(this.$context.title);
     this.$root.$on("changeImage", this.onChangeImage);
-    setTimeout( () => {
-      this.$root.$emit("repaint-bg", 150);
-    }, 10);
     new initGsap({
       heroAnimation: true,
       stickySection: true,
     }, this);
   },
   methods: {
+    paintBg(pageTitle){
+      setTimeout( () => {
+        this.$root.$emit("repaint-bg", this.pages[pageTitle]);
+      }, 10);
+    },
     onChangeImage(no){
       this.getImagesArray[no] != undefined ? this.currentImage = this.getImagesArray[no] : this.currentImage = this.currentImage;
     },

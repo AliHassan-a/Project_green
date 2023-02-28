@@ -31,8 +31,6 @@
 }
 .section-two{
   min-height: 0px;
-  min-width: 100vw;
-  margin: 100px 0px;
 }
 
 @media only screen and (max-width:1024px){

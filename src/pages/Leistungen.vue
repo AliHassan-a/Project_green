@@ -17,15 +17,11 @@ import StickySection from "../components/StickySection";
 export default {
   components: {
     StickySection,
-    HeroTitle,
-    BaseButton,
-    BaseTitle,
-    BaseText,
   },
   data() {
     return {
       hero: {
-        mainTitle: "Unsere digitalen Dienstleistungen",
+        mainTitle: "Unsere Leistungen",
         mainTitleSecond: "helfen Ihrem Unternehmen",
         secondTitle: "groß & mutig zu werden"
       },

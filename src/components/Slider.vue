@@ -1,5 +1,15 @@
 <template>
   <div class="c-exp-gallery__slider js-experience-slider">
+    <div class="greenBg sliderArrow arrowNext m-hide" style="z-index: 100;">
+      <svg class="arrowNext" width="100" height="100" fill="black" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+      </svg>
+    </div>
+    <div class="greenBg sliderArrow arrowPrev m-hide" style="z-index: 100;">
+      <svg class="arrowPrev" width="100" height="100" fill="black" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+      </svg>
+    </div>
     <div class="proxy"></div>
     <div class="c-exp-gallery__inner js-experience-slider__inner">
       <div class="c-exp-gallery__content js-experience-slider__content toDirectionHover">
@@ -58,6 +68,7 @@ export default {
     let prevSliderWidth = 0;
  // let pressedTop = false;
     let offset = 0;
+    let distance = 0;
 
     const setBounds = () => {
       prevSliderWidth = sliderWidth;
@@ -69,10 +80,24 @@ export default {
           (gsap.getProperty(proxy, "x") / (prevSliderWidth / 100));
 
       gsap.to([slider, proxy], { width: sliderWidth, x: newX });
+
+      distance = slides[0].clientWidth;
     };
 
     setBounds();
     window.addEventListener("resize", setBounds, false);
+
+    /* ARROWS */
+
+    // EXP SLIDE ADD DISTANCE TO SCROLLCLICK
+
+    distance = slides[0].clientWidth;
+
+    function getTranslateX(element) {
+      var style = window.getComputedStyle(element);
+      var matrix = new WebKitCSSMatrix(style.transform);
+      return matrix.m41;
+    }
 
     const draggable = Draggable.create(proxy, {
       type: "x",
@@ -83,16 +108,42 @@ export default {
       edgeResistance: 0.75,
       // edgeResistance: 1,
       dragResistance: 0.4,
-      onPress: function (e) {
+      onPress: function(e) {
         var bounds = this.target.getBoundingClientRect();
-        // pressedTop = e.clientY < bounds.y + bounds.height / 2;
+        if(e.srcElement.classList.contains("arrowPrev")){
+          if(getTranslateX(slider) >= 100 ) return ''
+          gsap.to(slider, {
+            duration: 0.35,
+            x: "+=" + (distance + 30),
+            skewX: function (v) {
+              var skew = InertiaPlugin.getVelocity(proxy, "x") / 200;
+              return gsap.utils.clamp(-10, 10, skew);
+            },
+            overwrite: "auto",
+            ease: "power2"
+          });
+          this.x = this.x + (distance + 30);
+        } else if(e.srcElement.classList.contains("arrowNext")){
+          if(getTranslateX(slider) <= (-container.clientWidth+((distance) * 2))) return ''
+          gsap.to(slider, {
+            duration: 0.35,
+            x: "-=" + (distance + 30),
+            skewX: function (v) {
+              var skew = InertiaPlugin.getVelocity(proxy, "x") / 200;
+              return gsap.utils.clamp(-10, 10, skew);
+            },
+            overwrite: "auto",
+            ease: "power2"
+          });
+          this.x = this.x - (distance + 30);
+        } else {
+          //keep track of how far apart the proxy is from the slider because when the user presses down, we want to IMMEDIATELY stop any motion, thus this offset value becomes baked in until release.
+          // offset = this.x - slider._gsTransform.x;
+          offset = this.x - gsap.getProperty(proxy, "x");
 
-        //keep track of how far apart the proxy is from the slider because when the user presses down, we want to IMMEDIATELY stop any motion, thus this offset value becomes baked in until release.
-        // offset = this.x - slider._gsTransform.x;
-        offset = this.x - gsap.getProperty(proxy, "x");
-
-        gsap.killTweensOf(slider); //in case it's moving
-        gsap.to(slider, { skewX: 0, duration: 0.2 });
+          gsap.killTweensOf(slider); //in case it's moving
+          gsap.to(slider, { skewX: 0, duration: 0.2 });
+        }
       },
       onDrag: function () {
         gsap.to(slider, {
@@ -217,6 +268,31 @@ img {
   padding: 0px;
   background: transparent;
 }
+.sliderArrow{
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  position: absolute;
+  display: inline-block;
+  top: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sliderArrow svg{
+  width: 40px;
+  height: 40px;
+}
+div.arrowNext{
+  right: 12.5vw;
+}
+div.arrowPrev{
+  right: calc(12.5vw + 70px);
+}
+.arrowPrev svg{
+  left: 0;
+  transform: rotate(180deg);
+}
 @media only screen and (max-width: 1024px){
   .c-exp-gallery__slider {
     position: relative;
@@ -245,6 +321,27 @@ img {
   .c-exp-gallery-slide__card.indexed {
     width: calc(90vw - 40px);
     padding: 20px;
+  }
+  .sliderArrow{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sliderArrow svg{
+    width: 20px;
+    height: 20px;
+  }
+  div.arrowPrev{
+    left: 1vw;
+  }
+  div.arrowNext{
+    right: -9vw;
   }
 }
 @media only screen and (min-width: 1920px){

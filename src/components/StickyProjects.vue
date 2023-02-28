@@ -6,7 +6,7 @@
           <g-image class="projectLogo" :src="projects[0].logo"></g-image>
         </div>
         <BaseTitle class="projectText" :tag="'h3'">{{ projects[0].text }}</BaseTitle>
-        <BaseButton class="projectBtn" :linkTo="'/projekte/chartexperten'" :align="'left'" :theme="'dark'" :title="'Live ansehen'" />
+        <BaseButton class="projectBtn" :linkTo="'projekte/chartexperten'" :align="'left'" :theme="'dark'" :title="'Live ansehen'" />
         <g-image class="projectMock" :src="projects[0].mockup"></g-image>
       </div>
       <div class="project" :style="{background: projects[1].color}" data-speed="1.1">
@@ -14,7 +14,7 @@
           <g-image class="projectLogo" :src="projects[1].logo"></g-image>
         </div>
         <BaseTitle class="projectText" :tag="'h3'">{{ projects[1].text }}</BaseTitle>
-        <BaseButton class="projectBtn" :linkTo="'/projekte/eintracht-hildesheim'" :align="'left'" :theme="'dark'" :title="'Live ansehen'" />
+        <BaseButton class="projectBtn" :linkTo="'projekte/eintracht-hildesheim'" :align="'left'" :theme="'dark'" :title="'Live ansehen'" />
         <g-image class="projectMock" :src="projects[1].mockup"></g-image>
       </div>
     </div>
@@ -24,7 +24,7 @@
           <g-image class="projectLogo" :src="projects[2].logo"></g-image>
         </div>
         <BaseTitle class="projectText" :tag="'h3'">{{ projects[2].text }}</BaseTitle>
-        <BaseButton class="projectBtn" :linkTo="'/projekte/kematherm'" :align="'left'" :theme="'dark'" :title="'Live ansehen'" />
+        <BaseButton class="projectBtn" :linkTo="'projekte/kematherm'" :align="'left'" :theme="'dark'" :title="'Live ansehen'" />
         <g-image class="projectMock" :src="projects[2].mockup"></g-image>
       </div>
       <div class="project" :style="{background: projects[3].color}" data-speed="1.2">
@@ -32,7 +32,7 @@
           <g-image class="projectLogo" :src="projects[3].logo"></g-image>
         </div>
         <BaseTitle class="projectText" :tag="'h3'">{{ projects[3].text }}</BaseTitle>
-        <BaseButton class="projectBtn" :linkTo="'/projekte/schweizer-imnmobilienmanufaktur'" :align="'left'" :theme="'dark'" :title="'Live ansehen'" />
+        <BaseButton class="projectBtn" :linkTo="'projekte/schweizer-imnmobilienmanufaktur'" :align="'left'" :theme="'dark'" :title="'Live ansehen'" />
         <g-image class="projectMock" :src="projects[3].mockup"></g-image>
       </div>
     </div>
@@ -54,7 +54,7 @@ export default {
 <style scoped>
 .projectBlockWrapper{
   display: block;
-  margin: 20% 0%;
+  margin: 0% 0%;
 }
 .projectsWrapper{
   display: flex;

@@ -3,8 +3,8 @@
     <div class="contentContainer">
       <div class="innerContentContainer">
         <div class="leftInner">
-          <BaseTitle addClass="animateBlockHero" :align="'left'" :tag="'h2'" ><b>Starte dein Projekt mit uns!</b></BaseTitle>
-          <BaseText> Fülle das Formular aus, und erzähle uns mehr über deine<br> Unternehmensziele. Wir werden uns innerhalb eines<br> Arbeitstages bei dir melden. </BaseText>
+          <BaseTitle :align="'left'" :tag="'h2'" ><b>Starte dein Projekt mit uns!</b></BaseTitle>
+          <BaseText> Fülle das Formular aus, und erzähle uns mehr über deine<br> Unternehmensziele. Wir werden uns so schnell wie möglich<br> bei dir melden. </BaseText>
           <div class="contactCard">
             <div class="cardInner">
               <g-image src="@/assets/Rene-Grebenstein.webp"></g-image>
@@ -13,12 +13,12 @@
                 <p class="greenColor">Inhaber</p>
               </div>
             </div>
-            <a class="cardInner" style="margin-bottom: 10px;">
+            <a class="cardInner" style="margin-bottom: 10px;" href="/kontakt">
               <img src="@/assets/mail.svg">
-              <p style="margin-left: 15px">rene.grebenstein@grnstn.net</p>
+              <p style="margin-left: 15px">Zum Kontaktformular</p>
             </a>
             <a class="cardInner">
-              <img src="@/assets/phone-call.svg">
+              <img src="@/assets/phone-call.svg" href="tel: 051216729003">
               <p style="margin-left: 15px"> 05121 – 672 90 03</p>
             </a>
           </div>
@@ -37,6 +37,7 @@ import BaseTitle from "../components/BaseTitle";
 import multiStepForm from "../components/multiStepForm";
 import BaseText from "../components/BaseText";
 import axios from "axios";
+import initGsap from "../misc/gsapBase";
 
 export default {
   name: "Jetzt-Anfragen",
@@ -50,10 +51,13 @@ export default {
       url: 'https://admin.greenstein.design/wp-json/contact-form-7/v1/contact-forms/60/feedback',
     }
   },
+  mounted() {
+    this.pageGsap = new initGsap({
+      heroAnimation: true,
+    }, this);
+  },
   methods: {
     submitForm(data) {
-      console.log(data);
-
       function getCheckBoxValues() {
         let value = "";
         data[0].checkbox.forEach( box => {
@@ -133,6 +137,9 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.cardInner p{
+  cursor: pointer;
 }
 div.cardInner{
   margin-bottom: 30px;

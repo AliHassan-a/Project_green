@@ -6,12 +6,16 @@
         <div class="contactDetails">
           <div class="singleContact">
             <span>Email</span>
-            <BaseTitle :align="'left'" :tag="'h3'">hallo@greenstein.design</BaseTitle>
+            <a href="mailto:hallo@greenstein.design">
+              <BaseTitle :align="'left'" :tag="'h3'">hallo@greenstein.design</BaseTitle>
+            </a>
             <hr>
           </div>
           <div class="singleContact">
             <span>Telefon</span>
-            <BaseTitle :align="'left'" :tag="'h3'">05121 - 672 900 3</BaseTitle>
+            <a href="tel:051216729003">
+              <BaseTitle :align="'left'" :tag="'h3'">05121 - 672 900 3</BaseTitle>
+            </a>
             <hr>
           </div>
           <div class="singleContact">
@@ -44,9 +48,14 @@
           <hr>
           <input type="text" placeholder="Dein Unternehmen" v-model="form.company">
           <hr>
-          <textarea placeholder="Erzähl uns von deinem Projekt" v-model="form.message"></textarea>
-          <hr>
-          <BaseButton style="align-self: flex-end; margin-top: 55px" :linkTo="'#'" v-on:click="submitForm()" :theme="'light'" :title="'Senden'" class="toLinkHover" :gs-hover="'Und los! Und los! Und los! Und los! Und los!'" />
+          <div class="radioWrapper">
+            <div @click="toggleDatenschutz()"
+                 :class="datenschutz ? 'activeRadio' : ''" class="radioBtn" >
+              <div class="radioCircle" />
+              <p style="font-size: 14px;">ich habe die <a href="/datenschutz"><u>Datenschutzerklärung</u></a> gelesen - Ich bin einverstanden!</p>
+            </div>
+          </div>
+          <BaseButton :linkTo="'/'" style="align-self: flex-end; margin-top: 55px" v-on:click="submitForm()" :theme="'light'" :title="'Senden'" class="toLinkHover" :gs-hover="'Und los! Und los! Und los! Und los! Und los!'" />
         </form>
       </div>
     </div>
@@ -69,6 +78,7 @@ export default {
   },
   data: function () {
     return {
+      datenschutz: false,
       form: {
         name: '',
         email: '',
@@ -87,12 +97,18 @@ export default {
     }
   },
   methods: {
+    toggleDatenschutz(){
+      this.datenschutz = !this.datenschutz;
+    },
     toggleInterest(num){
       this.form.interest[num].hasInterest = !this.form.interest[num].hasInterest;
     },
     submitForm() {
+      if(!this.datenschutz) {
+        return ""
+      }
       const emailBody = {
-        "your-name": this.form.nameTest,
+        "your-name": this.form.name,
         "your-email": this.form.email,
         "your-message": this.form.message,
       };
@@ -103,6 +119,7 @@ export default {
       }
       axios.post(this.url, form)
           .then((response) => {
+            console.log(response.data.status);
             if(response.data.status){
               window.location = "/vielen-dank";
             };
@@ -140,7 +157,7 @@ export default {
   .contactWrapper{
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     flex-wrap: nowrap;
     gap: 50px;
     margin-top: 100px;
@@ -171,7 +188,7 @@ export default {
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    margin-top: 100px;
+    margin-top: 0px;
   }
   .contactForm hr{
     width: 100%;
@@ -185,7 +202,7 @@ export default {
     color:#717171;
     font-size: 18px;
     font-weight: 500;
-    margin: 50px 10px 0px 10px;
+    margin: 20px 10px 0px 10px;
   }
   .contactForm ::placeholder{
     color: #717171;
@@ -205,6 +222,53 @@ export default {
     background: #88F332 !important;
     border-color: #88F332;
     font-weight: 700;
+  }
+  .radioWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .radioWrapper .radioBtn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+  }
+  .radioBtn .radioCircle{
+    border: 2px solid #E7FFD3;
+    border-radius: 12px;
+    width: 16px;
+    height: 16px;
+  }
+  .radioBtn p{
+    transition: color 0.3s ease;
+  }
+  .radioBtn:hover p{
+    color: #88F332;
+  }
+  .radioBtn.activeRadio p{
+    color: #88F332;
+  }
+  .radioBtn.activeRadio .radioCircle{
+    border-color: #88F332;
+  }
+  .radioBtn .radioCircle:after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    left: 3px;
+    top: 3px;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+
+  .radioBtn.activeRadio .radioCircle:after{
+    background-color: #88F332;
   }
   @media only screen and (max-width: 1024px){
     button.dark:hover{

@@ -102,7 +102,7 @@ export default {
 .pinnedContainer{
   position: relative;
   top:0;
-  height: 170vh;
+  height: 250vh;
   padding-top: 30vh;
   width: 100%;
   display: flex;

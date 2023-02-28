@@ -121,6 +121,10 @@ export default {
       meta: [
         { name: 'title', content: "Designagentur" },
         { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
       ]
     }
   }
@@ -131,17 +135,18 @@ export default {
 .section-five, .section-six{
   max-width: 100%;
   min-height: unset;
+}
+.section-five{
   padding: 200px 0px;
+}
+.section-six{
+  padding: 0;
 }
 @media only screen and (max-width:1024px){
   .section-five{
-    max-width: 100%;
-    min-height: unset;
     padding: 100px 0px 50px;
   }
   .section-six{
-    max-width: 100%;
-    min-height: unset;
     padding: 0px 0px 100px;
   }
 }

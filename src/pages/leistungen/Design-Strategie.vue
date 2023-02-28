@@ -3,7 +3,7 @@
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
         <div class="innerContentContainer head">
-          <BaseTitle :align="'center'" :tag="'h1'" :addClass="'greenColor'" :addStyle="'font-size: 14px; font-weight: 700;'" >Design & strategie</BaseTitle>
+          <BaseTitle :align="'center'" :tag="'h1'" :addClass="'greenColor'" :addStyle="'font-size: 14px; font-weight: 700;'" >DESIGN & STRATEGIE</BaseTitle>
           <BaseTitle :align="'center'" :tag="'h2'" :addStyle="'margin: 20px 0px 40px 0px'">Est ante in nibh mauris cursus. Nunc faucibus a pellentesque amet porttitor eget dolor. Eget gravida cum sociis natoque. </BaseTitle>
           <BaseButton :align="'center'" :theme="'light'" :title="'Button'"/>
         </div>
@@ -55,6 +55,7 @@
 .innerContentContainer.head{
   justify-content: center;
   align-items: center;
+  max-width: 1024px;
 }
 .mainSection{
   min-height: 50vh;
@@ -71,10 +72,11 @@
   min-height: 70vh;
 }
 .section-three .contentContainer{
-  gap: 100px;
+  gap: 30px;
 }
 .section-three .contentContainer div:first-child{
   width: 100%;
+  min-width: 30rem;
 }
 .section-three .logoGlider{
   position: relative;

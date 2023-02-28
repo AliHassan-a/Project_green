@@ -2,7 +2,9 @@
   <div class="mainSection footerWrapper greenBg">
     <div class="footer-overlay greenBg"></div>
     <p class="footer">Du hast ein spannendes Projekt?</p>
-    <h2 class="footer">Lass uns sprechen!</h2>
+    <g-link :to="'/jetzt-anfragen'" style="z-index: 1">
+      <h2 class="footer">Lass uns sprechen!</h2>
+    </g-link>
     <div class="footer-content greenColor">
       <div class="footer-inner-content">
         <p class="footer-small">E-MAIL</p>
@@ -40,8 +42,10 @@
 </template>
 
 <script>
+import Seperator from "./Seperator";
 export default {
   name: "Footer",
+  components: {Seperator},
   methods: {
     emitOpenCookies(){
       this.$root.$emit("openCookies");
@@ -200,7 +204,7 @@ h2.footer{
   }
   .imprintAndDataprot{
     font-size: 15px;
-    margin-right: 20px;
+    margin-right: 15px;
   }
   .socialWrapper img{
     margin-left: 10px;

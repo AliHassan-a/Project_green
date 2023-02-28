@@ -3,21 +3,25 @@
     <div class="featuredImageWrapper">
       <img class="featuredImage parallax-bg" :src="$context.featuredMedia.sourceUrl" :title="$context.featuredMedia.title" :alt="$context.featuredMedia.altText" >
       <div class="featuredImageOverlay" />
-      <BaseTitle :align="'left'" :tag="'h1'" class="featuredTitle">
-        <span class="animateFadeInLeft" style="font-weight: 400">{{ getFeaturedTitle()[0] }}</span><br>
-        <span class="greenColor animateFadeInLeft">{{ getFeaturedTitle()[1] }}</span><br>
-        <g-image style="margin-top: 20px; width: 50px;" class="animateFadeInLeftSecond" src="@/assets/Pfeile.svg"></g-image>
-      </BaseTitle>
     </div>
     <div class="mainSection">
       <div class="metaData">
         <p class="small greenColor">{{ getFormattedDate($context.date) }}</p>
         <div class="socialShare">
-          <g-image src="@/assets/facebook.webp"></g-image>
-          <g-image src="@/assets/twitter.webp"></g-image>
-          <g-image src="@/assets/mail.webp"></g-image>
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+            <g-image src="@/assets/twitter.webp"></g-image>
+          </a>
+          <!--
+          <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+            <g-image src="@/assets/mail.webp"></g-image>
+          </a>
+          -->
         </div>
       </div>
+      <BaseTitle :align="'left'" :tag="'h1'" :addStyle="'font-size: clamp(1.5em, calc(100vw / 50), 2.4em);'" class="featuredTitle">
+        <span class="animateFadeInLeft" style="font-weight: 400">{{ getFeaturedTitle()[0] }}</span><br>
+        <span v-if="getFeaturedTitle()[1]" class="greenColor animateFadeInLeft">{{ getFeaturedTitle()[1] }}</span>
+      </BaseTitle>
     </div>
     <div class="mainSection contentWrapper">
       <div class="singleContent" v-html="$context.content"></div>
@@ -64,6 +68,11 @@ export default {
       meta: [
         { name: 'title', content: this.$context.acf.metaTitle },
         { name: 'description', content: this.$context.acf.metaDescription },
+        { name: 'og:title', content: this.$context.acf.metaTitle },
+        { name: 'og:description', content: this.$context.acf.metaDescription },
+        { name: 'twitter:title', content: this.$context.acf.metaTitle },
+        { name: 'twitter:description', content: this.$context.acf.metaDescription },
+        { name: 'og:image', content: this.$context.featuredMedia.sourceUrl },
       ]
     }
   }
@@ -99,17 +108,14 @@ export default {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #011713 20%, rgba(0,0,0,0) 60%);
 }
 img.featuredImage{
   width: 100%;
-  max-height: 1000px;
+  max-height: 600px;
+  object-fit: cover;
 }
 .featuredTitle{
-  position: absolute;
-  top: 30%;
-  left: 10%;
-  max-width: 30%;
+  margin-bottom: 50px;
 }
 .contentWrapper{
   display: flex;
@@ -119,6 +125,7 @@ img.featuredImage{
 }
 div.sidebarBlog{
   padding-top: 100px;
+  max-width: 200px;
 }
 .simpleStickySection{
   height: inherit;
@@ -126,12 +133,6 @@ div.sidebarBlog{
 @media only screen and (max-width:1024px){
   .contentWrapper{
     flex-direction: column;
-  }
-  .featuredTitle{
-    position: absolute;
-    top: 30%;
-    left: 10%;
-    max-width: 80%;
   }
 }
 </style>

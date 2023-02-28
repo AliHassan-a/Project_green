@@ -5,7 +5,16 @@
         <div class="contentContainer">
           <HeroTitle
               :main-title="hero.mainTitle"
-              :second-title="hero.secondTitle" />
+              :mainTitleSecond="hero.mainTitleSecond"
+              :second-title="hero.secondTitle"/>
+        </div>
+        <div class="entryImages">
+          <img src="@/assets/Bilder.webp">
+          <img src="@/assets/Bilder0.webp">
+          <img src="@/assets/Bilder1.webp">
+          <img src="@/assets/Bilder2.webp">
+          <img src="@/assets/Bilder3.webp">
+          <img src="@/assets/Bilder4.webp">
         </div>
       </div>
       <div id="two" class="mainSection section-two">
@@ -27,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div id="four" class="mainSection section-four greenBg" style="padding: 100px 0px;">
+      <div id="four" class="mainSection section-four greenBg">
         <div class="mainSection">
           <CardGrid :content="$static.employees" />
         </div>
@@ -62,8 +71,9 @@ export default {
   data() {
     return {
       hero: {
-        mainTitle: "Wir sorgen dafür, dass dein Unternehmen gehört wird.",
-        secondTitle: "Laut & deutlich"
+        mainTitle: "Wir erwecken Kreativität",
+        mainTitleSecond: "und Technologie",
+        secondTitle: "zum Leben"
       },
       steps: [
         {
@@ -100,18 +110,64 @@ export default {
 </script>
 
 <style>
+.entryImages{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 45%;
+  top: 10%;
+}
+.entryImages img{
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  animation-name: fadeInAboutImages;
+  animation-delay: 0.5s;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+.entryImages img:nth-child(2){
+  animation-delay: 0.8s;
+}
+.entryImages img:nth-child(3){
+  animation-delay: 1.1s;
+}
+.entryImages img:nth-child(4){
+  animation-delay: 1.4s;
+}
+.entryImages img:nth-child(5){
+  animation-delay: 1.7s;
+}
+.entryImages img:nth-child(6){
+  animation-delay: 2s;
+}
+@keyframes fadeInAboutImages {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 .section-two, .section-four{
   max-width: 100vw;
+}
+.section-four{
+  padding: 100px 0px;
 }
 .section-three{
   margin-bottom: 200px;
 }
+
 @media only screen and (max-width: 1024px){
+  .entryImages{
+    display: none;
+  }
   .section-two{
     margin-bottom: 50px;
   }
   .section-three{
     margin-bottom: 50px;
+  }
+  .section-four{
+    padding: 50px 0px;
+    margin: 0 0 50px;
   }
   .section-three .contentContainer{
     flex-direction: column;

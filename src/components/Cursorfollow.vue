@@ -216,6 +216,7 @@ export default {
     color: black;
     font-size: 12px;
     font-weight: 600;
+    text-transform: uppercase;
   }
   @keyframes rotation {
     0% {transform: rotate(0deg)}

@@ -1,6 +1,12 @@
 <template>
   <div :data-speed="hasAni? 1.3 : 1" class="gsHeroTitle">
-    <BaseTitle addClass="animateBlockHero" :align="'left'" :tag="'h1'" >{{ mainTitle }}<br>{{ mainTitleSecond }}<br><b class="greenColor">{{ secondTitle }}</b></BaseTitle>
+    <BaseTitle addClass="animateBlockHero" :align="'left'" :tag="'h1'" >
+      {{ mainTitle }}
+      <br>
+      {{ mainTitleSecond }}
+      <br>
+      <b class="greenColor">{{ secondTitle }}</b>
+    </BaseTitle>
     <g-image class="heroArrow animateBlockHeroArrow" src="@/assets/Pfeile.svg"></g-image>
   </div>
 </template>

@@ -97,6 +97,7 @@ h1,h2,h3,h4,h5,h6,p,span,button, input, textarea{
 a{
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 h1{
     font-size: clamp(1.65em, calc(100vw / 30), 5em);
@@ -273,7 +274,7 @@ button.light{
     padding: 0px 48px;
     z-index: 101;
     display: flex;
-    height: 6em;
+    height: 5em;
     flex-direction: column;
     overflow: hidden;
     position: relative;
@@ -412,9 +413,9 @@ div.singleContent h1, div.singleContent h2, div.singleContent h3{
 
 /* GS ARROW */
 .heroArrow{
-    margin-top: 10px;
-    width: 10%;
-    max-width: 96px;
+    margin-top: 20px;
+    width: 8%;
+    max-width: 86px;
 }
 
 /* TRANITIONS */
@@ -432,6 +433,10 @@ div.singleContent h1, div.singleContent h2, div.singleContent h3{
     opacity: 0;
 }
 
+/* GSAP ANIMATION */
+.animateBlockItemStagger{
+    opacity: 0;
+}
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1024px) {
@@ -456,6 +461,11 @@ div.singleContent h1, div.singleContent h2, div.singleContent h3{
         width: 90vw;
         margin-left: 5vw;
         padding-bottom: 20px;
+    }
+    .heroArrow{
+        margin-top: 12px;
+        width: 8%;
+        max-width: 86px;
     }
 }
 @media only screen and (min-width: 1024px) {

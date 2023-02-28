@@ -15,6 +15,9 @@
         <div class="menu__item" @click="navigteTo('/projekte')">
           <span class="menu__item-text">Projekte</span>
         </div>
+        <div class="menu__item" @click="navigteTo('/blog')">
+          <span class="menu__item-text">Blog</span>
+        </div>
         <div class="menu__item" @click="navigteTo('/kontakt')">
           <span class="menu__item-text">Kontakt</span>
         </div>
@@ -65,7 +68,7 @@ export default {
       });
       window.setTimeout( () => {
         window.location.href = route
-      }, 1100);
+      }, 1000);
     },
     closeMenu(){
       this.isAnimating = true;
