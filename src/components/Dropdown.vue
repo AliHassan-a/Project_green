@@ -7,7 +7,7 @@
         <h4 itemprop="name" class="accordion-title">{{ accordion.title }}</h4>
       </div>
       <div class="accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">{{ accordion.content }}</p>
+        <p itemprop="text" v-html="accordion.content"></p>
       </div>
     </div>
   </div>

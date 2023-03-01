@@ -1,11 +1,8 @@
 <template>
-  <div class="mainSection">
-    <BaseTitle :tag="'h1'"><b>FAQ</b><Seperator :theme="'dark'"></Seperator></BaseTitle>
-    <div v-for="(faq, index, key) in $static.faqs.edges" :key="key"  itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h2 itemprop="name">{{ faq.node.title }}</h2>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div itemprop="text" v-html="faq.node.content"></div>
-      </div>
+  <div id="page">
+    <div class="mainSection section-one">
+      <BaseTitle :tag="'h1'" :addStyle="'margin-bottom: 30px;'"><b>FAQ</b></BaseTitle>
+      <Dropdown :content="getFaq" />
     </div>
   </div>
 </template>
@@ -13,12 +10,28 @@
 <script>
 import BaseTitle from "../components/BaseTitle";
 import Seperator from "../components/Seperator";
+import Dropdown from "../components/Dropdown";
 
 export default {
   name: "Faq",
   components: {
+    Dropdown,
     Seperator,
     BaseTitle,
+  },
+  computed: {
+    getFaq(){
+      const content = [];
+      this.$static.faqs.edges.forEach( (faq) => {
+        content.push(
+            {
+              title:faq.node.title,
+              content: faq.node.content
+            }
+        )
+      })
+      return content;
+    }
   }
   // ADD CATEGORIES FOR FAQ
 }
@@ -40,5 +53,7 @@ query{
 </static-query>
 
 <style scoped>
-
+  .section-one{
+    margin-top: 200px !important;
+  }
 </style>

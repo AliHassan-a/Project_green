@@ -17,8 +17,8 @@
               <img src="@/assets/mail.svg">
               <p style="margin-left: 15px">Zum Kontaktformular</p>
             </a>
-            <a class="cardInner">
-              <img src="@/assets/phone-call.svg" href="tel: 051216729003">
+            <a class="cardInner" href="tel:051216729003">
+              <img src="@/assets/phone-call.svg">
               <p style="margin-left: 15px"> 05121 – 672 90 03</p>
             </a>
           </div>

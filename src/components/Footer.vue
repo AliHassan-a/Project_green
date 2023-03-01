@@ -21,6 +21,7 @@
       <div class="footer-inner-content">
         <p class="footer-small">ÜBER UNS</p>
         <g-link to="/agentur" class="footer-link-small footer-hover">Unsere Agentur</g-link>
+        <g-link to="/nachhaltigkeit" class="footer-link-small footer-hover">Nachhaltigkeit</g-link>
         <g-link to="/kontakt" class="footer-link-small footer-hover">Kontakt</g-link>
       </div>
     </div>

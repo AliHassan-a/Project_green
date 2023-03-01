@@ -3,7 +3,7 @@
     <div class="stepsTimelines">
       <div class="stepsTimeline" v-for="(step, index, key) in steps" :key="key">
         <p class="stepsTitle" :class="index <= activeStep ? 'greenStepsTitle' : ''" @click.prevent="setActive(index)">{{ step.title }}</p>
-        <img v-if="index < steps.length - 1 " src="@/assets/simple-bar.svg">
+        <div v-if="index < steps.length - 1 " :class="activeStep > index ? 'greenBg' : 'lightGreenBg'" class="stepsBar"></div>
       </div>
     </div>
     <div class="stepsContentWrapper">
@@ -326,11 +326,16 @@ export default {
 .greenStepsTitle{
   color: #88F332 !important;
 }
-.stepsTimeline img{
+.stepsTimeline div.stepsBar{
   width: 10vw;
-  height: 3px;
+  height: 2px;
   object-fit: cover;
   margin: 0px 10px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.stepsTimeline div.stepsBar.lightGreenBg{
+  opacity: 0.25;
 }
 .stepsContent{
   min-height: 400px;

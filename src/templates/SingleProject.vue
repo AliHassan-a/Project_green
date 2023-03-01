@@ -63,10 +63,18 @@
     </div>
     <div class="mainSection section-four">
       <div class="stepsSummary">
-        <img :src="this.$context.acf.step4Bild2" >
-        <img :src="this.$context.acf.step4Bild3" >
-        <img :src="this.$context.acf.step4Bild4" >
-        <img :src="this.$context.acf.step4Bild5" >
+        <div>
+          <img :src="this.$context.acf.step4Bild2" >
+        </div>
+        <div>
+          <img :src="this.$context.acf.step4Bild3" >
+        </div>
+        <div>
+          <img :src="this.$context.acf.step4Bild4" >
+        </div>
+        <div>
+          <img :src="this.$context.acf.step4Bild5" >
+        </div>
       </div>
     </div>
   </Layout>
@@ -139,9 +147,12 @@
   gap: 10px;
   width: 100%;
 }
-.section-four .stepsSummary img{
-  width: 50%;
-  flex-shrink: 2;
+.section-four .stepsSummary div{
+  width: 25%;
+  flex-shrink: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .fadeStep-enter-active,
 .fadeStep-leave-active {

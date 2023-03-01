@@ -108,16 +108,18 @@ export default {
               each: 0.07,
             }
           }, 0.2)
-          .fromTo(splitText[index].lines, {
+          .fromTo(splitText[index].chars, {
               autoAlpha: 0,
               y: 10 * dFactor
             }, {
-              delay: 0,
               autoAlpha: 1,
               yPercent: 0,
               duration: 1,
               ease: "power2",
-            });
+              stagger: {
+                each: 0.01,
+              }
+            }, "-=1");
 
       currentIndex = index;
     }
@@ -139,6 +141,7 @@ export default {
 <style scoped>
 h2 {
   text-align: center;
+  font-weight: 700;
   width: 90vw;
   max-width: 800px;
 }
