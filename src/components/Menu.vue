@@ -29,9 +29,12 @@
               <span @click="navigteTo('/datenschutz')">Datenschutz</span>
             </div>
             <div class="menu__socials">
-              <img src="@/assets/facebook-f.webp">
-              <img src="@/assets/instagram.webp">
-              <img src="@/assets/twitter.webp">
+              <a href="https://www.facebook.com/greenstein.designagentur/">
+                <img src="@/assets/facebook-f.webp">
+              </a>
+              <a href="https://www.instagram.com/greenstein.design/">
+                <img src="@/assets/instagram.webp">
+              </a>
             </div>
           </div>
         </div>
@@ -420,7 +423,7 @@ main {
 }
 .menu__socials{
   filter: brightness(0) invert(1);
-  width: 100px;
+  width: 50px;
   display: flex;
   justify-content: space-between;
 }
@@ -468,6 +471,9 @@ main {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
+  }
+  .menu__socials{
+    width: 50px;
   }
   .menu__socials img{
     object-fit: contain;

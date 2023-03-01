@@ -1,7 +1,7 @@
 <template>
   <div class="w-full leistungBlockWrapper">
     <div class="animateBlockItem serviceWrapper" v-for="(project, index, key) in projects" :key="key">
-      <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      <Seperator v-if="index == 0" class="m-hide" theme="lightGreen"></Seperator>
       <div class="leistungWrapper">
         <h3 class="lightGreenColor">{{ project.year }}</h3>
         <h3 class="w-full leistungText">{{ project.title }}</h3>

@@ -65,7 +65,7 @@ div.logoContainer{
   display: flex;
   justify-items: flex-start;
   align-items: center;
-  z-index: 1001;
+  z-index: 10;
   transition: filter 1s ease;
 }
 button.dark{

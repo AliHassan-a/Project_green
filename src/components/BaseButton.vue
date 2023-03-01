@@ -24,7 +24,7 @@
       </button>
     </div>
     <a v-else :href="'/' + linkTo">
-      <button class="light" v-if="theme == 'light' || theme == ''" :style="'justify-content:' + align">
+      <button class="light" v-if="theme == 'light' || theme == ''">
         <div class="button-blob light" />
         <span class="title">{{ title }}</span>
         <span class="title title--hovered"><b>{{ title }}</b></span>

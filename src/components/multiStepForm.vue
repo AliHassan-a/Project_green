@@ -9,7 +9,7 @@
     <div class="stepsContentWrapper">
       <div class="stepsContent">
         <transition name="multiStepHead" mode="out-in">
-          <BaseTitle tag="h2" class="stepsHeadline" :key="steps[activeStep].headline"><b>{{ steps[activeStep].headline }}</b></BaseTitle>
+          <BaseTitle :align="'center'" tag="h2" class="stepsHeadline" :key="steps[activeStep].headline"><b>{{ steps[activeStep].headline }}</b></BaseTitle>
         </transition>
         <transition name="multiStepFade" mode="out-in">
           <div class="checkBoxWrapper" v-if="'checkbox' in steps[activeStep]" :key="steps[activeStep].title">
@@ -499,5 +499,25 @@ input{
 }
 .multiStepHead-leave-active {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+}
+@media only screen and (max-width: 1024px){
+  .multiStepForm{
+    width: 100%;
+  }
+  .stepsTimelines{
+    justify-content: center;
+  }
+  .checkBoxWrapper{
+    justify-content: center;
+  }
+  .radioWrapper .radioBtn, .contactWrapper{
+    justify-content: flex-start;
+    width: 90%;
+    margin-left: 5vw;
+  }
+  button.dark{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 </style>

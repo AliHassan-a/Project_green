@@ -1,9 +1,16 @@
 <template>
   <div class="hoverSectionWrapper">
-    <div class="hoverSection" v-for="(section, index, key) in content">
+    <div class="hoverSection" v-for="(section, index, key) in content" :key="key">
       <BaseTitle :tag="'h3'" style="margin: 2% 0%">{{ '0' + (index+1).toString() + '. ' + section.title }}</BaseTitle>
       <Seperator class="hoverSeperator" theme="lightGreen"></Seperator>
       <div class="hoverContent">
+        <div v-if="type == 'ablauf'">
+          <g-image v-if="index == 0" src="@/assets/beratung.gif"></g-image>
+          <g-image v-if="index == 1" src="@/assets/konzept.gif"></g-image>
+          <g-image v-if="index == 2" src="@/assets/gestaltung.gif"></g-image>
+          <g-image v-if="index == 3" src="@/assets/korrektur.gif"></g-image>
+          <g-image v-if="index == 4" src="@/assets/go-live.gif"></g-image>
+        </div>
         <BaseText :addStyle="'font-size:16px;'">{{ section.content }}</BaseText>
       </div>
     </div>
@@ -24,6 +31,7 @@ export default {
   },
   props: {
     content: Array,
+    type: String, // ablauf, vorteile
   }
 }
 </script>
@@ -45,6 +53,9 @@ export default {
     transform: rotate(10deg) translateY(200px) translateX(20px);
     transition: all 0.4s ease-out;
     backdrop-filter: blur(5px);
+  }
+  .hoverContent img{
+    width: 80px;
   }
   .hoverSection:hover .hoverContent{
     transform: rotate(0) translate(0);

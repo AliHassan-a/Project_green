@@ -129,12 +129,18 @@ export default {
 </script>
 
 <style scoped>
+.section-two{
+  margin-top: -300px;
+}
 .section-three{
   max-width: 100%;
   min-height: unset;
   padding: 100px 0px;
 }
 @media only screen and (max-width: 1024px){
+  .section-two{
+    margin-top: -200px;
+  }
   .section-three{
     max-width: 100%;
     min-height: unset;

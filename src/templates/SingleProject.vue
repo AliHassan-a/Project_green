@@ -8,8 +8,8 @@
     </div>
     <div class="mainSection section-two">
       <div class="contentContainer">
-        <g-image :src="$context.acf.mockup"></g-image>
-        <div class="projectInfo">
+        <g-image class="animateBlockItem" :src="$context.acf.mockup"></g-image>
+        <div class="projectInfo animateBlockItem">
           <div>
             <BaseTitle :tag="'h2'" :addStyle="'font-size: 14px;text-transform: uppercase;font-weight: 700; margin: 30px 0px 5px;'" :addClass="'lightGreenColor'">Projekt</BaseTitle>
             <BaseTitle :tag="'h4'">{{ $context.acf.zeitraum }}</BaseTitle>
@@ -21,12 +21,12 @@
           <div>
             <BaseTitle :tag="'h2'" :addStyle="'font-size: 14px;text-transform: uppercase;font-weight: 700; margin: 30px 0px 15px;'" :addClass="'lightGreenColor'">Technologien</BaseTitle>
             <div class="technologies">
-              <g-image v-if="$context.acf.technologien.includes('Miro')" src="@/assets/miro.svg"></g-image>
-              <g-image v-if="$context.acf.technologien.includes('Photoshop')" src="@/assets/photoshop.svg"></g-image>
-              <g-image v-if="$context.acf.technologien.includes('Illustrator')" src="@/assets/illustrator.svg"></g-image>
-              <g-image v-if="$context.acf.technologien.includes('Xd')" src="@/assets/xd.svg"></g-image>
-              <g-image v-if="$context.acf.technologien.includes('Vue')" src="@/assets/vue.svg"></g-image>
-              <g-image v-if="$context.acf.technologien.includes('Wordpress')" src="@/assets/wordpress.svg"></g-image>
+              <img v-if="$context.acf.technologien.includes('Miro')" src="@/assets/miro.svg">
+              <img v-if="$context.acf.technologien.includes('Photoshop')" src="@/assets/photoshop.svg">
+              <img v-if="$context.acf.technologien.includes('Illustrator')" src="@/assets/illustrator.svg">
+              <img v-if="$context.acf.technologien.includes('Xd')" src="@/assets/xd.svg">
+              <img v-if="$context.acf.technologien.includes('Vue')" src="@/assets/vue.svg">
+              <img v-if="$context.acf.technologien.includes('Wordpress')" src="@/assets/wordpress.svg">
             </div>
           </div>
         </div>
@@ -90,6 +90,7 @@
   gap: 10px;
 }
 .section-three{
+  margin-top: 100px;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
@@ -115,15 +116,20 @@
   width: 100%;
   height: 300vh;
 }
+.section-three .stepsImageWrapper{
+  border-radius: 50px;
+  transform: scale(1.2) translate3d(-25%,0,0);
+}
 .section-three .imageSteps .imageStepsCenter{
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 100vh;
   width: 100%;
 }
 .section-three .imageSteps .imageStepsCenter img{
   width: 100%;
+  max-height: 600px;
 }
 .section-four .stepsSummary {
   display: flex;

@@ -416,15 +416,16 @@ const initGsap = class {
                     invalidateOnRefresh: true,
                 }
             });
-            gsap.from(".imageStepsCenter .stepsImageWrapper", {
+            gsap.to(".imageStepsCenter .stepsImageWrapper", {
                 scrollTrigger: {
                     trigger: ".stepsSection:first-child",
                     start: "top",
                     scrub: true,
                     invalidateOnRefresh: true,
+                    toggleActions: "restart resume resume reverse",
                 },
-                xPercent: -25,
-                scale: 1.1,
+                xPercent: 25,
+                scale: 0.9,
                 ease: "power1.inOut",
             });
             gsap.to(".imageStepsCenter .stepsImageWrapper", {
@@ -539,7 +540,6 @@ const initGsap = class {
                 }
             })
         }
-
         function initFooter(isMobile){
             if(isMobile){
                 gsap.to('.footer-overlay', {

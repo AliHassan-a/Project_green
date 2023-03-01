@@ -52,10 +52,18 @@
             <div @click="toggleDatenschutz()"
                  :class="datenschutz ? 'activeRadio' : ''" class="radioBtn" >
               <div class="radioCircle" />
-              <p style="font-size: 14px;">ich habe die <a href="/datenschutz"><u>Datenschutzerklärung</u></a> gelesen - Ich bin einverstanden!</p>
+              <p style="font-size: 14px;">Ich habe die <a href="/datenschutz"><u>Datenschutzerklärung</u></a> gelesen - Ich bin einverstanden!</p>
             </div>
           </div>
-          <BaseButton :linkTo="'/'" style="align-self: flex-end; margin-top: 55px" v-on:click="submitForm()" :theme="'light'" :title="'Senden'" class="toLinkHover" :gs-hover="'Und los! Und los! Und los! Und los! Und los!'" />
+          <button
+              type='button'
+              style="align-self: flex-end; margin-top: 55px" v-on:click="submitForm()"
+              class="toLinkHover light submitBtn"
+              :gs-hover="'Und los! Und los! Und los! Und los! Und los!'">
+            <div class="button-blob light" />
+            <span class="title">Senden</span>
+            <span class="title title--hovered"><b>Senden</b></span>
+          </button>
         </form>
       </div>
     </div>
@@ -64,10 +72,10 @@
 
 <script>
 import axios from "axios";
-import { gsap, ScrollTrigger} from "gsap/all";
 import Cursorfollow from "../components/Cursorfollow";
 import BaseButton from "../components/BaseButton";
 import BaseTitle from "../components/BaseTitle";
+import initGsap from "../misc/gsapBase";
 
 export default {
   name: "Kontakt",
@@ -104,51 +112,39 @@ export default {
       this.form.interest[num].hasInterest = !this.form.interest[num].hasInterest;
     },
     submitForm() {
-      if(!this.datenschutz) {
+      if(!this.datenschutz &&
+         this.form.email.includes("@")) {
         return ""
-      }
-      const emailBody = {
-        "your-name": this.form.name,
-        "your-email": this.form.email,
-        "your-message": this.form.message,
-      };
+      } else {
+        document.querySelector(".submitBtn").style.opacity = 0;
+        document.querySelector(".submitBtn").style.pointerEvents = "none";
+        const emailBody = {
+          "your-name": this.form.name,
+          "your-email": this.form.email,
+          "your-message": this.form.message,
+        };
 
-      const form = new FormData();
-      for (const field in emailBody) {
-        form.append(field, emailBody[field]);
+        const form = new FormData();
+        for (const field in emailBody) {
+          form.append(field, emailBody[field]);
+        }
+        axios.post(this.url, form)
+            .then((response) => {
+              console.log(response.data.status);
+              if(response.data.status){
+                window.location = "/vielen-dank";
+              };
+              this.errors = [];
+            })
+            .catch((error) => {
+              this.errors = error.response.data.message
+            });
       }
-      axios.post(this.url, form)
-          .then((response) => {
-            console.log(response.data.status);
-            if(response.data.status){
-              window.location = "/vielen-dank";
-            };
-            this.errors = [];
-          })
-          .catch((error) => {
-            this.errors = error.response.data.message
-          });
     }
   },
 
   mounted() {
-    //this.submitForm();
-    gsap.registerPlugin(ScrollTrigger);
-
-    ScrollTrigger.defaults({
-      immediateRender: false,
-      ease: "power1.inOut",
-      scrub: true
-    });
-    ScrollTrigger.batch(".animateFadeInUp", {
-      toggleClass: "activeContentUp"
-    });
-    ScrollTrigger.batch(".animateFadeInUpSecond", {
-      toggleClass: "activeContentUpSecond"
-    });
-    ScrollTrigger.batch(".animateFadeInUpThird", {
-      toggleClass: "activeContentUpThird"
-    });
+    new initGsap({}, this);
   }
 }
 </script>
@@ -269,6 +265,9 @@ export default {
 
   .radioBtn.activeRadio .radioCircle:after{
     background-color: #88F332;
+  }
+  .submitBtn{
+    transition: all 0.5s ease;
   }
   @media only screen and (max-width: 1024px){
     button.dark:hover{

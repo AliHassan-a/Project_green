@@ -8,7 +8,7 @@
         <a class="singleBlog animateBlockItemStagger" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
           <div class="singleCard">
             <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.sourceUrl" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
-            <p v-html="edge.node.title">
+            <p style="font-size: 20px; line-height: 1.2em;" v-html="edge.node.title">
             <p style="font-size: 18px" class="greenColor" v-html="getFormattedDate(edge.node.date)"></p>
           </div>
         </a>
