@@ -126,7 +126,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "greenstein.design",
+      title: "Werbeagentur Hildesheim | Greenstein Designagentur",
       meta: [
         { name: 'title', content: "Designagentur" },
         { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },

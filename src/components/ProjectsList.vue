@@ -1,14 +1,16 @@
 <template>
   <div class="w-full leistungBlockWrapper">
     <div class="animateBlockItem serviceWrapper" v-for="(project, index, key) in projects" :key="key">
-      <Seperator v-if="index == 0" class="m-hide" theme="lightGreen"></Seperator>
-      <div class="leistungWrapper">
-        <h3 class="lightGreenColor">{{ project.year }}</h3>
-        <h3 class="w-full leistungText">{{ project.title }}</h3>
-        <BaseButton style="pointer-events: none" v-for="(service, index, key) in project.services" :theme="'dark'" :title="service" :key="key"/>
-        <BaseButton :link-to="project.link" :theme="'more'" :title="'Seite ansehen'" />
-      </div>
-      <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      <a :href="project.link">
+        <Seperator v-if="index == 0" class="m-hide" theme="lightGreen"></Seperator>
+        <div class="leistungWrapper">
+          <h3 class="lightGreenColor">{{ project.year }}</h3>
+          <h3 class="w-full leistungText">{{ project.title }}</h3>
+          <BaseButton style="pointer-events: none" v-for="(service, index, key) in project.services" :theme="'dark'" :title="service" :key="key"/>
+          <BaseButton :link-to="project.link" :theme="'more'" :title="'Seite ansehen'" />
+        </div>
+        <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      </a>
     </div>
   </div>
 </template>

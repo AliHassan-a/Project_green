@@ -70,7 +70,7 @@ export default {
         {
           title: "Kematherm",
           color: "#1A4C7D",
-          text: "Performance + für Kematherm",
+          text: "Webdesign & Marketing für Kematherm",
           hover: "Design & Strategie - Entwicklung",
           link: "/projekte/kematherm",
           logo: require("@/assets/projects/kematherm/kematherm-logo.svg"),
