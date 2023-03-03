@@ -21,7 +21,6 @@ import Header from "./components/Header";
 import Cursorfollow from "@/components/Cursorfollow";
 import backgroundAnimation from "./components/BackgroundAnimation";
 import CookieBanner from "./components/CookieBanner";
-import {gsap, Quart} from "gsap/all";
 
 export default {
   name: "App",
