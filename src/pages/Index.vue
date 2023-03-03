@@ -26,12 +26,17 @@
       <div id="six" class="mainSection section-six">
         <div class="innerContentContainer">
           <h2 class="animateBlockHead fullWidthInnerHead"> Was unsere Kunden sagen </h2>
-          <Slider
-              :slideContent="testimonialsContent"
-              :slideType="'testimonials'"
-              :hasNumber="false"
-              :hasTestimonial="true"
-              class="animateBlockItem" />
+          <SliderIndex>
+            <div class="box testimonials blackBg" v-for="(slide, index, key) in testimonialsContent" :key="key">
+              <BaseTitle :align="'left'" :tag="'h3'"><b>{{slide.title}}</b></BaseTitle>
+              <BaseText :addStyle="'white-space: normal'">{{slide.description}}</BaseText>
+              <div class="testimonial">
+                <hr class="testimonialBorder">
+                <BaseTitle :align="'left'" :tag="'h3'"><b>{{slide.testimonialAuthor}}</b></BaseTitle>
+                <BaseText :addStyle="'white-space: normal'" :addClass="'greenColor'">{{slide.testimonialPosition}}</BaseText>
+              </div>
+            </div>
+          </SliderIndex>
         </div>
       </div>
     </div>
@@ -51,6 +56,8 @@ import StickyImages from "../components/StickyImages";
 import Service from "../components/Service";
 import Quote from "../components/Quote";
 import Slider from "../components/Slider";
+import SliderIndex from "../components/SliderIndex";
+import BaseText from "../components/BaseText";
 
 export default {
   components: {
@@ -58,6 +65,7 @@ export default {
     Service,
     StickyImages,
     HeroTitle,
+    BaseText,
     BaseButton,
     BaseTitle,
     Seperator,
@@ -65,6 +73,7 @@ export default {
     BlogSlider,
     CustomerLogoGlider,
     Slider,
+    SliderIndex,
   },
   data() {
     return {
@@ -131,16 +140,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .section-five, .section-six{
   max-width: 100%;
   min-height: unset;
 }
 .section-five{
   padding: 200px 0px;
-}
-.section-six{
-  padding: 0;
 }
 @media only screen and (max-width:1024px){
   .section-five{

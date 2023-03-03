@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger} from "gsap/all";
 import Cursorfollow from "../components/Cursorfollow";
 import BaseButton from "../components/BaseButton";
 
@@ -17,25 +16,6 @@ export default {
   components: {
     Cursorfollow,
     BaseButton,
-  },
-  mounted() {
-    gsap.registerPlugin(ScrollTrigger);
-
-    ScrollTrigger.defaults({
-      immediateRender: false,
-      ease: "power1.inOut",
-      scrub: true
-    });
-
-    ScrollTrigger.batch(".animateFadeInUp", {
-      toggleClass: "activeContent"
-    });
-    ScrollTrigger.batch(".animateFadeInUpSecond", {
-      toggleClass: "activeContentSecond"
-    });
-    ScrollTrigger.batch(".animateFadeInUpThird", {
-      toggleClass: "activeContentThird"
-    });
   }
 }
 </script>

@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div class="mainSection section-four">
+    <div class="mainSection section-four" v-if="this.$context.acf.step4Bild2 != false ">
       <div class="stepsSummary">
         <div>
           <img :src="this.$context.acf.step4Bild2" >
@@ -226,6 +226,9 @@ export default {
       heroAnimation: true,
       stickySection: true,
     }, this);
+  },
+  beforeDestroy() {
+    this.$root.$emit("repaint-bg", 0);
   },
   methods: {
     paintBg(pageTitle){

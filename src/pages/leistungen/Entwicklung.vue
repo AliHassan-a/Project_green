@@ -3,8 +3,8 @@
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
         <div class="innerContentContainer head animateBlockHero">
-          <BaseTitle :align="'center'" :tag="'h1'" :addClass="'greenColor'" :addStyle="'font-size: 14px; font-weight: 700;'" >DESIGN & STRATEGIE</BaseTitle>
-          <BaseTitle :align="'center'" :tag="'h2'" :addStyle="'margin: 20px 0px 40px 0px'">Boosten Sie Ihr Business mit kreativem Design und durchdachter Strategie - die perfekte Kombination für Ihren Unternehmenserfolg!</BaseTitle>
+          <BaseTitle :align="'center'" :tag="'h1'" :addClass="'greenColor'" :addStyle="'font-size: 14px; font-weight: 700;'" >ENTWICKLUNG</BaseTitle>
+          <BaseTitle :align="'center'" :tag="'h2'" :addStyle="'margin: 20px 0px 40px 0px'">Perfekte Symbiose aus Design und Technik - unsere Web-Entwicklung mit modernsten Technologien für Deinen Erfolg</BaseTitle>
           <BaseButton :linkTo="'jetzt-anfragen'" class="animateBlockHeroArrow" :align="'center'" :theme="'light'" :title="'Jetzt anfragen'"/>
         </div>
       </div>
@@ -12,22 +12,22 @@
         <div class="contentContainer">
           <SliderIndex>
             <div class="box">
-              <g-image src="@/assets/design-strategie/chartexperten.webp"></g-image>
+              <g-image src="@/assets/entwicklung/chartexperten.webp"></g-image>
             </div>
             <div class="box">
-              <g-image src="@/assets/design-strategie/dz.webp"></g-image>
+              <g-image src="@/assets/entwicklung/dz.webp"></g-image>
             </div>
             <div class="box">
-              <g-image src="@/assets/design-strategie/el-charif.webp"></g-image>
+              <g-image src="@/assets/entwicklung/hilde-gastro.webp"></g-image>
             </div>
             <div class="box">
-              <g-image src="@/assets/design-strategie/mad.webp"></g-image>
+              <g-image src="@/assets/entwicklung/petersilien-marketing.webp"></g-image>
             </div>
             <div class="box">
-              <g-image src="@/assets/design-strategie/petersilien-marketing.webp"></g-image>
+              <g-image src="@/assets/entwicklung/sv-alfeld.webp"></g-image>
             </div>
             <div class="box">
-              <g-image src="@/assets/design-strategie/sonnentaler.webp"></g-image>
+              <g-image src="@/assets/entwicklung/tv-plus.webp"></g-image>
             </div>
           </SliderIndex>
         </div>
@@ -35,13 +35,13 @@
       <div id="three" class="mainSection section-three">
         <div class="contentContainer">
           <div>
-            <h2 class="animateBlockHead"> Wirksame Strategien & </h2>
-            <h2 class="animateBlockHead"> kreatives Design für </h2>
-            <h2 class="animateBlockHead greenColor" style="text-align: left;"><b>dein Business</b></h2>
+            <h2 class="animateBlockHead"> Individuelle Webseiten & </h2>
+            <h2 class="animateBlockHead"> Apps für </h2>
+            <h2 class="animateBlockHead greenColor" style="text-align: left;"><b>deine Marke</b></h2>
             <g-image class="animateBlockItem heroArrow" src="@/assets/Pfeile.svg"></g-image>
           </div>
           <div>
-            <BaseText class="animateBlockText">Wir bringen dein Unternehmen mit einer kreativen Strategie und soliden Design nach vorne und unterstützen dich dabei, dein Business auf das nächste Level zu bringen. Unser erfahrenes Team aus Designern, Entwicklern und Strategen bietet dir ein umfassendes Leistungspaket. Wir entwickeln eine starke Markenidentität und eine erfolgreiche Online-Strategie. Wir bieten dir ein exklusives Branding Design, die Umsetzung einer individuellen Website inklusive UI/UX Design sowie die Erstellung einer Social-Media-Strategie. Wir setzen auf modernste Technologien und eine offene Kommunikation mit dir. Lass uns gemeinsam dein Business auf das nächste Level bringen!</BaseText>
+            <BaseText class="animateBlockText">Als erfahrener Dienstleister für Web- und App-Entwicklung bieten wir dir maßgeschneiderte Lösungen, die auf deine individuellen Bedürfnisse zugeschnitten sind. Wir entwickeln moderne und benutzerfreundliche Webseiten und Apps, die auf allen Geräten eine optimale Darstellung und Funktionalität gewährleisten. Dabei setzen wir auf neueste Technologien und Methoden, um dir eine zukunftssichere Lösung zu bieten. Wir begleiten dich von der Konzeption bis hin zur Umsetzung und bieten dir auch anschließend einen zuverlässigen Support. Lass uns gemeinsam deine Online-Präsenz auf das nächste Level bringen.</BaseText>
           </div>
         </div>
         <CustomerLogoGlider class="logoGlider" :hasAni="false"/>
@@ -170,24 +170,24 @@ export default {
     return {
       steps: [
         {
-          title: 'Strategie',
-          description: 'Gemeinsam entwickeln wir eine erfolgreiche Online-Strategie, die dein Business voranbringt. Wir setzen auf eine fundierte Analyse deiner Zielgruppe und passen die Strategie an deine individuellen Ziele an.',
+          title: 'WordPress Webseiten',
+          description: 'Wir erstellen moderne und benutzerfreundliche WordPress Webseiten, die individuell auf deine Bedürfnisse zugeschnitten sind. Von der Konzeption bis zur Umsetzung begleiten wir dich und setzen dabei auf neueste Technologien.\n',
         },
         {
-          title: "Branding Design",
-          description: "Mit einem starken Corporate Design inklusive Logo-Entwicklung und Branding Design schaffen wir eine unverwechselbare Marke, die sich von der Konkurrenz abhebt. Wir setzen auf ein Design, das zu deinem Unternehmen passt und deine Werte und Botschaften optimal vermittelt.",
+          title: "Individuelle Webseiten",
+          description: 'Mit viel Kreativität und Know-how entwickeln wir individuelle Webseiten, die sich von der Masse abheben. Dabei setzen wir auf moderne Technologien und Methoden, um eine optimale Darstellung und Benutzerfreundlichkeit zu gewährleisten.\n',
         },
         {
-          title: "Webdesign",
-          description: "Wir setzen auf individuelle Website-Lösungen, die auf deine Bedürfnisse zugeschnitten sind. Dabei legen wir besonderen Wert auf ein benutzerfreundliches UI/UX Design, das ein positives Nutzererlebnis garantiert.",
+          title: "App-Entwicklung",
+          description: 'Wir entwickeln professionelle und maßgeschneiderte Apps für Android und iOS, die deinen Anforderungen entsprechen. Dabei setzen wir auf neueste Technologien und sorgen für eine optimale Darstellung und Funktionalität.',
         },
         {
-          title: "UI/UX Design",
-          description: "Ein ansprechendes und benutzerfreundliches Design ist entscheidend für den Erfolg deiner Website oder App. Wir setzen auf UI/UX Design, das begeistert und deine Nutzer überzeugt. Dabei achten wir darauf, dass das Design zu deiner Marke und deinen Zielen passt.",
+          title: "PWA-Entwicklung",
+          description: 'Wir bieten auch die Entwicklung von Progressive Web Apps (PWA) an, die sowohl als Website als auch als App fungieren können. Dabei setzen wir auf die neuesten Technologien und Methoden, um eine optimale Performance und Benutzerfreundlichkeit zu gewährleisten.',
         },
         {
-          title: "Social Media",
-          description: "Wir helfen dir dabei, eine erfolgreiche Social-Media-Strategie zu entwickeln und deine Marke optimal auf den gängigen Plattformen zu präsentieren. Dabei setzen wir auf eine maßgeschneiderte Strategie, die zu deinen Zielen und Bedürfnissen passt.",
+          title: "Wartung",
+          description: 'Wir bieten dir auch die Wartung und Pflege deiner Webseiten und Apps an, um eine reibungslose Funktionalität sicherzustellen. Dabei kümmern wir uns um Updates, Backups und Fehlerbehebungen und stehen dir auch für Supportanfragen zur Verfügung.',
         },
       ],
       hoverSection: [
@@ -214,28 +214,32 @@ export default {
       ],
       faq: [
         {
-          title: "Was ist ein Corporate Design?",
-          content: "Ein Corporate Design ist die visuelle Identität eines Unternehmens. Es umfasst alle Elemente, die das Erscheinungsbild eines Unternehmens ausmachen, wie das Logo, die Farben, Schriftarten, Bilder und Grafiken."
+          title: "Was ist ein CMS?",
+          content: "Ein Content-Management-System (CMS) ist eine Software, die es Nutzern ermöglicht, Inhalte auf einer Website zu erstellen, zu bearbeiten und zu verwalten, ohne umfangreiche Programmierkenntnisse zu benötigen.\n"
         },
         {
-          title: "Was ist ein Branding?",
-          content: "Branding bezieht sich auf den Prozess, bei dem ein Unternehmen seine Identität definiert und auf eine Weise kommuniziert, die es von anderen Unternehmen unterscheidet. Es geht darum, eine starke und einprägsame Marke aufzubauen, die sich in den Köpfen der Kunden festsetzt."
+          title: "Was ist WordPress?",
+          content: "WordPress ist ein beliebtes Open-Source-CMS, das es Nutzern ermöglicht, eine Website zu erstellen und Inhalte zu verwalten, ohne tiefgreifende Kenntnisse in Webentwicklung zu haben. Es bietet eine Vielzahl von Vorlagen und Plugins, die es einfach machen, eine Website zu erstellen."
         },
         {
-          title: "Worauf kommt es bei einem Logo an?",
-          content: "Ein gutes Logo sollte einfach, einprägsam und zeitlos sein. Es sollte die Identität des Unternehmens widerspiegeln und sich leicht in verschiedenen Größen und auf verschiedenen Materialien darstellen lassen."
+          title: "Was sind die Vorteile eines CMS?",
+          content: "Ein CMS erleichtert es dir Inhalte zu verwalten, ohne umfangreiche Programmierkenntnisse zu benötigen. Es ermöglicht eine schnelle und einfache Veröffentlichung von Inhalten und kann die Effizienz von Website-Updates und -Wartung verbessern."
         },
         {
-          title: "Wieso sollte ich ein Corporate Identity haben?",
-          content: "Ein Corporate Identity hilft dir, dich von der Konkurrenz abzuheben, eine starke Marke aufzubauen und Vertrauen bei deinen Kunden aufzubauen. Es sorgt für Konsistenz und Professionalität in allen Aspekten deines Unternehmens."
+          title: "Was sind die Nachteile eines CMS?",
+          content: "Ein CMS kann unter Umständen die Flexibilität bei der Erstellung von Websites einschränken und erfordert in einigen Fällen zusätzliche Kosten für Vorlagen oder Plugins. Es kann auch Sicherheitsprobleme verursachen, wenn es nicht ordnungsgemäß aktualisiert oder gewartet wird."
         },
         {
-          title: "Was ist ein Markenhandbuch?",
-          content: "Ein Markenhandbuch ist ein Dokument, das alle Regeln und Richtlinien für die Verwendung deines Corporate Designs und deiner Marke festlegt. Es enthält Anweisungen zur Verwendung des Logos, der Farben, Schriftarten und Grafiken sowie zur Gestaltung von Marketingmaterialien und der Website."
+          title: "Wann kommt eine PWA zum Einsatz?",
+          content: "Eine Progressive Web App (PWA) kann in Fällen eingesetzt werden, in denen eine native App nicht erforderlich ist, aber dennoch eine App-ähnliche Benutzererfahrung gewünscht ist. PWAs können auf allen Geräten über den Browser installiert werden und bieten Funktionen wie Offline-Unterstützung und Push-Benachrichtigungen."
         },
         {
-          title: "Wozu wird ein Corporate Design verwendet?",
-          content: "Ein Corporate Design wird verwendet, um eine konsistente und einprägsame visuelle Identität für ein Unternehmen zu schaffen. Es wird auf allen Marketingmaterialien, Produkten, Websites und Kommunikationen des Unternehmens eingesetzt, um eine starke Marke aufzubauen und Vertrauen bei den Kunden zu schaffen."
+          title: "Kann ich eine Webseite mit WordPress selbst verwalten?",
+          content: "Ja, WordPress ist so konzipiert, dass es Nutzern ohne Programmierkenntnisse ermöglicht, Inhalte auf einer Website zu erstellen, zu bearbeiten und zu verwalten. Sie können die Inhalte deiner Website selbst aktualisieren, ohne uns kontaktieren zu müssen."
+        },
+        {
+          title: "Was ist der Unterschied zwischen einer nativen App und einer PWA?",
+          content: "Eine native App muss für jedes Betriebssystem (z.B. iOS und Android) separat entwickelt werden und wird aus einem App-Store heruntergeladen. Eine PWA ist eine Webanwendung, die auf allen Geräten über den Browser installiert werden kann und Funktionen bietet, die normalerweise mit nativen Apps verbunden sind, wie z.B. Offline-Unterstützung und Push-Benachrichtigungen."
         },
       ],
     }
@@ -248,10 +252,10 @@ export default {
   },
   metaInfo() {
     return {
-      title: "greenstein.design",
+      title: "Entwicklung",
       meta: [
-        { name: 'title', content: "Design & Strategie - Greenstein Designagentur" },
-        { name: 'description', content: "Steigere Deine Verkäufe mit einer erfolgreichen Marketingstrategie und einem ansprechenden Design - Wir zeigen Dir wie!" },
+        { name: 'title', content: "Web-Entwicklung in Hannover - Greenstein Designagentur" },
+        { name: 'description', content: "Wir bieten individuelle Web-Lösungen an. Ob neue Website erstellen oder eine bestehende verbessern - wir haben die perfekte Lösung für Dich" },
       ]
     }
   }

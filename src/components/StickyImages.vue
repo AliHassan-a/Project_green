@@ -2,7 +2,7 @@
   <div class="mainSection">
     <div class="pinnedContainerWrapper">
       <div class="pinnedContainer" data-speed="0.8">
-        <div class="toLinkHover" gs-hover="Was grnstn so!? &nbsp;&nbsp; Wanna be friends?">
+        <div>
           <h2 class="animateBlockHead"> Designer, Programmierer </h2>
           <h2 class="animateBlockHead"> Marketing-Experten </h2>
           <h2 class="animateBlockHead greenColor" style="text-align: left;"><b>Freunde</b></h2>

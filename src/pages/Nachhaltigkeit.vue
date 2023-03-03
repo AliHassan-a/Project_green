@@ -5,7 +5,7 @@
         <div class="inner">
           <div class="bg one">
             <h2 class="section-heading">Energieeffizientes SmartOffice</h2>
-            <p class="section-text"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content.</p>
+            <p class="section-text">Wir setzen auf Ökostrom und nutzen nur energiesparende Server</p>
           </div>
         </div>
       </div>
@@ -15,7 +15,7 @@
         <div class="inner">
           <div class="bg">
             <h2 class="section-heading">Wir fördern diverse Sportvereine</h2>
-            <p class="section-text"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content.</p>
+            <p class="section-text">Wir sind Sponsor des HC Eintracht Hildesheim, sowie des 1. Ligavereins Die Recken TSV Hannover Burgdorf</p>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
         <div class="inner">
           <div class="bg">
             <h2 class="section-heading">Wir unterstützen regionale Produkte</h2>
-            <p class="section-text"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content.</p>
+            <p class="section-text">Zum Beispiel das Wildgatter Hildesheim, das Weedbeat Festival oder FuNah(Fußball und Nachhilfe)</p>
           </div>
         </div>
       </div>
@@ -34,8 +34,8 @@
       <div class="outer">
         <div class="inner">
           <div class="bg">
-            <h2 class="section-heading">Und internationale Organisationen</h2>
-            <p class="section-text"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content.</p>
+            <h2 class="section-heading">Wir spenden an diverse internationale Organisationen</h2>
+            <p class="section-text">Zum Beispiel an den WWF, Sea Watch, Sea Shepard, Rettet den Regenwald und einige mehr!</p>
           </div>
         </div>
       </div>
@@ -133,7 +133,20 @@ export default {
       preventDefault: true
     });
 
-    gotoSection(0, 1);
+    gotoSection(0, 0);
+  },
+  metaInfo() {
+    return {
+      title: "Nachhaltigkeit",
+      meta: [
+        { name: 'title', content: "Designagentur" },
+        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+      ]
+    }
   }
 }
 </script>

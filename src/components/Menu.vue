@@ -24,16 +24,23 @@
         <div class="menu__item">
           <Seperator class="menu__seperator" :theme="'lightGreen'"/>
           <div class="menu__bottom">
-            <div>
-              <span @click="navigteTo('/impressum')">Impressum</span>&nbsp;&nbsp;
-              <span @click="navigteTo('/datenschutz')">Datenschutz</span>
+            <div style="display: flex; gap: 10px;">
+              <div class="buerocratics" @click="navigteTo('/impressum')">
+                <span>Impressum</span>
+              </div>
+              <div class="buerocratics">
+                <span @click="navigteTo('/datenschutz')">Datenschutz</span>
+              </div>
             </div>
             <div class="menu__socials">
               <a href="https://www.facebook.com/greenstein.designagentur/">
-                <img src="@/assets/facebook-f.webp">
+                <g-image src="@/assets/facebook-f.webp"></g-image>
               </a>
               <a href="https://www.instagram.com/greenstein.design/">
-                <img src="@/assets/instagram.webp">
+                <g-image src="@/assets/instagram.webp"></g-image>
+              </a>
+              <a href="https://de.linkedin.com/company/greenstein-designagentur">
+                <g-image src="@/assets/linkedin.webp"></g-image>
               </a>
             </div>
           </div>
@@ -399,6 +406,7 @@ main {
   will-change: opacity, transform;
   margin: 20px 0px;
   width: 100%;
+  cursor: pointer;
 }
 
 .menu__item-text {
@@ -407,6 +415,7 @@ main {
   font-size: 3em;
   color: #E7FFD3;
   opacity: 0.6;
+  cursor: pointer;
   transition: opacity 0.3s ease;
 }
 .menu__item-text:hover {
@@ -423,9 +432,21 @@ main {
 }
 .menu__socials{
   filter: brightness(0) invert(1);
-  width: 50px;
+  width: 100px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.menu__socials a, .menu__bottom .buerocratics span{
+  cursor: pointer;
+}
+.menu__socials a, .menu__bottom .buerocratics{
+  transition: all 0.15s linear;
+  filter: opacity(0.8);
+}
+.menu__socials a:hover, .menu__bottom .buerocratics:hover{
+  transform: scale(0.98);
+  filter: opacity(1)
 }
 
 @keyframes runner {

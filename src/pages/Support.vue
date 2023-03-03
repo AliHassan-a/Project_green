@@ -19,6 +19,19 @@ export default {
     this.pageGsap = new initGsap({}, this);
     (function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://crm.grnstn.net/upload/crm/form/loader_27_44frta.js');
   },
+  metaInfo() {
+    return {
+      title: "Support",
+      meta: [
+        { name: 'title', content: "Designagentur" },
+        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+      ]
+    }
+  }
 }
 </script>
 

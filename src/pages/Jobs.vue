@@ -28,6 +28,19 @@ export default {
   },
   mounted() {
     this.pageGsap = new initGsap({}, this);
+  },
+  metaInfo() {
+    return {
+      title: "Jobs",
+      meta: [
+        { name: 'title', content: "Designagentur" },
+        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+      ]
+    }
   }
 }
 </script>

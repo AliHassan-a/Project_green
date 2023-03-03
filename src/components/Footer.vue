@@ -33,9 +33,15 @@
           <p class="imprintAndDataprot blackColor footer-hover" @click="emitOpenCookies">Cookies</p>
         </div>
         <div class="socialWrapper">
-          <g-image class="footer-hover" title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.webp" />
-          <g-image class="footer-hover" title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.webp" />
-          <g-image class="footer-hover" title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.webp" />
+          <a href="https://www.facebook.com/greenstein.designagentur/">
+            <g-image class="footer-hover" title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.webp" />
+          </a>
+          <a href="https://www.instagram.com/greenstein.design/">
+            <g-image class="footer-hover" title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.webp" />
+          </a>
+          <a href="https://de.linkedin.com/company/greenstein-designagentur">
+            <g-image class="footer-hover" title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.webp" />
+          </a>
         </div>
       </div>
     </div>

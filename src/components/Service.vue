@@ -46,6 +46,7 @@ export default {
 .leistungBlockWrapper .serviceWrapper{
   width: 100%;
   margin: auto;
+  cursor: pointer;
 }
 .leistungWrapper{
   width: 100%;
@@ -70,6 +71,9 @@ export default {
 .leistungWrapper img{
   object-fit: contain;
   width: 82px;
+}
+.leistungText{
+  cursor: pointer;
 }
 .leistungWrapper base-button{
   justify-content: flex-end;

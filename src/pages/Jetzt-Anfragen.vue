@@ -106,6 +106,19 @@ export default {
             this.errors = error.response.data.message
           });
     }
+  },
+  metaInfo() {
+    return {
+      title: "Jetzt anfragen",
+      meta: [
+        { name: 'title', content: "Designagentur" },
+        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+      ]
+    }
   }
 }
 </script>

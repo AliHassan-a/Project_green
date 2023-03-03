@@ -20,7 +20,13 @@
       <div id="two" class="mainSection section-two">
         <div class="innerContentContainer">
           <h2 class="animateBlockHead fullWidthInnerHead"> Unsere Leitsätze </h2>
-          <Slider :slideContent="steps" :slideType="'indexed'" :hasNumber="true" class="animateBlockItem" />
+          <SliderIndex>
+            <div class="box simple blackBg" v-for="(slide, index, key) in steps" :key="key">
+              <BaseTitle :class="'greenColor'" :tag="'h3'"><span style="font-weight: 800;">{{index+1}}.</span></BaseTitle>
+              <BaseTitle :align="'left'" :tag="'h3'"><b>{{slide.title}}</b></BaseTitle>
+              <BaseText :addStyle="'white-space: normal'">{{slide.description}}</BaseText>
+            </div>
+          </SliderIndex>
         </div>
       </div>
       <div id="three" class="mainSection section-three">
@@ -41,7 +47,9 @@
           <CardGrid :content="$static.employees" />
         </div>
       </div>
-      <StickyImages :imageSet="'about'" />
+      <div id="five" class="section-five">
+        <StickyImages :imageSet="'about'" />
+      </div>
     </div>
   </Layout>
 </template>
@@ -52,16 +60,16 @@ import BaseTitle from "../components/BaseTitle";
 import Seperator from "../components/Seperator";
 import initGsap from "../misc/gsapBase";
 import HeroTitle from "../components/HeroTitle";
-import Slider from "../components/Slider";
 import StickyImages from "../components/StickyImages";
 import CardGrid from "../components/cardGrid";
 import BaseText from "../components/BaseText";
+import SliderIndex from "../components/SliderIndex";
 
 export default {
   components: {
+    SliderIndex,
     CardGrid,
     StickyImages,
-    Slider,
     HeroTitle,
     BaseButton,
     BaseTitle,
@@ -105,6 +113,19 @@ export default {
       stickyImages: true,
       heroAnimation: true,
     }, this);
+  },
+  metaInfo() {
+    return {
+      title: "Agentur",
+      meta: [
+        { name: 'title', content: "Designagentur" },
+        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+      ]
+    }
   }
 }
 </script>
@@ -153,6 +174,9 @@ export default {
 }
 .section-three{
   margin-bottom: 200px;
+}
+.section-five{
+  margin-top: 100px;
 }
 
 @media only screen and (max-width: 1024px){
