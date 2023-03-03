@@ -3,22 +3,15 @@ import {gsap, ScrollSmoother, ScrollTrigger, SplitText} from "gsap/all";
 const initGsap = class {
     constructor(features, vueInstance) {
         this.features = features
-        this.isAlive = false
         this.vueInstance = vueInstance
         this.init();
-        this.killGsap = function(){
-            // kill not needed in production
-        }
     }
     init() {
-        this.isAlive = true;
-
         /* init Base */
-        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
         ScrollSmoother.create({
             smooth: 2,
             effects: true,
-            smoothTouch: 0.3,
         });
 
         ScrollTrigger.defaults({
