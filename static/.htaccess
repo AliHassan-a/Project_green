@@ -15,3 +15,62 @@ RewriteRule (.*)$ https://greenstein.design/$1 [R=301,L]
 </IfModule>
 
 AddType application/javascript js
+
+Redirect 301 /grafikdesign-hildesheim/ /
+Redirect 301 /projekte/ipa-software-gmbh/ /projekte/
+Redirect 301 /projekte/meine-kupferschmiede/ /
+Redirect 301 /projekte/your-goal-your-action/ /projekte/
+Redirect 301 /suchmaschinenoptimierung-hannover/ /
+Redirect 301 /sem/ /
+Redirect 301 /projekte/mitunsdigital /projekte/
+Redirect 301 /wordpress-schulung/ /
+Redirect 301 /about /agentur/
+Redirect 301 /projekte/hospitalsharing /projekte/
+Redirect 301 /unverbindlich-anfragen /jetzt-anfragen/
+Redirect 301 /ufaq/wie-loesche-ich-einen-benutzer-in-wordpress/ /faqs/
+Redirect 301 /go-digital/ /
+Redirect 301 /ufaq-category/elementor/ /faqs/
+Redirect 301 /ufaq/wie-fuege-ich-ein-neues-mailkonto-in-thunderbird-hinzu/ /faqs/
+Redirect 301 /ufaq/wie-aendere-ich-mein-eigenes-passwort-in-wordpress/ /faqs/
+Redirect 301 /ufaq/wie-erstelle-ich-einen-neuen-abschnitt-in-elementor/ /faqs/
+Redirect 301 /ufaq/was-ist-mit-ueberschrift-1-2-3-etc-gemeint/ /faqs/
+Redirect 301 /ufaq/neues-mailkonto-in-ios-iphone-ipad-hinzufuegen/ /faqs/
+Redirect 301 /ufaq-category/plesk-hosting/ /faqs/
+Redirect 301 /ufaq/wie-aendere-ich-vorhandene-inhalte/ /faqs/
+Redirect 301 /ufaq/wie-binde-ich-in-elementar-ein-video-ein/ /faqs/
+Redirect 301 /ufaq/wie-fuege-ich-ein-neues-mailkonto-in-apple-mail-hinzu/ /faqs/
+Redirect 301 /ufaq/wie-lege-ich-in-wordpress-neue-benutzer-an/ /faqs/
+Redirect 301 /ufaq/wie-logge-ich-mich-bei-wordpress-ein/ /faqs/
+Redirect 301 /ufaq-category/wordpress/ /faqs/
+Redirect 301 /ufaq/wie-lade-ich-medien-fotos-videos-pdfs-in-wordpress-hoch/ /faqs/
+Redirect 301 /ufaq/wie-aendere-ich-das-passwort-eines-wordpress-benutzers/ /faqs/
+Redirect 301 /ufaq/wie-erstelle-ich-einen-neuen-menueeintrag-in-wordpress/ /faqs/
+Redirect 301 /ufaq/wie-setze-ich-verlinkungen-innerhalb-meiner-webseite/ /faqs/
+Redirect 301 /ufaq/wie-melde-ich-mich-mich-in-wordpress-ab/ /faqs/
+Redirect 301 /ufaq/wie-kann-ich-in-elementar-einen-abschnitt-bearbeiten/ /faqs/
+Redirect 301 /ufaq/wie-erstelle-ich-einen-blogbeitrag-in-wordpress/ /faqs/
+Redirect 301 /praktikum-in-der-agentur/ /blog/praktikum-in-der-agentur/
+Redirect 301/warum-jedes-unternehmen-eine-gute-designagentur-als-partner-braucht/ /blog/warum-jedes-unternehmen-eine-gute-designagentur-als-partner-braucht/
+Redirect 301 /virtuellendedizierten-server-absichern/ /blog/virtuellendedizierten-server-absichern/
+Redirect 301 /online-marketing-fuenf-arten-um-effektiv-im-internet-zu-werben/ /blog/online-marketing-fuenf-arten-um-effektiv-im-internet-zu-werben/
+Redirect 301 /aktuelle-google-trends-ihr-ranking-verbessern/ /blog/aktuelle-google-trends-ihr-ranking-verbessern/
+Redirect 301 /cms-systeme-im-vergleich/ /blog/cms-systeme-im-vergleich/
+Redirect 301 /responsive-webseiten/ /blog/responsive-webseiten/
+Redirect 301 /informationen-ueber-wordpress-blog/ /blog/informationen-ueber-wordpress-blog/
+Redirect 301 /warum-wordpress-fuer-viele-unternehmen-die-optimale-loesung-ist/ /blog/warum-wordpress-fuer-viele-unternehmen-die-optimale-loesung-ist/
+Redirect 301 /open-source-cms-neue-release-strategie-fuer-joomla/ /blog/open-source-cms-neue-release-strategie-fuer-joomla/
+Redirect 301 /ajax-effekt-fuer-seitenuebergaenge-in-joomla/ /blog/ajax-effekt-fuer-seitenuebergaenge-in-joomla/
+Redirect 301 /ispcp-auf-debian-lenny-installieren/ /blog/ispcp-auf-debian-lenny-installieren/
+Redirect 301 /gutes-webhosting/ /blog/gutes-webhosting/
+Redirect 301 /werbung-fuer-gruender/ /blog/werbung-fuer-gruender/
+Redirect 301 /werbung-mit-geringem-budget/ /blog/werbung-mit-geringem-budget/
+Redirect 301 /wasser-trinken-durst-loeschen-gutes-tun/ blog/wasser-trinken-durst-loeschen-gutes-tun/
+Redirect 301 /klimaneutrale-webseite/ /blog/klimaneutrale-webseite/
+Redirect 301 /responsive-webdesign/ /blog/responsive-webdesign/
+Redirect 301 /google-vs-facebook-werbung-schalten/ /blog/google-vs-facebook-werbung-schalten/
+Redirect 301 /was-ist-wordpress/ /blog/was-ist-wordpress/
+Redirect 301 /plesk-10-x-unable-to-register-configuration-file/ /blog/plesk-10-x-unable-to-register-configuration-file/
+Redirect 301 /sicherheit-im-internet/ /blog/sicherheit-im-internet/
+Redirect 301 /die-webdesign-trends-2020/ /blog/die-webdesign-trends-2020/
+Redirect 301 /bee-cool-was-soll-das-denn-heissen/ /blog/bee-cool-was-soll-das-denn-heissen/
+Redirect 301 /standort-in-hannover-neuer-meetingspace/ /blog/standort-in-hannover-neuer-meetingspace/

@@ -6,7 +6,7 @@
         <span class="title">{{ title }}</span>
         <span class="title title--hovered"><b>{{ title }}</b></span>
       </button>
-      <button class="dark" v-else-if="theme == 'dark'">
+      <button :class="isTag ? 'btnTag' : ''" class="dark" v-else-if="theme == 'dark'">
         <div class="button-blob dark" />
         <span class="title">{{ title }}</span>
         <span class="title title--hovered"><b>{{ title }}</b></span>
@@ -57,6 +57,13 @@ export default {
     linkTo: String,
     theme: String,
     align: String,
+    isTag: Boolean,
   }
 }
 </script>
+
+<style>
+.btnTag{
+  padding: 0px 10px !important;
+}
+</style>

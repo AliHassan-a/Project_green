@@ -6,8 +6,8 @@
         <div class="leistungWrapper">
           <h3 class="lightGreenColor">{{ project.year }}</h3>
           <h3 class="w-full leistungText">{{ project.title }}</h3>
-          <BaseButton style="pointer-events: none" v-for="(service, index, key) in project.services" :theme="'dark'" :title="service" :key="key"/>
-          <BaseButton :link-to="project.link" :theme="'more'" :title="'Seite ansehen'" />
+          <BaseButton :isTag="true" style="pointer-events: none" v-for="(service, index, key) in project.services" :theme="'dark'" :title="service" :key="key"/>
+          <BaseButton :theme="'more'" :title="'Seite ansehen'" />
         </div>
         <Seperator class="m-hide" theme="lightGreen"></Seperator>
       </a>
@@ -64,7 +64,9 @@ export default {
 .leistungWrapper base-button{
   justify-content: flex-end;
 }
-
+button{
+  padding: 0px 10px !important;
+}
 /* RESPONSIVE */
 /* RESPONSIVE */
 @media only screen and (max-width: 1024px) {

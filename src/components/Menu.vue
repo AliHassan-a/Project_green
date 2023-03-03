@@ -494,7 +494,7 @@ main {
     font-size: 16px;
   }
   .menu__socials{
-    width: 50px;
+    width: 80px;
   }
   .menu__socials img{
     object-fit: contain;

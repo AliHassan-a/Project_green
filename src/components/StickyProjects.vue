@@ -32,7 +32,7 @@
           <g-image class="projectLogo" :src="projects[3].logo"></g-image>
         </div>
         <BaseTitle class="projectText" :tag="'h3'">{{ projects[3].text }}</BaseTitle>
-        <BaseButton class="projectBtn" :linkTo="'projekte/schweizer-imnmobilienmanufaktur'" :align="'left'" :theme="'dark'" :title="'Zum Projekt'" />
+        <BaseButton class="projectBtn" :linkTo="'projekte/schweizer-immobilienmanufaktur'" :align="'left'" :theme="'dark'" :title="'Zum Projekt'" />
         <g-image class="projectMock" :src="projects[3].mockup"></g-image>
       </div>
     </div>

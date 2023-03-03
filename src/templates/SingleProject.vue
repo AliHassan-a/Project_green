@@ -36,7 +36,6 @@
       <div class="innerSteps">
         <div class="stepsSection"></div>
         <div class="stepsSection">
-          <g-image :src="getImagesArray[0]" class="md-hide" />
           <BaseTitle class="animateBlockHead" :tag="'h3'">Ausgangslage</BaseTitle>
           <BaseText class="animateBlockText">{{ $context.acf.step1Text }}</BaseText>
         </div>

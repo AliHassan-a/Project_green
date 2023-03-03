@@ -103,7 +103,7 @@ export default {
           year: "2022",
           title: "Petersilien Marketing",
           services: ["Strategie & Design", "Entwicklung"],
-          link: "",
+          link: "https://petersilien-marketing.de",
         },
         {
           year: "2022",
@@ -217,7 +217,7 @@ export default {
           year: "2021",
           title: "Zahnarztpraxis Blumenberg",
           services: ["Strategie & Design", "Entwicklung"],
-          link: "https://zahnarzt-blumenberg.de/ ",
+          link: "https://zahnarzt-blumenberg.de/",
         },
       ]
     }

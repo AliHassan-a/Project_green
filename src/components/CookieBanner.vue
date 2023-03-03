@@ -99,8 +99,6 @@ export default {
       document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     },
     cookiesAllowed() {
-      console.log("ACTIVATE GTM BEFORE GO LIVE!");
-      /*
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
@@ -114,7 +112,6 @@ export default {
             'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-N5IMT7D');
-      */
     }
   },
   components: {

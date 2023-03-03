@@ -225,6 +225,8 @@ h2.footer{
   .footer-hover:hover{
     transform: scale(1);
   }
-
+  .footerBottom{
+    margin-bottom: 30px;
+  }
 }
 </style>

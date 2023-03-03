@@ -471,6 +471,12 @@ div.singleContent h1, div.singleContent h2, div.singleContent h3{
     .animateBlockItemStagger{
         opacity: 1;
     }
+    button.dark span{
+        color: white;
+        transition: all 0.3s ease-out;
+        line-height: 3.2em;
+        font-size: clamp(1.5em, calc(100vw / 50), 1.8em);
+    }
 }
 @media only screen and (min-width: 1024px) {
     .md-hide{
