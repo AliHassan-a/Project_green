@@ -14,22 +14,22 @@
       </div>
       <div class="footer-inner-content">
         <p class="footer-small">LEISTUNGEN</p>
-        <g-link to="/leistungen/design-strategie" class="footer-link-small footer-hover">Design & Strategie</g-link>
-        <g-link to="/leistungen/entwicklung" class="footer-link-small footer-hover">Entwicklung</g-link>
-        <g-link to="/leistungen/marketing" class="footer-link-small footer-hover">Marketing</g-link>
+        <g-link to="/leistungen/design-strategie" v-reload class="footer-link-small footer-hover">Design & Strategie</g-link>
+        <g-link to="/leistungen/entwicklung" v-reload class="footer-link-small footer-hover">Entwicklung</g-link>
+        <g-link to="/leistungen/marketing" v-reload class="footer-link-small footer-hover">Marketing</g-link>
       </div>
       <div class="footer-inner-content">
         <p class="footer-small">ÜBER UNS</p>
-        <g-link to="/agentur" class="footer-link-small footer-hover">Unsere Agentur</g-link>
-        <g-link to="/nachhaltigkeit" class="footer-link-small footer-hover">Nachhaltigkeit</g-link>
-        <g-link to="/kontakt" class="footer-link-small footer-hover">Kontakt</g-link>
+        <g-link to="/agentur" v-reload class="footer-link-small footer-hover">Unsere Agentur</g-link>
+        <g-link to="/nachhaltigkeit" v-reload class="footer-link-small footer-hover">Nachhaltigkeit</g-link>
+        <g-link to="/kontakt" v-reload class="footer-link-small footer-hover">Kontakt</g-link>
       </div>
     </div>
     <div class="footerBottom" style="z-index: 1;">
       <div class="contentContainer">
         <div style="display: flex;">
-          <g-link to="/impressum" class="imprintAndDataprot blackColor footer-hover">Impressum</g-link>
-          <g-link to="/datenschutz" class="imprintAndDataprot blackColor footer-hover">Datenschutz</g-link>
+          <g-link to="/impressum" v-reload class="imprintAndDataprot blackColor footer-hover">Impressum</g-link>
+          <g-link to="/datenschutz" v-reload class="imprintAndDataprot blackColor footer-hover">Datenschutz</g-link>
           <p class="imprintAndDataprot blackColor footer-hover" @click="emitOpenCookies">Cookies</p>
         </div>
         <div class="socialWrapper">

@@ -1,7 +1,7 @@
 <template>
   <div class="mainSection">
     <div class="contentContainer">
-      <div class="stickySection">
+      <div class="simpleStickySection">
         <HeroTitle
             v-if="stickyContent == 'hero'"
             class="heroTitle"
@@ -104,7 +104,7 @@ export default {
   margin-top: 0vh;
   padding-top: 30vh;
 }
-.stickySection{
+.simpleStickySection{
   top:0;
   height: 100vh;
   padding-top: 30vh;
@@ -127,7 +127,7 @@ export default {
     width: 100%;
     margin-bottom: 100px;
   }
-  .stickySection{
+  .simpleStickySection{
     padding-top:20vh;
     height: 50vh;
   }

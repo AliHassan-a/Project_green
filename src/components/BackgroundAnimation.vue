@@ -40,7 +40,7 @@ export default {
         }
         ctx.putImageData(imgdata, 0, 0);
         t++
-      }, 25);
+      }, 33.333333);
     }
     animation();
   },

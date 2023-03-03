@@ -55,10 +55,12 @@ export default {
   },
   methods: {
     resetHovers() {
-      let followMouse = document.getElementById("followMouse");
+      if(document.getElementById("followMouse") != undefined){
+        let followMouse = document.getElementById("followMouse");
 
-      this.setDirectionListener(followMouse);
-      this.setLinkListener(followMouse);
+        this.setDirectionListener(followMouse);
+        this.setLinkListener(followMouse);
+      }
     },
     setLinkListener(followMouse){
       let upChev = document.getElementById("upChev");

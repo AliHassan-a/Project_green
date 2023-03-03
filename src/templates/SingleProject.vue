@@ -203,9 +203,9 @@ export default {
       currentImage: null,
       pages: {
         "Chartexperten": 150,
-        "Eintracht-Hildesheim": 333,
+        "Eintracht Hildesheim": 333,
         "Kematherm": 100,
-        "Schweizer-Immobilienmanufaktur": 280,
+        "Schweizer Immobilienmanufaktur": 280,
       },
     }
   },

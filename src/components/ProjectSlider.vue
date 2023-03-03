@@ -2,7 +2,7 @@
   <div id="two" class="container">
     <BaseTitle class="m-hide horizontalHeader animateBlockHead" :align="'left'" :tag="'h2'" >Wir entwickeln innovative <br> Apps & Webseiten</BaseTitle>
     <section class="panel" v-for="(project, index) in projects" :style="index == 0 ? {marginLeft: '9.5vw'} : {}">
-      <g-link :to="project.link">
+      <g-link :to="project.link" v-reload>
         <div class="box" :class="'box-' + (index + 1)" :style="{background: project.color}">
           <div class="projectLeft m-hide">
             <g-image :class="index == 0 ? 'animateBlockItem' : ''" :src="project.logo" :title="project.title" :alt="project.text"></g-image>

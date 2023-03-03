@@ -3,10 +3,12 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 import 'material-icons/iconfont/material-icons.scss';
+import forceReload from './mixins/forceReload';
 
 export default function (Vue, { router, head, isClient, appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
+  Vue.use(forceReload)
   head.htmlAttrs = { lang: 'de' }
 }
 

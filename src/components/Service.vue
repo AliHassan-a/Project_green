@@ -1,29 +1,35 @@
 <template>
   <div class="w-full leistungBlockWrapper">
     <div class="animateBlockItem serviceWrapper">
-      <Seperator class="m-hide" theme="lightGreen"></Seperator>
-      <div class="leistungWrapper">
-        <g-image src="@/assets/design_strategie_icon.webp"></g-image>
-        <h3 class="w-full leistungText">Design & Strategie</h3>
-        <BaseButton :link-to="'design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
-      </div>
-      <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      <a href="/leistungen/design-strategie" v-reload>
+        <Seperator class="m-hide" theme="lightGreen"></Seperator>
+        <div class="leistungWrapper">
+          <g-image src="@/assets/design_strategie_icon.webp"></g-image>
+          <h3 class="w-full leistungText">Design & Strategie</h3>
+          <BaseButton :link-to="'leistungen/design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
+        </div>
+        <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      </a>
     </div>
     <div class="animateBlockItem serviceWrapper">
-      <div class="leistungWrapper">
-        <g-image src="@/assets/entwicklung_icon.webp"></g-image>
-        <h3 class="w-full leistungText">Entwicklung</h3>
-        <BaseButton :link-to="'entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
-      </div>
-      <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      <a href="/leistungen/entwicklung" v-reload>
+        <div class="leistungWrapper">
+          <g-image src="@/assets/entwicklung_icon.webp"></g-image>
+          <h3 class="w-full leistungText">Entwicklung</h3>
+          <BaseButton :link-to="'leistungen/entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
+        </div>
+        <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      </a>
     </div>
     <div class="animateBlockItem serviceWrapper">
-      <div class="leistungWrapper">
-        <g-image src="@/assets/marketing_icon.webp"></g-image>
-        <h3 class="w-full leistungText">Marketing</h3>
-        <BaseButton :link-to="'marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
-      </div>
-      <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      <a href="/leistungen/marketing" v-reload>
+        <div class="leistungWrapper">
+          <g-image src="@/assets/marketing_icon.webp"></g-image>
+          <h3 class="w-full leistungText">Marketing</h3>
+          <BaseButton :link-to="'leistungen/marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
+        </div>
+        <Seperator class="m-hide" theme="lightGreen"></Seperator>
+      </a>
     </div>
   </div>
 </template>

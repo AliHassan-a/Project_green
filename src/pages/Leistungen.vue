@@ -7,11 +7,7 @@
 </template>
 
 <script>
-import BaseButton from "../components/BaseButton";
-import BaseTitle from "../components/BaseTitle";
 import initGsap from "../misc/gsapBase";
-import HeroTitle from "../components/HeroTitle";
-import BaseText from "../components/BaseText";
 import StickySection from "../components/StickySection";
 
 export default {
@@ -30,7 +26,7 @@ export default {
   mounted() {
     new initGsap({
       heroAnimation: true,
-      stickySection: true,
+      simpleStickySection: true,
     }, this);
   },
   metaInfo() {

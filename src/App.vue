@@ -21,6 +21,7 @@ import Header from "./components/Header";
 import Cursorfollow from "@/components/Cursorfollow";
 import backgroundAnimation from "./components/BackgroundAnimation";
 import CookieBanner from "./components/CookieBanner";
+import {gsap, Quart} from "gsap/all";
 
 export default {
   name: "App",
@@ -39,7 +40,7 @@ export default {
       setTimeout(() => {
         this.openCookies = false;
       },1000)
-    }
+    },
   },
   mounted(){
     this.$root.$on("repaint-bg", this.onRepaint);

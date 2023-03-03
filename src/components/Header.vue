@@ -1,15 +1,15 @@
 <template>
   <header>
     <div ref="logoContainer" class="logoContainer">
-      <a class="logoImage greensteinLogo" :href="'/'">
+      <a class="logoImage greensteinLogo" v-reload :href="'/'">
         <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/greenstein-logo.svg"></g-image>
       </a>
-      <a class="logoImage greensteinLogoFont" :href="'/'">
+      <a class="logoImage greensteinLogoFont" v-reload :href="'/'">
         <g-image title="greenstein-logo" alt="greenstein-logo" src="@/assets/greenstein-logo-font.svg"></g-image>
       </a>
     </div>
     <div class="frame__button">
-      <a href="/jetzt-anfragen" class="m-hide">
+      <a href="/jetzt-anfragen" v-reload class="m-hide">
         <button class="dark">
           <div class="button-blob dark" />
           <span class="title">Jetzt anfragen</span>

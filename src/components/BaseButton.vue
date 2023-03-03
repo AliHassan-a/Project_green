@@ -23,7 +23,7 @@
         </h3>
       </button>
     </div>
-    <a v-else :href="'/' + linkTo">
+    <a v-else v-reload :href="'/' + linkTo">
       <button class="light" v-if="theme == 'light' || theme == ''">
         <div class="button-blob light" />
         <span class="title">{{ title }}</span>
