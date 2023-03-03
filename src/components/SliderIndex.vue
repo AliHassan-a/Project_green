@@ -51,7 +51,7 @@ Template for Images:
               <g-image src="@/assets/3guys.webp"></g-image>
             </div>
 */
-import { gsap, Draggable, InertiaPlugin } from "gsap/all"
+import { gsap, Draggable } from "gsap/all"
 export default {
   name: "SliderIndex",
   mounted(){
@@ -210,7 +210,6 @@ export default {
             ratio, startProgress, draggable, dragSnap,
             align = () => tl.progress(wrap(startProgress + (draggable.startX - draggable.x) * ratio)),
             syncIndex = () => tl.closestIndex(true);
-        typeof(InertiaPlugin) === "undefined" && console.warn("InertiaPlugin required for momentum-based scrolling and snapping. https://greensock.com/club");
         draggable = Draggable.create(proxy, {
           trigger: items[0].parentNode,
           type: "x",
@@ -223,7 +222,7 @@ export default {
           },
           onDrag: align,
           onThrowUpdate: align,
-          inertia: true,
+          inertia: false,
           snap(value) {
             //note: if the user presses and releases in the middle of a throw, due to the sudden correction of proxy.x in the onPressInit(), the velocity could suddenly be very large, throwing off the snap. So sense that condition and adjust for it.
             if (Math.abs(startProgress / -ratio - this.x) < 10) {

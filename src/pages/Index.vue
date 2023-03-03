@@ -55,7 +55,6 @@ import HeroTitle from "../components/HeroTitle";
 import StickyImages from "../components/StickyImages";
 import Service from "../components/Service";
 import Quote from "../components/Quote";
-import Slider from "../components/Slider";
 import SliderIndex from "../components/SliderIndex";
 import BaseText from "../components/BaseText";
 
@@ -72,7 +71,6 @@ export default {
     ProjectSlider,
     BlogSlider,
     CustomerLogoGlider,
-    Slider,
     SliderIndex,
   },
   data() {
