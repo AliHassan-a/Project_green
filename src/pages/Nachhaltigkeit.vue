@@ -57,6 +57,7 @@ export default {
   name: "Nachhaltigkeit",
   mounted(){
     gsap.registerPlugin(Observer);
+    gsap.registerPlugin(SplitText);
 
     let sections = document.querySelectorAll("section"),
         images = document.querySelectorAll(".bg"),

@@ -3,7 +3,7 @@
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
         <div class="contentContainer">
-          <iframe src="https://admin.greenstein.design/support.html"></iframe>
+          <iframe class="support" src="https://admin.greenstein.design/support.html"></iframe>
         </div>
       </div>
     </div>
@@ -31,5 +31,10 @@ export default {
 </script>
 
 <style scoped>
-
+  .support{
+    width: 100%;
+    height: 10vh;
+    min-height: 800px;
+    border: none;
+  }
 </style>
