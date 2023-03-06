@@ -40,7 +40,6 @@
 
 <script>
 import BaseTitle from "../components/BaseTitle";
-import {gsap, ScrollSmoother, ScrollTrigger} from "gsap/all";
 import initGsap from "../misc/gsapBase";
 
 export default {
