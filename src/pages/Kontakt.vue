@@ -2,7 +2,7 @@
   <div class="mainSection">
     <div class="contactWrapper">
       <div class="contactHalf">
-        <BaseTitle style="margin-bottom: 100px;" :align="'left'" :tag="'h2'">Du hast ein spannendes Projekt? Lass uns sprechen! 🎉</BaseTitle>
+        <BaseTitle style="margin-bottom: 100px;" :align="'left'" :tag="'h1'">Du hast ein spannendes Projekt? Lass uns sprechen! 🎉</BaseTitle>
         <div class="contactDetails">
           <div class="singleContact">
             <span>Email</span>

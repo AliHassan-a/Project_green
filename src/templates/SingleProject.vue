@@ -2,7 +2,7 @@
   <Layout>
     <div class="mainSection section-one">
       <div class="innerContentContainer">
-        <BaseTitle class="animateBlockHero" :tag="'h1'">{{ $context.acf.titel }}</BaseTitle>
+        <BaseTitle class="animateBlockHero" :tag="'h1'" :addStyle="'font-size: clamp(1.5em, calc(100vw / 40), 3em)'">{{ $context.acf.titel }}</BaseTitle>
         <g-image class="heroArrow animateBlockHeroArrow" src="@/assets/Pfeile.svg"></g-image>
       </div>
     </div>
@@ -80,6 +80,10 @@
 </template>
 
 <style scoped>
+.section-one .innerContentContainer{
+  width: 70%;
+  margin-left: -30%;
+}
 .section-two{
   max-width: 100vw;
 }
@@ -165,11 +169,22 @@
 }
 
 @media only screen and (max-width: 1024px){
+  .section-one .innerContentContainer{
+    width: 100%;
+    margin-left: 0%;
+  }
   .section-two{
     margin-top: 100px;
+    max-width: 90vw;
   }
   .section-two .contentContainer{
     flex-direction: column;
+  }
+  .section-two .contentContainer .projectInfo{
+    width: 100%;
+  }
+  .section-two .contentContainer .projectInfo img{
+    max-width: 50px;
   }
   .section-two .contentContainer img{
     width: 100%;

@@ -25,6 +25,12 @@
         <g-link to="/kontakt" v-reload class="footer-link-small footer-hover">Kontakt</g-link>
       </div>
     </div>
+    <div class="footerLandingpages">
+      <g-link to="/webdesign-hannover" v-reload class="footer-hoverBig">Webdesign Hannover</g-link> -
+      <g-link to="/webdesign-braunschweig" v-reload class="footer-hoverBig">Webdesign Braunschweig</g-link> -
+      <g-link to="/webdesign-hildesheim" v-reload class="footer-hoverBig">Webdesign Hildesheim</g-link> -
+      <g-link to="/webdesign-salzgitter" v-reload class="footer-hoverBig">Webdesign Salzgitter</g-link>
+    </div>
     <div class="footerBottom" style="z-index: 1;">
       <div class="contentContainer">
         <div style="display: flex;">
@@ -33,14 +39,14 @@
           <p class="imprintAndDataprot blackColor footer-hover" @click="emitOpenCookies">Cookies</p>
         </div>
         <div class="socialWrapper">
-          <a href="https://www.facebook.com/greenstein.designagentur/">
-            <g-image class="footer-hover" title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.webp" />
+          <a title="facebook" href="https://www.facebook.com/greenstein.designagentur/">
+            <g-image class="footer-hoverBig" title="facebook-logo-greenstein" alt="facebook-logo-greenstein" src="@/assets/facebook-f.webp" />
           </a>
-          <a href="https://www.instagram.com/greenstein.design/">
-            <g-image class="footer-hover" title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.webp" />
+          <a title="instagram" href="https://www.instagram.com/greenstein.design/">
+            <g-image class="footer-hoverBig" title="instagram-logo-greenstein" alt="instagram-logo-greenstein" src="@/assets/instagram.webp" />
           </a>
-          <a href="https://de.linkedin.com/company/greenstein-designagentur">
-            <g-image class="footer-hover" title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.webp" />
+          <a title="linkedin" href="https://de.linkedin.com/company/greenstein-designagentur">
+            <g-image class="footer-hoverBig" title="linkedIn-logo-greenstein" alt="linkedIn-logo-greenstein" src="@/assets/linkedin.webp" />
           </a>
         </div>
       </div>
@@ -141,6 +147,7 @@ h2.footer{
   width: 100%;
   z-index: 1;
   align-self: flex-end;
+  margin-top: 100px;
 }
 .footerBottom .contentContainer{
   display: flex;
@@ -155,12 +162,31 @@ h2.footer{
 .socialWrapper img{
   margin-left: 20px;
 }
+.footerLandingpages{
+  display: inline-block;
+  width: 100%;
+  color: black;
+  margin-top: 30px;
+}
+.footerLandingpages a{
+  color: black;
+}
+
+
+
 .footer-hover{
   transform-origin: center;
   transition: transform 0.3s ease-out;
 }
 .footer-hover:hover{
-  transform: scale(0.96);
+  transform: scale(0.97);
+}
+.footer-hoverBig{
+  transform-origin: center;
+  transition: transform 0.3s ease-out;
+}
+.footer-hoverBig:hover{
+  transform: scale(1.1);
 }
 
 /* RESPONSIVE */

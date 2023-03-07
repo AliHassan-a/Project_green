@@ -235,7 +235,7 @@ export default {
       steps: [
         {
           title: "Bedarf",
-          headline: "Was geht denn hier rein?",
+          headline: "Wobei dürfen wir Sie unterstützen?",
           checkbox: [
             {
               title: "UI/UX Design",

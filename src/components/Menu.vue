@@ -33,13 +33,13 @@
               </div>
             </div>
             <div class="menu__socials">
-              <a href="https://www.facebook.com/greenstein.designagentur/">
+              <a title="facebook" target="_blank" href="https://www.facebook.com/greenstein.designagentur/">
                 <g-image src="@/assets/facebook-f.webp"></g-image>
               </a>
-              <a href="https://www.instagram.com/greenstein.design/">
+              <a title="instagram" target="_blank" href="https://www.instagram.com/greenstein.design/">
                 <g-image src="@/assets/instagram.webp"></g-image>
               </a>
-              <a href="https://de.linkedin.com/company/greenstein-designagentur">
+              <a title="linkedin" target="_blank" href="https://de.linkedin.com/company/greenstein-designagentur">
                 <g-image src="@/assets/linkedin.webp"></g-image>
               </a>
             </div>
@@ -47,7 +47,7 @@
         </div>
       </nav>
       <div class="menuIconClose">
-        <button class="unbutton button-close" style="background: none; color: white; border: none">
+        <button class="unbutton button-close" aria-label="Close menu" style="background: none; color: white; border: none">
           <div class="menuBar"></div>
           <div class="menuBar"></div>
         </button>

@@ -1,6 +1,6 @@
 <template>
   <div id="two" class="container">
-    <BaseTitle class="m-hide horizontalHeader animateBlockHead" :align="'left'" :tag="'h2'" >Wir entwickeln innovative <br> Apps & Webseiten</BaseTitle>
+    <BaseTitle class="horizontalHeader animateBlockHead" :align="'left'" :tag="'h2'" >Wir entwickeln innovative <br> Apps & Webseiten</BaseTitle>
     <section class="panel" v-for="(project, index) in projects" :style="index == 0 ? {marginLeft: '9.5vw'} : {}">
       <g-link :to="project.link" v-reload>
         <div class="box" :class="'box-' + (index + 1)" :style="{background: project.color}">
@@ -138,6 +138,13 @@ export default {
     text-align: left;
   }
   @media only screen and (max-width: 1024px){
+    .horizontalHeader{
+      position: relative;
+      top: unset;
+      left: unset;
+      margin-left: 5vw;
+      padding-bottom: 20px;
+    }
     .container{
       flex-direction: column;
       margin: 25% 0%;
