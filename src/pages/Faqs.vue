@@ -1,9 +1,11 @@
 <template>
   <div id="page">
-    <div class="mainSection section-one">
-      <BaseTitle :tag="'h1'" :addStyle="'margin-bottom: 30px;'"><b>FAQ</b></BaseTitle>
-      <Dropdown :content="getFaq" />
-    </div>
+    <Layout>
+      <div class="mainSection section-one">
+        <BaseTitle :tag="'h1'" :addStyle="'margin-bottom: 30px;'"><b>FAQ</b></BaseTitle>
+        <Dropdown :content="getFaq" />
+      </div>
+    </Layout>
   </div>
 </template>
 
@@ -11,6 +13,7 @@
 import BaseTitle from "../components/BaseTitle";
 import Seperator from "../components/Seperator";
 import Dropdown from "../components/Dropdown";
+import initGsap from "../misc/gsapBase";
 
 export default {
   name: "Faq",
@@ -18,6 +21,9 @@ export default {
     Dropdown,
     Seperator,
     BaseTitle,
+  },
+  mounted() {
+    new initGsap({}, this);
   },
   computed: {
     getFaq(){
@@ -37,7 +43,7 @@ export default {
     return {
       title: "FAQ's",
       meta: [
-        { name: 'title', content: "Designagentur" },
+        { name: 'title', content: "FAQ's" },
         { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
         { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
         { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },

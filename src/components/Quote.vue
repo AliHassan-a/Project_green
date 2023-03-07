@@ -59,8 +59,8 @@ export default {
 
 @media only screen and (max-width: 1024px) {
   .quoteWrapper{
-    margin-top: 230px;
-    height: 130vh;
+    margin-top: 100px;
+    height: unset;
   }
   .quote{
     padding: 20px 10%;

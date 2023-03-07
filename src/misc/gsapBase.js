@@ -8,18 +8,28 @@ const initGsap = class {
     }
     init() {
         /* init Base */
-        gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
-        ScrollSmoother.create({
-            smooth: 2,
-            effects: true,
-            smoothTouch: 0.1
-        });
+        gsap.registerPlugin(ScrollTrigger);
+        function initMobile() {
+            ScrollTrigger.defaults({
+                immediateRender: false,
+                ease: "power1.inOut",
+                scrub: false
+            });
+        }
+        function initDesktop() {
+            gsap.registerPlugin(ScrollSmoother, SplitText);
 
-        ScrollTrigger.defaults({
-            immediateRender: false,
-            ease: "power1.inOut",
-            scrub: false
-        });
+            ScrollSmoother.create({
+                smooth: 2,
+                effects: true,
+            });
+
+            ScrollTrigger.defaults({
+                immediateRender: false,
+                ease: "power1.inOut",
+                scrub: false
+            });
+        }
 
         /* declare Animations */
         function initLogoScroll(){
@@ -247,28 +257,6 @@ const initGsap = class {
                 stagger: { each: 0.05, from: 'random'},
             });
         }
-        function initHeroMobile(){
-            let heroBlock = document.querySelector(".animateBlockHero");
-            heroBlock.split = new SplitText(heroBlock, {
-                type: "words"
-            });
-            heroBlock.anim = gsap.from(heroBlock.split.words, {
-                delay: 1.0,
-                duration: 1,
-                opacity: 0,
-                ease: "power1.inOut",
-                stagger: { each: 0.05, from: 'random'},
-            });
-            let heroArrow = document.querySelector(".animateBlockHeroArrow");
-            heroArrow.anim = gsap.from(heroArrow, {
-                delay: 1.2,
-                duration: 1,
-                opacity: 0,
-                ease: "power1.inOut",
-                stagger: { each: 0.05, from: 'random'},
-            });
-        }
-
         function initSideScroller(context){
             let sections = gsap.utils.toArray(".panel");
             let sideScroller = gsap.to(sections, {
@@ -563,6 +551,7 @@ const initGsap = class {
         /* set responsive Animations */
         ScrollTrigger.matchMedia({
             "(min-width: 1024px)": () => {
+                initDesktop();
                 initEntryAnimations()
                 /*HERO ANIMATION*/
                 if(this.features.heroAnimation){
@@ -572,6 +561,10 @@ const initGsap = class {
                 if(this.features.sideScroller){
                     initSideScroller(this)
                 }
+                /* STICKY SECTION /w images */
+                if(this.features.stickyImages){
+                    initStickyImages()
+                }
                 /*STICKY SECTION*/
                 if(this.features.stickySection){
                     initStickySection(this)
@@ -579,15 +572,18 @@ const initGsap = class {
                 if(this.features.simpleStickySection){
                     initSimpleStickySection()
                 }
+                /*quotes*/
+                if(this.features.quote){
+                    initQuote()
+                }
+                if(this.features.singleQuote){
+                    initSingleQuote()
+                }
                 /* FOOTER */
                 initFooter(false)
             },
             "(max-width: 1024px)": () => {
-                //initEntryAnimationsMobile()
-                /*HERO ANIMATION*/
-                if(this.features.heroAnimation){
-                    initHeroMobile()
-                }
+                initMobile();
                 /* MARQUEE ONLY MOBILE */
                 if(this.features.marquee){
                     initMarquee()
@@ -597,21 +593,6 @@ const initGsap = class {
             },
             "all": () => {
                 initLogoScroll()
-                /*LOGOGLIDER ANIMATION*/
-                if(this.features.logosGlider){
-                    initLogoGlider()
-                }
-                /* STICKY SECTION /w images */
-                if(this.features.stickyImages){
-                    initStickyImages()
-                }
-                /*quotes*/
-                if(this.features.quote){
-                    initQuote()
-                }
-                if(this.features.singleQuote){
-                    initSingleQuote()
-                }
             }
         })
     }

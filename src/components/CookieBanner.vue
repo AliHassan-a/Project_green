@@ -111,7 +111,7 @@ export default {
         j.src =
             'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-N5IMT7D');
+      })(window, document, 'script', 'dataLayer', 'GTM-N5LMT7D');
     }
   },
   components: {

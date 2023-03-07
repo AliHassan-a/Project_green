@@ -108,6 +108,11 @@ export default {
           testimonialAuthor: "Omar Fahmy",
           testimonialPosition: "FuNah e.V."
         },
+        {
+          description: "Ich bin seit Jahren mit mehrern Firmen hier in Betreuung. Von der  Homepage Erstellung, Shop Einrichtung bis hin zu Hosting und kompletter Cooperate Identity. Immer sehr fair und zeitnah beraten worden.",
+          testimonialAuthor: "Manuel Uhrig",
+          testimonialPosition: "Uhrigstore"
+        }
       ],
       pageGsap: null,
     }

@@ -40,7 +40,11 @@ module.exports = function (api) {
           content: node.content,
           date: node.date,
           acf: node.acf,
-          featuredMedia: node.featuredMedia,
+          featuredMedia: {
+            sourceUrl: node.featuredMedia.sourceUrl.replace("admin.", ""),
+            title: node.featuredMedia.title,
+            altText: node.featuredMedia.altText,
+          },
         }
       })
     })
@@ -109,7 +113,11 @@ module.exports = function (api) {
           content: node.content,
           date: node.date,
           acf: node.acf,
-          featuredMedia: node.featuredMedia,
+          featuredMedia: {
+            sourceUrl: node.featuredMedia.sourceUrl.replace("admin.", ""),
+            title: node.featuredMedia.title,
+            altText: node.featuredMedia.altText,
+          },
         }
       })
     })
@@ -150,7 +158,25 @@ module.exports = function (api) {
         context: {
           slug: node.slug,
           title: node.title,
-          acf: node.acf,
+          acf: {
+            metaTitle: node.acf.metaTitle,
+            metaDescription: node.acf.metaDescription,
+            titel: node.acf.titel,
+            zeitraum: node.acf.zeitraum,
+            leistungen: node.acf.leistungen,
+            technologien: node.acf.technologien,
+            mockup: node.acf.mockup.replace("admin.", ""),
+            step1Image: node.acf.step1Image.replace("admin.", ""),
+            step1Text: node.acf.step1Text,
+            step2Image: node.acf.step2Image.replace("admin.", ""),
+            step2Text: node.acf.step2Text,
+            step3Image: node.acf.step3Image.replace("admin.", ""),
+            step3Text: node.acf.step3Text,
+            step4Bild2: node.acf.step4Bild2.replace("admin.", ""),
+            step4Bild3: node.acf.step4Bild3.replace("admin.", ""),
+            step4Bild4: node.acf.step4Bild4.replace("admin.", ""),
+            step4Bild5: node.acf.step4Bild5.replace("admin.", ""),
+          }
         }
       })
     })

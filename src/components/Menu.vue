@@ -46,9 +46,12 @@
           </div>
         </div>
       </nav>
-      <button class="unbutton button-close">
-        <g-image src="@/assets/Menu.svg"></g-image>
-      </button>
+      <div class="menuIconClose">
+        <button class="unbutton button-close" style="background: none; color: white; border: none">
+          <div class="menuBar"></div>
+          <div class="menuBar"></div>
+        </button>
+      </div>
     </div>
     <svg class="overlay" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
       <path class="overlay__path" vector-effect="non-scaling-stroke" fill="#011713" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
@@ -141,8 +144,8 @@ export default {
     this.overlayPath = document.querySelector('.overlay__path');
     this.menuWrap = document.querySelector('.menu-wrap');
     this.menuItems = this.menuWrap.querySelectorAll('.menu__item');
-    this.openMenuCtrl = document.querySelector('button.button-menu');
-    this.closeMenuCtrl = this.menuWrap.querySelector('.button-close');
+    this.openMenuCtrl = document.querySelector('.menuIcon');
+    this.closeMenuCtrl = this.menuWrap.querySelector('.menuIconClose');
 
     const openMenu = ()  => {
       if ( this.isAnimating ) return;
@@ -455,30 +458,55 @@ main {
   }
 }
 
-.button-close {
+.menuIconClose{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  width: 60px;
+  height:60px;
+  margin-top: -5px;
+  transition: background 0.4s ease-out;
+  z-index: 1;
   position: absolute;
-  top: 0;
-  right: 0;
-  margin: 2rem;
-  stroke: var(--color-button-close);
-  fill: none;
+  right:20px;
+  top:20px;
+  background: #DAE5E3;
+  cursor: pointer;
+}
+.menuIconClose button{
+  margin-left: -2px;
+}
+.menuIconClose div.menuBar{
+  width: 35px;
+  height: 3px;
+  background: black;
+  transform-origin: center;
+}
+.menuIconClose div.menuBar:first-child{
+  transform: rotate(45deg) translateX(2px);
+  transition: all 0.3s ease-out;
+}
+.menuIconClose div.menuBar:nth-child(2){
+  transform: rotate(-45deg) translateX(1px);
+  transition: all 0.3s ease-out;
+}
+.menuIconClose:hover div.menuBar:first-child{
+  transform: rotate(0deg) translateY(1px);
+}
+.menuIconClose:hover div.menuBar:nth-child(2){
+  transform: rotate(0deg) translateY(-1px);
 }
 
-.button-close:focus-visible,
-.button-close:hover {
-  stroke: var(--color-button-close-hover);
-}
 @media only screen and (max-width: 1024px){
+  .menuIconClose{
+    width: 50px;
+    height: 50px;
+    right:20px;
+    top:20px;
+  }
   .menu{
     padding: 0px 20px;
-  }
-  .button-close {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    stroke: var(--color-button-close);
-    fill: none;
-    transform: rotate(180deg);
   }
   .menu__item-text {
     font-weight: 500;

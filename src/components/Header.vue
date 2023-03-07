@@ -18,7 +18,9 @@
       </a>
       <div class="menuIcon">
         <button class="unbutton button-menu" aria-label="Open menu" style="background: none; color: white; border: none">
-          <g-image src="@/assets/Menu.svg"></g-image>
+          <div class="menuBar"></div>
+          <div class="menuBar"></div>
+          <div class="menuBar"></div>
         </button>
       </div>
     </div>
@@ -96,11 +98,35 @@ button.dark span{
   opacity: 1;
   z-index: 1;
 }
+/* MENU ICON OPEN */
 .menuIcon{
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50px;
+  width: 60px;
+  height:60px;
+  margin-top: -5px;
+  transition: background 0.4s ease-out;
+  cursor: pointer;
 }
+.menuIcon:hover{
+  background: #88F332;
+}
+.menuIcon div.menuBar{
+  width: 35px;
+  height: 3px;
+  background: white;
+}
+.menuIcon div.menuBar:nth-child(2){
+  margin: 6px 0px 6px 15px;
+  width: 20px;
+  transition: all 0.3s ease-out;
+}
+.menuIcon:hover div.menuBar:nth-child(2){
+  transform: translateX(-10px) scaleX(1.7);
+}
+
 .blackLogo{
   filter: grayscale(1) brightness(0);
 }
@@ -108,6 +134,11 @@ button{
   cursor: pointer;
 }
 @media only screen and (max-width: 1024px){
+  .menuIcon{
+    width: 50px;
+    height: 50px;
+    margin-top: -10px;
+  }
   div.logoContainer{
     position: absolute;
     top:0;
