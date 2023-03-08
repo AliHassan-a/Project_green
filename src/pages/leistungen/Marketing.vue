@@ -248,6 +248,9 @@ export default {
       meta: [
         { name: 'title', content: "Online-Marketing in Hannover" },
         { name: 'description', content: "Unsere Online-Marketing-Experten haben das Wissen und die Erfahrung, um dabei zu helfen, Deine Online-Präsenz zu maximieren. Entdecke noch heute, wie wir Dir helfen können, dein Unternehmen erfolgreich zu machen." },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

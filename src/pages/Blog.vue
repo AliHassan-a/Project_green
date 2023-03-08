@@ -37,10 +37,17 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Blog",
+      title: "Blog | Greenstein Designagentur",
       meta: [
-        { name: 'title', content: "Greenstein Blog" },
-        { name: 'description', content: "Meta Greenstein Blog" },
+        { name: 'title', content: "Blog | Greenstein Designagentur" },
+        { name: 'description', content: "Unsere Blogartikel zum Thema Web, Branding und Marketing" },
+        { name: 'og:title', content: "Blog | Greenstein Designagentur" },
+        { name: 'og:description', content: "Unsere Blogartikel zum Thema Web, Branding und Marketing" },
+        { name: 'twitter:title', content: "Blog | Greenstein Designagentur" },
+        { name: 'twitter:description', content: "Unsere Blogartikel zum Thema Web, Branding und Marketing" },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

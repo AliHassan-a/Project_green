@@ -229,14 +229,17 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Projekte",
+      title: "Projekte | Greenstein Designagentur",
       meta: [
-        { name: 'title', content: "Designagentur" },
-        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'title', content: "Projekte | Greenstein Designagentur" },
+        { name: 'description', content: "Wir erstellen auch für dein Business die passende Webseite. Dabei stellen wir sicher, dass dein Online-Auftritt zu deinem Business passt!" },
+        { name: 'og:title', content: "Projekte | Greenstein Designagentur" },
+        { name: 'og:description', content: "Wir erstellen auch für dein Business die passende Webseite. Dabei stellen wir sicher, dass dein Online-Auftritt zu deinem Business passt!" },
+        { name: 'twitter:title', content: "Projekte | Greenstein Designagentur" },
+        { name: 'twitter:description', content: "Wir erstellen auch für dein Business die passende Webseite. Dabei stellen wir sicher, dass dein Online-Auftritt zu deinem Business passt!" },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

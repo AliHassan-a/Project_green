@@ -72,6 +72,9 @@ export default {
         { name: 'twitter:title', content: this.$context.acf.metaTitle },
         { name: 'twitter:description', content: this.$context.acf.metaDescription },
         { name: 'og:image', content: this.$context.featuredMedia.sourceUrl },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}', type: 'application/ld+json' }
       ]
     }
   }
@@ -115,6 +118,9 @@ img.featuredImage{
 }
 .featuredTitle{
   margin-bottom: 50px;
+}
+.singleContent a{
+  color: #88F332;
 }
 .contentWrapper{
   display: flex;

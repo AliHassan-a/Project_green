@@ -131,12 +131,15 @@ export default {
     return {
       title: "Werbeagentur Hildesheim | Greenstein Designagentur",
       meta: [
-        { name: 'title', content: "Designagentur" },
-        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'title', content: "Werbeagentur Hildesheim | Greenstein Designagentur" },
+        { name: 'description', content: "Designagentur & Werbeagentur Hildesheim: Wir erstellen Webseiten und Kampagnen für KMU's & Behörden. Nachhaltig✅ Vor Ort✅ Kostenloses Angebot" },
+        { name: 'og:title', content: "Werbeagentur Hildesheim | Greenstein Designagentur" },
+        { name: 'og:description', content: "Designagentur & Werbeagentur Hildesheim: Wir erstellen Webseiten und Kampagnen für KMU's & Behörden. Nachhaltig✅ Vor Ort✅ Kostenloses Angebot" },
+        { name: 'twitter:title', content: "Werbeagentur Hildesheim | Greenstein Designagentur" },
+        { name: 'twitter:description', content: "Designagentur & Werbeagentur Hildesheim: Wir erstellen Webseiten und Kampagnen für KMU's & Behörden. Nachhaltig✅ Vor Ort✅ Kostenloses Angebot" },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

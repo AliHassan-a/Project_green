@@ -125,6 +125,13 @@ p.small{
     font-size: clamp(1em, calc(100vw / 70), 1.5em);
     font-weight: 400;
 }
+li{
+    font-size: clamp(1.12em, calc(100vw / 100), 1.8em);
+    font-weight: 400;
+}
+u{
+    color: #88F332;
+}
 
 .button-icon{
     font-size: clamp(1.4em, calc(100vw / 50), 1.8em);
@@ -248,6 +255,11 @@ p.small{
     width: 75vw;
     margin-left: 12.5vw;
     padding-bottom: 60px;
+}
+
+/* CUSTOMIZE GLOBALS FOR DYNAMIC CONTENT */
+.singleContent a{
+    color: #88F332;
 }
 
 /* Buttons */

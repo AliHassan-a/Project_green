@@ -111,12 +111,15 @@ export default {
     return {
       title: "Jetzt anfragen",
       meta: [
-        { name: 'title', content: "Designagentur" },
-        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'title', content: "Jetzt anfragen | Greenstein Designagentur" },
+        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance | Wir prüfen für Dich, ob Dein Unternehmen förderfähig ist" },
+        { name: 'og:title', content: "Jetzt anfragen | Greenstein Designagentur" },
+        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance | Wir prüfen für Dich, ob Dein Unternehmen förderfähig ist" },
+        { name: 'twitter:title', content: "Jetzt anfragen | Greenstein Designagentur" },
+        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance | Wir prüfen für Dich, ob Dein Unternehmen förderfähig ist" },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }
@@ -186,6 +189,9 @@ div.cardInner{
   .contactCard{
     width: calc(90vw - 40px);
     padding: 20px;
+  }
+  .formWrapper{
+    margin-top: 50px;
   }
 }
 </style>

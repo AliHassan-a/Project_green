@@ -138,14 +138,17 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Nachhaltigkeit",
+      title: "Nachhaltigkeit | Greenstein Designagentur",
       meta: [
-        { name: 'title', content: "Designagentur" },
-        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'title', content: "Nachhaltigkeit | Greenstein Designagentur" },
+        { name: 'description', content: "Unsere Werbeagentur hat sich seit der Gründung stets für Natur, Umwelt, fairen Handel und die Förderung erneuerbarer Energien eingesetzt.\t" },
+        { name: 'og:title', content: "Nachhaltigkeit | Greenstein Designagentur" },
+        { name: 'og:description', content: "Unsere Werbeagentur hat sich seit der Gründung stets für Natur, Umwelt, fairen Handel und die Förderung erneuerbarer Energien eingesetzt.\t" },
+        { name: 'twitter:title', content: "Nachhaltigkeit | Greenstein Designagentur" },
+        { name: 'twitter:description', content: "Unsere Werbeagentur hat sich seit der Gründung stets für Natur, Umwelt, fairen Handel und die Förderung erneuerbarer Energien eingesetzt.\t" },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

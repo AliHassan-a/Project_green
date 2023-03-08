@@ -118,12 +118,12 @@ export default {
     return {
       title: "Agentur",
       meta: [
-        { name: 'title', content: "Designagentur" },
-        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'title', content: "Die ökologische Werbeagentur | Greenstein Designagentur" },
+        { name: 'description', content: "Werbeagentur in Hildesheim gesucht? Werbung aus einer Hand - wir planen Deine Werbung, während Du dich auf dein Geschäft konzentrieren kannst." },
+        { name: 'og:title', content: "Die ökologische Werbeagentur | Greenstein Designagentur" },
+        { name: 'og:description', content: "Werbeagentur in Hildesheim gesucht? Werbung aus einer Hand - wir planen Deine Werbung, während Du dich auf dein Geschäft konzentrieren kannst." },
+        { name: 'twitter:title', content: "Die ökologische Werbeagentur | Greenstein Designagentur" },
+        { name: 'twitter:description', content: "Werbeagentur in Hildesheim gesucht? Werbung aus einer Hand - wir planen Deine Werbung, während Du dich auf dein Geschäft konzentrieren kannst." },
       ]
     }
   }

@@ -250,12 +250,15 @@ export default {
     return {
       title: "Webdesign Hannover",
       meta: [
-        { name: 'title', content: "Designagentur" },
-        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'title', content: "Webdesign Hannover" },
+        { name: 'description', content: "Webdesign in Hannover: Deine Webagentur für Design & Programmierung erfolgreicher Internetseiten. ✓ Bis zu 100% staatliche Förderung."},
+        { name: 'og:title', content: "Webdesign Hannover" },
+        { name: 'og:description', content: "Webdesign in Hannover: Deine Webagentur für Design & Programmierung erfolgreicher Internetseiten. ✓ Bis zu 100% staatliche Förderung." },
+        { name: 'twitter:title', content: "Webdesign Hannover" },
+        { name: 'twitter:description', content: "Webdesign in Hannover: Deine Webagentur für Design & Programmierung erfolgreicher Internetseiten. ✓ Bis zu 100% staatliche Förderung." },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

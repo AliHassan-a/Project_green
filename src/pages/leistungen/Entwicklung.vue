@@ -256,6 +256,9 @@ export default {
       meta: [
         { name: 'title', content: "Web-Entwicklung in Hannover - Greenstein Designagentur" },
         { name: 'description', content: "Wir bieten individuelle Web-Lösungen an. Ob neue Website erstellen oder eine bestehende verbessern - wir haben die perfekte Lösung für Dich" },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

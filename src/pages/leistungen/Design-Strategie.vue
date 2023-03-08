@@ -4,7 +4,7 @@
       <div id="one" class="mainSection section-one">
         <div class="innerContentContainer head animateBlockHero">
           <BaseTitle :align="'center'" :tag="'h1'" :addClass="'greenColor'" :addStyle="'font-size: 14px; font-weight: 700;'" >DESIGN & STRATEGIE</BaseTitle>
-          <BaseTitle :align="'center'" :tag="'h2'" :addStyle="'margin: 20px 0px 40px 0px'">Boosten Sie Ihr Business mit kreativem Design und durchdachter Strategie - die perfekte Kombination für Ihren Unternehmenserfolg!</BaseTitle>
+          <BaseTitle :align="'center'" :tag="'h2'" :addStyle="'margin: 20px 0px 40px 0px'">Booste dein Business mit kreativem Design und durchdachter Strategie - die perfekte Kombination für deinen Unternehmenserfolg!</BaseTitle>
           <BaseButton :linkTo="'jetzt-anfragen'" class="animateBlockHeroArrow" :align="'center'" :theme="'light'" :title="'Jetzt anfragen'"/>
         </div>
       </div>
@@ -252,6 +252,9 @@ export default {
       meta: [
         { name: 'title', content: "Design & Strategie - Greenstein Designagentur" },
         { name: 'description', content: "Steigere Deine Verkäufe mit einer erfolgreichen Marketingstrategie und einem ansprechenden Design - Wir zeigen Dir wie!" },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

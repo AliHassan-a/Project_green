@@ -3,7 +3,7 @@
     <div class="quote">
       <g-image class="animateBlockItem" src="@/assets/zitat.webp"></g-image>
       <h2 class="animateBlockText">
-        Greenstein vertritt meine Werte - Zukunftsorientiert, gemeinschaftlich, nach vorne Gewand. Diese Werte lebe ich nicht nur für meine Mitarbeitenden, sondern auch für meine Kunden vor. Der Erfolg meiner Kunden und die Weiterentwicklung meiner Mitarbeiter stehen für mich an erster Stelle.
+        Greenstein vertritt meine Werte - Zukunftsorientiert, gemeinschaftlich, nach vorne Gewand. Diese Werte lebe ich nicht nur für mein Team, sondern auch für meine Kunden vor. Der Erfolg meiner Kunden und die Weiterentwicklung meiner Mitarbeiter stehen für mich an erster Stelle.
       </h2>
       <hr class="animateBlockItem testimonialBorder">
       <h2 class="animateBlockHead"><b>Rene Grebenstein</b> </h2>

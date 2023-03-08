@@ -9,7 +9,7 @@
     <div class="stepsContentWrapper">
       <div class="stepsContent">
         <transition name="multiStepHead" mode="out-in">
-          <BaseTitle :align="'center'" tag="h2" class="stepsHeadline" :key="steps[activeStep].headline"><b>{{ steps[activeStep].headline }}</b></BaseTitle>
+          <BaseTitle :align="'center'" tag="h4" class="stepsHeadline" :key="steps[activeStep].headline"><b>{{ steps[activeStep].headline }}</b></BaseTitle>
         </transition>
         <transition name="multiStepFade" mode="out-in">
           <div class="checkBoxWrapper" v-if="'checkbox' in steps[activeStep]" :key="steps[activeStep].title">
@@ -235,7 +235,7 @@ export default {
       steps: [
         {
           title: "Bedarf",
-          headline: "Wobei dürfen wir Sie unterstützen?",
+          headline: "Wobei dürfen wir Dich unterstützen?",
           checkbox: [
             {
               title: "UI/UX Design",
@@ -284,7 +284,7 @@ export default {
         },
         {
           title: "Infos",
-          headline: "Wie können wir dich erreichen?",
+          headline: "Wie können wir Dich erreichen?",
           contact: {
             name: "",
             email: "",

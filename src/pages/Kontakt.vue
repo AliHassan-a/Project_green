@@ -149,12 +149,15 @@ export default {
     return {
       title: "Kontakt",
       meta: [
-        { name: 'title', content: "Designagentur" },
-        { name: 'description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'title', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'description', content: "Wir stehen Ihnen zur Seite: Ihre Werbeagentur in Hildesheim. Ganz gleich ob Webdesign, Fotografie oder Grafikdesign: wir stehen Ihnen immer zur Seite!" },
         { name: 'og:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'og:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'og:description', content: "Wir stehen Ihnen zur Seite: Ihre Werbeagentur in Hildesheim. Ganz gleich ob Webdesign, Fotografie oder Grafikdesign: wir stehen Ihnen immer zur Seite!" },
         { name: 'twitter:title', content: "Strategie & Marketing - Entwicklung - Performance" },
-        { name: 'twitter:description', content: "Strategie & Marketing - Entwicklung - Performance" },
+        { name: 'twitter:description', content: "Wir stehen Ihnen zur Seite: Ihre Werbeagentur in Hildesheim. Ganz gleich ob Webdesign, Fotografie oder Grafikdesign: wir stehen Ihnen immer zur Seite!" },
+      ],
+      script: [
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }
