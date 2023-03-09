@@ -120,13 +120,21 @@ export default {
 @media only screen and (max-width: 1024px) {
   .revealWrapper:nth-child(1){
     z-index: 1;
+    margin-top: 15px;
+    transform: unset;
   }
   .revealWrapper:nth-child(2){
+    margin-top: 15px;
+    transform: unset;
   }
   .revealWrapper:nth-child(3){
     z-index: 1;
+    margin-top: 20px;
+    transform: unset;
   }
   .revealWrapper:nth-child(4){
+    margin-top: 15px;
+    transform: unset;
   }
   .pinnedContainerWrapper{
     flex-direction: column;
@@ -140,6 +148,12 @@ export default {
     display: flex;
     flex-direction:column;
     margin-top: 10%;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .pinnedContainer{
+
+    height: 180vh;
   }
 }
 </style>

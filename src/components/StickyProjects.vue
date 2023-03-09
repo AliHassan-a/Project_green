@@ -106,11 +106,19 @@ export default {
     flex-direction: column;
     background: green;
     padding: 20px;
-    margin: 0px !important;
     width: calc(100% - 40px) !important;
   }
+  .project:nth-child(1){
+    margin: 0px 0px 20px 0px;
+  }
   .project:nth-child(2){
-    margin: 0px 0px 50px 0px;
+    margin: 0px 0px 3px 0px;
+  }
+  .project:nth-child(3){
+    margin: 0px 0px 20px 0px;
+  }
+  .project:nth-child(4){
+    margin: 0px 0px 20px 0px;
   }
   .projectMock{
     max-height: 600px;

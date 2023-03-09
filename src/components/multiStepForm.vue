@@ -174,7 +174,29 @@ export default {
       let lines = document.querySelectorAll("hr.defaultLine");
       if(action == "open"){
         element.style.transform = "scale(0.5) translateY(-50px)";
-        lines[index].style.borderColor = "#88F332";
+      } else {
+        switch(id) {
+          case "contactName":
+            if(this.steps[this.steps.length-1].contact.name == ""){
+              this.steps[this.steps.length-1].validData.name = false
+            }
+            break;
+          case "contactCompany":
+            if(this.steps[this.steps.length-1].contact.message == ""){
+              this.steps[this.steps.length-1].validData.company = false
+            }
+            break;
+          case "contactEmail":
+            if(this.steps[this.steps.length-1].contact.email == ""){
+              this.steps[this.steps.length-1].validData.email = false
+            }
+            break;
+          case "contactTel":
+            if(this.steps[this.steps.length-1].contact.tel == ""){
+              this.steps[this.steps.length-1].validData.tel = false
+            }
+            break;
+        }
       }
     },
     onActionButton(){
@@ -195,6 +217,9 @@ export default {
     getContactName: function() {
       return this.steps[this.steps.length-1].contact.name
     },
+    getContactCompany: function() {
+      return this.steps[this.steps.length-1].contact.message
+    },
     getContactEmail: function() {
       return this.steps[this.steps.length-1].contact.email
     },
@@ -212,18 +237,32 @@ export default {
       let onlyLettersRegex = /^[A-Za-z]+$/;
       if( newVal != "" ){
         newVal.match(onlyLettersRegex) ? this.steps[this.steps.length-1].validData.name = true : this.steps[this.steps.length-1].validData.name = false;
+      } else {
+        this.steps[this.steps.length-1].validData.name = false
+      }
+    },
+    getContactCompany: function(newVal){
+      let onlyLettersRegex = /^[A-Za-z]+$/;
+      if( newVal != "" ){
+        newVal.match(onlyLettersRegex) ? this.steps[this.steps.length-1].validData.company = true : this.steps[this.steps.length-1].validData.company = false;
+      } else {
+        this.steps[this.steps.length-1].validData.company = false
       }
     },
     getContactEmail: function(newVal){
       let onlyEmailRegex = /^([-!#-\'*+\/-9=?A-Z^-~]{1,64}(\.[-!#-\'*+\/-9=?A-Z^-~]{1,64})*|"([]!#-[^-~ \t]|(\\[\t -~]))+")@[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)+$/;
       if( newVal != "" ) {
         newVal.match(onlyEmailRegex) ? this.steps[this.steps.length - 1].validData.email = true : this.steps[this.steps.length - 1].validData.email = false
+      } else {
+        this.steps[this.steps.length - 1].validData.email = false
       }
     },
     getContactTel: function(newVal){
       let onlyTelRegex = /^((\+|\+\(\d\d\)|)\d+)$/mg;
       if( newVal != "" ) {
         newVal.match(onlyTelRegex) ? this.steps[this.steps.length - 1].validData.tel = true : this.steps[this.steps.length - 1].validData.tel = false
+      } else {
+        this.steps[this.steps.length - 1].validData.tel = false
       }
     },
   },
@@ -234,7 +273,7 @@ export default {
       isSend: false,
       steps: [
         {
-          title: "Bedarf",
+          title: "BEDARF",
           headline: "Wobei dürfen wir Dich unterstützen?",
           checkbox: [
             {
@@ -261,7 +300,7 @@ export default {
           ]
         },
         {
-          title: "Zeitplan",
+          title: "ZEITPLAN",
           headline: "Wann soll das Projekt starten?",
           radio: [
             {
@@ -283,7 +322,7 @@ export default {
           ]
         },
         {
-          title: "Infos",
+          title: "INFOS",
           headline: "Wie können wir Dich erreichen?",
           contact: {
             name: "",
@@ -370,6 +409,9 @@ div.customGreenBtn div.button-blob.dark{
   border-color: #88F332;
   font-weight: 700;
 }
+.customGreenBtn:hover .button-blob{
+  display: none;
+}
 /* RADIO */
 .radioWrapper{
   display: flex;
@@ -390,12 +432,17 @@ div.customGreenBtn div.button-blob.dark{
   border-radius: 12px;
   width: 1.2em;
   height: 1.2em;
+  transition: border-color 0.3s ease-out;
 }
 .radioBtn p{
+  color: #E7FFD3;
   transition: color 0.3s ease;
 }
 .radioBtn:hover p{
   color: #88F332;
+}
+.radioBtn:hover .radioCircle{
+  border-color: #88F332;
 }
 .radioBtn.activeRadio p{
   color: #88F332;
@@ -407,17 +454,23 @@ div.customGreenBtn div.button-blob.dark{
   content: "";
   position: absolute;
   display: block;
+  width: 20px;
+  height: 20px;
+  left: 0px;
+  top: 0px;
+  border-radius: 10px;
+  background-color: #88F332;
+  opacity: 0;
+  transition: all 0.4s ease-out;
+}
+
+.radioBtn.activeRadio .radioCircle:after{
   width: 11px;
   height: 11px;
   left: 4px;
   top: 4px;
-  border-radius: 10px;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-
-.radioBtn.activeRadio .radioCircle:after{
-  background-color: #88F332;
+  opacity: 1;
+  opacity: 1;
 }
 /* CONTACT */
 .contactWrapper{
@@ -506,6 +559,9 @@ input{
   transition: opacity 0.3s ease-in-out, transform 0.3s ease;
 }
 @media only screen and (max-width: 1024px){
+  .stepsContentWrapper{
+    margin-bottom: 100px;
+  }
   .multiStepForm{
     width: 100%;
   }
@@ -515,6 +571,10 @@ input{
   .checkBoxWrapper{
     justify-content: center;
   }
+  .radioBtn .radioCircle{
+    width: 30px;
+    max-width: 18px;
+  }
   .radioWrapper .radioBtn, .contactWrapper{
     justify-content: flex-start;
     width: 90%;
@@ -523,6 +583,9 @@ input{
   button.dark{
     padding-left: 20px;
     padding-right: 20px;
+  }
+  .customGreenBtn span{
+    color: black !important;
   }
 }
 </style>

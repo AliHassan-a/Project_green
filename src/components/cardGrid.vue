@@ -1,6 +1,6 @@
 <template>
   <div class="gsCardsWrapper">
-    <div v-for="(employee, index, key) in content.edges" :key="key" class="singleCard animateBlockItem">
+    <div v-for="(employee, index, key) in content.edges" :key="key" class="singleCard animateBlockItemStagger">
       <g-image :title="employee.node.featuredMedia.title" :src="getCutImageUrl(employee.node.featuredMedia.sourceUrl)" :alt="employee.node.featuredMedia.alt" />
       <BaseTitle :addClass="'blackColor'" :align="'left'" :tag="'h3'" ><b>{{ employee.node.title }}</b></BaseTitle>
       <BaseText :addClass="'blackColor'">{{ employee.node.content.replace(/<[^>]*>?/gm, '') }}</BaseText>

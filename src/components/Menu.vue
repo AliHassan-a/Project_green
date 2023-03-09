@@ -148,6 +148,7 @@ export default {
     this.closeMenuCtrl = this.menuWrap.querySelector('.menuIconClose');
 
     const openMenu = ()  => {
+      console.log(Date.now() / 1000)
       if ( this.isAnimating ) return;
       this.isAnimating = true;
       gsap.timeline({
@@ -157,7 +158,7 @@ export default {
             attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
           })
           .to(this.overlayPath, {
-            duration: 1.1,
+            duration: 0.8,
             ease: 'power4.in',
             attr: { d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z' }
           }, 0)
@@ -166,6 +167,7 @@ export default {
             ease: 'power2',
             attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
             onComplete: () => {
+              console.log(Date.now() / 1000)
               this.menuWrap.classList.add('menu-wrap--open');
             }
           })
@@ -444,12 +446,11 @@ main {
   cursor: pointer;
 }
 .menu__socials a, .menu__bottom .buerocratics{
-  transition: all 0.15s linear;
-  filter: opacity(0.8);
+  transition: transform 0.2s ease-out;
+  transform: scale(1);
 }
 .menu__socials a:hover, .menu__bottom .buerocratics:hover{
-  transform: scale(0.98);
-  filter: opacity(1)
+  transform: scale(0.96);
 }
 
 @keyframes runner {
@@ -463,14 +464,14 @@ main {
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  width: 60px;
-  height:60px;
+  width: 40px;
+  height:40px;
   margin-top: -5px;
   transition: background 0.4s ease-out;
   z-index: 1;
   position: absolute;
-  right:20px;
-  top:20px;
+  right:40px;
+  top:32px;
   background: #DAE5E3;
   cursor: pointer;
 }
@@ -478,7 +479,7 @@ main {
   margin-left: -2px;
 }
 .menuIconClose div.menuBar{
-  width: 35px;
+  width: 25px;
   height: 3px;
   background: black;
   transform-origin: center;
@@ -500,10 +501,13 @@ main {
 
 @media only screen and (max-width: 1024px){
   .menuIconClose{
-    width: 50px;
-    height: 50px;
-    right:20px;
+    width: 40px;
+    height: 40px;
+    right: 5vw;
     top:20px;
+  }
+  .menuIconClose button{
+    margin-left: -1px;
   }
   .menu{
     padding: 0px 20px;

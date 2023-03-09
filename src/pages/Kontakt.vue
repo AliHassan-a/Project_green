@@ -2,7 +2,8 @@
   <div class="mainSection">
     <div class="contactWrapper">
       <div class="contactHalf">
-        <BaseTitle style="margin-bottom: 100px;" :align="'left'" :tag="'h1'">Du hast ein spannendes Projekt? Lass uns sprechen! 🎉</BaseTitle>
+        <BaseTitle :align="'left'" :tag="'h1'" :addStyle="'font-size: clamp(1.5em, calc(100vw / 50), 2.4em)'">Du hast ein spannendes Projekt?</BaseTitle>
+        <BaseTitle style="margin-bottom: 100px;" :align="'left'" :tag="'h2'" :addStyle="'font-size: clamp(1.5em, calc(100vw / 50), 2.4em)'" :addClass="'greenColor'">Lass uns sprechen! 🎉</BaseTitle>
         <div class="contactDetails">
           <div class="singleContact">
             <span>Email</span>
@@ -58,8 +59,7 @@
           <button
               type='button'
               style="align-self: flex-end; margin-top: 55px" v-on:click="submitForm()"
-              class="toLinkHover light submitBtn"
-              :gs-hover="'Und los! Und los! Und los! Und los! Und los!'">
+              class="light submitBtn">
             <div class="button-blob light" />
             <span class="title">Senden</span>
             <span class="title title--hovered"><b>Senden</b></span>
@@ -130,10 +130,11 @@ export default {
         }
         axios.post(this.url, form)
             .then((response) => {
-              console.log(response.data.status);
-              if(response.data.status){
+              if(response.data.status == 'mail_sent'){
                 window.location = "/vielen-dank";
-              };
+              } else {
+                window.alert("Leider ist etwas schief gelaufen - bitte noch einmal versuchen!")
+              }
               this.errors = [];
             })
             .catch((error) => {
@@ -234,6 +235,12 @@ export default {
     border-color: #88F332;
     font-weight: 700;
   }
+  .customGreenBtn span{
+    color: black !important;
+  }
+  .customGreenBtn:hover .button-blob{
+    display: none;
+  }
   .radioWrapper{
     display: flex;
     flex-direction: column;
@@ -282,11 +289,22 @@ export default {
     background-color: #88F332;
   }
   .submitBtn{
+    cursor: pointer;
     transition: all 0.5s ease;
   }
+  .submitBtn div, .submitBtn span{
+    cursor: pointer;
+  }
   @media only screen and (max-width: 1024px){
+    button.dark{
+      padding: 0px 10px;
+    }
     button.dark:hover{
       background: inherit;
+    }
+    .radioBtn .radioCircle{
+      width: 25px;
+      max-width: 16px;
     }
     .contactWrapper{
       flex-direction: column;

@@ -3,7 +3,7 @@
     <div class="footer-overlay greenBg"></div>
     <p class="footer">Du hast ein spannendes Projekt?</p>
     <g-link :to="'/jetzt-anfragen'" style="z-index: 1">
-      <h2 class="footer">Lass uns sprechen!</h2>
+      <h2 class="footer footer-hover">Lass uns sprechen!</h2>
     </g-link>
     <div class="footer-content greenColor">
       <div class="footer-inner-content">
@@ -101,7 +101,7 @@ p.footer{
   color: black;
 }
 h2.footer{
-  font-size: 126px;
+  font-size: 106px;
   color: black;
   z-index: 1;
   font-weight: 700;

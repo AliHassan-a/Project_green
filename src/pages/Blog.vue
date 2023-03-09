@@ -65,11 +65,15 @@ export default {
   gap: 25px;
   flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: flex-start;
   min-height: unset;
 }
 .singleBlog{
   width: calc(33% - 16.666px);
   flex-grow: 1;
+}
+.singleBlog:last-child{
+  flex-grow: 0;
 }
 img.featured{
   height: 333px;

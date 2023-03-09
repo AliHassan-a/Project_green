@@ -2,7 +2,8 @@
   <Layout>
     <div id="page" class="site">
       <div id="one" class="mainSection section-one" style="margin-top: 200px !important;">
-        <div class="contentContainer">
+        <div class="innerContentContainer">
+          <BaseTitle :tag="'h1'" style="margin-bottom: 50px;">Datenschutzerklärung</BaseTitle>
           <div class="singleContent" v-html="getDatenschutz"></div>
         </div>
       </div>
@@ -13,10 +14,12 @@
 <script>
 import BaseText from "../components/BaseText";
 import initGsap from "../misc/gsapBase";
+import BaseTitle from "../components/BaseTitle";
 
 export default {
   name: "Impressum",
   components: {
+    BaseTitle,
     BaseText,
   },
   mounted() {

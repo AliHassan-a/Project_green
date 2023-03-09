@@ -74,8 +74,8 @@ export default {
 
     boxes.forEach((box, i) => box.addEventListener("click", () => loop.toIndex(i, {duration: 0.8, ease: "power1.inOut"})));
 
-    sliderWrapper.querySelector(".next").addEventListener("click", () => loop.next({duration: 0.4, ease: "power1.inOut"}));
-    sliderWrapper.querySelector(".prev").addEventListener("click", () => loop.previous({duration: 0.4, ease: "power1.inOut"}));
+    sliderWrapper.querySelector(".prev").addEventListener("click", () => loop.next({duration: 0.8, ease: "power1.inOut"}));
+    sliderWrapper.querySelector(".next").addEventListener("click", () => loop.previous({duration: 0.8, ease: "power1.inOut"}));
 
     function horizontalLoop(items, config) {
       items = gsap.utils.toArray(items);
@@ -394,6 +394,22 @@ div.arrowPrev{
   .box.simple{
     height: 600px;
     padding: 20px;
+  }
+}
+@media only screen and (min-width: 1921px){
+  .box{
+    width: 16%;
+  }
+  .box.testimonials{
+    height: 600px;
+    padding: 20px;
+  }
+  .box.simple{
+    height: 500px;
+    padding: 20px;
+  }
+  .box.steps{
+    height: 500px;
   }
 }
 </style>

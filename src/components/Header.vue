@@ -124,7 +124,7 @@ button.dark span{
   transition: all 0.3s ease-out;
 }
 .menuIcon:hover div.menuBar:nth-child(2){
-  transform: translateX(-10px) scaleX(1.7);
+  transform: translateX(-7.5px) scaleX(1.75);
 }
 
 .blackLogo{
@@ -135,9 +135,22 @@ button{
 }
 @media only screen and (max-width: 1024px){
   .menuIcon{
-    width: 50px;
-    height: 50px;
-    margin-top: -10px;
+    width: 40px;
+    height: 40px;
+    margin-top: -5px;
+  }
+  .menuIcon div.menuBar{
+    width: 25px;
+    height: 2px;
+    background: white;
+  }
+  .menuIcon div.menuBar:nth-child(2){
+    margin: 4px 0px 4px 12.5px;
+    width: 12.5px;
+    transition: all 0.3s ease-out;
+  }
+  .menuIcon:hover div.menuBar:nth-child(2){
+    transform: translateX(-6px) scaleX(1.9);
   }
   div.logoContainer{
     position: absolute;

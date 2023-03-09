@@ -2,8 +2,9 @@
   <Layout>
     <div id="page" class="site">
       <div id="one" class="mainSection section-one" style="margin-top: 200px !important;" >
-        <div class="contentContainer">
-          <div class="singleContent" v-html="getDatenschutz"></div>
+        <div class="innerContentContainer">
+          <BaseTitle :tag="'h1'" style="margin-bottom: 50px;">Impressum</BaseTitle>
+          <div class="singleContent" v-html="getImpressum"></div>
         </div>
       </div>
     </div>
@@ -13,17 +14,19 @@
 <script>
 import BaseText from "../components/BaseText";
 import initGsap from "../misc/gsapBase";
+import BaseTitle from "../components/BaseTitle";
 
 export default {
   name: "Impressum",
   components: {
     BaseText,
+    BaseTitle,
   },
   mounted() {
     new initGsap({}, this);
   },
   computed: {
-    getDatenschutz() {
+    getImpressum() {
       return this.$static.posts.edges.filter(
           function(el){
             return el.node.title == "Impressum";
