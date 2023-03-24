@@ -118,7 +118,7 @@ h4{
     font-weight: 400;
 }
 p{
-    font-size: clamp(1.12em, calc(100vw / 100), 1.8em);
+    font-size: clamp(1.22em, calc(100vw / 100), 1.8em);
     font-weight: 400;
 }
 p.small{
@@ -413,7 +413,9 @@ button.more:hover #rightChev{
 }
 
 /* singleBlog */
-
+pre{
+    white-space: inherit;
+}
 div.singleContent{
     width: 100%;
 }

@@ -34,6 +34,11 @@ export default {
       )[0].node.content
     }
   },
+  metaInfo() {
+    return {
+      title: "Impressum"
+    }
+  }
 }
 </script>
 

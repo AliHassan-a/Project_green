@@ -30,6 +30,11 @@ export default {
       heroAnimation: true,
     }, this);
   },
+  metaInfo() {
+    return {
+      title: "404 - nicht gefunden - Greenstein Designagentur"
+    }
+  }
 }
 </script>
 

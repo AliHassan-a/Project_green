@@ -14,28 +14,28 @@
       </div>
       <div class="footer-inner-content">
         <p class="footer-small">LEISTUNGEN</p>
-        <g-link to="/leistungen/design-strategie" v-reload class="footer-link-small footer-hover">Design & Strategie</g-link>
-        <g-link to="/leistungen/entwicklung" v-reload class="footer-link-small footer-hover">Entwicklung</g-link>
-        <g-link to="/leistungen/marketing" v-reload class="footer-link-small footer-hover">Marketing</g-link>
+        <g-link to="/leistungen/design-strategie/" v-reload class="footer-link-small footer-hover">Design & Strategie</g-link>
+        <g-link to="/leistungen/entwicklung/" v-reload class="footer-link-small footer-hover">Entwicklung</g-link>
+        <g-link to="/leistungen/marketing/" v-reload class="footer-link-small footer-hover">Marketing</g-link>
       </div>
       <div class="footer-inner-content">
         <p class="footer-small">ÜBER UNS</p>
-        <g-link to="/agentur" v-reload class="footer-link-small footer-hover">Unsere Agentur</g-link>
-        <g-link to="/nachhaltigkeit" v-reload class="footer-link-small footer-hover">Nachhaltigkeit</g-link>
-        <g-link to="/kontakt" v-reload class="footer-link-small footer-hover">Kontakt</g-link>
+        <g-link to="/agentur/" v-reload class="footer-link-small footer-hover">Unsere Agentur</g-link>
+        <g-link to="/nachhaltigkeit/" v-reload class="footer-link-small footer-hover">Nachhaltigkeit</g-link>
+        <g-link to="/kontakt/" v-reload class="footer-link-small footer-hover">Kontakt</g-link>
       </div>
     </div>
     <div class="footerLandingpages">
-      <g-link to="/webdesign-hannover" v-reload class="footer-hoverBig">Webdesign Hannover</g-link> -
-      <g-link to="/webdesign-braunschweig" v-reload class="footer-hoverBig">Webdesign Braunschweig</g-link> -
-      <g-link to="/webdesign-hildesheim" v-reload class="footer-hoverBig">Webdesign Hildesheim</g-link> -
-      <g-link to="/webdesign-salzgitter" v-reload class="footer-hoverBig">Webdesign Salzgitter</g-link>
+      <g-link to="/webdesign-hannover/" v-reload class="footer-hoverBig">Webdesign Hannover</g-link> -
+      <g-link to="/webdesign-braunschweig/" v-reload class="footer-hoverBig">Webdesign Braunschweig</g-link> -
+      <g-link to="/webdesign-hildesheim/" v-reload class="footer-hoverBig">Webdesign Hildesheim</g-link> -
+      <g-link to="/webdesign-salzgitter/" v-reload class="footer-hoverBig">Webdesign Salzgitter</g-link>
     </div>
     <div class="footerBottom" style="z-index: 1;">
       <div class="contentContainer">
         <div style="display: flex;">
-          <g-link to="/impressum" v-reload class="imprintAndDataprot blackColor footer-hover">Impressum</g-link>
-          <g-link to="/datenschutz" v-reload class="imprintAndDataprot blackColor footer-hover">Datenschutz</g-link>
+          <g-link to="/impressum/" v-reload class="imprintAndDataprot blackColor footer-hover">Impressum</g-link>
+          <g-link to="/datenschutz/" v-reload class="imprintAndDataprot blackColor footer-hover">Datenschutz</g-link>
           <p class="imprintAndDataprot blackColor footer-hover" @click="emitOpenCookies">Cookies</p>
         </div>
         <div class="socialWrapper">
@@ -240,8 +240,10 @@ h2.footer{
     margin-right: 15px;
   }
   .socialWrapper img{
-    margin-left: 10px;
-    width: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 40px;
+    object-fit: contain;
   }
   .footer-hover{
     transform-origin: center;
@@ -252,7 +254,10 @@ h2.footer{
     transform: scale(1);
   }
   .footerBottom{
-    margin-bottom: 30px;
+    margin-bottom: 30px
+  }
+  .footerBottom .contentContainer{
+    flex-direction: column;
   }
 }
 </style>

@@ -370,16 +370,16 @@ div.arrowPrev{
     margin-top: 30px;
   }
   .sliderArrow{
-    width: 40px;
-    height: 40px;
-    top: calc(0% - 20px);
+    width: 50px;
+    height: 50px;
+    top: -25px
   }
   .sliderArrow svg{
     width: 30px;
     height: 30px;
   }
   div.arrowNext{
-    right: calc(20vw - 45px);
+    right: calc(20vw - 55px);
   }
   div.arrowPrev{
     right: calc(20vw + 5px);

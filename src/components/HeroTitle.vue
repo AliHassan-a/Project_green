@@ -7,7 +7,7 @@
       <br>
       <b class="greenColor">{{ secondTitle }}</b>
     </BaseTitle>
-    <g-image class="heroArrow animateBlockHeroArrow" src="@/assets/Pfeile.svg"></g-image>
+    <g-image alt="greenstein-arrows" title="greenstein-arrows" class="heroArrow animateBlockHeroArrow" src="@/assets/Pfeile.svg"></g-image>
   </div>
 </template>
 

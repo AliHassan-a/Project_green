@@ -51,6 +51,7 @@ export default {
     new initGsap({
       simpleStickySection: true,
     }, this);
+    console.log($static.posts.edges);
   },
   methods: {
     getFormattedDate(date){
@@ -74,7 +75,7 @@ export default {
         { name: 'og:image', content: this.$context.featuredMedia.sourceUrl },
       ],
       script: [
-        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}', type: 'application/ld+json' }
+        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
       ]
     }
   }

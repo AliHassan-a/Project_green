@@ -7,7 +7,7 @@
       <div id="one" class="mainSection section-one">
         <a class="singleBlog animateBlockItemStagger" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
           <div class="singleCard">
-            <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.sourceUrl.replace('admin.', '')" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
+            <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.mediaDetails.sizes.mediumLarge.sourceUrl.replace('admin.', '')" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
             <p style="font-size: 20px; line-height: 1.2em;" v-html="edge.node.title">
             <p style="font-size: 18px" class="greenColor" v-html="getFormattedDate(edge.node.date)"></p>
           </div>
@@ -34,6 +34,7 @@ export default {
   },
   mounted() {
     new initGsap({}, this);
+    console.log(this.$static.posts.edges);
   },
   metaInfo() {
     return {
@@ -105,7 +106,14 @@ query{
         featuredMedia{
           sourceUrl,
           title,
-          altText
+          altText,
+          mediaDetails{
+            sizes{
+            mediumLarge{
+                sourceUrl
+              }
+            }
+          }
         }
       }
     }

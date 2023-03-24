@@ -34,13 +34,13 @@
             </div>
             <div class="menu__socials">
               <a title="facebook" target="_blank" href="https://www.facebook.com/greenstein.designagentur/">
-                <g-image src="@/assets/facebook-f.webp"></g-image>
+                <g-image alt="greenstein-facebook" title="greenstein-facebook" src="@/assets/facebook-f.webp"></g-image>
               </a>
               <a title="instagram" target="_blank" href="https://www.instagram.com/greenstein.design/">
-                <g-image src="@/assets/instagram.webp"></g-image>
+                <g-image alt="greenstein-instagram" title="greenstein-instagram" src="@/assets/instagram.webp"></g-image>
               </a>
               <a title="linkedin" target="_blank" href="https://de.linkedin.com/company/greenstein-designagentur">
-                <g-image src="@/assets/linkedin.webp"></g-image>
+                <g-image alt="greenstein-linkedin" title="greenstein-linkedin" src="@/assets/linkedin.webp"></g-image>
               </a>
             </div>
           </div>
@@ -148,7 +148,6 @@ export default {
     this.closeMenuCtrl = this.menuWrap.querySelector('.menuIconClose');
 
     const openMenu = ()  => {
-      console.log(Date.now() / 1000)
       if ( this.isAnimating ) return;
       this.isAnimating = true;
       gsap.timeline({
@@ -167,7 +166,6 @@ export default {
             ease: 'power2',
             attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
             onComplete: () => {
-              console.log(Date.now() / 1000)
               this.menuWrap.classList.add('menu-wrap--open');
             }
           })

@@ -10,22 +10,22 @@
       </div>
       <div class="contentContainer">
         <div class="slideshow">
-          <g-image class="logo" src="@/assets/chartexperten-logo.webp"></g-image>
-          <g-image class="logo" src="@/assets/helo-logo.webp"></g-image>
-          <g-image class="logo" src="@/assets/uhrig-logo.webp"></g-image>
-          <g-image class="logo" src="@/assets/kematherm-logo.webp"></g-image>
-          <g-image class="logo" src="@/assets/mdz-logo.webp"></g-image>
+          <g-image alt="logo-chartexperten" title="logo-chartexperten" class="logo" src="@/assets/chartexperten-logo.webp"></g-image>
+          <g-image alt="logo-helosports" title="logo-helosports" class="logo" src="@/assets/helo-logo.webp"></g-image>
+          <g-image alt="logo-" title="logo-" class="logo" src="@/assets/uhrig-logo.webp"></g-image>
+          <g-image alt="logo-" title="logo-" class="logo" src="@/assets/kematherm-logo.webp"></g-image>
+          <g-image alt="logo-" title="logo-" class="logo" src="@/assets/mdz-logo.webp"></g-image>
         </div>
       </div>
     </div>
     <div class="md-hide">
       <div class="js-ticker">
         <ul class="wrapper">
-          <li><img class="logo" src="@/assets/chartexperten-logo.webp"></li>
-          <li><img class="logo" src="@/assets/kematherm-logo.webp"></li>
-          <li><img class="logo" src="@/assets/helo-logo.webp"></li>
-          <li><img class="logo" src="@/assets/mdz-logo.webp"></li>
-          <li><img class="logo" src="@/assets/uhrig-logo.webp"></li>
+          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/chartexperten-logo.webp"></li>
+          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/kematherm-logo.webp"></li>
+          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/helo-logo.webp"></li>
+          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/mdz-logo.webp"></li>
+          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/uhrig-logo.webp"></li>
         </ul>
       </div>
     </div>

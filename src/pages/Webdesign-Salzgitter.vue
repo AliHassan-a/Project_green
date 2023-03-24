@@ -254,6 +254,7 @@ export default {
         { name: 'description', content: "Webdesign in Salzgitter: Deine Webagentur für Design & Programmierung erfolgreicher Internetseiten. ✓ Bis zu 100% staatliche Förderung." },
         { name: 'og:title', content: "Webdesign Hildesheim" },
         { name: 'og:description', content: "Webdesign in Salzgitter: Deine Webagentur für Design & Programmierung erfolgreicher Internetseiten. ✓ Bis zu 100% staatliche Förderung." },
+        { name: 'og:image', content: "https://greenstein.design/Teambesprechung-Greenstein.webp"},
         { name: 'twitter:title', content: "Webdesign Hildesheim" },
         { name: 'twitter:description', content: "Webdesign in Salzgitter: Deine Webagentur für Design & Programmierung erfolgreicher Internetseiten. ✓ Bis zu 100% staatliche Förderung." },
       ],

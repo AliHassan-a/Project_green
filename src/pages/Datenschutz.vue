@@ -17,7 +17,7 @@ import initGsap from "../misc/gsapBase";
 import BaseTitle from "../components/BaseTitle";
 
 export default {
-  name: "Impressum",
+  name: "Datenschutz",
   components: {
     BaseTitle,
     BaseText,
@@ -32,6 +32,11 @@ export default {
             return el.node.title == "Datenschutz";
           }
       )[0].node.content
+    }
+  },
+  metaInfo() {
+    return {
+      title: "Datenschutz"
     }
   }
 }
