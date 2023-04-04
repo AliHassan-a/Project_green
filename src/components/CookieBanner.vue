@@ -14,10 +14,10 @@
           Wir verwenden Cookies, um deine Erfahrung<br> auf dieser Website zu verbessern.
         </BaseText>
         <div class="cookieSubmit">
-          <div style="cursor: pointer" @click="submitCookies('ja')">
+          <div style="cursor: pointer" @click="submitCookies('ja')" id="submitCookiesAllow">
             <BaseButton :theme="'dark'" :title="'Ja bitte!'"/>
           </div>
-          <div style="cursor: pointer" @click="submitCookies('nein')">
+          <div style="cursor: pointer" @click="submitCookies('nein')" id="submitCookiesDecline">
             <BaseText
                 :addClass="'lightGreenColor'"
                 :addStyle="'margin-top: 15px; font-size: clamp(1em, calc(100vw / 70), 1.3em);'">
@@ -98,7 +98,7 @@ export default {
       this.showBanner = false;
       document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     },
-    cookiesAllowed() {
+    setupGTM() {
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
@@ -112,6 +112,22 @@ export default {
             'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-N5LMT7D');
+    },
+    setupSalesviwer(){
+        (function(w,d,s,l,i){
+        var g=w[l] ? '&s='+w[l]:'', f=d.getElementsByTagName(s)[0], j=d.createElement(s);
+        j.async=true,j.src='https://dmndfrcstng.com/stm.js?id='+i+g;
+        j.referrerPolicy='no-referrer-when-downgrade'
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','name','t0a0f8j8z3R5')
+    },
+    cookiesAllowed() {
+      if(process.env.NODE_ENV != "development"){
+        this.setupGTM();
+        this.setupSalesviwer();
+      } else {
+        console.log("push GTM in production")
+      }
     }
   },
   components: {

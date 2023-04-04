@@ -242,9 +242,9 @@ export default {
     }
   },
   mounted() {
-    this.pageGsap = new initGsap({
-      marquee: true,
-    }, this);
+    if (initGsap != false) {
+      new initGsap({}, this);
+    }
   },
   metaInfo() {
     return {

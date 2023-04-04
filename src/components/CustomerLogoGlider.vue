@@ -1,6 +1,6 @@
 <template>
   <div class="logosSectionWrapper">
-    <div class="logosSection m-hide" :data-speed="hasAni || hasAni == undefined ? 1.15 : false">
+    <div class="logosSection m-hide animateBlockHeroFeature" :data-speed="hasAni || hasAni == undefined ? 1.15 : false">
       <div style="width: 100%; opacity: 0.6; margin-bottom: 44px;">
         <Seperator :theme="'lightGreen'"/>
       </div>
@@ -8,25 +8,41 @@
         <p class="logosText m-hide">UNTERNEHMEN, DIE<br>GERNE MIT UNS ARBEITEN</p>
         <p class="logosTextMobile md-hide">UNTERNEHMEN, DIE GERNE MIT UNS ARBEITEN</p>
       </div>
-      <div class="contentContainer">
-        <div class="slideshow">
-          <g-image alt="logo-chartexperten" title="logo-chartexperten" class="logo" src="@/assets/chartexperten-logo.webp"></g-image>
-          <g-image alt="logo-helosports" title="logo-helosports" class="logo" src="@/assets/helo-logo.webp"></g-image>
-          <g-image alt="logo-" title="logo-" class="logo" src="@/assets/uhrig-logo.webp"></g-image>
-          <g-image alt="logo-" title="logo-" class="logo" src="@/assets/kematherm-logo.webp"></g-image>
-          <g-image alt="logo-" title="logo-" class="logo" src="@/assets/mdz-logo.webp"></g-image>
+      <div class="contentContainer loopContainerWrapper">
+        <div class="loop-container">
+          <div class="item">
+            <g-image alt="logo-chartexperten" title="logo-chartexperten" class="logo" src="@/assets/chartexperten-logo.webp"></g-image>
+            <g-image alt="logo-helosports" title="logo-helosports" class="logo" src="@/assets/helo-logo.webp"></g-image>
+            <g-image alt="logo-uhrigstore" title="logo-uhrigstore" class="logo" src="@/assets/uhrig-logo.webp"></g-image>
+            <g-image alt="logokematherm-" title="logo-kematherm" class="logo" src="@/assets/kematherm-logo.webp"></g-image>
+            <g-image alt="logo-mdz" title="logo-mdz" class="logo" src="@/assets/mdz-logo.webp"></g-image>
+          </div>
+          <div class="item">
+            <g-image alt="logo-chartexperten" title="logo-chartexperten" class="logo" src="@/assets/chartexperten-logo.webp"></g-image>
+            <g-image alt="logo-helosports" title="logo-helosports" class="logo" src="@/assets/helo-logo.webp"></g-image>
+            <g-image alt="logo-uhrigstore" title="logo-uhrigstore" class="logo" src="@/assets/uhrig-logo.webp"></g-image>
+            <g-image alt="logokematherm-" title="logo-kematherm" class="logo" src="@/assets/kematherm-logo.webp"></g-image>
+            <g-image alt="logo-mdz" title="logo-mdz" class="logo" src="@/assets/mdz-logo.webp"></g-image>
+          </div>
         </div>
       </div>
     </div>
     <div class="md-hide">
-      <div class="js-ticker">
-        <ul class="wrapper">
-          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/chartexperten-logo.webp"></li>
-          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/kematherm-logo.webp"></li>
-          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/helo-logo.webp"></li>
-          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/mdz-logo.webp"></li>
-          <li><img class="logo" alt="logo-" title="logo-" src="@/assets/uhrig-logo.webp"></li>
-        </ul>
+      <div class="loop-container">
+        <div class="item">
+          <g-image alt="logo-chartexperten" title="logo-chartexperten" class="logo" src="@/assets/chartexperten-logo.webp"></g-image>
+          <g-image alt="logo-helosports" title="logo-helosports" class="logo" src="@/assets/helo-logo.webp"></g-image>
+          <g-image alt="logo-uhrigstore" title="logo-uhrigstore" class="logo" src="@/assets/uhrig-logo.webp"></g-image>
+          <g-image alt="logokematherm-" title="logo-kematherm" class="logo" src="@/assets/kematherm-logo.webp"></g-image>
+          <g-image alt="logo-mdz" title="logo-mdz" class="logo" src="@/assets/mdz-logo.webp"></g-image>
+        </div>
+        <div class="item">
+          <g-image alt="logo-chartexperten" title="logo-chartexperten" class="logo" src="@/assets/chartexperten-logo.webp"></g-image>
+          <g-image alt="logo-helosports" title="logo-helosports" class="logo" src="@/assets/helo-logo.webp"></g-image>
+          <g-image alt="logo-uhrigstore" title="logo-uhrigstore" class="logo" src="@/assets/uhrig-logo.webp"></g-image>
+          <g-image alt="logokematherm-" title="logo-kematherm" class="logo" src="@/assets/kematherm-logo.webp"></g-image>
+          <g-image alt="logo-mdz" title="logo-mdz" class="logo" src="@/assets/mdz-logo.webp"></g-image>
+        </div>
       </div>
     </div>
   </div>
@@ -39,7 +55,56 @@ export default {
   props: {
     hasAni: Boolean,
   },
-  components: {Seperator}
+  components: {Seperator},
+  mounted(){
+    const lerp = (current, target, factor) => current * (1 - factor) + target * factor;
+
+    class LoopingText {
+      constructor(el) {
+        this.el = el;
+        this.lerp = {current: 0, target: 0};
+        this.interpolationFactor = 0.1;
+        this.speed = 0.2;
+        this.direction = -1; // -1 (to-left), 1 (to-right)
+
+        // Init
+        this.el.style.cssText = `position: relative; display: inline-flex; white-space: nowrap;`;
+        this.el.children[1].style.cssText = `position: absolute; left: ${100 * -this.direction}%;`;
+
+        if(process.isClient){
+          let responsiveTimer = window.innerWidth < 1024 ? 500 : 3000;
+          setTimeout(() => {
+            window.innerWidth < 1024 ? "" : this.events()
+            this.render();
+          }, responsiveTimer)
+        }
+      }
+
+      events() {
+        window.addEventListener("scroll", () => this.lerp.target += this.speed * 4);
+      }
+
+      animate() {
+        this.lerp.target += this.speed;
+        this.lerp.current = lerp(this.lerp.current, this.lerp.target, this.interpolationFactor);
+
+        if (this.lerp.target > 100) {
+          this.lerp.current -= this.lerp.target;
+          this.lerp.target = 0;
+        }
+
+        const x = this.lerp.current * this.direction;
+        this.el.style.transform = `translateX(${x}%)`;
+      }
+
+      render() {
+        this.animate();
+        window.requestAnimationFrame(() => this.render());
+      }
+    }
+
+    document.querySelectorAll(".loop-container").forEach(el => new LoopingText(el));
+  }
 }
 </script>
 
@@ -70,6 +135,11 @@ export default {
   max-width: 200px;
   object-fit: contain;
 }
+.loopContainerWrapper{
+  width: 80%;
+  margin-left: 20%;
+  overflow: hidden;
+}
 .contentContainer.headlines{
   position: absolute;
   top:50%
@@ -85,6 +155,13 @@ export default {
   align-items: center;
   gap: 0px;
   width: calc(100% - 200px);
+}
+.item{
+  display: flex;
+  white-space: nowrap;
+}
+.item img{
+  margin: 0px 20px;
 }
 
 .js-ticker {

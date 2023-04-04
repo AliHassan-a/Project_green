@@ -52,9 +52,11 @@ export default {
     }
   },
   mounted() {
-    this.pageGsap = new initGsap({
-      heroAnimation: true,
-    }, this);
+    if (initGsap != false) {
+      new initGsap({
+        heroAnimation: true,
+      }, this);
+    }
   },
   methods: {
     submitForm(data) {

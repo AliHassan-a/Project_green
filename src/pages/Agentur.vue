@@ -109,10 +109,12 @@ export default {
     }
   },
   mounted() {
-    this.pageGsap = new initGsap({
-      stickyImages: true,
-      heroAnimation: true,
-    }, this);
+    if (initGsap != false) {
+      new initGsap({
+        stickyImages: true,
+        heroAnimation: true,
+      }, this);
+    }
   },
   metaInfo() {
     return {

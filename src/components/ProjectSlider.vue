@@ -1,6 +1,6 @@
 <template>
   <div id="two" class="container">
-    <BaseTitle class="horizontalHeader animateBlockHead" :align="'left'" :tag="'h2'" >Wir entwickeln innovative <br> Apps & Webseiten</BaseTitle>
+    <h2 class="horizontalHeader animateBlockHead">Wir entwickeln innovative <br> Apps & Webseiten</h2>
     <section class="panel" v-for="(project, index) in projects" :style="index == 0 ? {marginLeft: '9.5vw'} : {}">
       <g-link :to="project.link" v-reload>
         <div class="box" :class="'box-' + (index + 1)" :style="{background: project.color}">

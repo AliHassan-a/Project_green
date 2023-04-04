@@ -144,7 +144,9 @@ export default {
     }
   },
   mounted() {
-    new initGsap({}, this);
+    if (initGsap != false) {
+      new initGsap({}, this);
+    }
   },
   metaInfo() {
     return {

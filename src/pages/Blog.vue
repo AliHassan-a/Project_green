@@ -33,8 +33,9 @@ export default {
     },
   },
   mounted() {
-    new initGsap({}, this);
-    console.log(this.$static.posts.edges);
+    if (initGsap != false) {
+      new initGsap({}, this);
+    }
   },
   metaInfo() {
     return {

@@ -9,7 +9,7 @@
               :main-title-second="hero.mainTitleSecond"
               :second-title="hero.secondTitle" />
         </div>
-        <CustomerLogoGlider/>
+        <CustomerLogoGlider class="animateBlockHead"/>
       </div>
       <!-- PROJECTS SLIDER -->
       <ProjectSlider/>
@@ -117,14 +117,16 @@ export default {
     }
   },
   mounted() {
-    new initGsap({
-      sideScroller: true,
-      stickyImages: true,
-      heroAnimation: true,
-      logosGlider: true,
-      singleQuote: true,
-      marquee: true,
-    }, this);
+    if (initGsap != false){
+      new initGsap({
+        sideScroller: true,
+        stickyImages: true,
+        heroAnimation: true,
+        logosGlider: true,
+        singleQuote: true,
+        marquee: true,
+      }, this);
+    }
   },
   metaInfo() {
     return {

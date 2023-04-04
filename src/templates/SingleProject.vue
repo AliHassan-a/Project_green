@@ -233,13 +233,14 @@ export default {
   },
   mounted() {
     this.currentImage = this.$context.acf.step1Image;
-    console.log(this.$context.title)
     this.paintBg(this.$context.title);
     this.$root.$on("changeImage", this.onChangeImage);
-    new initGsap({
-      heroAnimation: true,
-      stickySection: true,
-    }, this);
+    if (initGsap != false){
+      new initGsap({
+        heroAnimation: true,
+        stickySection: true,
+      }, this);
+    }
   },
   beforeDestroy() {
     this.$root.$emit("repaint-bg", 0);

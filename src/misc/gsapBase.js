@@ -1,21 +1,18 @@
+function checkIsMobile(){
+    return window.innerWidth < 1024;
+}
 import {gsap, ScrollSmoother, ScrollTrigger, SplitText} from "gsap/all";
 
 const initGsap = class {
     constructor(features, vueInstance) {
         this.features = features
         this.vueInstance = vueInstance
+
         this.init();
     }
     init() {
         /* init Base */
-        gsap.registerPlugin(ScrollTrigger);
-        function initMobile() {
-            ScrollTrigger.defaults({
-                immediateRender: false,
-                ease: "power1.inOut",
-                scrub: false
-            });
-        }
+        gsap.registerPlugin(ScrollTrigger)
         function initDesktop() {
             gsap.registerPlugin(ScrollSmoother, SplitText);
 
@@ -144,95 +141,6 @@ const initGsap = class {
                 });
             });
         }
-        function initEntryAnimationsMobile() {
-            /*HEADLINE REVEAL*/
-            let headBlocks = document.querySelectorAll(".animateBlockHead");
-            headBlocks.forEach(headBlock => {
-                headBlock.split = new SplitText(headBlock, {
-                    type: "words"
-                });
-                headBlock.anim = gsap.from(headBlock.split.words, {
-                    scrollTrigger: {
-                        trigger: headBlock,
-                        toggleActions: "restart resume resume reverse",
-                        start: "50% 80%",
-                    },
-                    opacity: 0,
-                    ease: "power1.inOut",
-                    stagger: { each: 0.05, from: 'random'},
-                });
-            });
-            /*TEXT REVEAL*/
-            let textBlocks = document.querySelectorAll(".animateBlockText");
-            textBlocks.forEach(textBlock => {
-
-                textBlock.split = new SplitText(textBlock, {
-                    type: "lines"
-                });
-
-                // Set up the anim
-                textBlock.anim = gsap.from(textBlock.split.lines, {
-                    scrollTrigger: {
-                        trigger: textBlock,
-                        toggleActions: "restart resume resume reverse",
-                        start: "50% 80%",
-                    },
-                    duration: 0.6,
-                    opacity: 0,
-                    ease: "power1.inOut",
-                    stagger: { each: 0.1, from: 'start'},
-                });
-            });
-            /*ITEM REVEAL*/
-            let itemBlocks = document.querySelectorAll(".animateBlockItem");
-            itemBlocks.forEach(itemBlock => {
-
-                // Set up the anim
-                itemBlock.anim = gsap.from(itemBlock, {
-                    scrollTrigger: {
-                        trigger: itemBlock,
-                        toggleActions: "restart resume resume reverse",
-                        start: "0% 80%",
-                    },
-                    duration: 0.6,
-                    opacity: 0,
-                    ease: "power1.inOut",
-                    stagger: { each: 0.05, from: 'random'},
-                });
-            });
-            /*ITEM REVEAL STAGGER*/
-            ScrollTrigger.batch(".animateBlockItemStagger", {
-                onEnter: batch => gsap.to(batch,
-                    {
-                        opacity: 1,
-                        duration: 0.6,
-                        stagger: 0.3, }
-                ),
-                onLeaveBack: batch => gsap.to(batch,
-                    {
-                        opacity: 0,
-                        duration: 0.6,
-                        stagger: 0.3, }
-                ),
-            });
-            /*ItemBlocks Sticky*/
-            let itemBlocksSticky = document.querySelectorAll(".animateStickyBlockItem");
-            itemBlocksSticky.forEach(itemBlockSticky => {
-
-                // Set up the anim
-                itemBlockSticky.anim = gsap.from(itemBlockSticky, {
-                    scrollTrigger: {
-                        trigger: itemBlockSticky,
-                        toggleActions: "restart resume resume reverse",
-                        start: "50% 100%",
-                    },
-                    duration: 0.6,
-                    opacity: 0,
-                    ease: "power1.inOut",
-                    stagger: { each: 0.05, from: 'random'},
-                });
-            });
-        }
 
         function initHero(){
             let heroBlock = document.querySelector(".animateBlockHero");
@@ -256,6 +164,17 @@ const initGsap = class {
                 ease: "power1.inOut",
                 stagger: { each: 0.05, from: 'random'},
             });
+            let heroFeature = document.querySelector(".animateBlockHeroFeature");
+            if(heroFeature != undefined){
+                heroFeature.anim = gsap.from(heroFeature.children, {
+                    delay: 1.5,
+                    duration: 1,
+                    opacity: 0,
+                    filter: 'blur(20px)',
+                    ease: "power1.inOut",
+                    stagger: { each: 0.05, from: 'random'},
+                });
+            }
         }
         function initSideScroller(context){
             let sections = gsap.utils.toArray(".panel");
@@ -456,32 +375,6 @@ const initGsap = class {
             });
         }
 
-        function initMarquee() {
-            const dur = 15;
-
-            document.querySelectorAll('.js-ticker .wrapper').forEach(ticker => {
-                // Get the initial size of the ticker
-                const totalDistance = ticker.clientWidth;
-
-                // Position the ticker
-                gsap.set(ticker, {yPercent: -50});
-
-                // Clone the first item and add it to the end
-                ticker.querySelectorAll("li").forEach((tickerSingle) => {
-                    ticker.append(tickerSingle.cloneNode(true))
-                })
-
-                // Get all of the items
-                const items = ticker.querySelectorAll("li");
-
-                const anim = gsap.to(ticker, {
-                    duration: dur,
-                    x: -totalDistance,
-                    ease: "none",
-                    repeat: -1,
-                });
-            });
-        }
         function initQuote(isMobile) {
             let quotes = gsap.utils.toArray(".quote");
             //let stickDistance = isMobile ? 100 : 400;
@@ -583,12 +476,6 @@ const initGsap = class {
                 initFooter(false)
             },
             "(max-width: 1024px)": () => {
-                initMobile();
-                /* MARQUEE ONLY MOBILE */
-                if(this.features.marquee){
-                    initMarquee()
-                }
-                /* FOOTER */
                 initFooter(true)
             },
             "all": () => {
@@ -598,5 +485,5 @@ const initGsap = class {
     }
 
 }
-
-export default initGsap;
+//export default process.isClient ? checkIsMobile() ? false : initGsap : false;
+export default initGsap

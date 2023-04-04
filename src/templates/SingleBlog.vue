@@ -48,10 +48,11 @@ export default {
     BaseTitle,
   },
   mounted() {
-    new initGsap({
-      simpleStickySection: true,
-    }, this);
-    console.log($static.posts.edges);
+    if (initGsap != false){
+      new initGsap({
+        simpleStickySection: true,
+      }, this);
+    }
   },
   methods: {
     getFormattedDate(date){

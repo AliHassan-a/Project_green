@@ -24,10 +24,12 @@ export default {
     }
   },
   mounted() {
-    new initGsap({
-      heroAnimation: true,
-      simpleStickySection: true,
-    }, this);
+    if (initGsap != false) {
+      new initGsap({
+        heroAnimation: true,
+        simpleStickySection: true,
+      }, this);
+    }
   },
   metaInfo() {
     return {

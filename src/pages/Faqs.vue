@@ -23,7 +23,9 @@ export default {
     BaseTitle,
   },
   mounted() {
-    new initGsap({}, this);
+    if (initGsap != false) {
+      new initGsap({}, this);
+    }
   },
   computed: {
     getFaq(){

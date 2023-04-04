@@ -51,19 +51,17 @@ Template for Images:
               <g-image src="@/assets/3guys.webp"></g-image>
             </div>
 */
-import { gsap, Draggable } from "gsap/all"
+import { gsap } from "gsap/all"
 export default {
   name: "SliderIndex",
   mounted(){
     const wrapper = document.querySelector(".wrapper");
     const sliderWrapper = this.$refs.sliderWrapper;
     const boxes = sliderWrapper.querySelectorAll(".box");
-    gsap.registerPlugin(Draggable);
 
     let activeElement;
     const loop = horizontalLoop(boxes, {
       paused: true,
-      draggable: true,
       center: true,
       onChange: (element, index) => {
         activeElement && activeElement.classList.remove("active");
@@ -162,7 +160,7 @@ export default {
             populateWidths();
             deep && populateTimeline();
             populateOffsets();
-            deep && tl.draggable ? tl.time(times[curIndex], true) : tl.progress(progress, true);
+            tl.progress(progress, true);
           },
           proxy;
       gsap.set(items, {x: 0});
@@ -203,46 +201,6 @@ export default {
       if (config.reversed) {
         tl.vars.onReverseComplete();
         tl.reverse();
-      }
-      if (config.draggable && typeof(Draggable) === "function") {
-        proxy = document.createElement("div")
-        let wrap = gsap.utils.wrap(0, 1),
-            ratio, startProgress, draggable, dragSnap,
-            align = () => tl.progress(wrap(startProgress + (draggable.startX - draggable.x) * ratio)),
-            syncIndex = () => tl.closestIndex(true);
-        draggable = Draggable.create(proxy, {
-          trigger: items[0].parentNode,
-          type: "x",
-          onPressInit() {
-            gsap.killTweensOf(tl);
-            startProgress = tl.progress();
-            refresh();
-            ratio = 1 / totalWidth;
-            gsap.set(proxy, {x: startProgress / -ratio});
-          },
-          onDrag: align,
-          onThrowUpdate: align,
-          inertia: false,
-          snap(value) {
-            //note: if the user presses and releases in the middle of a throw, due to the sudden correction of proxy.x in the onPressInit(), the velocity could suddenly be very large, throwing off the snap. So sense that condition and adjust for it.
-            if (Math.abs(startProgress / -ratio - this.x) < 10) {
-              requestAnimationFrame(() => this.tween && this.tween.progress(1));
-              return this.x;
-            }
-            let time = -(value * ratio) * tl.duration(),
-                wrappedTime = timeWrap(time),
-                snapTime = times[getClosest(times, wrappedTime, tl.duration())],
-                dif = snapTime - wrappedTime;
-            Math.abs(dif) > tl.duration() / 2 && (dif += dif < 0 ? tl.duration() : -tl.duration());
-            return (time + dif) / tl.duration() / -ratio;
-          },
-          onRelease() {
-            syncIndex();
-            draggable.isThrowing && (indexIsDirty = true);
-          },
-          onThrowComplete: syncIndex
-        })[0];
-        tl.draggable = draggable;
       }
       tl.closestIndex(true);
       lastIndex = curIndex;

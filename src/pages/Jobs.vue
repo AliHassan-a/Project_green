@@ -27,7 +27,9 @@ export default {
     BaseTitle,
   },
   mounted() {
-    this.pageGsap = new initGsap({}, this);
+    if (initGsap != false) {
+      new initGsap({}, this);
+    }
   },
   metaInfo() {
     return {
