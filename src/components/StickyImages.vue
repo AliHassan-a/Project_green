@@ -6,50 +6,50 @@
           <h2 class="animateBlockHead"> Designer, Programmierer </h2>
           <h2 class="animateBlockHead"> Marketing-Experten </h2>
           <h2 class="animateBlockHead greenColor" style="text-align: left;"><b>Freunde</b></h2>
-          <g-image class="animateBlockItem heroArrow" src="@/assets/Pfeile.svg"></g-image>
+          <g-image alt="greenstein pfeil icon" class="animateBlockItem heroArrow" src="@/assets/Pfeile.svg"></g-image>
         </div>
       </div>
       <div v-if="imageSet == 'index' || imageSet == undefined" class="imageSet">
         <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
-            <g-image src="@/assets/praktis1.webp"></g-image>
+            <g-image alt="greenstein lernen" src="@/assets/praktis1.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="0.9">
           <div class="reveal">
-            <g-image src="@/assets/praktis2.webp"></g-image>
+            <g-image alt="greenstein learning" src="@/assets/praktis2.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
-            <g-image src="@/assets/developer.webp"></g-image>
+            <g-image alt="greenstein entwicklung" src="@/assets/developer.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="0.9">
           <div class="reveal">
-            <g-image src="@/assets/3guys.webp"></g-image>
+            <g-image alt="freunde, entwickler, programmierer" src="@/assets/3guys.webp"></g-image>
           </div>
         </div>
       </div>
       <div v-if="imageSet == 'about'" class="imageSet">
         <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
-            <g-image src="@/assets/teamwork.webp"></g-image>
+            <g-image alt="greenstein lernen" src="@/assets/teamwork.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="0.9">
           <div class="reveal">
-            <g-image src="@/assets/greenstein-praktikant.webp"></g-image>
+            <g-image alt="greenstein learning" src="@/assets/greenstein-praktikant.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="1.2">
           <div class="reveal">
-            <g-image src="@/assets/greenstein-gestaltung.webp"></g-image>
+            <g-image alt="greenstein gestaltung" src="@/assets/greenstein-gestaltung.webp"></g-image>
           </div>
         </div>
         <div class="revealWrapper" data-speed="0.9">
           <div class="reveal">
-            <g-image src="@/assets/greenstein-webapp.webp"></g-image>
+            <g-image alt="greenstein webapp" src="@/assets/greenstein-webapp.webp"></g-image>
           </div>
         </div>
       </div>

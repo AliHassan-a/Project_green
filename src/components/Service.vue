@@ -4,7 +4,7 @@
       <a href="/leistungen/design-strategie" v-reload>
         <Seperator class="m-hide" theme="lightGreen"></Seperator>
         <div class="leistungWrapper">
-          <g-image src="@/assets/design_strategie_icon.webp"></g-image>
+          <g-image alt="greenstein design strategie icon" src="@/assets/design_strategie_icon.webp"></g-image>
           <h3 class="w-full leistungText">Design & Strategie</h3>
           <BaseButton :link-to="'leistungen/design-strategie'" :theme="'more'" :title="'Mehr erfahren'"/>
         </div>
@@ -14,7 +14,7 @@
     <div class="animateBlockItem serviceWrapper">
       <a href="/leistungen/entwicklung" v-reload>
         <div class="leistungWrapper">
-          <g-image src="@/assets/entwicklung_icon.webp"></g-image>
+          <g-image alt="greenstein entwicklung strategie icon" src="@/assets/entwicklung_icon.webp"></g-image>
           <h3 class="w-full leistungText">Entwicklung</h3>
           <BaseButton :link-to="'leistungen/entwicklung'" :theme="'more'" :title="'Mehr erfahren'"/>
         </div>
@@ -24,7 +24,7 @@
     <div class="animateBlockItem serviceWrapper">
       <a href="/leistungen/marketing" v-reload>
         <div class="leistungWrapper">
-          <g-image src="@/assets/marketing_icon.webp"></g-image>
+          <g-image alt="greenstein marketing strategie icon" src="@/assets/marketing_icon.webp"></g-image>
           <h3 class="w-full leistungText">Marketing</h3>
           <BaseButton :link-to="'leistungen/marketing'" :theme="'more'" :title="'Mehr erfahren'"/>
         </div>
