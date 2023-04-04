@@ -1,14 +1,22 @@
-# Default starter for Gridsome
+# Greenstein Gridsome
 
-This is the project you get when you run `gridsome create new-project`.
+This is the Website of greenstein.design. Follow these steps:
 
 ### 1. Install Gridsome CLI tool if you don't have
 
 `npm install --global @gridsome/cli`
 
-### 2. Create a Gridsome project
+### 2. Install Project dependecies
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+`npm install` to install npm packages
+
+### 3. Development
+
+`gridsome develop` to install npm packages
+
+### 4. Deployment
+
+`gridsome build` to install npm packages. 
+
+It may occur that gridsome cant fetch files from backend, this is will cause the build to not finish its process. 
+**Please restart the building process** and make sure a stable connection to backend exists.
