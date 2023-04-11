@@ -1,6 +1,6 @@
 
 on:
-  pull:
+  push:
     branches: 
       - master
 name: Build and Publish Website
