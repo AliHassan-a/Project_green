@@ -23,6 +23,6 @@ jobs:
       uses: LennGrnstn/Greenstein-Webseite@main
       env:
         PERSONAL_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        EXTERNAL_REPOSITORY: renegreenstein/Greenstein-Build
-        PUBLISH_BRANCH: main
-        PUBLISH_DIR: ./dist
+        EXTERNAL_REPOSITORY: LennGrnstn/Greenstein-Webseite
+        PUBLISH_BRANCH: static-export
+        PUBLISH_DIR: ./
