@@ -20,7 +20,7 @@ jobs:
         npm run build --if-present
       
     - name: Deploy
-      uses: LennGrnstn/Greenstein-Webseite/Public
+      uses: LennGrnstn/Greenstein-Webseite
       env:
         PERSONAL_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         EXTERNAL_REPOSITORY: renegreenstein/Greenstein-Build
