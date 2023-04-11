@@ -2,7 +2,7 @@ on:
   push:
     branches: 
       - main
-name: Build and Publish Website
+name: Build and Publish Website to static-export Branch
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
