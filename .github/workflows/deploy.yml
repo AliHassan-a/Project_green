@@ -1,8 +1,8 @@
-on:
+on: 
   push:
     branches: 
-      - main
-name: Build and Publish Website to static-export Branch
+      - master
+name: Build and Publish Website
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -20,9 +20,9 @@ jobs:
         npm run build --if-present
       
     - name: Deploy
-      uses: LennGrnstn/Greenstein-Webseite@main
+      uses: peaceiris/actions-gh-pages@v2
       env:
         PERSONAL_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        EXTERNAL_REPOSITORY: renegreenstein/Greenstein-Build
-        PUBLISH_BRANCH: main
-        PUBLISH_DIR: ./
+        EXTERNAL_REPOSITORY: noxify/itsmplus-build
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: ./dist
