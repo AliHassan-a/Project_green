@@ -22,7 +22,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
       env:
-        PERSONAL_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PERSONAL_TOKEN: ${{ secrets.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 }}
         EXTERNAL_REPOSITORY: noxify/itsmplus-build
         PUBLISH_BRANCH: master
         PUBLISH_DIR: ./dist
