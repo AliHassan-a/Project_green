@@ -1,6 +1,3 @@
-function checkIsMobile(){
-    return window.innerWidth < 1024;
-}
 import {gsap, ScrollSmoother, ScrollTrigger, SplitText} from "gsap/all";
 
 const initGsap = class {
@@ -485,5 +482,4 @@ const initGsap = class {
     }
 
 }
-//export default process.isClient ? checkIsMobile() ? false : initGsap : false;
 export default initGsap

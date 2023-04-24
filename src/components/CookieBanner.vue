@@ -4,8 +4,8 @@
       <BackgroundAnimation />
       <div class="innerCookieWrapper">
         <div class="cookieImage">
-          <g-image class="cookieBitten" src="@/assets/cookie-bitten.webp"></g-image>
-          <g-image class="cookieBite" :class="bittenCookie ? 'bitten' : ''" src="@/assets/cookie-bite.webp"></g-image>
+          <g-image alt="greenstein cookie" class="cookieBitten" src="@/assets/cookie-bitten.webp"></g-image>
+          <g-image alt="greenstein cookie bite" class="cookieBite" :class="bittenCookie ? 'bitten' : ''" src="@/assets/cookie-bite.webp"></g-image>
         </div>
         <BaseTitle :align="'center'" :addClass="'bold'" :tag="'h3'" >
           Cookies?
