@@ -181,4 +181,68 @@ module.exports = function (api) {
       })
     })
   })
+  api.createPages(async ({graphql, createPage}) => {
+    /* Landingpages */
+    const { data } = await graphql(`{
+    allWordPressLandingpages{
+      edges{
+        node{
+          slug,
+          title,
+          content,
+          date,
+          acf{
+            title,
+            subtitle,
+            bilderSlider{
+              bildUrl
+            },
+            headlineFliestext,
+            fliestext,
+            hoverSection{
+              title,
+              text,
+            },
+            faq{
+              title,
+              text,
+            },
+            metaTitle,
+            metaDescription
+          }
+        }
+      }
+    }}`)
+    data.allWordPressLandingpages.edges.forEach(({node}) => {
+      createPage({
+        path: `/${node.slug}`,
+        component: './src/templates/LandingpageType1.vue',
+        context: {
+          slug: node.slug,
+          title: node.title,
+          content: node.content,
+          date: node.date,
+          acf: {
+            title: node.acf.title,
+            subtitle: node.acf.subtitle,
+            bilderSlider: {
+                bildUrl: node.acf.bilderSlider.bildUrl
+            },
+            headlineFliestext: node.acf.headlineFliestext,
+            fliestext: node.acf.fliestext,
+            hoverSection: {
+              title: node.acf.hoverSection.title,
+              text: node.acf.hoverSection.text,
+            },
+            faq: {
+              title: node.acf.faq.title,
+              text: node.acf.faq.text,
+            },
+            metaTitle: node.acf.metaTitle,
+            metaDescription: node.acf.metaDescription,
+          },
+        }
+      })
+    })
+  })
 }
