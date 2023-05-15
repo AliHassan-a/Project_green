@@ -1,4 +1,7 @@
-import {gsap, ScrollSmoother, ScrollTrigger, SplitText} from "gsap/all";
+import {gsap} from "gsap/dist/gsap";
+import {ScrollSmoother} from "gsap/dist/ScrollSmoother";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import {SplitText} from "gsap/dist/SplitText";
 
 const initGsap = class {
     constructor(features, vueInstance) {
