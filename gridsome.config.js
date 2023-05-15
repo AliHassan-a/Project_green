@@ -1,6 +1,28 @@
 module.exports = {
   siteName: 'Greenstein Designagentur',
   siteUrl: 'https://greenstein.design',
+  chainWebpack: (config, { isProd, isClient }) => {
+    if (isProd && isClient) {
+      config.optimization.splitChunks({
+        chunks: "initial",
+        maxInitialRequests: Infinity,
+        cacheGroups: {
+          vueVendor: {
+            test: /[\\/]node_modules[\\/](vue|vuex|vue-router)[\\/]/,
+            name: "vue-vendors",
+          },
+          gridsome: {
+            test: /[\\/]node_modules[\\/](gridsome|vue-meta)[\\/]/,
+            name: "gridsome-vendors",
+          },
+          polyfill: {
+            test: /[\\/]node_modules[\\/]core-js[\\/]/,
+            name: "core-js",
+          },
+        },
+      });
+    }
+  },
   plugins: [
     {
       use: '@gridsome/source-wordpress',
