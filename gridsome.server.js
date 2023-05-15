@@ -245,4 +245,31 @@ module.exports = function (api) {
       })
     })
   })
+  /* THIS IS LANDINGPAGES TEMPLATE GRAPHQL */
+  api.createPages(async ({graphql, createPage}) => {
+    /* Landingpages */
+    const { data } = await graphql(`{
+    allWordPressLandingpages{
+      edges{
+        node{
+          slug,
+          title,
+          content,
+          date,
+        }
+      }
+    }}`)
+    data.allWordPressLandingpages.edges.forEach(({node}) => {
+      createPage({
+        path: `/${node.slug}`,
+        component: './src/templates/LandingpageType2.vue',
+        context: {
+          slug: node.slug,
+          title: node.title,
+          content: node.content,
+          date: node.date,
+        }
+      })
+    })
+  })
 }
