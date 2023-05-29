@@ -41,10 +41,11 @@ module.exports = {
           '/blog/*': {
             changefreq: 'weekly',
             priority: 0.5,
-            lastmod: '2023-03-07',
+            lastmod: new Date().toISOString().slice(0, 10), // Aktuelles Datum des Builds
           },
         }
       }
     }
-  ]
-}
+  ],
+ 
+};

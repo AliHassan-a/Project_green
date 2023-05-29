@@ -12,7 +12,7 @@
     "axios": "^1.2.2",
     "gridsome": "^0.7.23",
     "gsap": "npm:@gsap/shockingly@^3.11.3",
-    "sharp": "^0.32.0",
+    "sharp": "^0.29.3",
     "simplex-noise": "^4.0.1"
   },
   "devDependencies": {
