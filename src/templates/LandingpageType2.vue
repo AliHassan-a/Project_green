@@ -3,7 +3,7 @@
     <div id="page" class="site">
       <div id="one" class="mainSection section-one">
         <div class="innerContentContainer head animateBlockHero">
-          <BaseTitle :align="'center'" :tag="'h1'" :addClass="'greenColor'" :addStyle="'font-size: 14px; font-weight: 700; text-transform: uppercase;'" >{{ $context.acf.title }}</BaseTitle>
+          <BaseTitle :align="'center'" :tag="'h1'" :addClass="'greenColor'" :addStyle="'font-size: 14px; font-weight: 700; text-transform: uppercase;'" >VARIABLE SEITENNAME - hat für Error gesorgt</BaseTitle>
         </div>
       </div>
     </div>
@@ -36,35 +36,4 @@ import CustomerLogoGlider from "../components/CustomerLogoGlider";
 import StickyProjects from "../components/StickyProjects";
 import SliderIndex from "../components/SliderIndex";
 
-export default {
-  name: "LandingpageType1",
-  components: {
-    BaseTitle,
-  },
-  data(){
-    return {}
-  },
-  mounted() {
-    if (initGsap != false) {
-      new initGsap({}, this);
-    }
-  },
-  metaInfo() {
-    return {
-      title: this.$context.title,
-      meta: [
-        { name: 'title', content: this.$context.acf.metaTitle },
-        { name: 'description', content: this.$context.acf.metaDescription},
-        { name: 'og:title', content: this.$context.acf.metaTitle },
-        { name: 'og:description', content: this.$context.acf.metaDescription },
-        { name: 'og:image', content: "https://greenstein.design/Teambesprechung-Greenstein.webp"},
-        { name: 'twitter:title', content: this.$context.acf.metaTitle },
-        { name: 'twitter:description', content: this.$context.acf.metaDescription },
-      ],
-      script: [
-        { innerHTML: '{"@context":"https://schema.org/","@type":"Product","name":"Greenstein Designagentur","description":"Branding, Entwicklung, Strategie","aggregateRating":{"@type":"AggregateRating","reviewCount":56,"ratingValue":4.95,"bestRating":5,"worstRating":1}}', type: 'application/ld+json' }
-      ]
-    }
-  }
-}
-</script>
+<!--- HIER Blog export default  erneut integrieren, hat für error gesorgt -->
