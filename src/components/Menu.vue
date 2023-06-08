@@ -147,9 +147,9 @@ export default {
     }
   },
   mounted() {
-    if (this.screenWidth >= 768) {
-      this.overlayPath = document.querySelector('.overlay__path');
-    }
+    // if (this.screenWidth >= 768) {
+    this.overlayPath = document.querySelector('.overlay__path');
+    // }
     this.menuWrap = document.querySelector('.menu-wrap');
     this.menuItems = this.menuWrap.querySelectorAll('.menu__item');
     this.openMenuCtrl = document.querySelector('.menuIcon');
@@ -160,19 +160,19 @@ export default {
     const openMenu = () => {
       if (this.isAnimating) return;
       this.isAnimating = true;
-      gsap?.timeline({
+      gsap.timeline({
         onComplete: () => this.isAnimating = false
       })
-        .set(this?.overlayPath, {
+        .set(this.overlayPath, {
           attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
         })
-        .to(this?.overlayPath, {
+        .to(this.overlayPath, {
           duration: 0.8,
           ease: 'power4.in',
 
           attr: { d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z' }
         }, 0)
-        .to(this?.overlayPath, {
+        .to(this.overlayPath, {
           duration: 0.3,
           ease: 'power2',
 
@@ -182,18 +182,18 @@ export default {
           }
         })
         // now reveal
-        .set(this?.menuItems, {
+        .set(this.menuItems, {
           opacity: 0
         })
-        .set(this?.overlayPath, {
+        .set(this.overlayPath, {
           attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' }
         })
-        .to(this?.overlayPath, {
+        .to(this.overlayPath, {
           duration: 0.3,
           ease: 'power2.in',
           attr: { d: 'M 0 0 V 50 Q 50 0 100 50 V 0 z' }
         })
-        .to(this?.overlayPath, {
+        .to(this.overlayPath, {
           duration: 0.8,
           ease: 'power4',
           attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
@@ -220,15 +220,15 @@ export default {
       gsap?.timeline({
         onComplete: () => this.isAnimating = false
       })
-        .set(this?.overlayPath, {
+        .set(this.overlayPath, {
           attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
         })
-        .to(this?.overlayPath, {
+        .to(this.overlayPath, {
           duration: 0.8,
           ease: 'power4.in',
           attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' }
         }, 0)
-        .to(this?.overlayPath, {
+        .to(this.overlayPath, {
           duration: 0.3,
           ease: 'power2',
 
@@ -241,19 +241,19 @@ export default {
         .set(this.overlayPath, {
           attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' }
         })
-        .to(this?.overlayPath, {
+        .to(this.overlayPath, {
           duration: 0.3,
           ease: 'power2.in',
 
           attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' }
         })
-        .to(this?.overlayPath, {
+        .to(this.overlayPath, {
           duration: 0.8,
           ease: 'power4',
           attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
         })
         // menu items translate animation
-        .to(this?.menuItems, {
+        .to(this.menuItems, {
           duration: (this.screenWidth >= 768) ? 0.8 : 0,
           ease: (this.screenWidth >= 768) ? 'power2.in' : 'linear',
           y: (this.screenWidth >= 768) ? 100 : 0,
