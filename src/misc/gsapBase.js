@@ -1,7 +1,7 @@
-import {gsap} from "gsap/dist/gsap";
-import {ScrollSmoother} from "gsap/dist/ScrollSmoother";
-import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
-import {SplitText} from "gsap/dist/SplitText";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { SplitText } from "gsap/dist/SplitText";
 
 const initGsap = class {
     constructor(features, vueInstance) {
@@ -29,7 +29,7 @@ const initGsap = class {
         }
 
         /* declare Animations */
-        function initLogoScroll(){
+        function initLogoScroll() {
             /*LOGO SCROLL HIDE*/
             const showAnim = gsap.from('.greensteinLogoFont', {
                 yPercent: -250,
@@ -62,7 +62,7 @@ const initGsap = class {
                     opacity: 0,
                     filter: 'blur(20px)',
                     ease: "power1.inOut",
-                    stagger: { each: 0.05, from: 'random'},
+                    stagger: { each: 0.05, from: 'random' },
                 });
             });
             /*TEXT REVEAL*/
@@ -84,7 +84,7 @@ const initGsap = class {
                     opacity: 0,
                     filter: 'blur(20px)',
                     ease: "power1.inOut",
-                    stagger: { each: 0.1, from: 'start'},
+                    stagger: { each: 0.1, from: 'start' },
                 });
             });
             /*ITEM REVEAL*/
@@ -102,7 +102,7 @@ const initGsap = class {
                     opacity: 0,
                     filter: 'blur(20px)',
                     ease: "power1.inOut",
-                    stagger: { each: 0.05, from: 'random'},
+                    stagger: { each: 0.05, from: 'random' },
                 });
             });
             /*ITEM REVEAL STAGGER*/
@@ -112,14 +112,16 @@ const initGsap = class {
                         filter: 'blur(0px)',
                         opacity: 1,
                         duration: 0.6,
-                        stagger: 0.3, }
+                        stagger: 0.3,
+                    }
                 ),
                 onLeaveBack: batch => gsap.to(batch,
                     {
                         filter: 'blur(0px)',
                         opacity: 0,
                         duration: 0.6,
-                        stagger: 0.3, }
+                        stagger: 0.3,
+                    }
                 ),
             });
             /*ItemBlocks Sticky*/
@@ -137,12 +139,12 @@ const initGsap = class {
                     opacity: 0,
                     filter: 'blur(20px)',
                     ease: "power1.inOut",
-                    stagger: { each: 0.05, from: 'random'},
+                    stagger: { each: 0.05, from: 'random' },
                 });
             });
         }
 
-        function initHero(){
+        function initHero() {
             let heroBlock = document.querySelector(".animateBlockHero");
             heroBlock.split = new SplitText(heroBlock, {
                 type: "words"
@@ -153,7 +155,7 @@ const initGsap = class {
                 opacity: 0,
                 filter: 'blur(20px)',
                 ease: "power1.inOut",
-                stagger: { each: 0.05, from: 'random'},
+                stagger: { each: 0.05, from: 'random' },
             });
             let heroArrow = document.querySelector(".animateBlockHeroArrow");
             heroArrow.anim = gsap.from(heroArrow, {
@@ -162,21 +164,21 @@ const initGsap = class {
                 opacity: 0,
                 filter: 'blur(20px)',
                 ease: "power1.inOut",
-                stagger: { each: 0.05, from: 'random'},
+                stagger: { each: 0.05, from: 'random' },
             });
             let heroFeature = document.querySelector(".animateBlockHeroFeature");
-            if(heroFeature != undefined){
+            if (heroFeature != undefined) {
                 heroFeature.anim = gsap.from(heroFeature.children, {
                     delay: 1.5,
                     duration: 1,
                     opacity: 0,
                     filter: 'blur(20px)',
                     ease: "power1.inOut",
-                    stagger: { each: 0.05, from: 'random'},
+                    stagger: { each: 0.05, from: 'random' },
                 });
             }
         }
-        function initSideScroller(context){
+        function initSideScroller(context) {
             let sections = gsap.utils.toArray(".panel");
             let sideScroller = gsap.to(sections, {
                 xPercent: -100 * (sections.length - 1),
@@ -253,7 +255,7 @@ const initGsap = class {
             })
         }
 
-        function initLogoGlider(){
+        function initLogoGlider() {
             let logosSection = document.querySelector(".logosSectionWrapper");
             logosSection.anim = gsap.from(logosSection, {
                 delay: 0.5,
@@ -263,7 +265,7 @@ const initGsap = class {
                 ease: "power1.inOut",
             });
         }
-        function initStickyImages(){
+        function initStickyImages() {
             gsap.to(".pinnedContainer", {
                 ease: "none", // <-- IMPORTANT!
                 scrollTrigger: {
@@ -307,7 +309,7 @@ const initGsap = class {
                 opacity: 0,
             });
         }
-        function initStickySection(context){
+        function initStickySection(context) {
             gsap.to(".stickySection", {
                 ease: "none", // <-- IMPORTANT!
                 scrollTrigger: {
@@ -379,18 +381,18 @@ const initGsap = class {
             let quotes = gsap.utils.toArray(".quote");
             //let stickDistance = isMobile ? 100 : 400;
             let lastCardStack = ScrollTrigger.create({
-                trigger: quotes[quotes.length-1],
+                trigger: quotes[quotes.length - 1],
                 start: "center center",
                 markers: true,
             });
             quotes.forEach((quote, i) => {
                 gsap.to(quote, {
                     ease: "none", // <-- IMPORTANT!
-                    scale: () => { return 0.9 + i / 100},
+                    scale: () => { return 0.9 + i / 100 },
                     y: i * 20,
                     scrollTrigger: {
                         trigger: quote,
-                        start: () => {return "center center+=" + i*10 },
+                        start: () => { return "center center+=" + i * 10 },
                         end: () => isMobile ? lastCardStack.start + 1000 : lastCardStack.start + 500,
                         pin: true,
                         scrub: true,
@@ -400,14 +402,14 @@ const initGsap = class {
                 })
             });
         }
-        function initSingleQuote(){
+        function initSingleQuote() {
             gsap.to(".quote", {
                 ease: "none", // <-- IMPORTANT!
                 scale: () => 0.95,
                 scrollTrigger: {
                     trigger: ".quote",
                     start: () => "center center",
-                    end: () => {return "center top"},
+                    end: () => { return "center top" },
                     pin: true,
                     scrub: true,
                     pinSpacing: false,
@@ -415,12 +417,11 @@ const initGsap = class {
                 }
             })
         }
-        function initFooter(isMobile){
-            if(isMobile){
+        function initFooter(isMobile) {
+            if (isMobile) {
                 gsap.to('.footer-overlay', {
-                    clipPath: "ellipse(70% 20% at 50% 50%)",
-                    ease: 'power2.in',
                     scrollTrigger: {
+                        clipPath: "ellipse(70% 50% at 50% 50%)",
                         trigger: ".footer-overlay",
                         start: "center bottom",
                         end: "center center",
@@ -447,29 +448,29 @@ const initGsap = class {
                 initDesktop();
                 initEntryAnimations()
                 /*HERO ANIMATION*/
-                if(this.features.heroAnimation){
+                if (this.features.heroAnimation) {
                     initHero()
                 }
                 /*SIDE SCROLLER*/
-                if(this.features.sideScroller){
+                if (this.features.sideScroller) {
                     initSideScroller(this)
                 }
                 /* STICKY SECTION /w images */
-                if(this.features.stickyImages){
+                if (this.features.stickyImages) {
                     initStickyImages()
                 }
                 /*STICKY SECTION*/
-                if(this.features.stickySection){
+                if (this.features.stickySection) {
                     initStickySection(this)
                 }
-                if(this.features.simpleStickySection){
+                if (this.features.simpleStickySection) {
                     initSimpleStickySection()
                 }
                 /*quotes*/
-                if(this.features.quote){
+                if (this.features.quote) {
                     initQuote()
                 }
-                if(this.features.singleQuote){
+                if (this.features.singleQuote) {
                     initSingleQuote()
                 }
                 /* FOOTER */

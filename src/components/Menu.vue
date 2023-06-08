@@ -22,7 +22,7 @@
           <span class="menu__item-text">Kontakt</span>
         </div>
         <div class="menu__item">
-          <Seperator class="menu__seperator" :theme="'lightGreen'"/>
+          <Seperator class="menu__seperator" :theme="'lightGreen'" />
           <div class="menu__bottom">
             <div style="display: flex; gap: 10px;">
               <div class="buerocratics" @click="navigteTo('/impressum')">
@@ -47,14 +47,16 @@
         </div>
       </nav>
       <div class="menuIconClose">
-        <button class="unbutton button-close" aria-label="Close menu" style="background: none; color: white; border: none">
+        <button class="unbutton button-close" aria-label="Close menu"
+          style="background: none; color: white; border: none">
           <div class="menuBar"></div>
           <div class="menuBar"></div>
         </button>
       </div>
     </div>
     <svg class="overlay" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <path class="overlay__path" vector-effect="non-scaling-stroke" fill="#011713" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
+      <path class="overlay__path" vector-effect="non-scaling-stroke" fill="#011713"
+        d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
     </svg>
   </nav>
 </template>
@@ -64,13 +66,13 @@ import { gsap, Quart } from "gsap/all";
 import Seperator from "./Seperator";
 export default {
   name: "Menu",
-  components: {Seperator},
+  components: { Seperator },
   methods: {
-    navigteTo(route){
+    navigteTo(route) {
       document.querySelector(".menuBg").style.display = "block";
       setTimeout(() => {
         this.closeMenu()
-      },1);
+      }, 0);
       gsap.to(".frame__button", 0.5, {
         ease: Quart.easeInOut,
         opacity: 0,
@@ -79,53 +81,56 @@ export default {
         ease: Quart.easeInOut,
         opacity: 0,
       });
-      window.setTimeout( () => {
+      window.setTimeout(() => {
         window.location.href = route
       }, 1000);
     },
-    closeMenu(){
-      this.isAnimating = true;
-      gsap.timeline({
-        onComplete: () => this.isAnimating = false
-      })
-          .set(this.overlayPath, {
-            attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.8,
-            ease: 'power4.in',
-            attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' }
-          }, 0)
-          .to(this.overlayPath, {
-            duration: 0.3,
-            ease: 'power2',
-            attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
-            onComplete: () => {
-              this.menuWrap.classList.remove('menu-wrap--open');
-            }
-          })
-          // now reveal
-          .set(this.overlayPath, {
-            attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.3,
-            ease: 'power2.in',
-            attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.8,
-            ease: 'power4',
-            attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
-          })
-          // menu items translate animation
-          .to(this.menuItems, {
-            duration: 0.8,
-            ease: 'power2.in',
-            y: 100,
-            opacity: 0,
-            stagger: -0.05
-          }, 0)
+    // closeMenu() {
+    //   this.isAnimating = true;
+    //   gsap.timeline({
+    //     onComplete: () => this.isAnimating = false
+    //   })
+    //     .set(this.overlayPath, {
+    //       attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
+    //     })
+    //     .to(this.overlayPath, {
+    //       duration: 0.8,
+    //       ease: 'power4.in',
+    //       attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' }
+    //     }, 0)
+    //     .to(this.overlayPath, {
+    //       duration: 0.3,
+    //       ease: 'power2',
+    //       attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
+    //       onComplete: () => {
+    //         this.menuWrap.classList.remove('menu-wrap--open');
+    //       }
+    //     })
+    //     // now reveal
+    //     .set(this.overlayPath, {
+    //       attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' }
+    //     })
+    //     .to(this.overlayPath, {
+    //       duration: 0.3,
+    //       ease: 'power2.in',
+    //       attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' }
+    //     })
+    //     .to(this.overlayPath, {
+    //       duration: 0.8,
+    //       ease: 'power4',
+    //       attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
+    //     })
+    //     // menu items translate animation
+    //     .to(this.menuItems, {
+    //       duration: 0.8,
+    //       ease: 'power2.in',
+    //       y: 100,
+    //       opacity: 0,
+    //       stagger: -0.05
+    //     }, 0)
+    // },
+    setScreenWidth() {
+      this.screenWidth = window.innerWidth || document.documentElement.clientWidth;
     },
   },
   data() {
@@ -138,124 +143,139 @@ export default {
       menuItems: null,
       openMenuCtrl: null,
       closeMenuCtrl: null,
+      screenWidth: 0,
     }
   },
-  mounted(){
-    this.overlayPath = document.querySelector('.overlay__path');
+  mounted() {
+    if (this.screenWidth >= 768) {
+      this.overlayPath = document.querySelector('.overlay__path');
+    }
     this.menuWrap = document.querySelector('.menu-wrap');
     this.menuItems = this.menuWrap.querySelectorAll('.menu__item');
     this.openMenuCtrl = document.querySelector('.menuIcon');
     this.closeMenuCtrl = this.menuWrap.querySelector('.menuIconClose');
-
-    const openMenu = ()  => {
-      if ( this.isAnimating ) return;
+    // this.screenWidth = window.innerWidth || document.documentElement.clientWidth;
+    this.setScreenWidth();
+    window.addEventListener('resize', this.setScreenWidth);
+    const openMenu = () => {
+      if (this.isAnimating) return;
       this.isAnimating = true;
-      gsap.timeline({
+      gsap?.timeline({
         onComplete: () => this.isAnimating = false
       })
-          .set(this.overlayPath, {
-            attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.8,
-            ease: 'power4.in',
-            attr: { d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z' }
-          }, 0)
-          .to(this.overlayPath, {
-            duration: 0.3,
-            ease: 'power2',
-            attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
-            onComplete: () => {
-              this.menuWrap.classList.add('menu-wrap--open');
-            }
-          })
-          // now reveal
-          .set(this.menuItems, {
-            opacity: 0
-          })
-          .set(this.overlayPath, {
-            attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.3,
-            ease: 'power2.in',
-            attr: { d: 'M 0 0 V 50 Q 50 0 100 50 V 0 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.8,
-            ease: 'power4',
-            attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
-          })
-          // menu items translate animation
-          .to(this.menuItems, {
-            duration: 0.8,
-            ease: 'power4',
-            startAt: {y: 150},
-            y: 0,
-            opacity: 1,
-            stagger: 0.05
-          }, '>-=1.1');
-    }
+        .set(this?.overlayPath, {
+          attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
+        })
+        .to(this?.overlayPath, {
+          duration: 0.8,
+          ease: 'power4.in',
 
-// closes the menu
-    const closeMenu = ()  => {
-      if ( this.isAnimating ) return;
+          attr: { d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z' }
+        }, 0)
+        .to(this?.overlayPath, {
+          duration: 0.3,
+          ease: 'power2',
+
+          attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
+          onComplete: () => {
+            this.menuWrap.classList.add('menu-wrap--open');
+          }
+        })
+        // now reveal
+        .set(this?.menuItems, {
+          opacity: 0
+        })
+        .set(this?.overlayPath, {
+          attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' }
+        })
+        .to(this?.overlayPath, {
+          duration: 0.3,
+          ease: 'power2.in',
+          attr: { d: 'M 0 0 V 50 Q 50 0 100 50 V 0 z' }
+        })
+        .to(this?.overlayPath, {
+          duration: 0.8,
+          ease: 'power4',
+          attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
+        })
+        // menu items translate animation
+        .to(this.menuItems, {
+          duration: (this.screenWidth >= 768) ? 0.8 : 0,
+          // duration: 0.8,
+          ease: (this.screenWidth >= 768) ? 'power4' : 'linear',
+
+          // ease: 'power4',
+          startAt: (this.screenWidth >= 768) ? { y: 150 } : 0,
+          y: 0,
+          opacity: 1,
+          stagger: (this.screenWidth >= 768) ? 0.05 : 0
+          // stagger: 0.05
+        }, '>-=1.1');
+      console.log("Screen Width", this.screenWidth)
+    }
+    // closes the menu
+    const closeMenu = () => {
+      if (this.isAnimating) return;
       this.isAnimating = true;
-      gsap.timeline({
+      gsap?.timeline({
         onComplete: () => this.isAnimating = false
       })
-          .set(this.overlayPath, {
-            attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.8,
-            ease: 'power4.in',
-            attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' }
-          }, 0)
-          .to(this.overlayPath, {
-            duration: 0.3,
-            ease: 'power2',
-            attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
-            onComplete: () => {
-              this.menuWrap.classList.remove('menu-wrap--open');
-            }
-          })
-          // now reveal
-          .set(this.overlayPath, {
-            attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.3,
-            ease: 'power2.in',
-            attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' }
-          })
-          .to(this.overlayPath, {
-            duration: 0.8,
-            ease: 'power4',
-            attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
-          })
-          // menu items translate animation
-          .to(this.menuItems, {
-            duration: 0.8,
-            ease: 'power2.in',
-            y: 100,
-            opacity: 0,
-            stagger: -0.05
-          }, 0)
+        .set(this?.overlayPath, {
+          attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
+        })
+        .to(this?.overlayPath, {
+          duration: 0.8,
+          ease: 'power4.in',
+          attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' }
+        }, 0)
+        .to(this?.overlayPath, {
+          duration: 0.3,
+          ease: 'power2',
 
+          attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
+          onComplete: () => {
+            this.menuWrap.classList.remove('menu-wrap--open');
+          }
+        })
+        // now reveal
+        .set(this.overlayPath, {
+          attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' }
+        })
+        .to(this?.overlayPath, {
+          duration: 0.3,
+          ease: 'power2.in',
+
+          attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' }
+        })
+        .to(this?.overlayPath, {
+          duration: 0.8,
+          ease: 'power4',
+          attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
+        })
+        // menu items translate animation
+        .to(this?.menuItems, {
+          duration: (this.screenWidth >= 768) ? 0.8 : 0,
+          ease: (this.screenWidth >= 768) ? 'power2.in' : 'linear',
+          y: (this.screenWidth >= 768) ? 100 : 0,
+          opacity: 0,
+          stagger: 0
+        }, 0)
+      console.log("Screen W 2", this.screenWidth)
     }
 
-// click on menu button
+    // click on menu button
     this.openMenuCtrl.addEventListener('click', openMenu);
-// click on close menu button
+    // click on close menu button
     this.closeMenuCtrl.addEventListener('click', closeMenu);
 
-  }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setScreenWidth);
+  },
 }
 </script>
 
 <style scoped lang="scss">
-
 /* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
 a:focus {
   /* Provide a fallback style for browsers
@@ -421,33 +441,43 @@ main {
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
+
 .menu__item-text:hover {
   opacity: 1;
 }
-.menu__bottom{
+
+.menu__bottom {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
 }
-.menu__seperator{
+
+.menu__seperator {
   margin-bottom: 20px;
   margin-top: 50px;
 }
-.menu__socials{
+
+.menu__socials {
   filter: brightness(0) invert(1);
   width: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.menu__socials a, .menu__bottom .buerocratics span{
+
+.menu__socials a,
+.menu__bottom .buerocratics span {
   cursor: pointer;
 }
-.menu__socials a, .menu__bottom .buerocratics{
+
+.menu__socials a,
+.menu__bottom .buerocratics {
   transition: transform 0.2s ease-out;
   transform: scale(1);
 }
-.menu__socials a:hover, .menu__bottom .buerocratics:hover{
+
+.menu__socials a:hover,
+.menu__bottom .buerocratics:hover {
   transform: scale(0.96);
 }
 
@@ -457,59 +487,68 @@ main {
   }
 }
 
-.menuIconClose{
+.menuIconClose {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
   width: 40px;
-  height:40px;
+  height: 40px;
   margin-top: -5px;
   transition: background 0.4s ease-out;
   z-index: 1;
   position: absolute;
-  right:40px;
-  top:32px;
+  right: 40px;
+  top: 32px;
   background: #DAE5E3;
   cursor: pointer;
 }
-.menuIconClose button{
+
+.menuIconClose button {
   margin-left: -2px;
 }
-.menuIconClose div.menuBar{
+
+.menuIconClose div.menuBar {
   width: 25px;
   height: 3px;
   background: black;
   transform-origin: center;
 }
-.menuIconClose div.menuBar:first-child{
+
+.menuIconClose div.menuBar:first-child {
   transform: rotate(45deg) translateX(2px);
   transition: all 0.3s ease-out;
 }
-.menuIconClose div.menuBar:nth-child(2){
+
+.menuIconClose div.menuBar:nth-child(2) {
   transform: rotate(-45deg) translateX(1px);
   transition: all 0.3s ease-out;
 }
-.menuIconClose:hover div.menuBar:first-child{
+
+.menuIconClose:hover div.menuBar:first-child {
   transform: rotate(0deg) translateY(1px);
 }
-.menuIconClose:hover div.menuBar:nth-child(2){
+
+.menuIconClose:hover div.menuBar:nth-child(2) {
   transform: rotate(0deg) translateY(-1px);
 }
 
-@media only screen and (max-width: 1024px){
-  .menuIconClose{
+@media only screen and (max-width: 1024px) {
+  .menuIconClose {
     width: 40px;
     height: 40px;
     right: 5vw;
-    top:20px;
+    top: 20px;
   }
-  .menuIconClose button{
+
+  .menuIconClose button {
     margin-left: -1px;
   }
-  .menu{
+
+  .menu {
     padding: 0px 20px;
   }
+
   .menu__item-text {
     font-weight: 500;
     text-align: left;
@@ -518,46 +557,56 @@ main {
     opacity: 0.6;
     transition: opacity 0.3s ease;
   }
-  .menu__bottom{
+
+  .menu__bottom {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
   }
-  .menu__socials{
+
+  .menu__socials {
     width: 80px;
   }
-  .menu__socials img{
+
+  .menu__socials img {
     object-fit: contain;
     height: 20px;
   }
 }
+
 @media screen and (min-width: 53em) {
   .frame {
     grid-template-columns: 390px 1fr 390px;
     grid-template-areas: 'author heading button'
-							'... ... ...'
-							'title links links';
+      '... ... ...'
+      'title links links';
     font-size: 1.5rem;
   }
+
   .frame__title {
     justify-self: start;
     align-self: end;
     margin: 0 3rem 0 0;
   }
+
   .frame__links {
     display: flex;
     justify-self: start;
     padding: 0;
   }
+
   .frame__links a:not(:last-child) {
     margin-right: 0.5rem;
   }
+
   .frame__heading-main {
     font-size: 2.15rem;
   }
+
   .frame__heading-sub {
     font-size: 1rem;
   }
+
   .menu__item-tiny {
     font-size: 2rem;
   }

@@ -24,11 +24,11 @@
         </button>
       </div>
     </div>
-    <Menu @toggleMenu="onToggleMenu"/>
+    <Menu @toggleMenu="onToggleMenu" />
   </header>
 </template>
 
-<script>
+<script lang="js">
 import Menu from "@/components/Menu";
 import BaseButton from "./BaseButton";
 
@@ -39,7 +39,7 @@ export default {
     Menu,
   },
   methods: {
-    onToggleMenu(action){
+    onToggleMenu(action) {
       action == "open" ? this.$refs.logoContainer.classList.add("blackLogo") : this.$refs.logoContainer.classList.remove("blackLogo");
     }
   }
@@ -50,7 +50,7 @@ export default {
 header {
   position: fixed;
   top: 0px;
-  width:  100%;
+  width: 100%;
   background: transparent;
   display: flex;
   justify-content: space-between;
@@ -58,10 +58,11 @@ header {
   height: 80px;
   z-index: 999999;
 }
-div.logoContainer{
+
+div.logoContainer {
   position: absolute;
-  top:10px;
-  left:25px;
+  top: 10px;
+  left: 25px;
   width: 300px;
   height: 100%;
   display: flex;
@@ -70,95 +71,113 @@ div.logoContainer{
   z-index: 10;
   transition: filter 1s ease;
 }
-button.dark{
+
+button.dark {
   height: 4em;
   margin-right: 15px;
   padding-left: 30px;
   padding-right: 30px;
-  border: 1px solid rgba(255,255,255,0.25)
+  border: 1px solid rgba(255, 255, 255, 0.25)
 }
-button.dark span{
+
+button.dark span {
   font-size: 20px;
   line-height: 2.5em;
 }
-.frame__button{
+
+.frame__button {
   position: absolute;
   right: 30px;
   top: 19px;
   display: flex;
 }
+
 .frame--menu-open .button-menu {
   opacity: 0;
   pointer-events: none;
 }
-.greensteinLogo{
+
+.greensteinLogo {
   margin-right: 10px;
 }
-.logoImage{
+
+.logoImage {
   opacity: 1;
   z-index: 1;
 }
+
 /* MENU ICON OPEN */
-.menuIcon{
+.menuIcon {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
   width: 60px;
-  height:60px;
+  height: 60px;
   margin-top: -5px;
   transition: background 0.4s ease-out;
   cursor: pointer;
 }
-.menuIcon:hover{
+
+.menuIcon:hover {
   background: #88F332;
 }
-.menuIcon div.menuBar{
+
+.menuIcon div.menuBar {
   width: 35px;
   height: 3px;
   background: white;
 }
-.menuIcon div.menuBar:nth-child(2){
+
+.menuIcon div.menuBar:nth-child(2) {
   margin: 6px 0px 6px 15px;
   width: 20px;
-  transition: all 0.3s ease-out;
+  /* transition: all 0.3s ease-out; */
 }
-.menuIcon:hover div.menuBar:nth-child(2){
+
+.menuIcon:hover div.menuBar:nth-child(2) {
   transform: translateX(-7.5px) scaleX(1.75);
 }
 
-.blackLogo{
+.blackLogo {
   filter: grayscale(1) brightness(0);
 }
-button{
+
+button {
   cursor: pointer;
 }
-@media only screen and (max-width: 1024px){
-  .menuIcon{
+
+@media only screen and (max-width: 1024px) {
+  .menuIcon {
     width: 40px;
     height: 40px;
     margin-top: -5px;
   }
-  .menuIcon div.menuBar{
+
+  .menuIcon div.menuBar {
     width: 25px;
     height: 2px;
     background: white;
   }
-  .menuIcon div.menuBar:nth-child(2){
+
+  .menuIcon div.menuBar:nth-child(2) {
     margin: 4px 0px 4px 12.5px;
     width: 12.5px;
-    transition: all 0.3s ease-out;
+    /* transition: all 0.3s ease-out; */
   }
-  .menuIcon:hover div.menuBar:nth-child(2){
+
+  .menuIcon:hover div.menuBar:nth-child(2) {
     transform: translateX(-6px) scaleX(1.9);
   }
-  div.logoContainer{
+
+  div.logoContainer {
     position: absolute;
-    top:0;
-    left:5vw;
+    top: 0;
+    left: 5vw;
     width: 200px;
   }
-  .frame__button{
+
+  .frame__button {
     right: 15px;
   }
 }

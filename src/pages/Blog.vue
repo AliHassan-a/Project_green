@@ -5,10 +5,13 @@
         <BaseTitle :align="'left'" :tag="'h2'" class="defaultMarginX">Aktuelles aus Agentur & Werbewelt</BaseTitle>
       </div>
       <div id="one" class="mainSection section-one">
-        <a class="singleBlog animateBlockItemStagger" :href="'/blog/' + edge.node.slug" v-for="edge in $static.posts.edges" :key="edge.node.id">
+        <a class="singleBlog animateBlockItemStagger" :href="'/blog/' + edge.node.slug"
+          v-for="edge in $static.posts.edges" :key="edge.node.id">
           <div class="singleCard">
-            <img class="featured" v-if="edge.node.featuredMedia != null" :src="edge.node.featuredMedia.mediaDetails.sizes.mediumLarge.sourceUrl.replace('admin.', '')" :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
-            <p style="font-size: 20px; line-height: 1.2em;" v-html="edge.node.title">
+            <img class="featured" v-if="edge.node.featuredMedia != null"
+              :src="edge.node.featuredMedia.mediaDetails.sizes.mediumLarge.sourceUrl.replace('admin.', '')"
+              :title="edge.node.featuredMedia.title" :alt="edge.node.featuredMedia.altText">
+            <p style="font-size: 20px; line-height: 1.2em;" v-html="edge.node.title"></p>
             <p style="font-size: 18px" class="greenColor" v-html="getFormattedDate(edge.node.date)"></p>
           </div>
         </a>
@@ -27,7 +30,7 @@ export default {
     BaseTitle,
   },
   methods: {
-    getFormattedDate(date){
+    getFormattedDate(date) {
       const newDate = new Date(date);
       return newDate.toLocaleDateString('de-de');
     },
@@ -57,12 +60,13 @@ export default {
 </script>
 
 <style scoped>
-.section-head{
+.section-head {
   min-height: unset;
   margin-top: 200px;
   margin-bottom: 60px;
 }
-.section-one{
+
+.section-one {
   flex-direction: row;
   gap: 25px;
   flex-wrap: wrap;
@@ -70,28 +74,33 @@ export default {
   justify-content: flex-start;
   min-height: unset;
 }
-.singleBlog{
+
+.singleBlog {
   width: calc(33% - 16.666px);
   flex-grow: 1;
 }
-.singleBlog:last-child{
+
+.singleBlog:last-child {
   flex-grow: 0;
 }
-img.featured{
+
+img.featured {
   height: 333px;
   width: 100%;
   object-fit: cover;
 }
-@media only screen and (max-width: 1024px){
-  .section-one{
+
+@media only screen and (max-width: 1024px) {
+  .section-one {
     flex-direction: column;
     gap: 25px;
     flex-wrap: wrap;
     min-height: unset;
   }
-  .singleBlog{
-     width: 100%;
-     flex-grow: 1;
+
+  .singleBlog {
+    width: 100%;
+    flex-grow: 1;
   }
 }
 </style>

@@ -5,8 +5,7 @@
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 import { createNoise3D } from 'simplex-noise';
@@ -19,13 +18,13 @@ export default {
   mounted() {
     function animation() {
       var simplex = createNoise3D(),
-          canvas = document.getElementById('c'),
-          ctx = canvas.getContext('2d'),
+        canvas = document.getElementById('c'),
+        ctx = canvas.getContext('2d'),
 
-          imgdata = ctx.getImageData(0, 0, canvas.width, canvas.height),
-          data = imgdata.data,
-          t = 0;
-      window.setInterval( function() {
+        imgdata = ctx.getImageData(0, 0, canvas.width, canvas.height),
+        data = imgdata.data,
+        t = 0;
+      window.setInterval(function () {
         for (var x = 0; x < 256; x++) {
           for (var y = 0; y < 256; y++) {
 
@@ -44,7 +43,7 @@ export default {
     }
     animation();
   },
-  beforeDestroy(){
+  beforeDestroy() {
     window.clearInterval(function () {
       for (var x = 0; x < 256; x++) {
         for (var y = 0; y < 256; y++) {
@@ -66,48 +65,81 @@ export default {
 </script>
 
 <style scoped>
-    .bgWrapper{
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-    }
-    canvas{
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100vw;
-      height: 100vh;
-      max-width: none;
-      transition: filter 1s ease;
-    }
-    .backdrop{
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200vw;
-      height: 200vh;
-      z-index: 0;
-      opacity: 0.25;
-      background-image: url("../assets/bg-muster.webp");
-      will-change: transform;
-      animation: bg-animation 0.5s infinite;
-      display: block;
-    }
+.bgWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
 
-    @keyframes bg-animation {
-      0% { transform: translate(0,0) }
-      10% { transform: translate(-5%,-5%) }
-      20% { transform: translate(-10%,5%) }
-      30% { transform: translate(5%,-10%) }
-      40% { transform: translate(-5%,15%) }
-      50% { transform: translate(-10%,5%) }
-      60% { transform: translate(15%,0) }
-      70% { transform: translate(0,10%) }
-      80% { transform: translate(-15%,0) }
-      90% { transform: translate(10%,5%) }
-      100% { transform: translate(5%,0) }
-    }
-</style>
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  transition: filter 1s ease;
+}
+
+.backdrop {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200vw;
+  height: 200vh;
+  z-index: 0;
+  opacity: 0.25;
+  background-image: url("../assets/bg-muster.webp");
+  will-change: transform;
+  animation: bg-animation 0.5s infinite;
+  display: block;
+}
+
+@keyframes bg-animation {
+  0% {
+    transform: translate(0, 0)
+  }
+
+  10% {
+    transform: translate(-5%, -5%)
+  }
+
+  20% {
+    transform: translate(-10%, 5%)
+  }
+
+  30% {
+    transform: translate(5%, -10%)
+  }
+
+  40% {
+    transform: translate(-5%, 15%)
+  }
+
+  50% {
+    transform: translate(-10%, 5%)
+  }
+
+  60% {
+    transform: translate(15%, 0)
+  }
+
+  70% {
+    transform: translate(0, 10%)
+  }
+
+  80% {
+    transform: translate(-15%, 0)
+  }
+
+  90% {
+    transform: translate(10%, 5%)
+  }
+
+  100% {
+    transform: translate(5%, 0)
+  }
+}</style>
